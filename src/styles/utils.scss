@@ -1,0 +1,28 @@
+
+// 手机
+@mixin mediaPhone() {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+// 平板
+@mixin mediaIpad() {
+  @media (max-width: 1024px) and (orientation:portrait) {
+    @content;
+  }
+}
+
+// 亮色主题
+@mixin themeLight() {
+  :root[data-theme="light"]{
+    @content;
+  }
+}
+
+// 暗色主题
+@mixin themeDark() {
+  :root[data-theme="dark"]{
+    @content;
+  }
+}

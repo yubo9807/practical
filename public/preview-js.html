@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    window.addEventListener('message', e => {
+      if (e.origin !== location.origin) return;
+      const { html, css, js } = e.data;
+
+      if (html)
+        document.getElementById('container').innerHTML = html;
+
+      if (css) 
+        document.getElementById('inset').innerHTML = css;
+
+      if (js)
+        eval(js);
+
+    })
+  </script>
+  <script src="//localhost:8888/target.js" embedded="true"></script>
+  <style id="inset"></style>
+</head>
+<body>
+  <div id="container"></div>
+</body>
+</html>
