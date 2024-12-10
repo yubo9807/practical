@@ -1,6 +1,5 @@
 import { h, useImperativeHandle, useLayoutEffect, useRef, useState } from "pl-react"
-import { RefItem } from "pl-react/lib/hooks";
-import { PropsType } from "pl-react/lib/types";
+import { RefItem } from "pl-react/hooks";
 import env from "~/config/env";
 
 

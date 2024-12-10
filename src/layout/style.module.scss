@@ -3,7 +3,9 @@
   justify-content: space-between;
   font-size: 16px;
   padding: 0 var(--both-sides-padding);
-  line-height: 60px;
+  line-height: var(--header-height);
+  height: var(--header-height);
+  box-sizing: border-box;
   border-bottom: 1px solid #eee;
   position: sticky;
   top: 0;
@@ -24,9 +26,6 @@
       height: 100%;
       &:global(.active) {
         background: rgba(204,227,255,.14);
-      }
-      &:last-child{
-        padding-right: 0;
       }
     }
   }
@@ -101,7 +100,8 @@
 .main{
   margin-top: 10px;
   margin-bottom: 10px;
-  min-height: 76vh;
+  // min-height: 76vh;
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
 }
 @include utils.mediaPhone(){
   .main{

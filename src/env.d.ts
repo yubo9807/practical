@@ -1,4 +1,4 @@
-import { IntrinsicElements as PlIntrinsicElements } from 'pl-react/lib/jsx';
+import { IntrinsicElements as PlIntrinsicElements } from 'pl-react/jsx';
 
 declare global {
   namespace JSX {

@@ -3,8 +3,8 @@ import env from './config/env';
 import { resolve } from 'path';
 
 const proxy = {
-  '^/api': {
-    target: 'http://127.0.0.1:20010',
+  ['^' + env.API_BASE_URL]: {
+    target: 'http://127.0.0.1:9100',
     changeOrigin: true,
   },
 }
