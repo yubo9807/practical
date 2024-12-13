@@ -6,7 +6,7 @@ import { CodeConversion } from "@/source/tools/codeConversion";
 import '@/source/tools/codeConversion/index.scss'
 import { scrollTo } from "@/source/utils/browser";
 import { CodeEditExpose } from "@/components/CodeEdit";
-import { getSourceCode } from "@/utils/source"
+import { getUtilsSourceCode } from "@/utils/source"
 import style from './style.module.scss';
 
 export default (props: PageProps) => {
@@ -14,22 +14,18 @@ export default (props: PageProps) => {
   const [list, setList] = useState<string[]>([]);
   const [content, setContent] = useState<string>('');
 
+  const utilsSource = useMemo(getUtilsSourceCode, []);
   const unmonitor = useMemo(() => useRouteMonitor(async to => {
-    let body: Record<string, string>
     const key = to.path + '.ts';
-    if (body) {
-      setContent(body[key]);
-    } else {
-      const res = await getSourceCode();
-      body = res.body;
-      setList(res.utils);
-      const query = res.utils.find(val => val === key);
-      setContent(body[query || res.utils[0]]);
-    }
+    const { keys, body } = await utilsSource;
+    !list.length && setList(keys);
+    const query = keys.find(val => val === key);
+    setContent(body[query || keys[0]]);
   }), []);
   useEffect(() => unmonitor, []);
 
 
+  // #region 代码块内容解析（内容折叠）
   type Line = CodeEditFoldProps['lines'][number];
   interface Item extends Line {
     name: string
@@ -53,8 +49,10 @@ export default (props: PageProps) => {
     }
     return result;
   }, [content]);
+  // #endregion
 
 
+  // 代码高亮转换
   const conversion = new CodeConversion({
     keywords: [
       'import', 'export', 'default', 'from',

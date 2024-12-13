@@ -1,9 +1,9 @@
-import { getSourceCode } from "@/utils/source";
+import { getToolsSourceCode } from "@/utils/source";
 import { h } from "pl-react"
 
 export default () => {
 
-  getSourceCode().then(res => {
+  getToolsSourceCode().then(res => {
     console.log(res)
   })
 

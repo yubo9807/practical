@@ -16,16 +16,15 @@
   li{
     line-height: 2;
     font-size: 16px;
-    padding: 0 6px;
     &:not(:last-child){
       border-bottom: 1px solid #eee;
     }
     > a{
       display: block;
-      width: 100%;
+      padding: 0 6px;
     }
-    .exact-active{
-      background: red;
+    :global(.exact-active){
+      background: #eee;
     }
   }
 }

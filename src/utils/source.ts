@@ -7,6 +7,10 @@ type Result = {
   body:  Record<string, string>
 }
 
+function formatUrl(url: string) {
+  return url.replace('/src/source', '');
+}
+
 export let backupBody: Record<string, string>
 
 /**
@@ -15,10 +19,6 @@ export let backupBody: Record<string, string>
  */
 export function getSourceCode() {
   return new Promise<Result>(resolve => {
-
-    function formatUrl(url: string) {
-      return url.replace('/src/source', '');
-    }
 
     // @ts-ignore
     const toolsObj: FileObj = import.meta.glob('@/source/tools/**/*.(ts|md)', { as: 'raw' });
@@ -45,6 +45,69 @@ export function getSourceCode() {
         tools,
         body,
       })
+    })
+  })
+}
+
+export function getUtilsSourceCode() {
+  type Result = {
+    keys: string[],
+    body: Record<string, string>
+  }
+  const result: Result = {
+    keys: [],
+    body: {}
+  };
+  return new Promise<Result>(async resolve => {
+    // @ts-ignore
+    const obj: FileObj = import.meta.glob('@/source/utils/*.ts', { as: 'raw' });
+    const funcs: Promise<string>[] = [];
+    customForEach(Object.entries(obj), ([key, value]) => {
+      result.keys.push(formatUrl(key));
+      funcs.push(value());
+    })
+    Promise.allSettled(funcs).then(res => {
+      customForEach(res, (val, index) => {
+        if (val.status === 'fulfilled') {
+          result.body[result.keys[index]] = val.value;
+        }
+      })
+      resolve(result);
+    })
+  })
+}
+
+export function getToolsSourceCode() {
+  type Result = {
+    names: string[]
+    body: Record<string, string>
+  }
+  const result: Result = {
+    names: [],
+    body: {},
+  }
+  return new Promise<Result>(async resolve => {
+    // @ts-ignore
+    const obj: FileObj = import.meta.glob('@/source/tools/**/*.(ts|md)', { as: 'raw' });
+
+    const keys: string[] = [];
+    const funcs: Promise<string>[] = [];
+    const set: Set<string> = new Set();
+    customForEach(Object.entries(obj), ([ key, value ]) => {
+      const k = formatUrl(key);
+      keys.push(k);
+      funcs.push(value());
+      set.add(k.split('/')[2]);
+    })
+    result.names = Array.from(set);
+
+    Promise.allSettled(funcs).then(res => {
+      customForEach(res, (val, index) => {
+        if (val.status === 'fulfilled') {
+          result.body[keys[index]] = val.value;
+        }
+      })
+      resolve(result);
     })
   })
 }
