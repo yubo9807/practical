@@ -1,10 +1,8 @@
 import { Fragment, h, useEffect, useState } from "pl-react"
-import { Link, Router, Route, useRouter, useRouteMonitor } from "pl-react/router"
+import { Link, Router, Route, useRouteMonitor } from "pl-react/router"
 import env from '~/config/env'
 import style from './style.module.scss';
 import Home from '@/pages/home'
-import Tools from '@/pages/tools'
-import Utils from '@/pages/utils'
 
 export default () => {
 
@@ -34,8 +32,8 @@ export default () => {
     <main className={['leayer', style.main]}>
       <Router>
         <Route path="/" element={Home} />
-        <Route path="/tools" element={Tools} exact={false} />
-        <Route path="/utils" element={Utils} exact={false} />
+        <Route path="/tools" element={import('@/pages/tools')} exact={false} />
+        <Route path="/utils" element={import('@/pages/utils')} exact={false} />
       </Router>
     </main>
     <footer className={style.footer}>

@@ -27,7 +27,7 @@ export interface CodeEditFoldProps extends CodeEditProps {
  * @returns 
  */
 export default function(props: CodeEditFoldProps) {
-  const { lines, value, defaultUnfold, ...args } = props;
+  const { lines, value, defaultUnfold, onCopy, ...args } = props;
   const LINE_FEED = '\n';
   const arr = value.replace(/\r/g, '').split(LINE_FEED);
 
@@ -124,10 +124,16 @@ export default function(props: CodeEditFoldProps) {
       2: 'fold',
     }
     return <div>
-      <span className={classNameConfog[val.fold]} onclick={val.fold ? () => handleFold(val.key) : null}></span>
       <label>{val.key + 1}</label>
+      <span className={classNameConfog[val.fold]} onclick={val.fold ? () => handleFold(val.key) : null}></span>
     </div>
   }
 
-  return <CodeEdit value={data.length ? content : value} {...args} rowItemSlot={isFolded} />;
+  return <CodeEdit
+    value={data.length ? content : value}
+    {...args}
+    rowItemSlot={isFolded}
+    className={['br-code-edit-fold', ...[props.className].flat()]}
+    onCopy={() => onCopy && onCopy(value)}
+  />;
 }

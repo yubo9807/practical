@@ -7,8 +7,9 @@ type Result = {
   body:  Record<string, string>
 }
 
-function formatUrl(url: string) {
-  return url.replace('/src/source', '');
+export const PREFIX_URL = '/src/source';
+export function formatUrl(url: string) {
+  return url.replace(PREFIX_URL, '');
 }
 
 export let backupBody: Record<string, string>
@@ -50,64 +51,54 @@ export function getSourceCode() {
 }
 
 export function getUtilsSourceCode() {
-  type Result = {
-    keys: string[],
-    body: Record<string, string>
-  }
-  const result: Result = {
-    keys: [],
-    body: {}
+  const result = {
+    keys: [] as string[],
+    body: {} as Record<string, string>,
   };
-  return new Promise<Result>(async resolve => {
-    // @ts-ignore
-    const obj: FileObj = import.meta.glob('@/source/utils/*.ts', { as: 'raw' });
-    const funcs: Promise<string>[] = [];
-    customForEach(Object.entries(obj), ([key, value]) => {
-      result.keys.push(formatUrl(key));
-      funcs.push(value());
-    })
-    Promise.allSettled(funcs).then(res => {
-      customForEach(res, (val, index) => {
-        if (val.status === 'fulfilled') {
-          result.body[result.keys[index]] = val.value;
-        }
-      })
-      resolve(result);
-    })
-  })
+
+  // @ts-ignore
+  const obj: Record<string, string> = import.meta.glob('@/source/utils/*.ts', { as: 'raw', eager: true });
+
+  for (const key in obj) {
+    const k = formatUrl(key);
+    result.keys.push(k);
+    result.body[k] = obj[key];
+  }
+  return result;
 }
 
 export function getToolsSourceCode() {
-  type Result = {
-    names: string[]
-    body: Record<string, string>
+  type Item = {
+    name:   string
+    title:  string
+    code:   string
+    exec:   Function
+    demo:   string
+    readme: string
   }
-  const result: Result = {
-    names: [],
-    body: {},
+  const result: Item[] = [];
+
+  // @ts-ignore
+  const codeObj: Record<string, string> = import.meta.glob('@/source/tools/*/index.ts', { as: 'raw', eager: true });
+  // @ts-ignore
+  const demoObj: Record<string, string> = import.meta.glob('@/source/tools/*/demo.ts', { as: 'raw', eager: true });
+  // @ts-ignore
+  const execObj: Record<string, { default: Function }> = import.meta.glob('@/source/tools/*/demo.ts', { eager: true });
+  // @ts-ignore
+  const readmeObj: Record<string, string> = import.meta.glob('@/source/tools/*/readme.md', { as: 'raw', eager: true });
+
+  for (const key in codeObj) {
+    const name = formatUrl(key).split('/')[2];
+    const readme = readmeObj[`${PREFIX_URL}/tools/${name}/readme.md`] || '';
+    result.push({
+      name,
+      title: readme.match(/# (.*)/)?.[1],
+      code: codeObj[key],
+      exec: execObj[`${PREFIX_URL}/tools/${name}/demo.ts`]?.default,
+      demo: demoObj[`${PREFIX_URL}/tools/${name}/demo.ts`] || '',
+      readme: readme.replace(/# (.*)/, ''),
+    });
   }
-  return new Promise<Result>(async resolve => {
-    // @ts-ignore
-    const obj: FileObj = import.meta.glob('@/source/tools/**/*.(ts|md)', { as: 'raw' });
 
-    const keys: string[] = [];
-    const funcs: Promise<string>[] = [];
-    const set: Set<string> = new Set();
-    customForEach(Object.entries(obj), ([ key, value ]) => {
-      const k = formatUrl(key);
-      keys.push(k);
-      funcs.push(value());
-      set.add(k.split('/')[2]);
-    })
-    result.names = Array.from(set);
-
-    Promise.allSettled(funcs).then(res => {
-      customForEach(res, (val, index) => {
-        if (val.status === 'fulfilled') {
-          result.body[keys[index]] = val.value;
-        }
-      })
-      resolve(result);
-    })
-  })
+  return result;
 }

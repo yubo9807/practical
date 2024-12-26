@@ -2,7 +2,7 @@
 type Next = () => any
 type Middleware<C> = (ctx?: C, next?: null | Next) => void
 
-export default class<C> {
+export class Onion<C> {
 
   /**
    * 洋葱皮中间件

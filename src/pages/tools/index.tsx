@@ -1,11 +1,95 @@
+import { h, useEffect, useMemo, useState } from "pl-react"
+import { Link, PageProps, useRouteMonitor } from "pl-react/router";
+import { nextTick } from "pl-react/utils";
+import { parse } from '@babel/parser'
+import CodePreview from "@/components/CodePreview";
+import Dialog from '@/components/Dialog/layer';
+import Markdown from "@/components/Markdown";
 import { getToolsSourceCode } from "@/utils/source";
-import { h } from "pl-react"
+import style from './style.module.scss';
 
-export default () => {
+export default (props: PageProps) => {
 
-  getToolsSourceCode().then(res => {
-    console.log(res)
-  })
+  const [list, setList] = useState<{ name: string, title: string }[]>([]);
+  const [body, setBody] = useState({
+    code: '',
+    demo: '',
+    readme: '',
+  });
 
-  return <div>tools</div>
+  const toolsSource = useMemo(getToolsSourceCode, []);
+
+  /**
+   * 去除默认导出
+   * @param code 
+   * @returns 
+   */
+  function removeExportDefaultDeclaration(code: string) {
+    const ast = parse(code, {
+      sourceType: 'module',
+      plugins: ['typescript'],
+    });
+    const find = ast.program.body.find(val => val.type === 'ExportDefaultDeclaration');
+    if (!find) return code;
+
+    const start = find.loc.start.line - 1, end = find.loc.end.line - 1;
+    let result = '';
+    const arr = code.split('\n');
+    for (let i = 0; i < arr.length; i++) {
+      if ([start, end].includes(i)) continue;
+      result += arr[i].replace(/\s\s/, '') + '\n';
+    }
+    return result;
+  }
+
+  useEffect(() => useRouteMonitor(async (to) => {
+    if (!to.path.startsWith(props.path)) return;
+    const result = await toolsSource;
+    !list.length && setList(result.map(val => ({ name: val.name, title: val.title })));
+
+    const key = to.path.replace(props.path + '/', '');
+    const query = result.find(val => val.name === key) || result[0];
+    const { exec, code, demo, readme } = query;
+
+    setBody({
+      code,
+      demo: removeExportDefaultDeclaration(demo),
+      readme,
+    });
+
+    // 等组件渲染完后再操作 dom，不影响框架本身的节点对比
+    nextTick(() => {
+      const el = document.getElementById('container');
+      el.innerHTML = '';
+      el.setAttribute('style', '');
+
+      exec && exec();
+    })
+  }), [])
+
+  const [dialogOpen, setDialogOpen] = useState(false);
+
+  return <div className={style.pageTools}>
+    <aside>
+      <ul className={style.navigation}>
+        {...list.map(val => <li>
+          <Link to={`${props.path}/${val.name}`}>{val.title || val.name}</Link>
+        </li>)}
+      </ul>
+    </aside>
+    <section className={style.content}>
+      <h2>Preview</h2>
+      <div id="container"></div>
+      <Dialog open={dialogOpen} onClose={setDialogOpen} title="源码实现">
+        <CodePreview value={body.code} />
+      </Dialog>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+        <h2>Use</h2>
+        <a onclick={() => setDialogOpen(true)}>realize</a>
+      </div>
+      <CodePreview value={body.demo} />
+      <h2></h2>
+      <Markdown text={body.readme} />
+    </section>
+  </div>
 }

@@ -4,7 +4,7 @@ import { Link, PageProps, useRouteMonitor } from "pl-react/router"
 import CodeEdit, { CodeEditFoldProps } from "@/components/CodeEdit/flod";
 import { CodeConversion } from "@/source/tools/codeConversion";
 import '@/source/tools/codeConversion/index.scss'
-import { scrollTo } from "@/source/utils/browser";
+import { copyToBoard, scrollTo } from "@/source/utils/browser";
 import { CodeEditExpose } from "@/components/CodeEdit";
 import { getUtilsSourceCode } from "@/utils/source"
 import style from './style.module.scss';
@@ -15,14 +15,13 @@ export default (props: PageProps) => {
   const [content, setContent] = useState<string>('');
 
   const utilsSource = useMemo(getUtilsSourceCode, []);
-  const unmonitor = useMemo(() => useRouteMonitor(async to => {
+  useEffect(() => useRouteMonitor(async to => {
     const key = to.path + '.ts';
     const { keys, body } = await utilsSource;
     !list.length && setList(keys);
     const query = keys.find(val => val === key);
     setContent(body[query || keys[0]]);
   }), []);
-  useEffect(() => unmonitor, []);
 
 
   // #region 代码块内容解析（内容折叠）
@@ -72,7 +71,7 @@ export default (props: PageProps) => {
   const codeEditRef = useRef<CodeEditExpose>();
 
   function queryElement(line: number) {
-    const childs = codeEditRef.current.el.getElementsByClassName('row-num')[0].childNodes;
+    const childs = codeEditRef.current.getEl().getElementsByClassName('row-num')[0].childNodes;
     for (const child of childs) {
       const label = (child as HTMLElement).getElementsByTagName('label')[0];
       if (label.textContent === line + '') {
@@ -94,7 +93,7 @@ export default (props: PageProps) => {
       }</ul>
     </aside>
     <section className={style.content}>
-      <CodeEdit ref={codeEditRef} value={content} lines={data} toHtml={(val) => conversion.output(val)} isEdit={false} copyText="复制" />
+      <CodeEdit ref={codeEditRef} value={content} lines={data} toHtml={(val) => conversion.output(val)} isEdit={false} copyText="复制" onCopy={copyToBoard} />
     </section>
     <aside className={style.outline}>
       <ul>{

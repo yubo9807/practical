@@ -1,11 +1,10 @@
 import { h, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'pl-react';
 import { PropsType, StyleObject } from 'pl-react/types';
 import { RefItem } from 'pl-react/hooks';
-import { copyToBoard } from '@/source/utils/browser'
 import './index.scss';
 
 export type CodeEditExpose = {
-  el: HTMLElement
+  getEl: () => HTMLElement
 }
 export interface CodeEditProps extends PropsType {
   value:        string
@@ -33,7 +32,6 @@ export default function(props: CodeEditProps) {
   }
 
   function copy() {
-    copyToBoard(model);
     props.onCopy && props.onCopy(model);
   }
 
@@ -43,9 +41,9 @@ export default function(props: CodeEditProps) {
 
   const elRef = useRef<HTMLElement>();
   useImperativeHandle<CodeEditExpose>(props.ref, () => ({
-    el: elRef.current,
+    getEl: () => elRef.current,
     setValue: setModel,
-  }))
+  }), [])
 
   return <div ref={elRef} className={['br-code-edit', ...[props.className].flat()]} style={props.style}>
     <ul className='row-num'>
