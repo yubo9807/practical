@@ -1,8 +1,9 @@
-import { Fragment, h, useEffect, useState } from "pl-react"
+import { Fragment, h, useEffect, useState, useStore } from "pl-react"
 import { Link, Router, Route, useRouteMonitor } from "pl-react/router"
 import env from '~/config/env'
 import style from './style.module.scss';
 import Home from '@/pages/home'
+import { storeVariable } from "@/store/variable";
 
 export default () => {
 
@@ -14,6 +15,15 @@ export default () => {
     })
   }, []);
 
+
+  const [state, dispatch] = useStore(storeVariable);
+  function selectChange(e) {
+    dispatch({
+      type: 'codeLanguageChange',
+      payload: e.target.value,
+    })
+  }
+
   return <>
     <header className={style.header}>
       <div>
@@ -24,6 +34,10 @@ export default () => {
       </div>
 
       <nav className={open && style.active}>
+        <select onchange={selectChange}>
+          <option value="ts" selected={state.codeLanguage === 'ts'}>TypeScript</option>
+          <option value="js" selected={state.codeLanguage === 'js'}>JavaScript</option>
+        </select>
         <Link to='/'>简介</Link>
         <Link to='/tools'>工具类</Link>
         <Link to='/utils'>工具函数</Link>

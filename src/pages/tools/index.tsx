@@ -1,5 +1,5 @@
-import { h, useEffect, useMemo, useState } from "pl-react"
-import { Link, PageProps, useRouteMonitor } from "pl-react/router";
+import { h, useEffect, useMemo, useState, useStore } from "pl-react"
+import { Link, PageProps, useRoute, useRouteMonitor } from "pl-react/router";
 import { nextTick } from "pl-react/utils";
 import { parse } from '@babel/parser'
 import CodePreview from "@/components/CodePreview";
@@ -7,6 +7,8 @@ import Dialog from '@/components/Dialog/layer';
 import Markdown from "@/components/Markdown";
 import { getToolsSourceCode } from "@/utils/source";
 import style from './style.module.scss';
+import { storeVariable } from "@/store/variable";
+import { tsToJs } from "@/utils/code-convert";
 
 export default (props: PageProps) => {
 
@@ -42,20 +44,24 @@ export default (props: PageProps) => {
     return result;
   }
 
-  useEffect(() => useRouteMonitor(async (to) => {
-    if (!to.path.startsWith(props.path)) return;
+  async function change(key: string) {
     const result = await toolsSource;
     !list.length && setList(result.map(val => ({ name: val.name, title: val.title })));
 
-    const key = to.path.replace(props.path + '/', '');
     const query = result.find(val => val.name === key) || result[0];
     const { exec, code, demo, readme } = query;
 
-    setBody({
+    const body = {
       code,
       demo: removeExportDefaultDeclaration(demo),
       readme,
-    });
+    }
+    const [state] = useStore(storeVariable);
+    if (state.codeLanguage === 'js') {
+      body.code = tsToJs(code);
+      body.demo = tsToJs(body.demo);
+    }
+    setBody(body);
 
     // 等组件渲染完后再操作 dom，不影响框架本身的节点对比
     nextTick(() => {
@@ -65,7 +71,19 @@ export default (props: PageProps) => {
 
       exec && exec();
     })
+  }
+
+  useEffect(() => useRouteMonitor(async (to) => {
+    if (!to.path.startsWith(props.path)) return;
+    const key = to.path.replace(props.path + '/', '');
+    change(key);
   }), [])
+
+  const [state] = useStore(storeVariable);
+  useEffect(() => {
+    const key = useRoute().path.replace(props.path + '/', '');
+    change(key);
+  }, [state.codeLanguage])
 
   const [dialogOpen, setDialogOpen] = useState(false);
 
@@ -80,7 +98,7 @@ export default (props: PageProps) => {
     <section className={style.content}>
       <h2>Preview</h2>
       <div id="container"></div>
-      <Dialog open={dialogOpen} onClose={setDialogOpen} title="源码实现">
+      <Dialog open={dialogOpen} onClose={setDialogOpen} title="源码实现" style='width: 1000px'>
         <CodePreview value={body.code} />
       </Dialog>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>

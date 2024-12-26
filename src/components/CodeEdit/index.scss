@@ -56,16 +56,12 @@
       z-index: 1;
     }
   }
-  > .copy{
+  > .btns{
     position: absolute;
     top: 4px;
     right: 6px;
-    padding: 2px 4px;
     font-size: 12px;
     color: #999;
-    background: rgba(255,255,255,.8);
-    border-radius: 4px;
-    cursor: pointer;
     z-index: 3;
   }
 }

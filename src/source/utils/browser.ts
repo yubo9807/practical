@@ -1,8 +1,5 @@
 import { AnyObj } from "./type";
-
-declare const navigator: any,
-  cookieStore: any,
-  FormData: any;
+declare const cookieStore;
 
 /**
  * 获取 cookie 指定参数

@@ -54,7 +54,7 @@ export default function(props: DialogProps) {
 
   return <dialog ref={dialogRef}
     className={['br-dialog', ...[props.className].flat()]}
-    // style={props.style}
+    style={props.style}
     onmousedown={mouseDown}
     onclose={close}
   >

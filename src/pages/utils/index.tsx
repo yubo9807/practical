@@ -1,27 +1,48 @@
 import { parse } from '@babel/parser'
-import { h, useEffect, useMemo, useRef, useState } from "pl-react"
-import { Link, PageProps, useRouteMonitor } from "pl-react/router"
+import { h, useEffect, useMemo, useRef, useState, useStore } from "pl-react"
+import { Link, PageProps, useRoute, useRouteMonitor } from "pl-react/router"
 import CodeEdit, { CodeEditFoldProps } from "@/components/CodeEdit/flod";
 import { CodeConversion } from "@/source/tools/codeConversion";
 import '@/source/tools/codeConversion/index.scss'
-import { copyToBoard, scrollTo } from "@/source/utils/browser";
+import { scrollTo } from "@/source/utils/browser";
 import { CodeEditExpose } from "@/components/CodeEdit";
 import { getUtilsSourceCode } from "@/utils/source"
 import style from './style.module.scss';
+import { storeVariable } from '@/store/variable';
+import { tsToJs } from '@/utils/code-convert';
 
 export default (props: PageProps) => {
 
   const [list, setList] = useState<string[]>([]);
   const [content, setContent] = useState<string>('');
 
-  const utilsSource = useMemo(getUtilsSourceCode, []);
-  useEffect(() => useRouteMonitor(async to => {
-    const key = to.path + '.ts';
-    const { keys, body } = await utilsSource;
+  const getSourceCode = useMemo(getUtilsSourceCode, []);
+
+  async function change(key: string) {
+    const { keys, body } = await getSourceCode;
     !list.length && setList(keys);
     const query = keys.find(val => val === key);
-    setContent(body[query || keys[0]]);
+
+    let result = body[query || keys[0]];
+    // 因为纯函数的关系，useEffect 将 useRouteMonitor 的回调缓存，所以需要重新获取 state
+    const [state] = useStore(storeVariable);
+    if (state.codeLanguage === 'js') {
+      result = tsToJs(result);
+    }
+
+    setContent(result);
+  }
+
+  useEffect(() => useRouteMonitor(async to => {
+    const key = to.path + '.ts';
+    change(key);
   }), []);
+
+  const [state] = useStore(storeVariable);
+  useEffect(() => {
+    const key = useRoute().path + '.ts';
+    change(key);
+  }, [state.codeLanguage])
 
 
   // #region 代码块内容解析（内容折叠）
@@ -68,6 +89,7 @@ export default (props: PageProps) => {
     ],
   });
 
+
   const codeEditRef = useRef<CodeEditExpose>();
 
   function queryElement(line: number) {
@@ -93,7 +115,13 @@ export default (props: PageProps) => {
       }</ul>
     </aside>
     <section className={style.content}>
-      <CodeEdit ref={codeEditRef} value={content} lines={data} toHtml={(val) => conversion.output(val)} isEdit={false} copyText="复制" onCopy={copyToBoard} />
+      <CodeEdit
+        ref={codeEditRef}
+        value={content}
+        lines={data}
+        toHtml={(val) => conversion.output(val)}
+        isEdit={false}
+      />
     </section>
     <aside className={style.outline}>
       <ul>{

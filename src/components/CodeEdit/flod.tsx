@@ -132,7 +132,7 @@ export default function(props: CodeEditFoldProps) {
   return <CodeEdit
     value={data.length ? content : value}
     {...args}
-    rowItemSlot={isFolded}
+    slotRowItem={isFolded}
     className={['br-code-edit-fold', ...[props.className].flat()]}
     onCopy={() => onCopy && onCopy(value)}
   />;

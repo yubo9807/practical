@@ -19,23 +19,6 @@ export function createArray(len: number, item: any = void 0) {
   return arr;
 }
 
-
-/**
- * 数组中最大的数
- * @param arr 
- */
-export function arrayMax(arr: number[]) {
-  return Math.max.apply(null, arr);
-}
-
-/**
- * 数组中最小的数
- * @param arr 
- */
-export function arrayMin(arr: number[]) {
-  Math.min.apply(null, arr);
-}
-
 /**
  * 创建指定长度的随机数的数组，且规定范围不重复
  * @param len 指定长度
