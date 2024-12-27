@@ -1,5 +1,5 @@
 import { StreamSplit } from ".";
-import { delay } from "@/source/utils/async";
+import { delay } from "../../utils/async";
 
 export default () => {
   const container = document.getElementById('container');

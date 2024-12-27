@@ -2,9 +2,9 @@ import { parse } from '@babel/parser'
 import { h, useEffect, useMemo, useRef, useState, useStore } from "pl-react"
 import { Link, PageProps, useRoute, useRouteMonitor } from "pl-react/router"
 import CodeEdit, { CodeEditFoldProps } from "@/components/CodeEdit/flod";
-import { CodeConversion } from "@/source/tools/codeConversion";
-import '@/source/tools/codeConversion/index.scss'
-import { scrollTo } from "@/source/utils/browser";
+import { CodeConversion } from "~/core/tools/codeConversion";
+import '~/core/tools/codeConversion/index.scss'
+import { scrollTo } from "~/core/utils/browser";
 import { CodeEditExpose } from "@/components/CodeEdit";
 import { getUtilsSourceCode } from "@/utils/source"
 import style from './style.module.scss';

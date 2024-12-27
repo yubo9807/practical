@@ -1,7 +1,7 @@
 import { h, useEffect, useMemo, useState } from "pl-react";
 import { customForEach } from "pl-react/utils";
-import { generateArray } from "@/source/utils/generator";
-import { deepClone } from "@/source/utils/object";
+import { generateArray } from "~/core/utils/generator";
+import { deepClone } from "~/core/utils/object";
 import CodeEdit, { CodeEditProps } from "../CodeEdit";
 import "./flod.scss";
 
@@ -27,7 +27,7 @@ export interface CodeEditFoldProps extends CodeEditProps {
  * @returns 
  */
 export default function(props: CodeEditFoldProps) {
-  const { lines, value, defaultUnfold, onCopy, ...args } = props;
+  const { lines, value, defaultUnfold, ...args } = props;
   const LINE_FEED = '\n';
   const arr = value.replace(/\r/g, '').split(LINE_FEED);
 
@@ -134,6 +134,5 @@ export default function(props: CodeEditFoldProps) {
     {...args}
     slotRowItem={isFolded}
     className={['br-code-edit-fold', ...[props.className].flat()]}
-    onCopy={() => onCopy && onCopy(value)}
   />;
 }

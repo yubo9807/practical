@@ -2,7 +2,7 @@ import { parse } from '@babel/parser'
 import type { Statement } from '@babel/types';
 import { default as traverse } from '@babel/traverse';
 import { default as generate } from '@babel/generator';
-import { resolvePath } from '@/source/utils/url';
+import { resolvePath } from '~/core/utils/url';
 import { backupBody } from './source';
 
 

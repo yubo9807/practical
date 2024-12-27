@@ -7,7 +7,7 @@ type Result = {
   body:  Record<string, string>
 }
 
-export const PREFIX_URL = '/src/source';
+export const PREFIX_URL = '/core';
 export function formatUrl(url: string) {
   return url.replace(PREFIX_URL, '');
 }
@@ -22,11 +22,11 @@ export function getSourceCode() {
   return new Promise<Result>(resolve => {
 
     // @ts-ignore
-    const toolsObj: FileObj = import.meta.glob('@/source/tools/**/*.(ts|md)', { as: 'raw' });
+    const toolsObj: FileObj = import.meta.glob('~/core/tools/**/*.(ts|md)', { as: 'raw' });
     const tools = Object.keys(toolsObj).map(formatUrl);
 
     // @ts-ignore
-    const utilsObj: FileObj = import.meta.glob('@/source/utils/**/*.ts', { as: 'raw' });
+    const utilsObj: FileObj = import.meta.glob('~/core/utils/**/*.ts', { as: 'raw' });
     const utils = Object.keys(utilsObj).map(formatUrl);
 
     const keys = [...tools, ...utils];
@@ -57,7 +57,7 @@ export function getUtilsSourceCode() {
   };
 
   // @ts-ignore
-  const obj: Record<string, string> = import.meta.glob('@/source/utils/*.ts', { as: 'raw', eager: true });
+  const obj: Record<string, string> = import.meta.glob('~/core/utils/*.ts', { as: 'raw', eager: true });
 
   for (const key in obj) {
     const k = formatUrl(key);
@@ -79,13 +79,13 @@ export function getToolsSourceCode() {
   const result: Item[] = [];
 
   // @ts-ignore
-  const codeObj: Record<string, string> = import.meta.glob('@/source/tools/*/index.ts', { as: 'raw', eager: true });
+  const codeObj: Record<string, string> = import.meta.glob('~/core/tools/*/index.ts', { as: 'raw', eager: true });
   // @ts-ignore
-  const demoObj: Record<string, string> = import.meta.glob('@/source/tools/*/demo.ts', { as: 'raw', eager: true });
+  const demoObj: Record<string, string> = import.meta.glob('~/core/tools/*/demo.ts', { as: 'raw', eager: true });
   // @ts-ignore
-  const execObj: Record<string, { default: Function }> = import.meta.glob('@/source/tools/*/demo.ts', { eager: true });
+  const execObj: Record<string, { default: Function }> = import.meta.glob('~/core/tools/*/demo.ts', { eager: true });
   // @ts-ignore
-  const readmeObj: Record<string, string> = import.meta.glob('@/source/tools/*/readme.md', { as: 'raw', eager: true });
+  const readmeObj: Record<string, string> = import.meta.glob('~/core/tools/*/readme.md', { as: 'raw', eager: true });
 
   for (const key in codeObj) {
     const name = formatUrl(key).split('/')[2];

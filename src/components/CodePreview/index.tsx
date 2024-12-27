@@ -1,7 +1,7 @@
 import { Fragment, h } from "pl-react"
 import CodeEdit from "../CodeEdit"
-import { CodeConversion } from "@/source/tools/codeConversion";
-import { copyToBoard } from "@/source/utils/browser";
+import { CodeConversion } from "~/core/tools/codeConversion";
+import { copyToBoard } from "~/core/utils/browser";
 
 interface Props {
   value: string

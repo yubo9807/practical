@@ -1,5 +1,5 @@
-import { asyncto } from "@/source/utils/async";
-import { stringifyQuery } from "@/source/utils/url";
+import { asyncto } from "~/core/utils/async";
+import { stringifyQuery } from "~/core/utils/url";
 import env from "~/config/env"
 
 type ResData = {

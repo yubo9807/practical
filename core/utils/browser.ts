@@ -1,48 +1,17 @@
 import { AnyObj } from "./type";
-declare const cookieStore;
 
 /**
- * 获取 cookie 指定参数
- * @param {*} key 要获取的 key
+ * 执行 worker 代码
+ * @param code 
  * @returns 
  */
-export async function getCookie(key: string) {
-  if (typeof cookieStore === 'object') {
-    const obj = await cookieStore.get(key);
-    return obj?.value;
-  }
-  const cookie = document.cookie;
-  const str = cookie.replace(/\s/g, '');
-  const obj = {}
-  str.split(';').forEach((val: string) => {
-    obj[val.split('=')[0]] = val.split('=')[1];
-  })
-  return obj[key];
+export function execWorkerCode(code: string) {
+  const blob = new Blob([code], { type: 'application/javascript' });
+  const url = URL.createObjectURL(blob);
+  return new Worker(url);
 }
+// execWorkerCode(`console.log(1111)`)
 
-/**
- * 返回浏览器视口尺寸
- */
-export function getViewportOffset() {
-  if (window.innerWidth) {
-    return {
-      x: window.innerWidth,
-      y: window.innerHeight,
-    }
-  } else {
-    if (document.compatMode === "BackCompt") {  // 混杂模式
-      return {
-        x: document.body.clientWidth,
-        y: document.body.clientHeight,
-      }
-    } else {
-      return {
-        x: document.documentElement.clientWidth,
-        y: document.documentElement.clientHeight,
-      }
-    }
-  }
-}
 
 /**
  * 滚动条、锚链接（记得取消 a 标签默认事件）跳转过渡  默认回到顶部
@@ -55,6 +24,7 @@ export function scrollTo(el: any = {}, deviation = 0) {
     behavior: "smooth",
   });
 }
+
 
 /**
  * 劫持粘贴板
@@ -102,6 +72,51 @@ export function prohibitKeydown() {
   });
 }
 
+
+declare const cookieStore;
+/**
+ * 获取 cookie 指定参数
+ * @param {*} key 要获取的 key
+ * @returns 
+ */
+export async function getCookie(key: string) {
+  if (typeof cookieStore === 'object') {
+    const obj = await cookieStore.get(key);
+    return obj?.value;
+  }
+  const cookie = document.cookie;
+  const str = cookie.replace(/\s/g, '');
+  const obj = {}
+  str.split(';').forEach((val: string) => {
+    obj[val.split('=')[0]] = val.split('=')[1];
+  })
+  return obj[key];
+}
+
+
+/**
+ * 返回浏览器视口尺寸
+ */
+export function getViewportOffset() {
+  if (window.innerWidth) {
+    return {
+      x: window.innerWidth,
+      y: window.innerHeight,
+    }
+  } else {
+    if (document.compatMode === "BackCompt") {  // 混杂模式
+      return {
+        x: document.body.clientWidth,
+        y: document.body.clientHeight,
+      }
+    } else {
+      return {
+        x: document.documentElement.clientWidth,
+        y: document.documentElement.clientHeight,
+      }
+    }
+  }
+}
 
 /**
  * 检查当前浏览器是否在苹果设备上
