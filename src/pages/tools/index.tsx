@@ -12,14 +12,13 @@ import { tsToJs } from "@/utils/code-convert";
 
 export default (props: PageProps) => {
 
+  const [state] = useStore(storeVariable);
   const [list, setList] = useState<{ name: string, title: string }[]>([]);
   const [body, setBody] = useState({
     code: '',
     demo: '',
     readme: '',
   });
-
-  const toolsSource = useMemo(getToolsSourceCode, []);
 
   /**
    * 去除默认导出
@@ -44,6 +43,7 @@ export default (props: PageProps) => {
     return result;
   }
 
+  const toolsSource = useMemo(getToolsSourceCode, []);
   async function change(key: string) {
     const result = await toolsSource;
     !list.length && setList(result.map(val => ({ name: val.name, title: val.title })));
@@ -56,7 +56,6 @@ export default (props: PageProps) => {
       demo: removeExportDefaultDeclaration(demo),
       readme,
     }
-    const [state] = useStore(storeVariable);
     if (state.codeLanguage === 'js') {
       body.code = tsToJs(code);
       body.demo = tsToJs(body.demo);
@@ -79,8 +78,12 @@ export default (props: PageProps) => {
     change(key);
   }), [])
 
-  const [state] = useStore(storeVariable);
+  const [isFrist, setIsFirst] = useState(true);
   useEffect(() => {
+    if (isFrist) {
+      setIsFirst(false);
+      return;
+    }
     const key = useRoute().path.replace(props.path + '/', '');
     change(key);
   }, [state.codeLanguage])

@@ -10,26 +10,24 @@ import { getUtilsSourceCode } from "@/utils/source"
 import style from './style.module.scss';
 import { storeVariable } from '@/store/variable';
 import { tsToJs } from '@/utils/code-convert';
+import CodePreview from '@/components/CodePreview';
 
 export default (props: PageProps) => {
 
+  const [state] = useStore(storeVariable);
   const [list, setList] = useState<string[]>([]);
   const [content, setContent] = useState<string>('');
 
   const getSourceCode = useMemo(getUtilsSourceCode, []);
-
   async function change(key: string) {
     const { keys, body } = await getSourceCode;
     !list.length && setList(keys);
     const query = keys.find(val => val === key);
 
     let result = body[query || keys[0]];
-    // 因为纯函数的关系，useEffect 将 useRouteMonitor 的回调缓存，所以需要重新获取 state
-    const [state] = useStore(storeVariable);
     if (state.codeLanguage === 'js') {
       result = tsToJs(result);
     }
-
     setContent(result);
   }
 
@@ -38,8 +36,12 @@ export default (props: PageProps) => {
     change(key);
   }), []);
 
-  const [state] = useStore(storeVariable);
+  const [isFrist, setIsFirst] = useState(true);
   useEffect(() => {
+    if (isFrist) {
+      setIsFirst(false);
+      return;
+    }
     const key = useRoute().path + '.ts';
     change(key);
   }, [state.codeLanguage])
