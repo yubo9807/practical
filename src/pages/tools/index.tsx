@@ -1,5 +1,5 @@
 import { h, useEffect, useMemo, useState, useStore } from "pl-react"
-import { Link, PageProps, useRoute, useRouteMonitor } from "pl-react/router";
+import { Link, PageProps, useRouter } from "pl-react/router";
 import { nextTick } from "pl-react/utils";
 import { parse } from '@babel/parser'
 import CodePreview from "@/components/CodePreview";
@@ -72,7 +72,8 @@ export default (props: PageProps) => {
     })
   }
 
-  useEffect(() => useRouteMonitor(async (to) => {
+  const router = useRouter();
+  useEffect(() => router.monitor(async (to) => {
     if (!to.path.startsWith(props.path)) return;
     const key = to.path.replace(props.path + '/', '');
     change(key);
@@ -84,7 +85,7 @@ export default (props: PageProps) => {
       setIsFirst(false);
       return;
     }
-    const key = useRoute().path.replace(props.path + '/', '');
+    const key = router.current.path.replace(props.path + '/', '');
     change(key);
   }, [state.codeLanguage])
 

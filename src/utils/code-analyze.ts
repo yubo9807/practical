@@ -143,34 +143,3 @@ export function getOriginCode(filename: string) {
 // const ts = getOriginCode('/tools/falls/demo.ts');
 // const js = tsCodeToJs(ts)
 // console.log(js);
-
-/**
- * 将ts转为js
- * @param o 
- * @returns 
- */
-export function tsCodeToJs(code: string) {
-  const ast = parse(code, {
-    sourceType: 'module',
-    plugins: ['typescript']
-  });
-
-  traverse(ast, {
-    // enter(item) {
-    //   if (item.isTSTypeAliasDeclaration()) {
-    //     item.remove();
-    //   }
-    // },
-    TSTypeAliasDeclaration(item) {
-      item.remove();
-    },
-    TSInterfaceDeclaration(item) {
-      item.remove();
-    },
-    TSTypeAnnotation(item) {
-      item.remove();
-    }
-  });
-
-  return generate(ast).code;
-}

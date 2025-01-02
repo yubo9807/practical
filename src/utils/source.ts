@@ -67,6 +67,14 @@ export function getUtilsSourceCode() {
   return result;
 }
 
+type CommonOption = {
+  codeObj: Record<string, string>
+  demoObj: Record<string, string>
+}
+function common() {
+
+}
+
 export function getToolsSourceCode() {
   type Item = {
     name:   string

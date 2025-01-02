@@ -1,4 +1,4 @@
-import { h, useComponent, useLayoutEffect, useRef, useState } from "pl-react"
+import { getCurrnetInstance, h, useEffect, useLayoutEffect, useRef, useState } from "pl-react"
 import { nextTick } from "pl-react/utils";
 import CodePreview from "../CodePreview";
 import { parse } from 'marked';
@@ -11,21 +11,22 @@ interface Props {
 export default (props: Props) => {
 
   const [html, setHtml] = useState('');
-  const wrapRef = useRef<HTMLElement>();
-  useLayoutEffect(async () => {
+  useEffect(async () => {
     const html = await parse(props.text);
     setHtml(html);
+  }, [props.text])
+
+  const wrapRef = useRef<HTMLElement>();
+  const app = getCurrnetInstance();
+  useLayoutEffect(async () => {
     nextTick(() => {
       const nodes = wrapRef.current.querySelectorAll('pre code');
       [...nodes].forEach((el: HTMLElement) => {
-        const exporse = useComponent(CodePreview, {
-          value: el.textContent,
-        });
-        const node = exporse['_nodes'][0];
-        wrapRef.current.replaceChild(node, el.parentElement);
+        const nodes = app.render(<CodePreview value={el.textContent} />);
+        el.parentElement.replaceWith(nodes[0]);
       })
     })
-  }, [props.text])
+  }, [html])
 
   return <div
     ref={wrapRef}

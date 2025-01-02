@@ -1,6 +1,6 @@
 import { parse } from '@babel/parser'
 import { h, useEffect, useMemo, useRef, useState, useStore } from "pl-react"
-import { Link, PageProps, useRoute, useRouteMonitor } from "pl-react/router"
+import { Link, PageProps, useRouter } from "pl-react/router"
 import CodeEdit, { CodeEditFoldProps } from "@/components/CodeEdit/flod";
 import { CodeConversion } from "~/core/tools/codeConversion";
 import '~/core/tools/codeConversion/index.scss'
@@ -31,7 +31,8 @@ export default (props: PageProps) => {
     setContent(result);
   }
 
-  useEffect(() => useRouteMonitor(async to => {
+  const router = useRouter();
+  useEffect(() => router.monitor(async to => {
     const key = to.path + '.ts';
     change(key);
   }), []);
@@ -42,7 +43,7 @@ export default (props: PageProps) => {
       setIsFirst(false);
       return;
     }
-    const key = useRoute().path + '.ts';
+    const key = router.current.path + '.ts';
     change(key);
   }, [state.codeLanguage])
 

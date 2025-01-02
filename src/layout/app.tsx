@@ -1,5 +1,5 @@
 import { Fragment, h, useEffect, useState, useStore } from "pl-react"
-import { Link, Router, Route, useRouteMonitor } from "pl-react/router"
+import { Link, Router, Route, useRouter } from "pl-react/router"
 import env from '~/config/env'
 import style from './style.module.scss';
 import Home from '@/pages/home'
@@ -9,8 +9,9 @@ export default () => {
 
   const [open, setOpen] = useState(false);
 
+  const router = useRouter();
   useEffect(() => {
-    useRouteMonitor(to => {
+    router.monitor(to => {
       setOpen(false);
     })
   }, []);
