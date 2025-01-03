@@ -68,14 +68,14 @@ export function getUtilsSourceCode() {
 }
 
 type CommonOption = {
-  codeObj: Record<string, string>
-  demoObj: Record<string, string>
+  codeObj:   Record<string, string>
+  demoObj:   Record<string, string>
+  execObj:   Record<string, { default: Function }>
+  readmeObj: Record<string, string>
+  path:       string
 }
-function common() {
-
-}
-
-export function getToolsSourceCode() {
+function commonHandle(option: CommonOption) {
+  const { codeObj, demoObj, execObj, readmeObj, path } = option;
   type Item = {
     name:   string
     title:  string
@@ -86,6 +86,23 @@ export function getToolsSourceCode() {
   }
   const result: Item[] = [];
 
+  for (const key in codeObj) {
+    const name = formatUrl(key).split('/')[2];
+    const readme = readmeObj[`${path}${name}/readme.md`] || '';
+    result.push({
+      name,
+      title: readme.match(/# (.*)/)?.[1],
+      code: codeObj[key],
+      exec: execObj[`${path}${name}/demo.ts`]?.default,
+      demo: demoObj[`${path}${name}/demo.ts`] || '',
+      readme: readme.replace(/# (.*)/, ''),
+    });
+  }
+
+  return result;
+}
+
+export function getToolsSourceCode() {
   // @ts-ignore
   const codeObj: Record<string, string> = import.meta.glob('~/core/tools/*/index.ts', { as: 'raw', eager: true });
   // @ts-ignore
@@ -95,18 +112,30 @@ export function getToolsSourceCode() {
   // @ts-ignore
   const readmeObj: Record<string, string> = import.meta.glob('~/core/tools/*/readme.md', { as: 'raw', eager: true });
 
-  for (const key in codeObj) {
-    const name = formatUrl(key).split('/')[2];
-    const readme = readmeObj[`${PREFIX_URL}/tools/${name}/readme.md`] || '';
-    result.push({
-      name,
-      title: readme.match(/# (.*)/)?.[1],
-      code: codeObj[key],
-      exec: execObj[`${PREFIX_URL}/tools/${name}/demo.ts`]?.default,
-      demo: demoObj[`${PREFIX_URL}/tools/${name}/demo.ts`] || '',
-      readme: readme.replace(/# (.*)/, ''),
-    });
-  }
+  return commonHandle({
+    codeObj,
+    demoObj,
+    execObj,
+    readmeObj,
+    path: `${PREFIX_URL}/tools/`
+  });
+}
 
-  return result;
+export function getCanvasSourceCode() {
+  // @ts-ignore
+  const codeObj: Record<string, string> = import.meta.glob('~/core/canvas/*/index.ts', { as: 'raw', eager: true });
+  // @ts-ignore
+  const demoObj: Record<string, string> = import.meta.glob('~/core/canvas/*/demo.ts', { as: 'raw', eager: true });
+  // @ts-ignore
+  const execObj: Record<string, { default: Function }> = import.meta.glob('~/core/canvas/*/demo.ts', { eager: true });
+  // @ts-ignore
+  const readmeObj: Record<string, string> = import.meta.glob('~/core/canvas/*/readme.md', { as: 'raw', eager: true });
+
+  return commonHandle({
+    codeObj,
+    demoObj,
+    execObj,
+    readmeObj,
+    path: `${PREFIX_URL}/canvas/`
+  });
 }

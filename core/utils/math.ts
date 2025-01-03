@@ -45,6 +45,22 @@ export function isPowerOf2(x: number) {
 }
 
 /**
+ * 计算两个点的角度
+ * @param x1 
+ * @param y1 
+ * @param x2 
+ * @param y2 
+ * @returns 
+ */
+export function calculateAngle(x1: number, y1: number, x2: number, y2: number) {
+  // 计算向量的dx和dy，即两点之间的横纵坐标差
+  const dx = x1 - x2;
+  const dy = y1 - y2;
+  const radian = Math.atan2(dy, dx);
+  return radian * (180 / Math.PI); 
+}
+
+/**
  * 计算两点之间的距离
  * @param x1 
  * @param y1 
@@ -80,4 +96,199 @@ export function pointDegree(x: number, y: number) {
  */
 export function elPointDegree(width: number, height: number, x: number, y: number) {
   return pointDegree(x - width / 2, y - height / 2);
+}
+
+type Point = [number, number]
+/**
+ * 计算三次贝塞尔曲线的控制点
+ * @param points 点数据
+ * @returns Array<[x1, y1, x2, y2]> 四个控制点
+ */
+export function computeControlPoint(points: Point[], smooth = .4) {
+  if (points.length < 2) return [];
+  const p1 = points[0];
+  const p2 = points[1];
+
+  const collect: [number, number, number, number][] = [];
+  const [s1x, s2x] = getMiddlePoint(p1[0], p2[0]);
+  const [s1y, s2y] = getMiddlePoint(p1[1], p2[1]);
+  collect.push([s1x, s1y, s2x, s2y]);
+
+  if (points.length === 2) {
+    return collect;
+  }
+
+  let prev = points[1];
+  let poor = prev[1] - points[0][1];
+  for (let i = 2; i < points.length; i++) {
+    const next = points[i];
+    const [s1x, s2x] = getMiddlePoint(prev[0], next[0]);
+    const [s1y, s2y] = getMiddlePoint(prev[1], next[1]);
+    collect.push([s1x, s1y, s2x, s2y]);
+
+    if (next[1] - prev[1] !== poor) {
+      collect[i - 2][3] = prev[1];
+
+      if (next[1] > prev[1]) {
+        collect[i - 1][1] = prev[1];
+      } else {
+        collect[i - 1][1] = prev[1];
+      }
+
+      const angle = calculateAngle(...prev, ...next);
+      const newSmooth = (180 - Math.abs(angle)) * smooth;
+      collect[i - 2][2] = Math.ceil(collect[i - 2][2] - newSmooth);
+      collect[i - 1][0] = Math.ceil(collect[i - 1][0] + newSmooth);
+    }
+
+    poor = next[1] - prev[1];
+    prev = points[i];
+  }
+
+  return collect;
+}
+
+/**
+ * 获取中间点
+ * @param m1 
+ * @param m2 
+ * @returns 
+ */
+function getMiddlePoint(m1: number, m2: number) {
+  const x1 = (m2 - m1) / 4;
+  const x2 = x1 * 3;
+  return [x1 + m1, x2 + m1];
+}
+
+type Option = {
+  fontSize?: number
+  gap?:      number
+  last?:     boolean
+}
+/**
+ * 过滤掉超出文本
+ * @param arr 
+ * @param width 
+ * @returns 
+ */
+export function filterExceed(arr: string[], width: number, option: Option = {}) {
+  const config: Option = {
+    fontSize: 12,
+    gap:      30,
+    ...option,
+  }
+  const collect = [];
+  for (let i = 0; i < arr.length; i++) {
+    const str = arr[i];
+    collect.push(str.length * config.fontSize);
+  }
+  const min = Math.min(...collect) + config.gap;
+
+  if (min * arr.length > width) {
+    const result = [];
+    const count = Math.floor(min * arr.length / width);
+    for (let i = 0; i < arr.length; i++) {
+      result.push(i % count === 0 ? arr[i] : '');
+    }
+    if (option.last) {
+      const last = result.findLastIndex(item => item !== '');
+      if (arr.length - last < count) {
+        result[last] = '';
+      }
+      result[result.length - 1] = arr[arr.length - 1];
+    }
+    return result;
+  }
+
+  return arr;
+}
+
+/**
+ * 获取圆上的点
+ * @param centerX 中心点 x
+ * @param centerY 中心点 y
+ * @param radius  半径
+ * @param number  个数
+ * @returns 
+ */
+export function getCirclePoints(centerX: number, centerY: number, radius: number, number: number) {
+  const points: [number, number][] = [];
+  const angleIncrement = (2 * Math.PI) / number;
+
+  for (let i = 0; i < number; i++) {
+    const angle = i * angleIncrement;
+    const x = centerX + radius * Math.cos(angle);
+    const y = centerY + radius * Math.sin(angle);
+    points.push([x, y]);
+  }
+
+  return points;
+}
+
+/**
+ * 是否为圆内的点
+ * @param x 
+ * @param y 
+ * @param centerX 
+ * @param centerY 
+ * @param radius 
+ * @returns 
+ */
+export function isPointInCircle(x: number, y: number, centerX: number, centerY: number, radius: number) {
+  const distance = Math.sqrt(Math.pow((x - centerX), 2) + Math.pow((y - centerY), 2));
+  return distance <= radius;
+}
+
+/**
+ * 是否在闭合图形内
+ * @param x 
+ * @param y 
+ * @param polygon 
+ * @returns 
+ */
+export function isPointInPolygon(x: number, y: number, polygon: { x: number, y: number }[]) {
+  let inside = false;
+  for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+    const xi = polygon[i].x, yi = polygon[i].y;
+    const xj = polygon[j].x, yj = polygon[j].y;
+    const intersect = ((yi > y) != (yj > y)) && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+    if (intersect) inside = !inside;
+  }
+  return inside;
+}
+
+/**
+ * 获取点所在的象限
+ * @param x 
+ * @param y 
+ * @param centerX 
+ * @param centerY 
+ * @returns 
+ */
+export function getPointQuadrant(x: number, y: number, centerX: number, centerY: number) {
+  if (x >= centerX && y >= centerY) return 1;
+  if (x <= centerX && y >= centerY) return 2;
+  if (x <= centerX && y <= centerY) return 3;
+  if (x >= centerX && y <= centerY) return 4;
+}
+
+/**
+ * 得到多边形的中心点
+ * @param polygon 
+ * @returns 
+ */
+export function calculateCentroid(polygon: { x: number, y: number }[]) {
+  let sumX = 0;
+  let sumY = 0;
+  const numVertices = polygon.length;
+
+  for (let i = 0; i < numVertices; i++) {
+      sumX += polygon[i].x;
+      sumY += polygon[i].y;
+  }
+
+  const centerX = sumX / numVertices;
+  const centerY = sumY / numVertices;
+
+  return { x: centerX, y: centerY };
 }

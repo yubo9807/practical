@@ -33,6 +33,7 @@ export default (props: PageProps) => {
 
   const router = useRouter();
   useEffect(() => router.monitor(async to => {
+    if (!to.path.startsWith(props.path)) return;
     const key = to.path + '.ts';
     change(key);
   }), []);

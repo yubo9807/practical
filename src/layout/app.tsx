@@ -40,6 +40,7 @@ export default () => {
           <option value="js" selected={state.codeLanguage === 'js'}>JavaScript</option>
         </select>
         <Link to='/'>简介</Link>
+        <Link to='/canvas'>画布</Link>
         <Link to='/tools'>工具类</Link>
         <Link to='/utils'>工具函数</Link>
       </nav>
@@ -47,6 +48,7 @@ export default () => {
     <main className={['leayer', style.main]}>
       <Router>
         <Route path="/" element={Home} />
+        <Route path="/canvas" element={import('@/pages/canvas')} exact={false} />
         <Route path="/tools" element={import('@/pages/tools')} exact={false} />
         <Route path="/utils" element={import('@/pages/utils')} exact={false} />
       </Router>
