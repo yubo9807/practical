@@ -41,12 +41,13 @@ export class JoinLine {
     const canvas = ctx.canvas;
     canvas.width = option.width || option.el.offsetWidth;
     canvas.height = option.height || option.el.offsetHeight;
+    this._connectingLines.length = 0;
     this.draw();
   }
 
   draw() {
     const { _connectingLines, ctx, option } = this;
-    _connectingLines.length = 0;
+    // _connectingLines.length = 0;
     ctx.fillStyle = option.fillStyle;
     ctx.strokeStyle = option.fillStyle;
     ctx.lineWidth = option.lineWidth;
@@ -57,6 +58,7 @@ export class JoinLine {
 
     const canvas = ctx.canvas;
     const width = option.width || canvas.width;
+    const [leftType, rightType] = option.type.split('-');
 
     /**
      * 绘制点数据
@@ -81,15 +83,35 @@ export class JoinLine {
       }
       ctx.fill();
     }
+    /**
+     * 连接线
+     * @param x1 
+     * @param y1 
+     * @param x2 
+     * @param y2 
+     */
+    function joinLine(x1: number, y1: number, x2: number, y2: number) {
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.stroke();
+    }
+
+    // 初始化渲染
     drawPoint();
+    _connectingLines.forEach(val => {
+      const [leftIndex, rightIndex] = val;
+      const leftPoint = collectLeftRedius[leftIndex];
+      const rightPoint = collectRightRedius[rightIndex];
+      const x1 = leftPoint.x, y1 = leftPoint.y, x2 = rightPoint.x, y2 = rightPoint.y;
+      alreadyLins.push({ x1, y1, x2, y2 });
+      joinLine(x1, y1, x2, y2);
+    })
 
     function resetDraw() {
       drawPoint();
       alreadyLins.forEach(val => {
-        ctx.beginPath();
-        ctx.moveTo(val.x1, val.y1);
-        ctx.lineTo(val.x2, val.y2);
-        ctx.stroke();
+        joinLine(val.x1, val.y1, val.x2, val.y2);
       })
     }
 
@@ -99,7 +121,6 @@ export class JoinLine {
     // 拖拽点进行连接
     canvas.addEventListener('mousedown', mousedown);
     this._prevMouseDownFunc = mousedown;
-    const [leftType, rightType] = option.type.split('-');
 
     function mousedown(e: MouseEvent) {
       let startIndex = null, startX: number = null, startY: number = null;
@@ -168,6 +189,25 @@ export class JoinLine {
       }
     }
 
+  }
+
+  _repeat = {
+    leftIndexs:  [] as number[],
+    rightIndexs: [] as number[],
+  };
+  joinLine(x: number, y: number) {
+    const [leftType, rightType] = this.option.type.split('-');
+    const { leftIndexs, rightIndexs } = this._repeat;
+    const leftBool = leftType === 'single' && leftIndexs.includes(x);
+    const rightBool = rightType === 'single' && rightIndexs.includes(y);
+    if (leftBool || rightBool) {
+      console.warn(`连线 [${x}, ${y}] 重复，当前模式：${this.option.type}`);
+      return;
+    }
+    leftIndexs.push(x);
+    rightIndexs.push(y);
+    this._connectingLines.push([x, y]);
+    this.draw();
   }
 
   /**
