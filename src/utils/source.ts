@@ -12,43 +12,43 @@ export function formatUrl(url: string) {
   return url.replace(PREFIX_URL, '');
 }
 
-export let backupBody: Record<string, string>
+// export let backupBody: Record<string, string>
 
-/**
- * 获取源代码
- * @returns 
- */
-export function getSourceCode() {
-  return new Promise<Result>(resolve => {
+// /**
+//  * 获取源代码
+//  * @returns 
+//  */
+// export function getSourceCode() {
+//   return new Promise<Result>(resolve => {
 
-    // @ts-ignore
-    const toolsObj: FileObj = import.meta.glob('~/core/tools/**/*.(ts|md)', { as: 'raw' });
-    const tools = Object.keys(toolsObj).map(formatUrl);
+//     // @ts-ignore
+//     const toolsObj: FileObj = import.meta.glob('~/core/tools/**/*.(ts|md)', { as: 'raw' });
+//     const tools = Object.keys(toolsObj).map(formatUrl);
 
-    // @ts-ignore
-    const utilsObj: FileObj = import.meta.glob('~/core/utils/**/*.ts', { as: 'raw' });
-    const utils = Object.keys(utilsObj).map(formatUrl);
+//     // @ts-ignore
+//     const utilsObj: FileObj = import.meta.glob('~/core/utils/**/*.ts', { as: 'raw' });
+//     const utils = Object.keys(utilsObj).map(formatUrl);
 
-    const keys = [...tools, ...utils];
-    const funcs = Object.values(toolsObj).concat(Object.values(utilsObj)).map(val => val());
+//     const keys = [...tools, ...utils];
+//     const funcs = Object.values(toolsObj).concat(Object.values(utilsObj)).map(val => val());
 
-    const body: Record<string, string> = {}
-    Promise.allSettled(funcs).then(res => {
-      customForEach(res, (val, index) => {
-        if (val.status === 'fulfilled') {
-          body[keys[index]] = val.value;
-        }
-      })
+//     const body: Record<string, string> = {}
+//     Promise.allSettled(funcs).then(res => {
+//       customForEach(res, (val, index) => {
+//         if (val.status === 'fulfilled') {
+//           body[keys[index]] = val.value;
+//         }
+//       })
 
-      backupBody = body;
-      resolve({
-        utils,
-        tools,
-        body,
-      })
-    })
-  })
-}
+//       backupBody = body;
+//       resolve({
+//         utils,
+//         tools,
+//         body,
+//       })
+//     })
+//   })
+// }
 
 export function getUtilsSourceCode() {
   const result = {

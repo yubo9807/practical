@@ -39,7 +39,6 @@ export default () => {
           <option value="ts" selected={state.codeLanguage === 'ts'}>TypeScript</option>
           <option value="js" selected={state.codeLanguage === 'js'}>JavaScript</option>
         </select>
-        <Link to='/'>简介</Link>
         <Link to='/canvas'>画布</Link>
         <Link to='/tools'>工具类</Link>
         <Link to='/utils'>工具函数</Link>

@@ -20,7 +20,7 @@ export default () => {
         time: Date.now(),
       }
       stream.add(`data:${JSON.stringify(data)}\n\n`);
-      await delay(1000);
+      await delay(100);
     }
   })()
 }
