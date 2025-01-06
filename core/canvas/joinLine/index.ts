@@ -33,20 +33,24 @@ export class JoinLine {
     lineWidth:   1,
   }
   ctx: CanvasRenderingContext2D
+  _dpr = window.devicePixelRatio || 1;
   _prevMouseDownFunc = null;
   _connectingLines: [number, number][] = [];  // 连接点索引记录
 
   refresh() {
-    const { ctx, option } = this;
+    const { ctx, option, _dpr } = this;
     const canvas = ctx.canvas;
-    canvas.width = option.width || option.el.offsetWidth;
-    canvas.height = option.height || option.el.offsetHeight;
+    canvas.width = (option.width || option.el.offsetWidth) * _dpr;
+    canvas.height = (option.height || option.el.offsetHeight) * _dpr;
     this._connectingLines.length = 0;
+    ctx.scale(_dpr, _dpr);
     this.draw();
+    canvas.style.width = `${canvas.width / _dpr}px`;
+    canvas.style.height = `${canvas.height / _dpr}px`
   }
 
   draw() {
-    const { _connectingLines, ctx, option } = this;
+    const { _connectingLines, ctx, option, _dpr } = this;
     // _connectingLines.length = 0;
     ctx.fillStyle = option.fillStyle;
     ctx.strokeStyle = option.fillStyle;
@@ -57,7 +61,7 @@ export class JoinLine {
     const alreadyLins: {x1: number, y1: number, x2: number, y2: number}[] = [];  // 连接点
 
     const canvas = ctx.canvas;
-    const width = option.width || canvas.width;
+    const width = canvas.width / _dpr;
     const [leftType, rightType] = option.type.split('-');
 
     /**
