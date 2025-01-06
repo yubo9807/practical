@@ -1,6 +1,6 @@
 import { h, useImperativeHandle, useRef } from "pl-react";
-import BasicDialog, { DialogExpose, DialogProps } from ".";
-import "./layer.scss";
+import BasicDialog, { DialogExpose, DialogProps } from "./basic";
+import "./index.scss";
 
 interface LayerDialogProps extends DialogProps {
   title?:      string

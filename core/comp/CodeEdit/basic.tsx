@@ -1,7 +1,7 @@
 import { h, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'pl-react';
 import { PropsType, StyleObject } from 'pl-react/types';
 import { RefItem } from 'pl-react/hooks';
-import './index.scss';
+import './basic.scss';
 
 export type CodeEditExpose = {
   getEl: () => HTMLElement

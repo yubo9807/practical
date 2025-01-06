@@ -2,8 +2,8 @@ import { h, useEffect, useMemo, useState } from "pl-react";
 import { customForEach } from "pl-react/utils";
 import { generateArray } from "~/core/utils/generator";
 import { deepClone } from "~/core/utils/object";
-import CodeEdit, { CodeEditProps } from "../CodeEdit";
-import "./flod.scss";
+import CodeEdit, { CodeEditProps } from "./basic";
+import "./index.scss";
 
 interface Line {
   start:     number

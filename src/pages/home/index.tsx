@@ -17,7 +17,7 @@ export default () => {
       codePenRef.current.postMessage({
         html: `<div>hellollll</div>`
       })
-    }, 1000)
+    })
   })
 
   return <div style='width: 600px; height: 500px;'>

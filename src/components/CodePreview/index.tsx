@@ -1,5 +1,5 @@
 import { Fragment, h } from "pl-react"
-import CodeEdit from "../CodeEdit"
+import CodeEdit from "~/core/comp/CodeEdit/basic"
 import { CodeConversion } from "~/core/tools/codeConversion";
 import { copyToBoard } from "~/core/utils/browser";
 
