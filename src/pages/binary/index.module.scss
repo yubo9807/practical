@@ -1,0 +1,90 @@
+.guide{
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  li{
+    width: calc(100% / 4 - 30px);
+    box-sizing: border-box;
+    padding: 10px 8px;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.2);
+    margin-bottom: 14px;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+
+    @include utils.mediaMiddle() {
+      width: calc(100% / 3 - 14px);
+    }
+    @include utils.mediaSmall() {
+      width: calc(100% / 2 - 14px);
+    }
+    @include utils.mediaMin() {
+      width: 100%;
+    }
+
+    &::after{
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transform: translateX(-50%) skew(-45deg);
+      width: 100%;
+      height: 4px;
+      background: var(--color);
+      opacity: .7;
+      transition: transform 0.3s ease-in-out;
+    }
+    &:hover{
+      &::after{
+        transform: translateX(0) skew(-45deg);
+      }
+    }
+  }
+
+  h2{
+    color: var(--main-font-color);
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  p{
+    height: 40px;
+    color: var(--mark-font-color);
+    text-align: justify;
+    text-indent: 2em;
+    word-break: break-all;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .bottom{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+  }
+  .downloads{
+    a{
+      margin-right: 20px;
+      text-decoration: underline;
+    }
+  }
+  .preview{
+    border: 1px solid;
+    padding: 1px 4px;
+    border-radius: 4px;
+  }
+
+}
+
+:global(.br-dialog){
+  max-width: 80%;
+  .media{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

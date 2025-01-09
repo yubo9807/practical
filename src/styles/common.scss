@@ -11,6 +11,12 @@
   padding: 0 var(--both-sides-padding);
 }
 
+.text-ellipsis{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 // 模块儿之前的间隙
 .module-gap{
   margin-top: 32px;

@@ -110,7 +110,7 @@ export default (props: Props) => {
       </Dialog>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
         <h2>Use</h2>
-        <a onclick={() => setDialogOpen(true)}>realize</a>
+        <a onclick={() => setDialogOpen(true)}>源码实现</a>
       </div>
       <CodePreview value={body.demo} />
       <h2></h2>

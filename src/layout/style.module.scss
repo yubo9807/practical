@@ -29,7 +29,7 @@
       }
     }
   }
-  @include utils.mediaPhone(){
+  @include utils.mediaSmall(){
     .icon-menu{
       display: inline-block;
       width: 22px;
@@ -103,7 +103,7 @@
   // min-height: 76vh;
   min-height: calc(100vh - var(--header-height) - var(--footer-height));
 }
-@include utils.mediaPhone(){
+@include utils.mediaSmall(){
   .main{
     margin-top: 0;
   }

@@ -1,3 +1,4 @@
+import { execWorkerCode } from "./browser"
 
 type ImageCompressOption = {
   ratio?:     number
@@ -133,81 +134,5 @@ async function imageRigidCompress(base64: string, ratio: number) {
 
       return resovle(newBase64);
     })
-  })
-}
-
-function createChunk(file: File, index: number, chunkSize: number) {
-  return new Promise(resovle => {
-    const start = index * chunkSize;
-    const end = start + chunkSize;
-    // const spark = new SparkMD5.ArrayBuffer();
-    const fileReader = new FileReader();
-    const blob = file.slice(start, end);
-    fileReader.onload = (e) => {
-      // spark.append(e.target?.result as ArrayBuffer);
-      resovle({
-        start,
-        end,
-        index,
-        // hash: spark.end(),
-        blob,
-      });
-    }
-    fileReader.readAsArrayBuffer(blob);
-  })
-}
-
-onmessage = async (e) => {
-  const {
-    file,
-    chunkSize,
-    startChunkIndex: start,
-    endChunkIndex: end,
-  } = e.data;
-  const paoms = [];
-  for (let i = start; i < end; i++) {
-    paoms.push(createChunk(file, i, chunkSize));
-  }
-  const chunks = await Promise.all(paoms);
-  postMessage(chunks);
-}
-
-/**
- * 文件分片
- * @param file 
- * @param chunkSize 
- * @returns 
- */
-export function cutFile(file: File, chunkSize = 1024*1024*5) {
-  return new Promise(resovle => {
-    const chunkCount = Math.ceil(file.size / chunkSize);
-    const THREAD_COUNT = navigator.hardwareConcurrency || 4;
-    const threadChunkCount = Math.ceil(chunkCount / THREAD_COUNT);
-    const result = [];
-    let finisCount = 0;
-    for (let i = 0; i < chunkCount; i++) {
-      const worker = new Worker('./worker.js', { type: 'module' });
-      const start = i + threadChunkCount;
-      let end = (i + 1) * chunkSize;
-      if (end > chunkCount) {
-        end = chunkCount;
-      }
-      worker.postMessage({ 
-        file,
-        chunkSize,
-        startChunkIndex: start,
-        endChunkIndex: end,
-      })
-      worker.onmessage = (e) => {
-        for (let i = start; i < end; i ++) {
-          result[i] = e.data[i - start];
-        }
-        worker.terminate();
-        finisCount ++;
-        if (finisCount === THREAD_COUNT) {
-          resovle(result);
-        }
-      }
-    }
   })
 }

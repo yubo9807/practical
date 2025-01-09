@@ -44,6 +44,20 @@ export function isPromiseLike(value: any) {
 }
 
 /**
+ * 判断数据有没有发生变化
+ * @param x 
+ * @param y 
+ * @returns 
+ */
+export function isChange(x: any, y: any) {
+  if (x === y) {
+    return x === 0 && 1 / x !== 1 / y;
+  } else {
+    return x === x || y === y;
+  }
+}
+
+/**
  * 判断两个值是否相等
  * @param val1 
  * @param val2 

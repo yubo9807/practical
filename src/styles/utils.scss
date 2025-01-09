@@ -1,14 +1,37 @@
+@mixin mediaMin() {
+  @media (max-width: 554px) {
+    @content;
+  }
+}
 
-// 手机
-@mixin mediaPhone() {
+@mixin mediaSmall() {
   @media (max-width: 768px) {
     @content;
   }
 }
 
-// 平板
-@mixin mediaIpad() {
-  @media (max-width: 1024px) and (orientation:portrait) {
+@mixin mediaMiddle() {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin mediaLarge() {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+// 竖屏
+@mixin mediaPortrait() {
+  @media (orientation:portrait) {
+    @content;
+  }
+}
+
+// 横屏
+@mixin mediaLandscape() {
+  @media (orientation:landscape) {
     @content;
   }
 }

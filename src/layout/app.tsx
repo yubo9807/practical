@@ -39,14 +39,16 @@ export default () => {
           <option value="ts" selected={state.codeLanguage === 'ts'}>TypeScript</option>
           <option value="js" selected={state.codeLanguage === 'js'}>JavaScript</option>
         </select>
-        <Link to='/canvas'>画布</Link>
-        <Link to='/tools'>工具类</Link>
-        <Link to='/utils'>工具函数</Link>
+        <Link to='/binary'>Binary</Link>
+        <Link to='/canvas'>Canvas</Link>
+        <Link to='/tools'>Class</Link>
+        <Link to='/utils'>Func</Link>
       </nav>
     </header>
     <main className={['leayer', style.main]}>
       <Router>
         <Route path="/" element={Home} />
+        <Route path="/binary" element={import('@/pages/binary')} />
         <Route path="/canvas" element={import('@/pages/canvas')} exact={false} />
         <Route path="/tools" element={import('@/pages/tools')} exact={false} />
         <Route path="/utils" element={import('@/pages/utils')} exact={false} />

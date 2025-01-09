@@ -1,6 +1,6 @@
 import { h, useEffect, useMemo, useState } from "pl-react";
 import { customForEach } from "pl-react/utils";
-import { generateArray } from "~/core/utils/generator";
+import { walkArray } from "~/core/utils/generator";
 import { deepClone } from "~/core/utils/object";
 import CodeEdit, { CodeEditProps } from "./basic";
 import "./index.scss";
@@ -62,7 +62,7 @@ export default function(props: CodeEditFoldProps) {
     function recursion(data: Data[], text: string) {
       let result = '';
       if (!data.length) return text;
-      const iter = generateArray(data);
+      const iter = walkArray(data);
       let item = iter.next().value as Data;
       customForEach(arr, (val, i) => {
         if (!item) {

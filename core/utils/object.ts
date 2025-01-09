@@ -216,17 +216,3 @@ export function getLSUsedSpace(obj: any) {
 
   return length + symbolLen;
 }
-
-/**
- * 判断数据有没有发生变化
- * @param x 
- * @param y 
- * @returns 
- */
-export function hasChange(x: any, y: any) {
-  if (x === y) {
-    return x === 0 && 1 / x !== 1 / y;
-  } else {
-    return x === x || y === y;
-  }
-}

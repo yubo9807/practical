@@ -1,10 +1,12 @@
 import { Fragment, h } from "pl-react"
-import CodeEdit from "~/core/comp/CodeEdit/basic"
+import CodeEdit, { CodeEditFoldProps } from "~/core/comp/CodeEdit"
 import { CodeConversion } from "~/core/tools/codeConversion";
 import { copyToBoard } from "~/core/utils/browser";
 
 interface Props {
-  value: string
+  value:  string
+  lines?: CodeEditFoldProps['lines'],
+  ref?:   CodeEditFoldProps['ref'],
 }
 export default (props: Props) => {
 
@@ -50,9 +52,12 @@ export default (props: Props) => {
   }
 
   return <CodeEdit
+    ref={props.ref}
     value={props.value}
     toHtml={(val) => conversion.output(val)}
     isEdit={false}
+    lines={props.lines || []}
+    style={`--row-width: ${props.lines ? 44 : 30}px`}
     slotBtns={<>
       <span style='cursor: pointer;' onclick={() => copy(props.value)}>复制</span>
     </>}

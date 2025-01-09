@@ -1,8 +1,7 @@
 import { parse } from '@babel/parser'
 import { h, useEffect, useMemo, useRef, useState, useStore } from "pl-react"
 import { Link, PageProps, useRouter } from "pl-react/router"
-import CodeEdit, { CodeEditFoldProps } from "~/core/comp/CodeEdit";
-import { CodeConversion } from "~/core/tools/codeConversion";
+import { CodeEditFoldProps } from "~/core/comp/CodeEdit";
 import '~/core/tools/codeConversion/index.scss'
 import { scrollTo } from "~/core/utils/browser";
 import { CodeEditExpose } from "~/core/comp/CodeEdit/basic";
@@ -76,24 +75,6 @@ export default (props: PageProps) => {
   // #endregion
 
 
-  // 代码高亮转换
-  const conversion = new CodeConversion({
-    keywords: [
-      'import', 'export', 'default', 'from',
-      'const', 'let', 'var',
-      'function', 'this', 'arguments', 'return', 'eval',
-      'class', 'constructor', 'new', 'extends', 'super',
-      'async', 'await', 'yield',
-      'if', 'else', 'switch', 'case',
-      'try', 'catch', 'finally', 'throw',
-      'for', 'in', 'of', 'while', 'do',  'break', 'continue',
-      'debugger', 'delete', 'typeof', 'void', 'instanceof',
-      'true', 'false', 'null', 'undefined',
-      'NaN', 'Infinity',
-    ],
-  });
-
-
   const codeEditRef = useRef<CodeEditExpose>();
 
   function queryElement(line: number) {
@@ -119,13 +100,7 @@ export default (props: PageProps) => {
       }</ul>
     </aside>
     <section className={style.content}>
-      <CodeEdit
-        ref={codeEditRef}
-        value={content}
-        lines={data}
-        toHtml={(val) => conversion.output(val)}
-        isEdit={false}
-      />
+      <CodePreview ref={codeEditRef} value={content} lines={data} />
     </section>
     <aside className={style.outline}>
       <ul>{

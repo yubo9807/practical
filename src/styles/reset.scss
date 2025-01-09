@@ -12,7 +12,7 @@
   --mark-font-color: #999;
   --link-font-color: #6088b6;
 
-  @include utils.mediaPhone() {
+  @include utils.mediaSmall() {
     --both-sides-padding: 10px;
   }
   @include utils.themeDark() {
@@ -49,7 +49,7 @@ input, button {
   border-radius: 0;
 }
 
-@include utils.mediaIpad() {
+@include utils.mediaMiddle() {
   /* 移动端 a 标签点击时有默认阴影 */
   li, a, input, button {
     -webkit-tap-highlight-color: transparent;

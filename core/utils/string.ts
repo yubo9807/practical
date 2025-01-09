@@ -166,26 +166,6 @@ export const compareVersion = (v1: string, v2: string) => {
 }
 
 /**
- * 依次获取版本号值
- * @param str 版本号
- * @call const iter = walkVersion('1.0.0');
- */
-export function* walkVersion(str: string) {
-  const terminals = ['.', '-'];
-  let part = '';
-  for (let i = 0; i < str.length; i++) {
-    const value = str[i];
-    if (terminals.includes(value)) {
-      yield part;
-      part = '';
-    } else {
-      part += value;
-    }
-  }
-  if (part) yield part;
-}
-
-/**
  * 金额大写转换
  * @param num 字符串类型数字
  * @returns 
