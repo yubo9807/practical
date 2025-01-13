@@ -11,6 +11,7 @@
   --main-font-color: #404040;
   --mark-font-color: #999;
   --link-font-color: #6088b6;
+  --line-color: #eee;
 
   @include utils.mediaSmall() {
     --both-sides-padding: 10px;

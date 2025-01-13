@@ -8,6 +8,9 @@
     overflow-y: auto;
     position: sticky;
     top: var(--header-height);
+    @include utils.mediaSmall() {
+      display: none;
+    }
   }
 }
 
@@ -16,14 +19,14 @@
     line-height: 2;
     font-size: 16px;
     &:not(:last-child){
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid var(--line-color);
     }
     > a{
       display: block;
       padding: 0 6px;
     }
     :global(.exact-active){
-      background: #eee;
+      background: var(--line-color);
     }
   }
 }
@@ -31,12 +34,16 @@
 .content{
   width: calc(100% - var(--side-width));
   margin-left: 14px;
+  @include utils.mediaSmall() {
+    width: 100%;
+    margin-left: 0;
+  }
   > h2{
     margin-top: 10px;
   }
   :global(#container){
     min-height: 260px;
-    border: 1px solid #eee;
+    border: 1px solid var(--line-color);
     overflow-x: auto;
   }
 }

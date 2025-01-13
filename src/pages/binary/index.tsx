@@ -49,16 +49,15 @@ export default () => {
     },
   ]
 
-  const [preview, setPreview] = useState({
-    open: false,
-    url: '',
-  });
+  const [open, setOpen] = useState(false);
+  const [currentUrl, setCurrentUrl] = useState('');
 
   function handlePreview(url: string) {
-    setPreview({
-      open: true,
-      url,
-    })
+    setOpen(true);
+    setCurrentUrl(url);
+  }
+  function onClose() {
+    setOpen(false);
   }
 
   return <div>
@@ -68,6 +67,7 @@ export default () => {
         <p>{item.description}</p>
         <div className={style.bottom}>
           <ul className={style.downloads}>
+            下载：&nbsp;
             {...item.downloads.map(val => <a href={PREFIX + val.url} download="">{val.system}</a>)}
           </ul>
           <a className={style.preview} onclick={() => handlePreview(item.preview)}>预览</a>
@@ -75,10 +75,10 @@ export default () => {
       </li>)}
     </ul>
 
-    <Dialog open={preview.open} onClose={() => setPreview({ open: false, url: '' })}>
-      {preview.url.endsWith('.jpg')
-        ? <img className={style.media} src={PREFIX + preview.url} />
-        : <video className={style.media} src={PREFIX + preview.url} autoplay></video>
+    <Dialog open={open} onClose={onClose}>
+      {currentUrl && (currentUrl.endsWith('.jpg')
+        ? <img className={style.media} src={PREFIX + currentUrl} />
+        : <video className={style.media} src={PREFIX + currentUrl} controls autoplay onended={onClose}></video>)
       }
     </Dialog>
   </div>

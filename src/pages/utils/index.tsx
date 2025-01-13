@@ -7,13 +7,14 @@ import { scrollTo } from "~/core/utils/browser";
 import { CodeEditExpose } from "~/core/comp/CodeEdit/basic";
 import { getUtilsSourceCode } from "@/utils/source"
 import style from './style.module.scss';
-import { storeVariable } from '@/store/variable';
+import { defineStoreVariable } from '@/store/variable';
 import { tsToJs } from '@/utils/code-convert';
 import CodePreview from '@/components/CodePreview';
+import { defineStoreSuspension } from '@/store/suspension';
 
 export default (props: PageProps) => {
 
-  const [state] = useStore(storeVariable);
+  const storeVariable = useStore(defineStoreVariable);
   const [list, setList] = useState<string[]>([]);
   const [content, setContent] = useState<string>('');
 
@@ -24,7 +25,7 @@ export default (props: PageProps) => {
     const query = keys.find(val => val === key);
 
     let result = body[query || keys[0]];
-    if (state.codeLanguage === 'js') {
+    if (storeVariable.state.codeLanguage === 'js') {
       result = tsToJs(result);
     }
     setContent(result);
@@ -45,7 +46,7 @@ export default (props: PageProps) => {
     }
     const key = router.current.path + '.ts';
     change(key);
-  }, [state.codeLanguage])
+  }, [storeVariable.state.codeLanguage])
 
 
   // #region 代码块内容解析（内容折叠）
@@ -88,16 +89,29 @@ export default (props: PageProps) => {
     }
   }
 
+  const menu = <ul className={style.navigation}>{
+    ...list.map(val => {
+      const name = val.split('/')[2].replace('.ts', '');
+      return <li>
+        <Link to={val.split('.')[0]}>{name}</Link>
+      </li>
+    })
+  }</ul>
+  const storeSuspension = useStore(defineStoreSuspension);
+  useEffect(() => {
+    if (!list.length) return;
+    storeSuspension.dispatch({
+      type: 'menuSet',
+      payload: menu,
+    })
+  }, [list])
+  useEffect(() => () => {
+    storeSuspension.dispatch({ type: 'menuClear' });
+  }, [])
+
   return <div className={style.pageUtils}>
-    <aside className={style.navigation}>
-      <ul>{
-        ...list.map(val => {
-          const name = val.split('/')[2].replace('.ts', '');
-          return <li>
-            <Link to={val.split('.')[0]}>{name}</Link>
-          </li>
-        })
-      }</ul>
+    <aside>
+      {menu}
     </aside>
     <section className={style.content}>
       <CodePreview ref={codeEditRef} value={content} lines={data} />

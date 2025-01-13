@@ -143,10 +143,7 @@ export class JoinLine {
       function mousemove(e: MouseEvent) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         resetDraw();
-        ctx.beginPath();
-        ctx.moveTo(startX, startY);
-        ctx.lineTo(e.offsetX, e.offsetY);
-        ctx.stroke();
+        joinLine(startX, startY, e.offsetX, e.offsetY);
       }
 
       document.addEventListener('mouseup', mouseup);

@@ -3,13 +3,13 @@ import { defineStore } from "pl-react";
 type State = {
   codeLanguage: 'ts' | 'js'
 }
-const state: State = {
-  codeLanguage: 'ts',
-}
-
 type Action = {
   type: 'codeLanguageChange'
   payload: 'ts' | 'js'
+}
+
+const state: State = {
+  codeLanguage: 'ts',
 }
 function reducer(state: State, action: Action) {
   switch (action.type) {
@@ -24,4 +24,4 @@ function reducer(state: State, action: Action) {
   }
 }
 
-export const storeVariable = defineStore(reducer, state);
+export const defineStoreVariable = defineStore(reducer, state);

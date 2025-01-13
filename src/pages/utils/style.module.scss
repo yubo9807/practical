@@ -8,6 +8,9 @@
     overflow-y: auto;
     position: sticky;
     top: var(--header-height);
+    @include utils.mediaSmall() {
+      display: none;
+    }
   }
 }
 
@@ -17,30 +20,39 @@
     line-height: 2;
     font-size: 16px;
     &:not(:last-child){
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid var(--line-color);
     }
     > a{
       display: block;
       padding: 0 6px;
     }
     :global(.exact-active){
-      background: #eee;
+      background: var(--line-color);
     }
   }
 }
 
 .content{
   width: calc(100% - var(--side-width) * 2);
+  @include utils.mediaMiddle() {
+    width: calc(100% - var(--side-width));
+  }
+  @include utils.mediaSmall() {
+    width: 100%;
+  }
 }
 
 .outline{
+  @include utils.mediaMiddle() {
+    display: none;
+  }
   li{
     padding: 0 10px;
     box-sizing: border-box;
     line-height: 2;
     color: #666;
     cursor: pointer;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--line-color);
   }
   .total{
     margin-top: 10px;

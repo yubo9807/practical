@@ -7,15 +7,16 @@ import Dialog from '~/core/comp/Dialog';
 import Markdown from "@/components/Markdown";
 import { getToolsSourceCode } from "@/utils/source";
 import style from './style.module.scss';
-import { storeVariable } from "@/store/variable";
+import { defineStoreVariable } from "@/store/variable";
 import { tsToJs } from "@/utils/code-convert";
+import { defineStoreSuspension } from "@/store/suspension";
 
 type Props = PageProps & {
   getSource: typeof getToolsSourceCode;
 }
 export default (props: Props) => {
 
-  const [state] = useStore(storeVariable);
+  const storeVariable = useStore(defineStoreVariable);
   const [list, setList] = useState<{ name: string, title: string }[]>([]);
   const [body, setBody] = useState({
     code: '',
@@ -59,7 +60,7 @@ export default (props: Props) => {
       demo: removeExportDefaultDeclaration(demo),
       readme,
     }
-    if (state.codeLanguage === 'js') {
+    if (storeVariable.state.codeLanguage === 'js') {
       body.code = tsToJs(code);
       body.demo = tsToJs(body.demo);
     }
@@ -90,17 +91,30 @@ export default (props: Props) => {
     }
     const key = router.current.path.replace(props.path + '/', '');
     change(key);
-  }, [state.codeLanguage])
+  }, [storeVariable.state.codeLanguage])
 
   const [dialogOpen, setDialogOpen] = useState(false);
 
+  const menu = <ul className={style.navigation}>
+    {...list.map(val => <li>
+      <Link className='text-ellipsis' to={`${props.path}/${val.name}`}>{val.title || val.name}</Link>
+    </li>)}
+  </ul>
+  const storeSuspension = useStore(defineStoreSuspension);
+  useEffect(() => {
+    if (!list.length) return;
+    storeSuspension.dispatch({
+      type: 'menuSet',
+      payload: menu,
+    })
+  }, [list])
+  useEffect(() => () => {
+    storeSuspension.dispatch({ type: 'menuClear' });
+  }, [])
+
   return <div className={style.pageTools}>
     <aside>
-      <ul className={style.navigation}>
-        {...list.map(val => <li>
-          <Link to={`${props.path}/${val.name}`}>{val.title || val.name}</Link>
-        </li>)}
-      </ul>
+      {menu}
     </aside>
     <section className={style.content}>
       <h2>Preview</h2>

@@ -1,9 +1,9 @@
-import { Fragment, h, useEffect, useState, useStore } from "pl-react"
+import { Fragment, h, useEffect, useState } from "pl-react"
 import { Link, Router, Route, useRouter } from "pl-react/router"
 import env from '~/config/env'
 import style from './style.module.scss';
 import Home from '@/pages/home'
-import { storeVariable } from "@/store/variable";
+import Nav from "./components/nav";
 
 export default () => {
 
@@ -16,15 +16,6 @@ export default () => {
     })
   }, []);
 
-
-  const [state, dispatch] = useStore(storeVariable);
-  function selectChange(e) {
-    dispatch({
-      type: 'codeLanguageChange',
-      payload: e.target.value,
-    })
-  }
-
   return <>
     <header className={style.header}>
       <div>
@@ -34,16 +25,7 @@ export default () => {
         <Link className={style.title} to='/'>{env.PROJECT_NAME}</Link>
       </div>
 
-      <nav className={open && style.active}>
-        <select onchange={selectChange}>
-          <option value="ts" selected={state.codeLanguage === 'ts'}>TypeScript</option>
-          <option value="js" selected={state.codeLanguage === 'js'}>JavaScript</option>
-        </select>
-        <Link to='/binary'>Binary</Link>
-        <Link to='/canvas'>Canvas</Link>
-        <Link to='/tools'>Class</Link>
-        <Link to='/utils'>Func</Link>
-      </nav>
+      <Nav open={open} />
     </header>
     <main className={['leayer', style.main]}>
       <Router>
