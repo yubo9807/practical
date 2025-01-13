@@ -16,11 +16,12 @@
   @include utils.mediaSmall() {
     --both-sides-padding: 10px;
   }
-  @include utils.themeDark() {
-    --main-bg-color: #1a1a1a;
-    --main-font-color: #dadada;
-    --mark-bg-color: #0e2a35;
-  }
+}
+@include utils.themeDark() {
+  --main-bg-color: #1a1a1a;
+  --main-font-color: #dadada;
+  --mark-bg-color: #0e2a35;
+  --line-color: #333;
 }
 
 html{

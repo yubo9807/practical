@@ -29,7 +29,7 @@ export class JoinLine {
     type:        'single-single',
     gap:         40,
     size:        8,
-    fillStyle:   '#0C2972',
+    fillStyle:   '#0080ff',
     lineWidth:   1,
   }
   ctx: CanvasRenderingContext2D

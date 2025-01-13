@@ -89,7 +89,7 @@ export default (props: PageProps) => {
     }
   }
 
-  const menu = <ul className={style.navigation}>{
+  const getMenu = () => <ul className={style.navigation}>{
     ...list.map(val => {
       const name = val.split('/')[2].replace('.ts', '');
       return <li>
@@ -97,12 +97,13 @@ export default (props: PageProps) => {
       </li>
     })
   }</ul>
+
   const storeSuspension = useStore(defineStoreSuspension);
   useEffect(() => {
     if (!list.length) return;
     storeSuspension.dispatch({
       type: 'menuSet',
-      payload: menu,
+      payload: getMenu(),
     })
   }, [list])
   useEffect(() => () => {
@@ -111,7 +112,7 @@ export default (props: PageProps) => {
 
   return <div className={style.pageUtils}>
     <aside>
-      {menu}
+      {getMenu()}
     </aside>
     <section className={style.content}>
       <CodePreview ref={codeEditRef} value={content} lines={data} />

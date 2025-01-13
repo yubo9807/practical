@@ -3,6 +3,7 @@
   --row-bg-color: #fff;
   --row-font-color: #acadae;
   --body-bg-color: #F5F7FA;
+  --body-font-color: #000;
   --font-size: 14px;
   display: flex;
   border-radius: 4px;
@@ -28,6 +29,7 @@
     position: relative;
     width: calc(100% - var(--row-width));
     background: var(--body-bg-color);
+    color: var(--body-font-color);
     overflow-x: auto;
     > textarea, .mark{
       font-family: Consolas,Monaco,Andale Mono,monospace;

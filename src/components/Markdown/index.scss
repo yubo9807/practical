@@ -1,4 +1,8 @@
 .markdown{
+  --line-color: #eee;
+  --thead-bg-color: #f5f7ff;
+  --thead-bg-hover-color: #fafafa;
+  --code-color: #3451b2;
   ol > li{
     list-style-type: custom-counter-style;
     ul, ol{
@@ -66,7 +70,7 @@
     font-size: 1.4rem;
   }
   h1, h2 {
-    border-bottom: 1px solid #efeaea;
+    border-bottom: 1px solid var(--line-color);
     margin-bottom: 4px;
   }
   h3 {
@@ -103,7 +107,6 @@
   }
 
   code, pre {
-    background: #fff;
     color: inherit;
   }
 
@@ -111,11 +114,10 @@
     border-radius: 3px;
     font-family: Consolas, Monaco, Andale Mono, monospace;
     background: rgba(142,150,170,.14);
-    color: #3451b2;
+    color: var(--code-color);
   }
 
   pre {
-    background: #F5F7FA;
     padding: 8px 6px;
     line-height: 1.7em;
     overflow: auto;
@@ -366,10 +368,11 @@
     margin-bottom: 10px;
   }
   table {
-    border: 1px solid #eee;
+    
+    border: 1px solid var(--line-color);
   }
   table tr:hover {
-    background: #fafafa;
+    background: var(--thead-bg-hover-color);
     -o-transition: all 0.1s ease-in-out;
     -webkit-transition: all 0.1s ease-in-out;
     -moz-transition: all 0.1s ease-in-out;
@@ -377,12 +380,12 @@
     transition: all 0.1s ease-in-out;
   }
   table td, .table th {
-    border-top: 1px solid #eee;
+    border-top: 1px solid var(--line-color);
     padding: 10px;
   }
 
   table th {
-    background: #F5F7FA;
+    background: var(--thead-bg-color);
     border-top: none;
     padding: 10px;
     text-align: left;

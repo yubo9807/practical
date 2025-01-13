@@ -12,5 +12,5 @@
 | height | 指定高度 | `number` | el 的高 | - |
 | gap | 每行点之间的间距 | `number` | 40 | - |
 | size | 点大小 | `number` | 8 | - |
-| fillStyle | 填充颜色 | `string` | #0C2972 | - |
+| fillStyle | 填充颜色 | `string` | #0080ff | - |
 | lineWidth | 连线宽度 | `number` | 2 | - |

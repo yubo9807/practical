@@ -1,47 +1,47 @@
 
-// function fn<T>(a: BanType<T, Date>) {}
 /**
  * 不能是某种类型
- */
+*/
 export type BanType<T, E> = T extends E ? never : T
+// function fn<T>(a: BanType<T, Date>) {}
 
 
 // export type GetOptional<T> = {
 //   [K in keyof T as K extends Required<K> ? never : K]: T[K]
 // }
 
-// type A = { a: number, b: number, c: string }
-// type B = ExcludeKey<A, 'a'>
 /**
  * 排除对象中的某个 key
  */
 export type ExcludeKey<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
+// type A = { a: number, b: number, c: string }
+// type B = ExcludeKey<A, 'a'>
 
 
-// type A = { a: number, b: number }
-// type B = OptionalType<A, 'a'>
 /**
  * 将某些类型转为可选类型
- */
+*/
 export type OptionalType<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>
+// type A = { a: number, b: number }
+// type B = OptionalType<A, 'a'>
 
 
-// type A = { a?: number, b?: number }
-// type B = RequiredType<A, 'a'>
 /**
  * 将可选属性转为必填属性
- */
+*/
 export type RequiredType<T, K extends keyof T> = Required<Pick<T, K>> & Omit<T, K>
+// type A = { a?: number, b?: number }
+// type B = RequiredType<A, 'a'>
 
 
-// type A = { a: string } | { b: number }
-// type B = UnionToIntersection<A>
 /**
  * 联合类型转交叉类型
- */
+*/
 export type UnionToIntersection<T extends Record<string|symbol, any>> =
   (T extends any ? (x: T) => any : never) extends
   (x: infer R) => any ? R : never
+// type A = { a: string } | { b: number }
+// type B = UnionToIntersection<A>
 
 
 /**

@@ -64,6 +64,11 @@
     }
   }
 }
+@include utils.themeDark() {
+  .header{
+    background-color: rgba(26,26,26,.6);
+  }
+}
 
 .main{
   margin-top: 10px;

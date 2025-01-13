@@ -1,0 +1,44 @@
+@include utils.themeDark() {
+  .br-code-edit{
+    --body-bg-color: #0e2a35;
+    --row-bg-color: #404040;
+  }
+  .markdown{
+    --line-color: #666;
+    --thead-bg-color: #404040;
+    --thead-bg-hover-color: #404040;
+    --code-color: orange;
+  }
+  .code-highlight-container{
+
+    color: #eee;
+  
+    .block-comment, .line-comment{
+      color: #666;
+    }
+    
+    .string{
+      color: #beda78;
+    }
+    
+    .constant{
+      color: #0288dc;
+    }
+    
+    .keyword{
+      color: #efb3f7;
+    }
+    
+    .methods{
+      color: #90bee1;
+    }
+    
+    .number{
+      color: #ffbf70;
+    }
+    
+    .object{
+      color: #90bee1;
+    }
+  }
+}

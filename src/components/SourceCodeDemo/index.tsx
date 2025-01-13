@@ -95,7 +95,7 @@ export default (props: Props) => {
 
   const [dialogOpen, setDialogOpen] = useState(false);
 
-  const menu = <ul className={style.navigation}>
+  const getMenu = () => <ul className={style.navigation}>
     {...list.map(val => <li>
       <Link className='text-ellipsis' to={`${props.path}/${val.name}`}>{val.title || val.name}</Link>
     </li>)}
@@ -105,7 +105,7 @@ export default (props: Props) => {
     if (!list.length) return;
     storeSuspension.dispatch({
       type: 'menuSet',
-      payload: menu,
+      payload: getMenu(),
     })
   }, [list])
   useEffect(() => () => {
@@ -114,7 +114,7 @@ export default (props: Props) => {
 
   return <div className={style.pageTools}>
     <aside>
-      {menu}
+      {getMenu()}
     </aside>
     <section className={style.content}>
       <h2>Preview</h2>
