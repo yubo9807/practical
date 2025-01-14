@@ -1,6 +1,7 @@
-import { h, useState } from "pl-react"
+import { h, useCallback, useRef, useState } from "pl-react"
 import Dialog from "~/core/comp/Dialog/basic";
 import style from './index.module.scss'
+import { nextTick } from "pl-react/utils";
 
 export default () => {
   const PREFIX = 'http://static.hpyyb.cn';
@@ -51,13 +52,23 @@ export default () => {
 
   const [open, setOpen] = useState(false);
   const [currentUrl, setCurrentUrl] = useState('');
-
+  const videoRef = useRef<HTMLVideoElement>();
   function handlePreview(url: string) {
     setOpen(true);
     setCurrentUrl(url);
+    if (url.endsWith('.jpg')) return;
+    nextTick(() => {
+      const videoEl = videoRef.current;
+      if (videoEl.paused) {
+        // videoEl.currentTime = 0;
+        videoEl.play();
+      }
+    })
   }
   function onClose() {
     setOpen(false);
+    if (currentUrl.endsWith('.jpg')) return;
+    videoRef.current.pause();
   }
 
   return <div>
@@ -78,7 +89,7 @@ export default () => {
     <Dialog open={open} onClose={onClose}>
       {currentUrl && (currentUrl.endsWith('.jpg')
         ? <img className={style.media} src={PREFIX + currentUrl} />
-        : <video className={style.media} src={PREFIX + currentUrl} controls autoplay onended={onClose}></video>)
+        : <video ref={videoRef} className={style.media} src={PREFIX + currentUrl} controls autoplay onended={() => setOpen(false)}></video>)
       }
     </Dialog>
   </div>
