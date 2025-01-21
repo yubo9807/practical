@@ -1,21 +1,19 @@
 import { isType } from "./judge";
 import { AnyObj, BanType } from "./type";
 
-declare const FormData: any;
-
 /**
- * 深度克隆
- * @param target 
- * @returns 
+ * 删除对象中的空值
+ * @param obj
+ * @param option 过滤哪些值
  */
-export function deepClone2<T>(target: T): Promise<T> {
-  return new Promise(resolve => {
-    const { port1, port2 } = new MessageChannel();
-    port1.postMessage(target);
-    port2.onmessage = msg => {
-      resolve(msg.data);
+export function deleteEmpty(obj: AnyObj, option = [null, undefined, '']) {
+  const newObj = {}
+  for (const prop in obj) {
+    if (!option.includes(obj[prop])) {
+      newObj[prop] = obj[prop];
     }
-  })
+  }
+  return newObj;
 }
 
 /**
@@ -73,6 +71,21 @@ export function deepClone<T>(origin: T) {
   }
 
   return _deepClone(origin);
+}
+
+/**
+ * 深度克隆（异步）
+ * @param target 
+ * @returns 
+ */
+export function deepClone2<T>(target: T): Promise<T> {
+  return new Promise(resolve => {
+    const { port1, port2 } = new MessageChannel();
+    port1.postMessage(target);
+    port2.onmessage = msg => {
+      resolve(msg.data);
+    }
+  })
 }
 
 /**

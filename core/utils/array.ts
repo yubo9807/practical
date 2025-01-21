@@ -64,6 +64,30 @@ export function groupBy<T extends object>(arr: T[], generateKey: string | ((item
 }
 
 /**
+ * 扁平数组转为树形数据
+ * @param list   数据
+ * @param props  配置项 { parent: 父级键, children: 子集键 }
+ * @param parent 父级默认值
+ * @returns 
+ */
+export function arrayToTree(list: any[], props = { parent: 'parent', children: 'children' }, parent = null) {
+  const newList = [], childrenList = [];
+  list.forEach(val => {
+    if (val.hasOwnProperty(props.parent)) {
+      val[props.parent] === parent ? newList.push(val) : childrenList.push(val);
+    } else {
+      newList.push(val);
+    }
+  })
+  list.forEach(val => {
+    if (val[props.parent] === parent) {
+      val[props.children] = arrayToTree(childrenList, props, val.id);
+    };
+  });
+  return newList;
+}
+
+/**
  * 洗牌算法
  * @param numbers 
  * @returns 
