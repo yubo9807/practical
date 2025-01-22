@@ -6,7 +6,7 @@
  */
 export function isOdd(num: number) {
   // -3 / 2 = -1.5
-  return num / 2 === 1 || num % 2 === -1;
+  return num % 2 === 1 || num === -1;
 }
 
 /**

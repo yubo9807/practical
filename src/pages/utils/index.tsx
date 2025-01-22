@@ -5,7 +5,7 @@ import { CodeEditFoldProps } from "~/core/comp/CodeEdit";
 import '~/core/tools/codeConversion/index.scss'
 import { scrollTo } from "~/core/utils/browser";
 import { CodeEditExpose } from "~/core/comp/CodeEdit/basic";
-import { getUtilsSourceCode } from "@/utils/source"
+import { getUtilsFuncs, getUtilsSourceCode } from "@/utils/source"
 import style from './style.module.scss';
 import { defineStoreVariable } from '@/store/variable';
 import { tsToJs } from '@/utils/code-convert';
@@ -108,6 +108,14 @@ export default (props: PageProps) => {
   }, [list])
   useEffect(() => () => {
     storeSuspension.dispatch({ type: 'menuClear' });
+  }, [])
+
+  useEffect(() => {
+    const KEY = '$utils';
+    window[KEY] = getUtilsFuncs();
+    return () => {
+      delete window[KEY];
+    }
   }, [])
 
   return <div className={style.pageUtils}>

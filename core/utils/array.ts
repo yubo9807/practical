@@ -64,6 +64,33 @@ export function groupBy<T extends object>(arr: T[], generateKey: string | ((item
 }
 
 /**
+ * 树形数据过滤
+ * @param data 
+ * @param filter 
+ * @param children 
+ * @returns 
+ */
+export function treeArrayFilter<D extends any[]>(data: D, filter: (item: D[number]) => boolean, children = 'children') {
+  if (!data.length) return [];
+
+  const retain = [];  // 疫情报备、收集
+  for (const item of data) {
+    // 没有谎报疫情、确实有，封锁
+    if (filter(item)) {
+      retain.push(item);
+      continue;
+    }
+    if (!item[children]) continue;
+
+    // 没有疫情，继续查 区/社区
+    const newRetain = treeArrayFilter(item[children], filter, children);
+    // 但凡查出一例，区长、市长一起抓
+    newRetain.length > 0 && retain.push({ ...item, [children]: newRetain });
+  }
+  return retain;  // 等着蹲小黑屋
+}
+
+/**
  * 扁平数组转为树形数据
  * @param list   数据
  * @param props  配置项 { parent: 父级键, children: 子集键 }

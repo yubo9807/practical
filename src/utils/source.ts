@@ -1,54 +1,9 @@
-import { customForEach } from "pl-react/utils";
 
-type FileObj = Record<string, () => Promise<string>>
-type Result = {
-  utils: string[]
-  tools: string[]
-  body:  Record<string, string>
-}
+const CORE_PREFIX_URL = '/core';
 
-export const PREFIX_URL = '/core';
 export function formatUrl(url: string) {
-  return url.replace(PREFIX_URL, '');
+  return url.replace(CORE_PREFIX_URL, '');
 }
-
-// export let backupBody: Record<string, string>
-
-// /**
-//  * 获取源代码
-//  * @returns 
-//  */
-// export function getSourceCode() {
-//   return new Promise<Result>(resolve => {
-
-//     // @ts-ignore
-//     const toolsObj: FileObj = import.meta.glob('~/core/tools/**/*.(ts|md)', { as: 'raw' });
-//     const tools = Object.keys(toolsObj).map(formatUrl);
-
-//     // @ts-ignore
-//     const utilsObj: FileObj = import.meta.glob('~/core/utils/**/*.ts', { as: 'raw' });
-//     const utils = Object.keys(utilsObj).map(formatUrl);
-
-//     const keys = [...tools, ...utils];
-//     const funcs = Object.values(toolsObj).concat(Object.values(utilsObj)).map(val => val());
-
-//     const body: Record<string, string> = {}
-//     Promise.allSettled(funcs).then(res => {
-//       customForEach(res, (val, index) => {
-//         if (val.status === 'fulfilled') {
-//           body[keys[index]] = val.value;
-//         }
-//       })
-
-//       backupBody = body;
-//       resolve({
-//         utils,
-//         tools,
-//         body,
-//       })
-//     })
-//   })
-// }
 
 export function getUtilsSourceCode() {
   const result = {
@@ -65,6 +20,21 @@ export function getUtilsSourceCode() {
     result.body[k] = obj[key];
   }
   return result;
+}
+
+/**
+ * 获取所有 utils
+ * @returns 
+ */
+export function getUtilsFuncs() {
+  // @ts-ignore
+  const o = import.meta.glob('~/core/utils/*.ts', { eager: true });
+  const utils = {};
+  for (const key in o) {
+    const k = key.split('/').pop().replace('.ts', '')
+    utils[k] = o[key];
+  }
+  return utils;
 }
 
 type CommonOption = {
@@ -117,7 +87,7 @@ export function getToolsSourceCode() {
     demoObj,
     execObj,
     readmeObj,
-    path: `${PREFIX_URL}/tools/`
+    path: `${CORE_PREFIX_URL}/tools/`
   });
 }
 
@@ -136,6 +106,6 @@ export function getCanvasSourceCode() {
     demoObj,
     execObj,
     readmeObj,
-    path: `${PREFIX_URL}/canvas/`
+    path: `${CORE_PREFIX_URL}/canvas/`
   });
 }
