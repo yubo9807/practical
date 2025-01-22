@@ -48,6 +48,15 @@ export default () => {
         { system: 'Mac', url: '/binary/mac/notify', },
       ],
     },
+    {
+      name: 'GitHub WebHook Service',
+      description: '自动部署服务，自定义执行脚本',
+      color: '#bf72d6',
+      preview: '/video/deploy.mp4',
+      downloads: [
+        { system: 'Linux', url: '/binary/linux/deploy', },
+      ],
+    },
   ]
 
   const [open, setOpen] = useState(false);
