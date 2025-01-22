@@ -41,17 +41,16 @@ export default function(props: Props) {
 
   // 手动切换主题
   useLayoutEffect(() => {
+    const theme = storeVariable.state.theme;
+    const prefers = matchMedia('(prefers-color-scheme: dark)');
+    const result = theme === 'OS' ? prefers.matches ? 'dark' : 'light' : theme;
     if (isFirst) {
       const theme = localStorage.getItem(THEME_KEY) as Theme || 'OS';
       setTheme(theme);
       setIsFirst(false);
-      return;
+    } else {
+      localStorage.setItem(THEME_KEY, storeVariable.state.theme);
     }
-    localStorage.setItem(THEME_KEY, storeVariable.state.theme);
-    const theme = storeVariable.state.theme;
-    const prefers = matchMedia('(prefers-color-scheme: dark)');
-
-    const result = theme === 'OS' ? prefers.matches ? 'dark' : 'light' : theme;
     document.documentElement.dataset.theme = result;
   }, [storeVariable.state.theme])
 
