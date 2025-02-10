@@ -2,6 +2,7 @@ import { h, useCallback, useRef, useState } from "pl-react"
 import Dialog from "~/core/comp/Dialog/basic";
 import style from './index.module.scss'
 import { nextTick } from "pl-react/utils";
+import Container from "@/components/Container";
 
 export default () => {
   const PREFIX = 'http://static.hpyyb.cn';
@@ -80,7 +81,7 @@ export default () => {
     videoRef.current.pause();
   }
 
-  return <div>
+  return <Container>
     <ul className={[style.guide]}>
       {...list.map(item => <li style={`--color: ${item.color}`}>
         <h2 className='text-ellipsis'>{item.name}</h2>
@@ -101,5 +102,5 @@ export default () => {
         : <video ref={videoRef} className={style.media} src={PREFIX + currentUrl} controls autoplay onended={() => setOpen(false)}></video>)
       }
     </Dialog>
-  </div>
+  </Container>
 }

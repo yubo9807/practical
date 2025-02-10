@@ -4,9 +4,8 @@ export default () => {
   const pubSub = new PublishSubscribe();
 
   const container = document.getElementById('container');
-  const messages = document.createElement('div');
   pubSub.on('test', (data) => {
-    messages.innerText += data + '\n';
+    console.log(data);
   })
 
   const button = document.createElement('button');
@@ -16,5 +15,4 @@ export default () => {
   });
 
   container.appendChild(button);
-  container.appendChild(messages);
 }

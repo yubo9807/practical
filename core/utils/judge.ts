@@ -1,19 +1,20 @@
 
-export type Type = 'string'    | 'number'  | 'boolean' |
-                   'symbol'    | 'bigint'  |
-                   'undefined' | 'null'    |
-                   'regexp'    | 'date'    |
-                   'array'     | 'object'  |
-                   'function'  | 'promise' |
-                   'set'       | 'map'     |
-                   'weakset'   | 'weakmap' | 'weakref'
+type Type = 'String'    | 'Number'  | 'Boolean' |
+            'Symbol'    | 'Bigint'  |
+            'Undefined' | 'Null'    |
+            'RegExp'    | 'Date'    |
+            'Array'     | 'Object'  |
+            'Function'  | 'Promise' |
+            'Set'       | 'Map'     |
+            'WeakSet'   | 'WeakMap' | 'WeakRef' |
+            'Error'
 /**
  * 判断数据是什么类型
  * @param o 
  * @returns 
  */
 export function isType(o: any): Type {
-  return Object.prototype.toString.call(o).slice(8, -1).toLowerCase();
+  return Object.prototype.toString.call(o).slice(8, -1);
 }
 
 /**

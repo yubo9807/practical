@@ -1,0 +1,26 @@
+.header{
+  position: relative;
+  height: 50vh;
+  @include utils.mediaSmall{
+    height: 40vh;
+  }
+  .box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+  }
+}
+
+.title{
+  font-size: 5em;
+  color: #eeec;
+  text-shadow: 2px 2px 4px #fff, 0 0 0 #000, 2px 2px 4px #fff;
+  text-align: center;
+  white-space: nowrap;
+  @include utils.mediaSmall{
+    font-size: 3em;
+    white-space: normal;
+  }
+}

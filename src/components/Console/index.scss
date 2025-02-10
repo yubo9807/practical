@@ -1,0 +1,42 @@
+.console{
+  min-height: 200px;
+  background: var(--mark-bg-color);
+  color: var(--main-font-color);
+  padding: 4px 6px;
+  box-sizing: border-box;
+  font-family: monospace;
+  .last-line > textarea{
+    width: calc(100% - 22px);
+    background: transparent;
+    border: none;
+    outline: none;
+    resize: none;
+    vertical-align: middle;
+    padding: 0;
+  }
+
+  .result, .input{
+    color: #bdcff8;
+  }
+
+  ul{
+    word-wrap: break-word;
+  }
+
+  li>*:not(:nth-of-type(1), :nth-of-type(2)){
+    margin-left: 20px;
+  }
+
+  .number, .bigint, .boolean, .null{
+    color: #2572ff;
+  }
+  .string, .symbol{
+    color: #cb4538;
+  }
+  .undefined{
+    color: grey;
+  }
+  .error{
+    color: red;
+  }
+}

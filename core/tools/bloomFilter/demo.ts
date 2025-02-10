@@ -5,8 +5,7 @@ export default () => {
   bloom.add('foo');
   bloom.add("bar");
 
-  const wrap = document.getElementById('container');
-  wrap.innerText += bloom.has('foo') + '\n';
-  wrap.innerText += bloom.has('bar') + '\n';
-  wrap.innerText += bloom.has('baz') + '\n';
+  console.log('foo:', bloom.has('foo'));
+  console.log('bar:', bloom.has('bar'));
+  console.log('baz:', bloom.has('baz'));
 }

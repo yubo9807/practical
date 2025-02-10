@@ -5,7 +5,6 @@
       --size: 5px;
       display: inline-block;
       border: var(--size) solid transparent;
-      margin-right: 4px;
       &.unfold, &.fold{
         transition: transform .3s;
         border-left-color: #666;

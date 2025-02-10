@@ -13,9 +13,7 @@ export default () => {
   container.appendChild(button);
 
   em.on('send', (e: CustomEvent) => {
-    const p = document.createElement('p');
-    p.innerText = e.detail;
-    container.appendChild(p);
+    console.log(e.detail);
   })
 
 

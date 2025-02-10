@@ -71,8 +71,6 @@
 }
 
 .main{
-  margin-top: 10px;
-  margin-bottom: 10px;
   // min-height: 76vh;
   min-height: calc(100vh - var(--header-height) - var(--footer-height));
 }

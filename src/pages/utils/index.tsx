@@ -11,6 +11,7 @@ import { defineStoreVariable } from '@/store/variable';
 import { tsToJs } from '@/utils/code-convert';
 import CodePreview from '@/components/CodePreview';
 import { defineStoreSuspension } from '@/store/suspension';
+import Container from '@/components/Container';
 
 export default (props: PageProps) => {
 
@@ -118,7 +119,7 @@ export default (props: PageProps) => {
     }
   }, [])
 
-  return <div className={style.pageUtils}>
+  return <Container className={style.pageUtils}>
     <aside>
       {getMenu()}
     </aside>
@@ -131,5 +132,5 @@ export default (props: PageProps) => {
       }</ul>
       <div className={style.total}>total: {data.length}</div>
     </aside>
-  </div>
+  </Container>
 }

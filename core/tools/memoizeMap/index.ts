@@ -16,10 +16,9 @@ export class MemoizeMap<K = any, V = any> {
 
   get(key: K) {
     if (this._isObject(key)) {
-      this._weakMap.get(key);
-    } else {
-      this._map.get(key);
+      return this._weakMap.get(key);
     }
+    return this._map.get(key);
   }
 
   has(key: K) {

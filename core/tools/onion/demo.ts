@@ -8,14 +8,14 @@ export default () => {
   const onion = new Onion(ctx);
 
   onion.use((ctx, next) => {
-    ctx.el.innerText += ctx.a;
+    console.log(ctx.a);
     ctx.a = 456;
     next();
-    ctx.el.innerText += 'end';
+    console.log('end');
   })
 
   onion.use((ctx, next) => {
-    ctx.el.innerText += ctx.a;
+    console.log(ctx.a);
   })
 
   onion.callback();

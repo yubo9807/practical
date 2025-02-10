@@ -1,4 +1,4 @@
-import { h, useEffect, useMemo, useState, useStore } from "pl-react"
+import { h, useEffect, useLayoutEffect, useMemo, useRef, useState, useStore } from "pl-react"
 import { Link, PageProps, useRouter } from "pl-react/router";
 import { nextTick } from "pl-react/utils";
 import { parse } from '@babel/parser'
@@ -10,6 +10,8 @@ import style from './style.module.scss';
 import { defineStoreVariable } from "@/store/variable";
 import { tsToJs } from "@/utils/code-convert";
 import { defineStoreSuspension } from "@/store/suspension";
+import Console, { ConsoleExpose } from "../Console";
+import Container from "../Container";
 
 type Props = PageProps & {
   getSource: typeof getToolsSourceCode;
@@ -47,6 +49,8 @@ export default (props: Props) => {
     return result;
   }
 
+  const consoleRef = useRef<ConsoleExpose>();
+
   const toolsSource = useMemo(props.getSource, []);
   async function change(key: string) {
     const result = await toolsSource;
@@ -68,6 +72,8 @@ export default (props: Props) => {
 
     // 等组件渲染完后再操作 dom，不影响框架本身的节点对比
     nextTick(() => {
+      // console.clear();
+      consoleRef.current.clear();
       const el = document.getElementById('container');
       el.innerHTML = '';
       el.setAttribute('style', '');
@@ -112,13 +118,16 @@ export default (props: Props) => {
     storeSuspension.dispatch({ type: 'menuClear' });
   }, [])
 
-  return <div className={style.pageTools}>
+  return <Container className={style.sourceCodeDemo}>
     <aside>
       {getMenu()}
     </aside>
     <section className={style.content}>
       <h2>Preview</h2>
-      <div id="container"></div>
+      <div className={style.preview}>
+        <div id="container"></div>
+        <Console ref={consoleRef} />
+      </div>
       <Dialog open={dialogOpen} onClose={setDialogOpen} title="源码实现" style='width: 1000px'>
         <CodePreview value={body.code} />
       </Dialog>
@@ -130,5 +139,5 @@ export default (props: Props) => {
       <h2></h2>
       <Markdown text={body.readme} />
     </section>
-  </div>
+  </Container>
 }

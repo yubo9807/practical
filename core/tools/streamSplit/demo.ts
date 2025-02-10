@@ -6,6 +6,7 @@ export default () => {
   const stream = new StreamSplit({
     onMessage(msg) {
       const json = JSON.parse(msg);
+      console.log(json);
       const text = document.createTextNode(json.data);
       container.appendChild(text);
     }

@@ -1,4 +1,4 @@
-.page-tools{
+.source-code-demo{
   display: flex;
   --side-width: 200px;
 
@@ -45,5 +45,21 @@
     min-height: 260px;
     border: 1px solid var(--line-color);
     overflow-x: auto;
+  }
+  :global(#console){
+    min-height: 100px;
+    background: var(--line-color);
+  }
+}
+
+.preview{
+  @include utils.noMediaSmall() {
+    display: flex;
+    >div:first-child{
+      width: 60%;
+    }
+    >div:last-child{
+      width: 40%;
+    }
   }
 }

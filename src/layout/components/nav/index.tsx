@@ -84,9 +84,9 @@ export default function(props: Props) {
           <Option value="ts">TypeScript</Option>
           <Option value="js">JavaScript</Option>
         </Select>
-        <Link to='/canvas'>Canvas</Link>
         <Link to='/tools'>Class</Link>
         <Link to='/utils'>Func</Link>
+        <Link to='/canvas'>Canvas</Link>
         <Link to='/binary'>Binary</Link>
       </div>
       <div className={style.subMenu}>

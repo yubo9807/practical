@@ -9,6 +9,11 @@
     @content;
   }
 }
+@mixin noMediaSmall {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
 
 @mixin mediaMiddle() {
   @media (max-width: 1024px) {

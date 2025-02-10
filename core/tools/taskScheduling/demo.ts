@@ -1,24 +1,20 @@
-import { TaskSchedulings } from ".";
+import { TaskScheduling } from ".";
 import { delay } from "../../utils/async";
 
 export default () => {
-  const task = new TaskSchedulings([3, 3, 1], true);
-  console.time('task');
-  task.add(func(1000));
-  task.add(func(2000));
-  task.add(func(1500));
-  task.add(func(2500)).then(res => console.timeEnd('task'));
-  task.add(func(1800));
+  const task = new TaskScheduling(3);
+  task.add(func(100));
+  task.add(func(200));
+  task.add(func(150));
+  task.add(func(250)).then(res => console.log('task'));
+  task.add(func(180));
   task.add(func(200));
   task.add(func(300));
 
-  const container = document.getElementById('container');
   function func(num: number) {
     return async () => {
       await delay(num);
-      const p = document.createElement('p');
-      p.innerText = `delay: ${num}`;
-      container.appendChild(p);
+      console.log(num);
       return num;
     }
   }
