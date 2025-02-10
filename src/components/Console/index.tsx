@@ -135,6 +135,15 @@ export default (props: Props) => {
 
 
   const [value, setValue] = useState('');
+  // useEffect(() => {  // 去除前后空格
+  //   const target = value.trim();
+  //   if (value !== target) {
+  //     setValue(target);
+  //   }
+  // }, [value])
+  function onOnput(e: Event) {
+    setValue((e.target as HTMLInputElement).value);
+  }
   function inputEnter(e) {
     if (e.keyCode === 13) {
       const value = e.target.value.replace(/\n|(\n')$/, '');
@@ -146,8 +155,6 @@ export default (props: Props) => {
       } catch (e) {
         setList([...list, append(e)]);
       }
-    } else {
-      setValue(e.target.value);
     }
   }
 
@@ -160,7 +167,7 @@ export default (props: Props) => {
     </ul>
     <div className='last-line'>
       <span className='input'>&gt;</span>&nbsp;
-      <textarea value={value} rows={1} onkeyup={inputEnter}></textarea>
+      <textarea value={value} oninput={onOnput} rows={1} placeholder="console..." onkeyup={inputEnter} />
     </div>
   </div>
 }

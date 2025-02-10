@@ -14,13 +14,19 @@
 }
 
 .title{
+  --color: #eeec;
   font-size: 5em;
-  color: #eeec;
-  text-shadow: 2px 2px 4px #fff, 0 0 0 #000, 2px 2px 4px #fff;
+  color: var(--color);
+  text-shadow: 2px 2px 2px var(--main-bg-color), 0 0 0 var(--mark-font-color), 2px 2px 2px var(--main-bg-color);
   text-align: center;
   white-space: nowrap;
   @include utils.mediaSmall{
     font-size: 3em;
     white-space: normal;
+  }
+}
+@include utils.themeDark{
+  .title{
+    --color: #eee4;
   }
 }
