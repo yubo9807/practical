@@ -11,21 +11,26 @@ type Props = {
 export default function(props: Props) {
 
   const storeVariable = useStore(defineStoreVariable);
+
+  // #region 语言切换
   function codeLanguageChange(value: typeof storeVariable.state.codeLanguage) {
     storeVariable.dispatch({
       type: 'codeLanguageChange',
       payload: value,
     })
   }
+  // #endregion
+
 
   const storeSuspension = useStore(defineStoreSuspension);
+  // #region 菜单切换
   const [isMainMenu, setIsMainMenu] = useState(false);
   useEffect(() => {
     if (props.open) {
       setIsMainMenu(!storeSuspension.state.menu);  // 有数据，则前往子菜单
     }
   }, [props.open])
-
+  // #endregion
 
 
   // #region 主题切换

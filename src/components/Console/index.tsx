@@ -9,6 +9,7 @@ export type ConsoleExpose = {
 }
 type Props = {
   ref?: RefItem<ConsoleExpose>
+  value?: string
 }
 export default (props: Props) => {
   type Item = { type: ReturnType<typeof isType>, text: string, color: string }
@@ -110,6 +111,10 @@ export default (props: Props) => {
     arr.push(append(...msgs));
     setList(arr);
   }
+  function clear() {
+    arr.length = 0;
+    setList([]);
+  }
 
   // 重写 console.log
   useEffect(() => {
@@ -126,28 +131,44 @@ export default (props: Props) => {
   useImperativeHandle<ConsoleExpose>(props.ref, () => {
     return {
       log,
-      clear() {
-        arr.length = 0;
-        setList([]);
-      },
+      clear,
     }
   })
 
 
   const [value, setValue] = useState('');
-  // useEffect(() => {  // 去除前后空格
-  //   const target = value.trim();
-  //   if (value !== target) {
-  //     setValue(target);
-  //   }
-  // }, [value])
+  useEffect(() => {
+    props.value && setValue(props.value || '');
+  }, [props.value])
+  useEffect(() => {  // 去除前后空格
+    const target = value.trim();
+    if (value !== target) {
+      setValue(target);
+    }
+  }, [value])
   function onOnput(e: Event) {
     setValue((e.target as HTMLInputElement).value);
   }
+
+  const [logs, setLogs] = useState<string[]>([]);
+  const [index, setIndex] = useState(logs.length);
   function inputEnter(e: KeyboardEvent) {
+    if (['ArrowUp', 'ArrowDown'].includes(e.key)) {
+      let i = 0;
+      if (e.key === 'ArrowUp') {
+        i = Math.max(0, index - 1);
+      } else {
+        i = Math.min(logs.length, index + 1);
+      }
+      setIndex(i);
+      setValue(logs[index] || '');
+      return;
+    }
+
     if (!e.shiftKey && e.key === 'Enter') {
       const value = (e.target as HTMLInputElement).value.replace(/\n|(\n')$/, '');
       if (!value) return;
+      setLogs([...logs, value]);
       setValue('');
       try {
         const result = new Function('return ' + value)();
@@ -168,6 +189,9 @@ export default (props: Props) => {
     <div className='last-line'>
       <span className='input'>&gt;</span>&nbsp;
       <textarea value={value} oninput={onOnput} rows={1} placeholder="console..." onkeydown={inputEnter} />
+    </div>
+    <div className="btns">
+      <span onclick={clear}>clear</span>
     </div>
   </div>
 }

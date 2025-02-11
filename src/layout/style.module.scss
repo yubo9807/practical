@@ -86,3 +86,29 @@
   line-height: 2;
   text-align: center;
 }
+
+.btns{
+  position: fixed;
+  bottom: 10vh;
+  right: 8vw;
+  >li{
+    --size: 40px;
+    --shadow-color: rgba(0,0,0,.3);
+    margin-top: 14px;
+    width: var(--size);
+    height: var(--size);
+    background: var(--mark-bg-color);
+    border-radius: 50%;
+    box-shadow: 0 0 6px var(--shadow-color);
+    line-height: var(--size);
+    text-align: center;
+    cursor: pointer;
+  }
+}
+@include utils.themeDark() {
+  .btns{
+    >li{
+      --shadow-color: rgba(255,255,255,.3);
+    }
+  }
+}

@@ -2,7 +2,6 @@ import { defineStore } from "pl-react"
 
 type State = {
   menu: JSX.IntrinsicElements
-  btns: []
 }
 type Action
 = { type: 'menuSet', payload: JSX.IntrinsicElements }
@@ -10,7 +9,6 @@ type Action
 
 const state = {
   menu: null,
-  btns: [],
 }
 function reducer(state: State, action: Action) {
   switch (action.type) {

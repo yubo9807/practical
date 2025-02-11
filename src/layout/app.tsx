@@ -1,12 +1,15 @@
-import { Fragment, h, useEffect, useState } from "pl-react"
+import { Fragment, h, useEffect, useState, useStore } from "pl-react"
 import { Link, Router, Route, useRouter } from "pl-react/router"
 import env from '~/config/env'
 import style from './style.module.scss';
 import Home from '@/pages/home'
 import Nav from "./components/nav";
+import { defineStoreBtns } from "@/store/btns";
+import { scrollTo } from "~/core/utils/browser";
 
 export default () => {
 
+  // #region 展开侧边栏（手机端有效）
   const [open, setOpen] = useState(false);
 
   const router = useRouter();
@@ -15,6 +18,31 @@ export default () => {
       setOpen(false);
     })
   }, []);
+  // #endregion
+
+
+  // #region 悬浮按钮
+  const storeBtns = useStore(defineStoreBtns);
+  useEffect(() => {
+    const id = Symbol('scrollToTop');
+    const payload = { id, btn: <div onclick={() => scrollTo()}>⬆︎</div>, layer: 1, };
+
+    function scrollFunc() {
+      if (window.scrollY > 60) {
+        storeBtns.dispatch({ type: 'btnAdd', payload });
+      } else {
+        storeBtns.dispatch({ type: 'btnRemove', payload: id });
+      }
+    }
+
+    window.addEventListener('scroll', scrollFunc);
+    return () => {
+      window.removeEventListener('scroll', scrollFunc);
+    }
+  }, [])
+  const btns = storeBtns.state.sort((a, b) => b.layer - a.layer);
+  // #endregion
+
 
   return <>
     <header className={style.header}>
@@ -45,5 +73,6 @@ export default () => {
         </p>
       </div>
     </footer>
+    <ul className={style.btns}>{...btns.map(val => <li>{val.btn}</li>)}</ul>
   </>
 }

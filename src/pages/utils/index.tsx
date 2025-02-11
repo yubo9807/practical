@@ -1,6 +1,6 @@
 import { parse } from '@babel/parser'
 import { Comment } from '@babel/types';
-import { h, useEffect, useMemo, useRef, useState, useStore } from "pl-react"
+import { h, useEffect, useLayoutEffect, useMemo, useRef, useState, useStore } from "pl-react"
 import { Link, PageProps, useRouter } from "pl-react/router"
 import style from './style.module.scss';
 import { defineStoreVariable } from '@/store/variable';
@@ -8,17 +8,20 @@ import { defineStoreSuspension } from '@/store/suspension';
 import { CodeEditFoldProps } from "~/core/comp/CodeEdit";
 import '~/core/tools/codeConversion/index.scss'
 import { CodeEditExpose } from "~/core/comp/CodeEdit/basic";
+import Dialog from '~/core/comp/Dialog/basic';
 import CodePreview from '@/components/CodePreview';
 import Container from '@/components/Container';
 import { scrollTo } from "~/core/utils/browser";
 import { getUtilsFuncs, getUtilsSourceCode } from "@/utils/source"
 import { tsToJs } from '@/utils/code-convert';
+import { defineStoreBtns } from '@/store/btns';
+import Console, { ConsoleExpose } from '@/components/Console';
 
 export default (props: PageProps) => {
 
   const storeVariable = useStore(defineStoreVariable);
   const [list, setList] = useState<string[]>([]);
-  const [content, setContent] = useState<string>('');
+  const [current, setCurrent] = useState<{ name: string, content: string }>({ name: '', content: '' });
 
   // #region 数据获取
   const getSourceCode = useMemo(getUtilsSourceCode, []);
@@ -26,12 +29,13 @@ export default (props: PageProps) => {
     const { keys, body } = await getSourceCode;
     !list.length && setList(keys);
     const query = keys.find(val => val === key);
-    
-    let result = body[query || keys[0]];
+
+    const name = query || keys[0];
+    let result = body[name];
     if (storeVariable.state.codeLanguage === 'js') {
       result = tsToJs(result);
     }
-    setContent(result);
+    setCurrent({ name, content: result });
   }
   // #endregion
 
@@ -74,7 +78,7 @@ export default (props: PageProps) => {
     commentStart?: number
   }
   const data = useMemo(() => {
-    const ast = parse(content, {
+    const ast = parse(current.content, {
       sourceType: 'module',
       plugins: ['typescript']
     })
@@ -113,7 +117,7 @@ export default (props: PageProps) => {
       }
     }
     return result;
-  }, [content]);
+  }, [current.content]);
   // #endregion
 
 
@@ -160,7 +164,8 @@ export default (props: PageProps) => {
   // #endregion
 
 
-  // #region 全局挂载
+
+  // #region 控制台测试
   useEffect(() => {
     const KEY = '$utils';
     window[KEY] = getUtilsFuncs();
@@ -168,7 +173,25 @@ export default (props: PageProps) => {
       delete window[KEY];
     }
   }, [])
+
+  const [open, setOpen] = useState(false);
+  const consoleRef = useRef<ConsoleExpose>();
+  const consoleValue = (() => {
+    const item = current.name.split('/')[2];
+    if (!item) return '$utils.';
+    return '$utils.' + item.replace('.ts', '');
+  })();
+  const storeBtns = useStore(defineStoreBtns);
+  useEffect(() => {
+    const id = Symbol('utilsConsole');
+    const payload = { id, btn: <div onclick={() => setOpen(true)}>C</div>, layer: 2 }
+    storeBtns.dispatch({ type: 'btnAdd', payload });
+    return () => {
+      storeBtns.dispatch({ type: 'btnRemove', payload: id });
+    }
+  }, [])
   // #endregion
+
 
 
   return <Container className={style.pageUtils}>
@@ -176,21 +199,23 @@ export default (props: PageProps) => {
       {getMenu()}
     </aside>
     <section className={style.content}>
-      <CodePreview ref={codeEditRef} value={content} lines={data} />
+      <CodePreview ref={codeEditRef} value={current.content} lines={data} />
     </section>
     <aside className={style.outline}>
       <ul>{
         ...data.map(val => <li className='text-ellipsis' onclick={() => {
           const line = val.commentStart || val.start;
           queryElement(line);
-          let path = router.current.path;
-          if (path.split('/').length < 3) {
-            path = list[0];
-          }
-          router.replace({ path, query: { line: line+'' }});
+          router.replace({ path: current.name.replace('.ts', ''), query: { line: line+'' }});
         }}>{val.title || val.name}</li>)
       }</ul>
       <div className={style.total}>total: {data.length}</div>
     </aside>
+    <Dialog open={open} onClose={() => {
+      consoleRef.current.clear();
+      setOpen(false);
+    }} style='width: 500px'>
+      <Console ref={consoleRef} value={consoleValue} />
+    </Dialog>
   </Container>
 }
