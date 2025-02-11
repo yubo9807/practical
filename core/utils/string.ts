@@ -289,8 +289,8 @@ export function uuid(length = 8, chars = '0123456789abcdefghijklmnopqrstuvwxyzAB
  * 评分
  * @param r 
  * @returns 
- * @call rate(3) --> 11100
  */
 export function rate(r: number) {
   return '1111100000'.slice(5 - r, 10 - r);
 }
+// rate(3) --> 11100

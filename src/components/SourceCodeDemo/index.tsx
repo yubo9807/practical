@@ -1,17 +1,17 @@
-import { h, useEffect, useLayoutEffect, useMemo, useRef, useState, useStore } from "pl-react"
+import { parse } from '@babel/parser'
+import { h, useEffect, useMemo, useRef, useState, useStore } from "pl-react"
 import { Link, PageProps, useRouter } from "pl-react/router";
 import { nextTick } from "pl-react/utils";
-import { parse } from '@babel/parser'
-import CodePreview from "@/components/CodePreview";
 import Dialog from '~/core/comp/Dialog';
-import Markdown from "@/components/Markdown";
-import { getToolsSourceCode } from "@/utils/source";
-import style from './style.module.scss';
-import { defineStoreVariable } from "@/store/variable";
-import { tsToJs } from "@/utils/code-convert";
-import { defineStoreSuspension } from "@/store/suspension";
+import CodePreview from "../CodePreview";
+import Markdown from "../Markdown";
 import Console, { ConsoleExpose } from "../Console";
 import Container from "../Container";
+import { defineStoreVariable } from "@/store/variable";
+import { defineStoreSuspension } from "@/store/suspension";
+import { getToolsSourceCode } from "@/utils/source";
+import { tsToJs } from "@/utils/code-convert";
+import style from './style.module.scss';
 
 type Props = PageProps & {
   getSource: typeof getToolsSourceCode;

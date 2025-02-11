@@ -1,7 +1,7 @@
 import { WideClass } from "./type";
 
 /**
- * 将类变为单例
+ * 将类变为单例模式
  * @param classFn 
  * @returns 
  */

@@ -144,9 +144,9 @@ export default (props: Props) => {
   function onOnput(e: Event) {
     setValue((e.target as HTMLInputElement).value);
   }
-  function inputEnter(e) {
-    if (e.keyCode === 13) {
-      const value = e.target.value.replace(/\n|(\n')$/, '');
+  function inputEnter(e: KeyboardEvent) {
+    if (!e.shiftKey && e.key === 'Enter') {
+      const value = (e.target as HTMLInputElement).value.replace(/\n|(\n')$/, '');
       if (!value) return;
       setValue('');
       try {
@@ -167,7 +167,7 @@ export default (props: Props) => {
     </ul>
     <div className='last-line'>
       <span className='input'>&gt;</span>&nbsp;
-      <textarea value={value} oninput={onOnput} rows={1} placeholder="console..." onkeyup={inputEnter} />
+      <textarea value={value} oninput={onOnput} rows={1} placeholder="console..." onkeydown={inputEnter} />
     </div>
   </div>
 }

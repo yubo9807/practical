@@ -1,9 +1,8 @@
 import { randomNum } from './number';
 import { deepClone } from "./object";
 
-
 /**
- * 创建一个指定长度的数组，并填入内容
+ * 创建指定长度的数组，并填入内容
  * @note 与 new Array(len).fill() 的不同是写入的每一项不会出现同一引用地址
  * @param len 
  * @param item 
@@ -41,7 +40,7 @@ export function createRandomArray(len: number, max: number = 10, min: number = 0
 }
 
 /**
- * 对数组数据进行归类
+ * 数组数据分组
  * @param arr 
  * @param generateKey 
  * @returns 
@@ -64,10 +63,10 @@ export function groupBy<T extends object>(arr: T[], generateKey: string | ((item
 }
 
 /**
- * 树形数据过滤
- * @param data 
- * @param filter 
- * @param children 
+ * 树形数据过滤（数组）
+ * @param data     树形数据
+ * @param filter   过滤函数
+ * @param children 子集字段
  * @returns 
  */
 export function treeArrayFilter<D extends any[]>(data: D, filter: (item: D[number]) => boolean, children = 'children') {
@@ -162,7 +161,7 @@ export function findFragment(array: number[], query: any[]) {
 }
 
 /**
- * 转换为二维数组
+ * 一维数组转换为二维数组
  * @param arr   数组
  * @param count 多少个数为一组
  */
@@ -181,38 +180,38 @@ export function multArray(arr: any[], count = 2) {
  * @param a 数组1
  * @param b 数组2
  * @returns 
- * @call isArrayEqual([6, 5, 2, 4, 1, 3], [1, 2, 3, 4, 5, 6])  //--> true
  */
 export function isArrayEqual(a: any[], b: any[]) {
   if (a.length !== b.length) return false;
   if (a.find(x => !b.includes(x))) return false;
   return true
 }
+// isArrayEqual([6, 5, 2, 4, 1, 3], [1, 2, 3, 4, 5, 6])  //--> true
 
 /**
  * 两个数组的 交集
  * @param a 数组1
  * @param b 数组2
  * @returns 
- * @call intersectionArray(['a', 2, 6, 7], ['a', 2, 9, 'b'])  //--> [6, 7]
  */
 export function intersectionArray(a: any[], b: any[]) {
   const s = new Set(b);
   let arr = a.filter(x => !s.has(x));
   return arr;
 }
+// intersectionArray(['a', 2, 6, 7], ['a', 2, 9, 'b'])  //--> [6, 7]
 
 /**
  * 两个数组的 并集
  * @param a 
  * @param b 
  * @returns 
- * @call unionArr([1, 2, 6, 7], [1, 2, 9, 5])  //--> [1, 2]
  */
 export function union(a: any[], b: any[]) {
   const s = new Set(b);
   return a.filter(x => s.has(x));
 }
+// unionArr([1, 2, 6, 7], [1, 2, 9, 5])  //--> [1, 2]
 
 /**
  * 数组对象去重
@@ -240,7 +239,6 @@ export function querySingle(arr: number[]) {
  * 数组排列，看有多少种情况
  * @param arr
  * @returns 
- * @call permute([1, 2])  //--> [[1, 2], [2, 1]]
  */
 export function permute(arr: any[]) {
   let results: any[] = [];
@@ -259,3 +257,4 @@ export function permute(arr: any[]) {
   go([]);
   return results;
 }
+// permute([1, 2])  //--> [[1, 2], [2, 1]]

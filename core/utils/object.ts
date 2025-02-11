@@ -112,7 +112,6 @@ export function flatObject(obj: object, prefix = '', collect: Record<string, Ban
  * 获取对象的 value 值
  * @param obj 要查询的对象
  * @param name 对象的 key 值 “a.b”
- * @call getValue({a: 1, b: {c: 3}}, 'b.c')  //--> 3
  */
 export function getValue(obj: any, name: string) {
   if (!obj) return;
@@ -127,13 +126,13 @@ export function getValue(obj: any, name: string) {
   }
   return temp;
 }
+// getValue({a: 1, b: {c: 3}}, 'b.c')  //--> 3
 
 /**
  * 设置对象 value 值
  * @param obj  PS: {}
  * @param propPath 要改变的 key 值  PS: a 或 b.c
  * @param value 设置 value
- * @call const obj = {} setNestedPropertyValue(obj, 'a.b', 3)  //--> obj={a: {b: 3}}
  */
 export function setNestedPropertyValue(obj: AnyObj, propPath: string | string[], value: any) {
   if (typeof propPath === 'string') {
@@ -148,11 +147,11 @@ export function setNestedPropertyValue(obj: AnyObj, propPath: string | string[],
     obj[propPath[0]] = value;
   }
 }
+// const obj = {} setNestedPropertyValue(obj, 'a.b', 3)  //--> obj={a: {b: 3}}
 
 /**
  * 创建一个可连续赋值的对象
  * @returns 
- * @call const obj = createAnyObject(); obj.a.b.c = 123
  */
 export function createAnyObject(target = {}) {
   let nowKey = '';
@@ -175,6 +174,7 @@ export function createAnyObject(target = {}) {
     }
   })
 }
+// const obj = createAnyObject(); obj.a.b.c = 123
 
 /**
  * 优先考虑对象

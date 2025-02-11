@@ -1,7 +1,6 @@
 
 /**
  * 数字生成器
- * @call const iter = createNum(); iter.next().value;
  */
 export function* createNum(n = 0) {
   while (true) {
@@ -9,11 +8,11 @@ export function* createNum(n = 0) {
     n++;
   }
 }
+// const iter = createNum(); iter.next().value;
 
 /**
  * 依次获取版本号值
  * @param str 版本号
- * @call const iter = walkVersion('1.0.0');
  */
 export function* walkVersion(str: string) {
   const terminals = ['.', '-'];
@@ -29,6 +28,7 @@ export function* walkVersion(str: string) {
   }
   if (part) yield part;
 }
+// const iter = walkVersion('1.0.0');
 
 /**
  * 依次获取数组每一项

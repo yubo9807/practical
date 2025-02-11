@@ -73,17 +73,12 @@ export function prohibitKeydown() {
 }
 
 
-declare const cookieStore;
 /**
  * 获取 cookie 指定参数
  * @param {*} key 要获取的 key
  * @returns 
  */
-export async function getCookie(key: string) {
-  if (typeof cookieStore === 'object') {
-    const obj = await cookieStore.get(key);
-    return obj?.value;
-  }
+export function getCookie(key: string) {
   const cookie = document.cookie;
   const str = cookie.replace(/\s/g, '');
   const obj = {}
@@ -91,6 +86,19 @@ export async function getCookie(key: string) {
     obj[val.split('=')[0]] = val.split('=')[1];
   })
   return obj[key];
+}
+
+declare const cookieStore;
+/**
+ * 异步获取 cookie 指定参数（需考虑兼容性）
+ * @param key 
+ * @returns 
+ */
+export async function asyncGetCookie(key: string) {
+  if (typeof cookieStore === 'object') {
+    const obj = await cookieStore.get(key);
+    return obj?.value;
+  }
 }
 
 
@@ -149,33 +157,20 @@ export function browserType() {
 }
 
 /**
- * 生成 formData 表单
- * @param {*} obj
- * @returns
+ * 资源请求错误，更换地址重试
  */
-export function createFormData(obj: AnyObj) {
-  const data = Object.assign({}, obj);
-  const formData = new FormData();
-  for (const key in data) {
-    formData.append(key, data[key]);
-  }
-  return formData;
+export function assetsLoadError(newUrl: string) {
+  let count = 0;
+  window.addEventListener('error', (e) => {
+    const tag = e.target as HTMLScriptElement;
+    if (tag.nodeName === 'SCRIPT' && !(e instanceof ErrorEvent)) {
+      if (count > 2) return;
+      const script = document.createElement('script');
+      // @ts-ignore
+      script.src = newUrl;
+      document.write(`<script src="${newUrl}">\<\/script>`);
+      // document.head.insertBefore(script, tag);
+      count++;
+    }
+  }, true)
 }
-
-
-// 资源请求错误，更换地址重试
-// let count = 0;
-// window.addEventListener('error', (e) => {
-//   const tag = e.target;
-//   if (tag.nodeName === 'SCRIPT' && !(e instanceof ErrorEvent)) {
-//     if (count > 2) return;
-//     const url = new URL(tag.src);
-//     url.host = 'hpyyb.cn';
-//     url.port = '80';
-//     const script = document.createElement('script');
-//     script.src = url;
-//     document.write(`<script src="${url.toString()}">\<\/script>`);
-//     // document.head.insertBefore(script, tag);
-//     count++;
-//   }
-// }, true)
