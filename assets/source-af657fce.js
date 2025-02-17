@@ -1,4 +1,4 @@
-var $n=Object.defineProperty;var Xn=(e,n,t)=>n in e?$n(e,n,{enumerable:!0,configurable:!0,writable:!0,value:t}):e[n]=t;var h=(e,n,t)=>(Xn(e,typeof n!="symbol"?n+"":n,t),t),tn=(e,n,t)=>{if(!n.has(e))throw TypeError("Cannot "+t)};var x=(e,n,t)=>(tn(e,n,"read from private field"),t?t.call(e):n.get(e)),T=(e,n,t)=>{if(n.has(e))throw TypeError("Cannot add the same private member more than once");n instanceof WeakSet?n.add(e):n.set(e,t)},C=(e,n,t,r)=>(tn(e,n,"write to private field"),r?r.call(e,t):n.set(e,t),t);var yn=(e,n,t,r)=>({set _(o){C(e,n,o,t)},get _(){return x(e,n,r)}}),xn=(e,n,t)=>(tn(e,n,"access private method"),t);import{u as J,a as rn,d as Yn,h as _}from"./pl-react-3e11a3c7.js";import{i as on,e as Kn,f as Un,g as qn,p as Jn,_ as Gn,h as Vn,j as Zn,k as Qn}from"./index-2b2a87b0.js";import{p as ne,t as ee,_ as te}from"./@babel-9b7716b4.js";const mi=e=>{const[n,t]=J([]),r={Number(c){return _("span",{className:"number"},c)},String(c){return _("span",{className:"string"},c)},Boolean(c){return _("span",{className:"boolean"},c+"")},Symbol(c){return _("span",{className:"symbol"},c.toString())},Bigint(c){return _("span",{className:"bigint"},c+"n")},Undefined(c){return _("span",{className:"undefined"},c+"")},Null(c){return _("span",{className:"null"},c+"")},RegExp(c){return _("span",{className:"regexp"},c.toString())},Date(c){return _("span",{className:"date"},c.toString())},Object(c){let y="";for(const p in c)y+=`${p}: ${c[p]}, `;return _("span",{className:"object"},`{ ${y.slice(0,-2)} }`)},Array(c){return _("span",{className:"array"},`[${c.join(", ")}]`)},Function(c){return _("span",{className:"function"},c.toString())},Promise(c){return _("span",{className:"promise"},c.toString())},Set(c){let y="";for(const p of c)y+=`${p},`;return _("span",{className:"set"},`Set {${y.slice(0,-1)}}'`)},Map(c){let y="";for(const[p,v]of c)y+=`${this.value(p)}: ${this.value(v)}, `;return _("span",{className:"map"},`Map {${y.slice(0,-2)}}`)},WeakSet(c){return _("span",{className:"weakset"},c.toString())},WeakMap(c){return _("span",{className:"weakmap"},c.toString())},WeakRef(c){return _("span",{className:"weakref"},c.toString())},Error(c){return _("span",{className:"error"},c.stack)}};function o(...c){if(c.length===0)return;const y=[];for(const p of c){let v=on(p);r[v]||(v="Object");const E=r[v](p);y.push(E)}return y}const i=[...n];function s(...c){i.push(o(...c)),t(i)}function a(){i.length=0,t([])}rn(()=>{const c=console.log;return console.log=(...y)=>{s(...y),c(...y)},()=>{console.log=c}}),Yn(e.ref,()=>({log:s,clear:a}));const[l,u]=J("");rn(()=>{e.value&&u(e.value||"")},[e.value]),rn(()=>{const c=l.trim();l!==c&&u(c)},[l]);function d(c){u(c.target.value)}const[m,g]=J([]),[f,b]=J(m.length);function w(c){if(["ArrowUp","ArrowDown"].includes(c.key)){let y=0;c.key==="ArrowUp"?y=Math.max(0,f-1):y=Math.min(m.length,f+1),b(y),u(m[f]||"");return}if(!c.shiftKey&&c.key==="Enter"){const y=c.target.value.replace(/\n|(\n')$/,"");if(!y)return;g([...m,y]),u("");try{const p=new Function("return "+y)();t([...n,o(p)])}catch(p){t([...n,o(p)])}}}return _("div",{className:"console"},_("ul",null,...n.map(c=>_("li",null,_("span",{className:"result"},"<")," ",...c))),_("div",{className:"last-line"},_("span",{className:"input"},">")," ",_("textarea",{value:l,oninput:d,rows:1,placeholder:"console...",onkeydown:w})),_("div",{className:"btns"},_("span",{onclick:a},"clear")))};function pi(e){const n=ne(e,{sourceType:"module",plugins:["typescript"]});return ee(n,{TSTypeAliasDeclaration(t){t.remove()},TSInterfaceDeclaration(t){t.remove()},TSTypeAnnotation(t){t.remove()},TSTypeParameterDeclaration(t){t.remove()}}),te(n).code}const re=`import { randomNum } from './number';\r
+var $n=Object.defineProperty;var Xn=(e,n,t)=>n in e?$n(e,n,{enumerable:!0,configurable:!0,writable:!0,value:t}):e[n]=t;var d=(e,n,t)=>(Xn(e,typeof n!="symbol"?n+"":n,t),t),rn=(e,n,t)=>{if(!n.has(e))throw TypeError("Cannot "+t)};var x=(e,n,t)=>(rn(e,n,"read from private field"),t?t.call(e):n.get(e)),T=(e,n,t)=>{if(n.has(e))throw TypeError("Cannot add the same private member more than once");n instanceof WeakSet?n.add(e):n.set(e,t)},C=(e,n,t,r)=>(rn(e,n,"write to private field"),r?r.call(e,t):n.set(e,t),t);var xn=(e,n,t,r)=>({set _(o){C(e,n,o,t)},get _(){return x(e,n,r)}}),bn=(e,n,t)=>(rn(e,n,"access private method"),t);import{u as V,a as on,d as Un,h as _}from"./pl-react-3e11a3c7.js";import{i as sn,e as Yn,f as Kn,g as qn,h as Vn,j as Jn,p as Gn,_ as Zn,k as Qn,l as ne,m as ee}from"./index-05508ba8.js";import{p as te,t as re,_ as oe}from"./@babel-beed5cd7.js";const vi=e=>{const[n,t]=V([]),r={Number(c){return _("span",{className:"number"},c)},String(c){return _("span",{className:"string"},c)},Boolean(c){return _("span",{className:"boolean"},c+"")},Symbol(c){return _("span",{className:"symbol"},c.toString())},Bigint(c){return _("span",{className:"bigint"},c+"n")},Undefined(c){return _("span",{className:"undefined"},c+"")},Null(c){return _("span",{className:"null"},c+"")},RegExp(c){return _("span",{className:"regexp"},c.toString())},Date(c){return _("span",{className:"date"},c.toString())},Object(c){let y="";for(const p in c)y+=`${p}: ${c[p]}, `;return _("span",{className:"object"},`{ ${y.slice(0,-2)} }`)},Array(c){return _("span",{className:"array"},`[${c.join(", ")}]`)},Function(c){return _("span",{className:"function"},c.toString())},Promise(c){return _("span",{className:"promise"},c.toString())},Set(c){let y="";for(const p of c)y+=`${p},`;return _("span",{className:"set"},`Set {${y.slice(0,-1)}}'`)},Map(c){let y="";for(const[p,v]of c)y+=`${this.value(p)}: ${this.value(v)}, `;return _("span",{className:"map"},`Map {${y.slice(0,-2)}}`)},WeakSet(c){return _("span",{className:"weakset"},c.toString())},WeakMap(c){return _("span",{className:"weakmap"},c.toString())},WeakRef(c){return _("span",{className:"weakref"},c.toString())},Error(c){return _("span",{className:"error"},c.stack)}};function o(...c){if(c.length===0)return;const y=[];for(const p of c){let v=sn(p);r[v]||(v="Object");const E=r[v](p);y.push(E)}return y}const i=[...n];function s(...c){i.push(o(...c)),t(i)}function a(){i.length=0,t([])}on(()=>{const c=console.log;return console.log=(...y)=>{s(...y),c(...y)},()=>{console.log=c}}),Un(e.ref,()=>({log:s,clear:a}));const[l,u]=V("");on(()=>{e.value&&u(e.value||"")},[e.value]),on(()=>{const c=l.trim();l!==c&&u(c)},[l]);function h(c){u(c.target.value)}const[m,g]=V([]),[f,b]=V(m.length);function w(c){if(["ArrowUp","ArrowDown"].includes(c.key)){let y=0;c.key==="ArrowUp"?y=Math.max(0,f-1):y=Math.min(m.length,f+1),b(y),u(m[f]||"");return}if(!c.shiftKey&&c.key==="Enter"){const y=c.target.value.replace(/\n|(\n')$/,"");if(!y)return;g([...m,y]),u("");try{const p=new Function("return "+y)();t([...n,o(p)])}catch(p){t([...n,o(p)])}}}return _("div",{className:"console"},_("ul",null,...n.map(c=>_("li",null,_("span",{className:"result"},"<")," ",...c))),_("div",{className:"last-line"},_("span",{className:"input"},">")," ",_("textarea",{value:l,oninput:h,rows:1,placeholder:"console...",onkeydown:w})),_("div",{className:"btns"},_("span",{onclick:a},"clear")))};function wi(e){const n=te(e,{sourceType:"module",plugins:["typescript"]});return re(n,{TSTypeAliasDeclaration(t){t.remove()},TSInterfaceDeclaration(t){t.remove()},TSTypeAnnotation(t){t.remove()},TSTypeParameterDeclaration(t){t.remove()}}),oe(n).code}const ie=`import { randomNum } from './number';\r
 import { deepClone } from "./object";\r
 \r
 /**\r
@@ -17,6 +17,8 @@ export function createArray(len: number, item: any = void 0) {\r
   }\r
   return arr;\r
 }\r
+// createArray(3, { a: 1 });\r
+\r
 \r
 /**\r
  * 创建指定长度的随机数的数组，且规定范围不重复\r
@@ -38,6 +40,7 @@ export function createRandomArray(len: number, max: number = 10, min: number = 0
   }());\r
   return arr;\r
 }\r
+\r
 \r
 /**\r
  * 数组数据分组\r
@@ -61,6 +64,10 @@ export function groupBy<T extends object>(arr: T[], generateKey: string | ((item
   }\r
   return result;\r
 }\r
+// const data = [{ name: 'Alice', age: 21 }, { name: 'Bob', age: 32 }]\r
+// groupBy(data, 'name');  // 按键名分组\r
+// groupBy(data, val => val.age > 30 ? '老年' : '小孩')  // 自定义规则分组\r
+\r
 \r
 /**\r
  * 树形数据过滤（数组）\r
@@ -88,15 +95,28 @@ export function treeArrayFilter<D extends any[]>(data: D, filter: (item: D[numbe
   }\r
   return retain;  // 等着蹲小黑屋\r
 }\r
+// const data = [\r
+//   {\r
+//     name: '1',\r
+//     age: 21,\r
+//     children: [\r
+//       { name: '1-1', age: 32 }\r
+//     ]\r
+//   },\r
+//   { name: '2', age: 20 }\r
+// ]\r
+// const result = treeArrayFilter(data, val => val.age > 30);\r
+// console.log(result);  //=> [{ name: '1', age: 21, children: [{ name: '1-1', age: 32 }]}]\r
+\r
 \r
 /**\r
  * 扁平数组转为树形数据\r
  * @param list   数据\r
- * @param props  配置项 { parent: 父级键, children: 子集键 }\r
+ * @param props  配置项 { key: 父级键, parent: 父级键指向, children: 子集收纳 }\r
  * @param parent 父级默认值\r
  * @returns \r
  */\r
-export function arrayToTree(list: any[], props = { parent: 'parent', children: 'children' }, parent = null) {\r
+export function arrayToTree(list: any[], props = { key: 'id', parent: 'parent', children: 'children' }, parent = null) {\r
   const newList = [], childrenList = [];\r
   list.forEach(val => {\r
     if (val.hasOwnProperty(props.parent)) {\r
@@ -107,11 +127,21 @@ export function arrayToTree(list: any[], props = { parent: 'parent', children: '
   })\r
   list.forEach(val => {\r
     if (val[props.parent] === parent) {\r
-      val[props.children] = arrayToTree(childrenList, props, val.id);\r
+      val[props.children] = arrayToTree(childrenList, props, val[props.key]);\r
     };\r
   });\r
   return newList;\r
 }\r
+// const arr = [\r
+//   { id: '1', name: 'aaa' parent: null },\r
+//   { id: '2', name: 'bbb' parent: '1' },\r
+//   { id: '3', name: 'ccc' parent: '1' },\r
+//   { id: '4', name: 'ddd' parent: '2' },\r
+//   { id: '5', name: 'eee' parent: '2' },\r
+//   { id: '6', name: 'fff' parent: '3' },\r
+// ]\r
+// console.log(arrayToTree(arr))\r
+\r
 \r
 /**\r
  * 洗牌算法\r
@@ -125,6 +155,8 @@ export function shuffle(numbers: number[]) {\r
   }\r
   return numbers;\r
 }\r
+// console.log(shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))\r
+\r
 \r
 /**\r
  * 查找数组中重复的数组段\r
@@ -159,6 +191,8 @@ export function findFragment(array: number[], query: any[]) {\r
 \r
   return record.includes(void 0) ? null : record;\r
 }\r
+// findFragment([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [1, 2, 3, 4, 5]);  //--> [0, 4]\r
+\r
 \r
 /**\r
  * 一维数组转换为二维数组\r
@@ -174,6 +208,8 @@ export function multArray(arr: any[], count = 2) {\r
   });\r
   return pages;\r
 }\r
+// multArray([1, 2, 3, 4, 5, 6, 7], 3);  //--> [[1, 2, 3], [4, 5, 6], [7]]\r
+\r
 \r
 /**\r
  * 检查两个数组各项是否相等\r
@@ -188,6 +224,7 @@ export function isArrayEqual(a: any[], b: any[]) {\r
 }\r
 // isArrayEqual([6, 5, 2, 4, 1, 3], [1, 2, 3, 4, 5, 6])  //--> true\r
 \r
+\r
 /**\r
  * 两个数组的 交集\r
  * @param a 数组1\r
@@ -201,6 +238,7 @@ export function intersectionArray(a: any[], b: any[]) {\r
 }\r
 // intersectionArray(['a', 2, 6, 7], ['a', 2, 9, 'b'])  //--> [6, 7]\r
 \r
+\r
 /**\r
  * 两个数组的 并集\r
  * @param a \r
@@ -212,6 +250,7 @@ export function union(a: any[], b: any[]) {\r
   return a.filter(x => s.has(x));\r
 }\r
 // unionArr([1, 2, 6, 7], [1, 2, 9, 5])  //--> [1, 2]\r
+\r
 \r
 /**\r
  * 数组对象去重\r
@@ -225,6 +264,8 @@ export function uniqueArrayObject(arr: object[], key: string | number) {\r
     return ids.includes(cur[key]) ? acc : [...acc, cur];\r
   }, []);\r
 }\r
+// uniqueArrayObject([{ id: 1 }, { id: 2 }, { id: 1 }], 'id')  //--> [{ id: 1 }, { id: 2 }]\r
+\r
 \r
 /**\r
  * 找出数组中只出现一次的数字\r
@@ -234,6 +275,7 @@ export function uniqueArrayObject(arr: object[], key: string | number) {\r
 export function querySingle(arr: number[]) {\r
   return arr.reduce((a, b) => a ^ b, 0);\r
 }\r
+// querySingle([1, 2, 2, 3, 1])  //--> 3\r
 \r
 /**\r
  * 数组排列，看有多少种情况\r
@@ -258,7 +300,7 @@ export function permute(arr: any[]) {\r
   return results;\r
 }\r
 // permute([1, 2])  //--> [[1, 2], [2, 1]]\r
-`,oe=`import { PromiseType } from "./type";
+`,se=`import { PromiseType } from "./type";
 
 /**
  * 延迟
@@ -268,6 +310,7 @@ export function permute(arr: any[]) {\r
 export function delay(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
+// delay(1000).then(() => console.log('1s'))
 
 /**
  * 格式化异步函数，以数组形式返回
@@ -280,6 +323,7 @@ export function asyncto<P extends Promise<unknown>>(promise: P): Promise<[unknow
     .then(res => [null, res])
     .catch(err => [err, null]);
 }
+// const [err, res] = await asyncto(promise);
 
 /**
  * 整合游散的回调，将完成事件和错误事件整合到同一个函数中，通过 .then | .catch 接收
@@ -309,7 +353,22 @@ export function conformity<F extends (...args: any[]) => any, R = unknown, E = u
     }
   }
 }
-`,ie=`import { AnyObj } from "./type";\r
+/*
+// 多用在框架组件事件传递上。如：
+// 打开弹窗
+const open = conformity((info) => {
+  console.log('info,', info);
+})
+// 提交表单
+setTimeout(() => {
+  open.success(456);
+}, 100)
+// 打开弹窗
+open.exec(123).then(res => {
+  // 弹窗关闭，刷新列表
+  console.log(res);
+}) */
+`,ae=`import { AnyObj } from "./type";\r
 \r
 /**\r
  * 执行 worker 代码\r
@@ -485,7 +544,7 @@ export function assetsLoadError(newUrl: string) {\r
     }\r
   }, true)\r
 }\r
-`,se=`import { WideClass } from "./type";
+`,le=`import { WideClass } from "./type";
 
 /**
  * 将类变为单例模式
@@ -503,8 +562,24 @@ export function singleton(classFn: WideClass) {
     }
   })
 }
-`,ae=`
+// const Cla = singleton(class {
+//   a = 1;
+// });
+// const a = new Cla();
+// const b = new Cla(); b.a = 3;
+// console.log(a.a);  //--> 3
+`,ce=`import { randomNum } from "./number";
+
 type Color = [number, number, number];
+
+/**
+ * 生成随机颜色
+ */
+export function randomColor(min = '000000', max = 'ffffff') {
+  const minNumber = parseInt(min, 16), maxNumber = parseInt(max, 16);
+  return '#' + randomNum(maxNumber, minNumber).toString(16);
+}
+
 
 /**
  * 将 rgb 颜色灰度化（基于光感加权平均）
@@ -565,11 +640,11 @@ export function mergeColor(a: string, b: string) {
 
   return mergedColor;
 }
-`,le=`
+`,ue=`
 type WideDate = number | string | Date
 
 /**
- * 检查当前是否为工作日
+ * 检查该时间是否为工作日
  * @param date 
  * @returns 
  */
@@ -685,7 +760,7 @@ export function getTimeDistance(diff = 0, obj = intiailObj) {
 export function getNowDayZeroTimestamp(t = new Date()) {
   return new Date(t.toDateString()).getTime();
 }
-`,ce=`\r
+`,de=`\r
 /**\r
  * 创建自定义元素\r
  * @param name \r
@@ -890,7 +965,7 @@ export function mouseDrag(ele: HTMLElement, limit: any) {\r
       }\r
     }\r
   }, false)\r
-}`,ue=`/**
+}`,he=`/**
  * 十六进制 转 base64
  * @param hex 
  * @returns 
@@ -999,7 +1074,7 @@ export function base64ToUrl(base64String: string) {
   const blob = new Blob([uint8Array]);
   return URL.createObjectURL(blob);
 }
-`,de=`import { execWorkerCode } from "./browser";
+`,me=`import { execWorkerCode } from "./browser";
 
 /**
  * 文件转url
@@ -1068,7 +1143,7 @@ onmessage = async (e) => {
     }
   })
 }
-`,he=`
+`,pe=`
 /**
  * 数字生成器
  */
@@ -1099,6 +1174,7 @@ export function* walkVersion(str: string) {
   if (part) yield part;
 }
 // const iter = walkVersion('1.0.0');
+// iter.next().value;  //--> 1
 
 /**
  * 依次获取数组每一项
@@ -1119,7 +1195,7 @@ export function* walkObject<T extends object>(obj: T) {
     yield { key, value: obj[key]};
   }
 }
-`,me=`import { execWorkerCode } from "./browser"
+`,fe=`import { execWorkerCode } from "./browser"
 
 type ImageCompressOption = {
   ratio?:     number
@@ -1257,7 +1333,7 @@ async function imageRigidCompress(base64: string, ratio: number) {
     })
   })
 }
-`,pe=`
+`,ge=`
 type Type = 'String'    | 'Number'  | 'Boolean' |
             'Symbol'    | 'Bigint'  |
             'Undefined' | 'Null'    |
@@ -1336,7 +1412,7 @@ export function isEquals(val1: any, val2: any) {
     return val1 === val2;
   }
 }
-`,fe=`
+`,ye=`
 /**
  * 判断数字是否是一个基数
  * @param num 
@@ -1346,6 +1422,8 @@ export function isOdd(num: number) {
   // -3 / 2 = -1.5
   return num % 2 === 1 || num === -1;
 }
+// isOdd(-3);   //--> true
+// isOdd(2.3);  //--> false
 
 /**
  * 判断一个数是否为偶数
@@ -1356,6 +1434,8 @@ export function isEven(num: number) {
   const c = num / 2;
   return c / Math.floor(c) === 1 || c === 0;
 }
+// isEven(-2);  //--> true
+// isEven(2.4); //--> false
 
 /**
  * 求模
@@ -1381,6 +1461,7 @@ export function isPowerOf2(x: number) {
   if (x <= 0) return false;
   return (x & (x - 1)) === 0;
 }
+// isPowerOf2(8);  //--> true
 
 /**
  * 计算两个点的角度
@@ -1397,6 +1478,7 @@ export function calculateAngle(x1: number, y1: number, x2: number, y2: number) {
   const radian = Math.atan2(dy, dx);
   return radian * (180 / Math.PI); 
 }
+// calculateAngle(0, 0, 1, 1);  //--> -135
 
 /**
  * 计算两点之间的距离
@@ -1409,6 +1491,7 @@ export function calculateAngle(x1: number, y1: number, x2: number, y2: number) {
 export function count2Spotlength(x1: number, y1: number, x2: number, y2: number) {
   return Math.hypot(x2 - x1, y2 - y1);
 }
+// count2Spotlength(0, 0, 1, 1);  //--> 1.4142135623730951
 
 /**
  * 计算一个点的角度（坐标轴中心：(0,0)）
@@ -1423,6 +1506,7 @@ export function pointDegree(x: number, y: number) {
     return Math.abs(Math.atan2(y, -x) * 180 / Math.PI) + 180;
   }
 }
+// pointDegree(0, 1);  //--> 270
 
 /**
  * 计算元素中的一个点的角度（坐标轴中心即元素中心）
@@ -1435,6 +1519,8 @@ export function pointDegree(x: number, y: number) {
 export function elPointDegree(width: number, height: number, x: number, y: number) {
   return pointDegree(x - width / 2, y - height / 2);
 }
+// elPointDegree(100, 100, 50, 50);  //--> 0
+
 
 type Point = [number, number]
 /**
@@ -1497,6 +1583,7 @@ function getMiddlePoint(m1: number, m2: number) {
   const x2 = x1 * 3;
   return [x1 + m1, x2 + m1];
 }
+// getMiddlePoint(0, 100);  //-> [25, 75]
 
 type Option = {
   fontSize?: number
@@ -1562,6 +1649,8 @@ export function getCirclePoints(centerX: number, centerY: number, radius: number
 
   return points;
 }
+// getCirclePoints(0, 0, 20, 3);
+
 
 /**
  * 是否为圆内的点
@@ -1576,6 +1665,8 @@ export function isPointInCircle(x: number, y: number, centerX: number, centerY: 
   const distance = Math.sqrt(Math.pow((x - centerX), 2) + Math.pow((y - centerY), 2));
   return distance <= radius;
 }
+// isPointInCircle(10, 10, 0, 0, 20);  //--> true
+
 
 /**
  * 是否在闭合图形内
@@ -1594,6 +1685,8 @@ export function isPointInPolygon(x: number, y: number, polygon: { x: number, y: 
   }
   return inside;
 }
+// const arr = [{ x: 0, y: 0 }, { x: 20, y: 0 }, { x: 20, y: 20 }, { x: 0, y: 20 }]
+// isPointInPolygon(10, 10, arr);  //--> true
 
 /**
  * 获取点所在的象限
@@ -1609,6 +1702,7 @@ export function getPointQuadrant(x: number, y: number, centerX: number, centerY:
   if (x <= centerX && y <= centerY) return 3;
   if (x >= centerX && y <= centerY) return 4;
 }
+// getPointQuadrant(10, 10, 0, 0); //--> 1
 
 /**
  * 得到多边形的中心点
@@ -1630,21 +1724,15 @@ export function calculateCentroid(polygon: { x: number, y: number }[]) {
 
   return { x: centerX, y: centerY };
 }
-`,ge=`/**\r
- * 生成随机数\r
- * @param max 最大值（取不到，只可取正整数）\r
+// const arr = [{ x: 0, y: 0 }, { x: 20, y: 0 }, { x: 20, y: 20 }, { x: 0, y: 20 }]
+// calculateCentroid(arr);  //--> { x: 10, y: 10 }
+`,xe=`/**\r
+ * 生成随机数（只可取正整数）\r
+ * @param max 最大值（取不到）\r
  * @param min 最小值\r
  */\r
 export function randomNum(max: number, min: number = 0) {\r
   return ~~(Math.random() * (max - min) + min);\r
-}\r
-\r
-/**\r
- * 数字求和\r
- * @param args\r
- */\r
-export function sum(...args: number[]) {\r
-  return args.reduce((s, e) => s + e, 0);\r
 }\r
 \r
 /**\r
@@ -1665,6 +1753,8 @@ export function toFixed2AndBankCount(num: string | number = '', fixed = 2) {\r
     return str.replace(reg, ',');\r
   }\r
 }\r
+// toFixed2AndBankCount(1234);       //--> 1,234\r
+// toFixed2AndBankCount(1234.5678);  //--> 1,234.56\r
 \r
 /**\r
  * 小数转百分比\r
@@ -1675,6 +1765,7 @@ export function toFixed2AndBankCount(num: string | number = '', fixed = 2) {\r
 export function toPercentage(num: number, digit: number) {\r
   return Math.abs(num * 100).toFixed(digit) + '%';\r
 }\r
+// toPercentage(0.123456, 2);  //--> 12.35%\r
 \r
 /**\r
  * 反转整数\r
@@ -1692,6 +1783,7 @@ export function reverseInteger(num: number) {\r
   if (result > 2 ** 31 || result < -(2 ** 31)) return 0;\r
   return result;\r
 }\r
+// reverseInteger(123);  //--> 321\r
 \r
 /**\r
  * 计算字节大小\r
@@ -1708,6 +1800,7 @@ export function calculateByte(num = 0, utils = ['B', 'KB', 'MB', 'GB', 'TB', 'PB
   }\r
   return str;\r
 }\r
+// calculateByte(1024 * 3);  //--> 3KB\r
 \r
 /**\r
  * 整数转英文单词\r
@@ -1735,7 +1828,7 @@ export function numberToWords(num: number) {\r
   }\r
   return result.length === 0 ? "Zero" : result;\r
 }\r
-`,ye=`import { isType } from "./judge";\r
+// numberToWords(1004);  //--> One Thousand Four`,be=`import { isType } from "./judge";\r
 import { AnyObj, BanType } from "./type";\r
 \r
 /**\r
@@ -1752,6 +1845,7 @@ export function deleteEmpty(obj: AnyObj, option = [null, undefined, '']) {\r
   }\r
   return newObj;\r
 }\r
+// deleteEmpty({ a: 1, b: null, c: '', d: undefined });  //--> {a: 1}\r
 \r
 /**\r
  * 深度克隆\r
@@ -1844,6 +1938,7 @@ export function flatObject(obj: object, prefix = '', collect: Record<string, Ban
   }\r
   return collect;\r
 }\r
+// flatObject({ a: { b: 1 } });  //--> {a.b: 1}\r
 \r
 /**\r
  * 获取对象的 value 值\r
@@ -1884,7 +1979,9 @@ export function setNestedPropertyValue(obj: AnyObj, propPath: string | string[],
     obj[propPath[0]] = value;\r
   }\r
 }\r
-// const obj = {} setNestedPropertyValue(obj, 'a.b', 3)  //--> obj={a: {b: 3}}\r
+// const obj = {};\r
+// setNestedPropertyValue(obj, 'a.b', 3)\r
+// console.log(obj);  //--> {a: {b: 3}}\r
 \r
 /**\r
  * 创建一个可连续赋值的对象\r
@@ -1911,7 +2008,8 @@ export function createAnyObject(target = {}) {\r
     }\r
   })\r
 }\r
-// const obj = createAnyObject(); obj.a.b.c = 123\r
+// const obj = createAnyObject();\r
+// obj.a.b.c = 123\r
 \r
 /**\r
  * 优先考虑对象\r
@@ -1937,6 +2035,8 @@ export function priorityObject<T extends object, S extends object>(target: T, so
   })\r
   return p as T & S;\r
 }\r
+// const config = priorityObject({ server: void 0 }, { server: { port: 8080 } });\r
+// console.log(config.server.port);  // 8080\r
 \r
 \r
 /**\r
@@ -1944,82 +2044,29 @@ export function priorityObject<T extends object, S extends object>(target: T, so
  * @param obj \r
  * @returns \r
  */\r
-export function getLSUsedSpace(obj: any) {\r
+export function getLSUsedSpace(obj: object) {\r
 \r
-  const length = Object.keys(obj).reduce((total, curKey) => {\r
-    if (!obj.hasOwnProperty(curKey)) return total;\r
+  function getSize(o: any) {\r
+    if (typeof o === 'object' && o !== null) {\r
+      let size = 0;\r
+      for (const k in o) {\r
+        const v = o[k];\r
+        size += getSize(k) + getSize(v);\r
+      }\r
+      return size;\r
+    }\r
+    return o.toString().length;\r
+  }\r
 \r
-    if (typeof obj[curKey] === 'string') total += obj[curKey].length + curKey.length;\r
-    else total += JSON.stringify(obj[curKey]).replace(/"/g, '').length + curKey.length;\r
-\r
-    return total;\r
+  const symbolLen = Object.getOwnPropertySymbols(obj).reduce((total, key) => {\r
+    return total += getSize(obj[key]);\r
   }, 0);\r
 \r
-  const symbolLen = Object.getOwnPropertySymbols(obj).reduce((total, curKey) => {\r
-    if (!obj.hasOwnProperty(curKey)) return total;\r
-\r
-    if (typeof obj[curKey] === 'string') total += obj[curKey].length;\r
-    else total += JSON.stringify(obj[curKey]).replace(/"/g, '').length;\r
-\r
-    return total;\r
-  }, 0);\r
-\r
-  return length + symbolLen;\r
+  return getSize(obj) + symbolLen;\r
 }\r
-`,xe=`
-declare const window: any, document: any;
-const { log: c } = console;
-
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    const timing = window.performance.timing, loadObj = {};
-    const paint = window.performance.getEntriesByType('paint');
-
-    loadObj['DNS查询耗时'] = timing.domainLookupEnd - timing.domainLookupStart;
-    loadObj['TCP链接耗时'] = timing.connectEnd - timing.connectStart;
-    loadObj['request耗时'] = timing.responseEnd - timing.responseStart;
-    loadObj['解析DOM树耗时'] = timing.domComplete - timing.domInteractive;
-    loadObj['白屏时间'] = timing.domLoading - timing.fetchStart;
-    loadObj['domready'] = timing.domContentLoadedEventEnd - timing.fetchStart;
-    loadObj['onload'] = timing.loadEventEnd - timing.fetchStart;
-
-    loadObj['首次绘制时间(FC)'] = paint[0].startTime;
-    loadObj['首次内容绘制时间(FCP)'] = paint[1].startTime;
-
-    window.load = loadObj;
-  }, 0);
-})
-
-
-// 采集JS Error
-window.onerror = (errorMsg, url, lineNumber, columnNumber, errorObj) => {
-  let errorStack = errorObj ? errorObj.stack : null;
-  // 这里进行上报
-  c(errorMsg, url, lineNumber, columnNumber, errorStack)
-};
-window.onunhandledrejection = (e) => {
-  let errorMsg = "", errorStack = "";
-  if (typeof e.reason === "object") {
-    errorMsg = e.reason.message;
-    errorStack = e.reason.stack;
-  } else {
-    errorMsg = e.reason;
-  }
-  // 这里进行上报
-  c(errorMsg, errorStack)
-}
-
-// 将 script 变为异步加载
-export function loadScript(url: string, cb: Function, isMoudule: boolean) {
-  var script = document.createElement('script');
-  script.src = url;
-  if (cb) script.onload = cb;
-  if (isMoudule) script.type = 'module';
-  script.async = true;
-  document.body.appendChild(script);
-}
-
-/**
+// const obj = { a: '111', [Symbol('b')]: '222' }\r
+// getLSUsedSpace(obj);  //--> 7\r
+`,_e=`/**
  * 程序阻塞多长时间
  * @param time 
  */
@@ -2092,6 +2139,7 @@ export function currying(fn: Function, ...args: any[]) {
   }
 }
 
+
 export function runTask(task: Function, callback: Function) {
   // requestIdleCallback(deadline => {
   // 	if (deadline) {
@@ -2114,7 +2162,59 @@ export function runTask(task: Function, callback: Function) {
     }
   })
 }
-`,be=`import { PromiseFn } from "./type";
+
+
+// 将 script 变为异步加载
+export function loadScript(url: string, cb: Function, isMoudule: boolean) {
+  const script = document.createElement('script');
+  script.src = url;
+  // @ts-ignore
+  if (cb) script.onload = cb;
+  if (isMoudule) script.type = 'module';
+  script.async = true;
+  document.body.appendChild(script);
+}
+
+
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const timing = window.performance.timing, loadObj = {};
+    const paint = window.performance.getEntriesByType('paint');
+
+    loadObj['DNS查询耗时'] = timing.domainLookupEnd - timing.domainLookupStart;
+    loadObj['TCP链接耗时'] = timing.connectEnd - timing.connectStart;
+    loadObj['request耗时'] = timing.responseEnd - timing.responseStart;
+    loadObj['解析DOM树耗时'] = timing.domComplete - timing.domInteractive;
+    loadObj['白屏时间'] = timing.domLoading - timing.fetchStart;
+    loadObj['domready'] = timing.domContentLoadedEventEnd - timing.fetchStart;
+    loadObj['onload'] = timing.loadEventEnd - timing.fetchStart;
+
+    loadObj['首次绘制时间(FC)'] = paint[0].startTime;
+    loadObj['首次内容绘制时间(FCP)'] = paint[1].startTime;
+
+    console.log(loadObj);
+  }, 0);
+})
+
+
+// 采集JS Error
+window.onerror = (errorMsg, url, lineNumber, columnNumber, errorObj) => {
+  let errorStack = errorObj ? errorObj.stack : null;
+  // 这里进行上报
+  console.log(errorMsg, url, lineNumber, columnNumber, errorStack)
+};
+window.onunhandledrejection = (e) => {
+  let errorMsg = "", errorStack = "";
+  if (typeof e.reason === "object") {
+    errorMsg = e.reason.message;
+    errorStack = e.reason.stack;
+  } else {
+    errorMsg = e.reason;
+  }
+  // 这里进行上报
+  console.log(errorMsg, errorStack)
+}
+`,ve=`import { PromiseFn } from "./type";
 
 type TaskItem = {
   task:    PromiseFn
@@ -2357,38 +2457,7 @@ export class PausingSerialTasks {
   }
 
 }
-`,_e=`/**\r
- * 检测密码强度（最强为 4 级）\r
- * @param str \r
- */\r
-export function checkPasswordLevel(str: string) {\r
-  var lv = 0;\r
-  if (str.length < 6) return lv;\r
-  /[0-9]/.test(str) && lv++;\r
-  /[a-z]/.test(str) && lv++;\r
-  /[A-Z]/.test(str) && lv++;\r
-  /[\\.|-|_]/.test(str) && lv++;\r
-  return lv;\r
-}\r
-\r
-/**\r
- * 去除 xml 标签\r
- * @param str \r
- */\r
-export function removeXMLTag(str: string) {\r
-  return str.replace(/<[^>]+>/g, '');\r
-}\r
-\r
-/**\r
- * 是否符合两位浮点数\r
- * @param str \r
- * @returns \r
- */\r
-export function isFixed2Float(str: string) {\r
-  const reg = /^(([1-9][0-9]*)|(([0]\\.\\d{1,2}|[1-9][0-9]*\\.\\d{1,2})))$/;\r
-  return reg.test(str);\r
-}\r
-`,ve=`import { randomNum } from "./number";\r
+`,we=`import { randomNum } from "./number";\r
 \r
 /**\r
  * 敏感信息加密\r
@@ -2406,6 +2475,8 @@ export function encrypt(str: string, start = 3, end = -4) {\r
   }\r
   return startNum + password + endNum;\r
 }\r
+// encrypt('1234567890', 3, -4);  //--> 123****7890\r
+\r
 \r
 /**\r
  * 获取字符串码点长度\r
@@ -2421,6 +2492,8 @@ export function pointLength(str: string) {\r
   }\r
   return len;\r
 }\r
+// pointLength('🤣');  //--> 1\r
+// pointLength('🅰️');  //--> 2\r
 \r
 /**\r
  * 按码点获取字符串某一位\r
@@ -2440,6 +2513,7 @@ export function pointAt(str: string, index: number) {\r
     i += point > 0xffff ? 2 : 1;\r
   }\r
 }\r
+// pointAt('hello 🅰️ world', 6);  //--> 🅰\r
 \r
 /**\r
  * 按码点截取字符串\r
@@ -2457,6 +2531,37 @@ export function pointSlice(str: string, start: number, end?: number) {\r
   }\r
   return result;\r
 }\r
+// pointSlice('hello 🅰️ world', 6, 10);  //--> 🅰️ w\r
+\r
+/**\r
+ * 计算字符串字节长度\r
+ * @param str 传入字符串\r
+ */\r
+export function strBytesLength(str: string) {\r
+  let len = str.length, i = 0;\r
+  while (i < len) {\r
+    str.charCodeAt(i) > 255 && len++;  // .charCodeAt() 返回指定位置的字符的 Unicode 编码\r
+    i++;\r
+  }\r
+  return len;\r
+}\r
+// strBytesLength('h');   //--> 1\r
+// strBytesLength('哈');  //--> 2\r
+// strBytesLength('🅰️');  //--> 6\r
+\r
+/**\r
+ * 求一个字符串的 ascll 总和\r
+ * @param str \r
+ */\r
+export function ascllSum(str: string) {\r
+  const arr = str.split('');\r
+  let num = 0;\r
+  arr.forEach(val => {\r
+    num += val.charCodeAt(0);\r
+  })\r
+  return num;\r
+}\r
+// ascllSum('hello world');  //--> 1116\r
 \r
 /**\r
  * 生成随机字符串\r
@@ -2471,31 +2576,43 @@ export function randomString(len: number) {\r
   }\r
 }\r
 \r
-/**\r
- * 生成随机颜色\r
- */\r
-export function randomColor(min = '000000', max = 'ffffff') {\r
-  const minNumber = parseInt(min, 16), maxNumber = parseInt(max, 16);\r
-  return '#' + randomNum(maxNumber, minNumber).toString(16);\r
-}\r
 \r
 /**\r
- * 获取 url query\r
- * @param url \r
+ * 检测密码强度（最强为 4 级）\r
+ * @param str \r
+ */\r
+export function checkPasswordLevel(str: string) {\r
+  var lv = 0;\r
+  if (str.length < 6) return lv;\r
+  /[0-9]/.test(str) && lv++;\r
+  /[a-z]/.test(str) && lv++;\r
+  /[A-Z]/.test(str) && lv++;\r
+  /[\\.|-|_]/.test(str) && lv++;\r
+  return lv;\r
+}\r
+// checkPasswordLevel('123456');  //--> 1\r
+// checkPasswordLevel('abc123');  //--> 2\r
+// checkPasswordLevel('Abc123');  //--> 3\r
+// checkPasswordLevel('Abc12.');  //--> 4\r
+\r
+/**\r
+ * 是否符合两位浮点数\r
+ * @param str \r
  * @returns \r
  */\r
-export function parseQuery(url: string) {\r
-  const query = {};\r
-  url.replace(/([^?&=]+)=([^&]+)/g, (_, k, v) => (query[k] = v));\r
-  return query;\r
+export function isFixed2Float(str: string) {\r
+  const reg = /^(([1-9][0-9]*)|(([0]\\.\\d{1,2}|[1-9][0-9]*\\.\\d{1,2})))$/;\r
+  return reg.test(str);\r
 }\r
+// isFixed2Float('1.1');  //--> true\r
+\r
 \r
 /**\r
- * 生成重复字符串\r
+ * 生成重复字符串 (String.repeat)\r
  * @param str 传入字符串\r
  * @param n 重复次数\r
  */\r
-export function cerateRepeatStr(str: string, n: number = 1) {\r
+export function repeatStr(str: string, n: number = 1) {\r
   let num = Math.abs(n), res = '';  // 防止传入负数，造成死循环\r
   while (num) {\r
     num % 2 === 1 && (res += str);\r
@@ -2505,32 +2622,7 @@ export function cerateRepeatStr(str: string, n: number = 1) {\r
   }\r
   return res;\r
 }\r
-\r
-/**\r
- * 计算字符串字节长度\r
- * @param str 传入字符串\r
- */\r
-export function strBytesLength(str: string) {\r
-  let len = str.length, i = 0;\r
-  while (i < len) {\r
-    str.charCodeAt(i) > 255 && len++;  // .charCodeAt() 返回指定位置的字符的 Unicode 编码\r
-    i++;\r
-  }\r
-  return len;\r
-}\r
-\r
-/**\r
- * 求一个字符串的 ascll 总和\r
- * @param str \r
- */\r
-export function ascllSum(str: string) {\r
-  const arr = str.split('');\r
-  let num = 0;\r
-  arr.forEach(val => {\r
-    num += val.charCodeAt(0);\r
-  })\r
-  return num;\r
-}\r
+// repeatStr('a', 3);  //--> 'aaa'\r
 \r
 /**\r
  * 版本号比较\r
@@ -2538,7 +2630,7 @@ export function ascllSum(str: string) {\r
  * @param v2 版本号2\r
  * @returns 如果版本号相等，返回 0, 如果第一个版本号低于第二个返回 -1，否则返回 1\r
  */\r
-export const compareVersion = (v1: string, v2: string) => {\r
+export function compareVersion(v1: string, v2: string) {\r
   if (!v1 && !v2) return 0;\r
   if (!v1) return -1;\r
   if (!v2) return 1;\r
@@ -2554,6 +2646,9 @@ export const compareVersion = (v1: string, v2: string) => {\r
   }\r
   return 0;\r
 }\r
+// compareVersion('1.2.3', '1.2.3');  //--> 0\r
+// compareVersion('1.2.3', '1.2.4');  //--> -1\r
+// compareVersion('1.2.3', '1.2.2');  //--> 1\r
 \r
 /**\r
  * 金额大写转换\r
@@ -2617,51 +2712,17 @@ export function digitUppercase(num: string = '') {\r
     return money + '元整';\r
   }\r
 }\r
+// digitUppercase('1004.01'); //--> 壹仟零肆元零壹分\r
 \r
 /**\r
- * HTML 转 AST 语法树\r
- * @param html\r
- * @returns 返回 AST 语法树\r
+ * 评分\r
+ * @param r \r
+ * @returns \r
  */\r
-export function stringToVirtualDOM(html: string = '') {\r
-  // 创建一个虚拟 DOM 对象\r
-  const virtualDOM: any = {};\r
-\r
-  // 解析标签名称\r
-  const tagRegExp = /<([a-z]+)\\s*[^>]*>/;\r
-  const match = html.match(tagRegExp);\r
-  if (match) {\r
-    virtualDOM.tag = match[1];\r
-  }\r
-\r
-  // 解析属性\r
-  const attrRegExp = /\\s*([^=\\s]+)\\s*=\\s*['"]?([^'"\\s]+)['"]?/g;\r
-  let attrMatch;\r
-  const attrs = {};\r
-  while ((attrMatch = attrRegExp.exec(html))) {\r
-    attrs[attrMatch[1]] = attrMatch[2];\r
-  }\r
-  virtualDOM.attrs = attrs;\r
-\r
-  // 解析子节点\r
-  const childrenRegExp = />(.*)<\\/[a-z]+>/s;\r
-  const childrenMatch = html.match(childrenRegExp);\r
-  if (childrenMatch) {\r
-    const childrenStr = childrenMatch[1].trim();\r
-    if (childrenStr.length > 0) {\r
-      virtualDOM.children = childrenStr.split('\\n').map((childStr) => {\r
-        if (tagRegExp.test(childStr)) {\r
-          return stringToVirtualDOM(childStr);\r
-        } else {\r
-          return childStr;\r
-        }\r
-      });\r
-    }\r
-  }\r
-\r
-  return virtualDOM;\r
+export function rate(r: number) {\r
+  return '1111100000'.slice(5 - r, 10 - r);\r
 }\r
-\r
+// rate(3) --> 11100\r
 \r
 /**\r
  * 生成随机id\r
@@ -2674,17 +2735,9 @@ export function uuid(length = 8, chars = '0123456789abcdefghijklmnopqrstuvwxyzAB
     result += chars[Math.floor(Math.random() * chars.length)];\r
   return result;\r
 }\r
-\r
-/**\r
- * 评分\r
- * @param r \r
- * @returns \r
- */\r
-export function rate(r: number) {\r
-  return '1111100000'.slice(5 - r, 10 - r);\r
-}\r
-// rate(3) --> 11100\r
-`,we=`
+// uuid(32);\r
+// crypto.randomUUID();\r
+`,Se=`
 /**
  * 不能是某种类型
 */
@@ -2799,7 +2852,7 @@ export type WritableDeep<T extends Record<string|symbol, any>> = {
  * 类数组
  */
 export type ClassArray = Iterable<unknown> | ArrayLike<unknown>
-`,Se=`type Query = Record<string, string>
+`,ke=`type Query = Record<string, string>
 
 /**
  * 解析 url query
@@ -2811,6 +2864,7 @@ export function parseQuery(url: string) {
   url.replace(/([^?&=]+)=([^&]+)/g, (_, k, v) => (query[k] = v));
   return query;
 }
+// parseQuery("/path?a=1&b=2");  //--> {a: '1', b: '2'}
 
 /**
  * 组装 url query
@@ -2822,6 +2876,7 @@ export function stringifyQuery(query: Query) {
     .map((key) => \`\${key}=\${query[key]}\`)
     .join("&");
 }
+// stringifyQuery({a: '1', b: '2'});  //--> "a=1&b=2"
 
 /**
  * 解析 url
@@ -2837,13 +2892,14 @@ export function parseUrl(url: string) {
     hash: newUrl.hash.slice(1),
   }
 }
+// parseUrl("/path?a=1&b=2#hash");  //--> {fullPath: '/path?a=1&b=2#hash', path: '/path', query: {a: '1', b: '2'}, hash: 'hash'}
+
 
 interface BaseRoute {
   path?: string
   query?: Query
   hash?: string
 }
-
 /**
  * 组装 url
  * @param option 
@@ -2857,6 +2913,7 @@ export function stringifyUrl(option: BaseRoute) {
   hash && (url += \`#\${hash}\`);
   return url;
 }
+// stringifyUrl({path: '/path', query: {a: '1', b: '2'}, hash: 'hash'});  //--> "/path?a=1&b=2#hash"
 
 /**
  * 根据完整路径解析相对路径
@@ -2875,7 +2932,62 @@ export function resolvePath(integrity: string, path: string) {
   const layer = first.split('/').length + 1;
   const arr = integrity.split('/').slice(0, -layer);
   return arr.join('/') + path.slice(index);
-}`;function dn(e,n=0){return~~(Math.random()*(e-n)+n)}function ke(...e){return e.reduce((n,t)=>n+t,0)}function Ce(e="",n=2){const t=String(e),r=/(?=(\B)(\d{3})+$)/g;if(t.includes(".")){const o=t.indexOf("."),i=t.slice(0,o),s=t.slice(o,o+n+1);return i.replace(r,",")+s}else return t.replace(r,",")}function Te(e,n){return Math.abs(e*100).toFixed(n)+"%"}function Ee(e){let n=0;for(;e!==0;)n=n*10+e%10,e=Math.trunc(e/10);return n>2**31||n<-(2**31)?0:n}function Me(e=0,n=["B","KB","MB","GB","TB","PB","EB","ZB","YB","BB","NB","DB","CB","EB","ZB","YB","BB"]){const t=n.length;let r="";e<1024&&(r=e+n[0]);for(let o=1;o<t;o++)e>1024**o&&(r=Math.ceil(e/1024**o)+n[o]);return r}function Pe(e){function n(o){const i=["","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen"],s=["","","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety"],a=Array(3).fill("");let l=Math.trunc(o/100),u=o%100,d=o%10;return a[0]=l>0&&`${i[l]} Hundred`,a[1]=u<20?i[u]:s[Math.trunc(u/10)],a[2]=u>=20&&`${i[d]}`,a.filter(Boolean).join(" ")}let t=n(e%1e3);const r=["Thousand","Million","Billion"];for(let o=0;o<3;++o)e=Math.trunc(e/1e3),t=e%1e3!==0?[n(e%1e3),r[o],t].filter(Boolean).join(" "):t;return t.length===0?"Zero":t}const je=Object.freeze(Object.defineProperty({__proto__:null,calculateByte:Me,numberToWords:Pe,randomNum:dn,reverseInteger:Ee,sum:ke,toFixed2AndBankCount:Ce,toPercentage:Te},Symbol.toStringTag,{value:"Module"}));function sn(e,n=void 0){const t=new Array(e);let r=0;for(;r<t.length;)t[r]=Kn(n),r++;return t}function Le(e,n=10,t=0){let r=new Array(e);const o=i=>[...new Set(i)];return function i(){let s=0;for(;s<r.length;)r[s]=dn(n,t),s++;return o(r).length<e&&i()}(),r}function Ae(e,n){let t=n;typeof n=="string"&&(t=o=>o[n]);const r={};for(const o of e){let i=t(o);i&&(r[i]||(r[i]=[]),r[i].push(o))}return r}function Sn(e,n,t="children"){if(!e.length)return[];const r=[];for(const o of e){if(n(o)){r.push(o);continue}if(!o[t])continue;const i=Sn(o[t],n,t);i.length>0&&r.push({...o,[t]:i})}return r}function kn(e,n={parent:"parent",children:"children"},t=null){const r=[],o=[];return e.forEach(i=>{i.hasOwnProperty(n.parent)?i[n.parent]===t?r.push(i):o.push(i):r.push(i)}),e.forEach(i=>{i[n.parent]===t&&(i[n.children]=kn(o,n,i.id))}),r}function Oe(e){for(let n=e.length-1;n>0;n--){const t=Math.floor(Math.random()*(n+1));[e[n],e[t]]=[e[t],e[n]]}return e}function Ie(e,n){if(e.length<n.length)return null;n=[...n];const t=new Array(2);let r=0;for(;r<e.length&&!(e.length-r<n.length);){const o=new Array(n.length);for(let i=0;i<n.length;i++)e[r+i]===n[i]&&(o[i]=r+i);if(o.filter(i=>i!==void 0).length===n.length){t[0]=o[0],t[1]=o[o.length-1];break}r++}return t.includes(void 0)?null:t}function Re(e,n=2){const t=[];return e.forEach((r,o)=>{const i=Math.floor(o/n);!t[i]&&(t[i]=[]),t[i].push(r)}),t}function We(e,n){return!(e.length!==n.length||e.find(t=>!n.includes(t)))}function Fe(e,n){const t=new Set(n);return e.filter(o=>!t.has(o))}function Be(e,n){const t=new Set(n);return e.filter(r=>t.has(r))}function De(e,n){return e.reduce((t,r)=>t.map(i=>i[n]).includes(r[n])?t:[...t,r],[])}function Ne(e){return e.reduce((n,t)=>n^t,0)}function ze(e){let n=[],t=r=>{if(r.length===e.length){n.push(r);return}e.forEach(o=>{r.includes(o)||t([...r,o])})};return t([]),n}const He=Object.freeze(Object.defineProperty({__proto__:null,arrayToTree:kn,createArray:sn,createRandomArray:Le,findFragment:Ie,groupBy:Ae,intersectionArray:Fe,isArrayEqual:We,multArray:Re,permute:ze,querySingle:Ne,shuffle:Oe,treeArrayFilter:Sn,union:Be,uniqueArrayObject:De},Symbol.toStringTag,{value:"Module"}));function hn(e){return new Promise(n=>setTimeout(n,e))}function $e(e){return e.then(n=>[null,n]).catch(n=>[n,null])}function Xe(e){let n,t,r;return{exec(...o){return new Promise(async(i,s)=>{try{r=await e(...o)}catch(a){s(a)}n=i,t=s})},success(o){n(o||r)},fail(o){t(o)}}}const Ye=Object.freeze(Object.defineProperty({__proto__:null,asyncto:$e,conformity:Xe,delay:hn},Symbol.toStringTag,{value:"Module"}));function Ke(e){let n=null;return new Proxy(e,{construct(t,r){return n||(n=new t(...r)),n}})}const Ue=Object.freeze(Object.defineProperty({__proto__:null,singleton:Ke},Symbol.toStringTag,{value:"Module"}));function qe(e,n,t){return .2126*e+.7152*n+.0722*t}function Je(e,n,t){const r=(n[0]-e[0])/t,o=(n[1]-e[1])/t,i=(n[2]-e[2])/t,s=[];for(let a=0;a<t;a++)s.push([Math.round(e[0]+a*r),Math.round(e[1]+a*o),Math.round(e[2]+a*i)]);return s}function Ge(e,n){if(!/^#[0-9A-F]{6}$/i.test(e)||!/^#[0-9A-F]{6}$/i.test(n))throw new Error("Invalid hex color format");const t=parseInt(e.slice(1),16),r=parseInt(n.slice(1),16),o=Math.floor((t>>16)+(r>>16))/2,i=Math.floor((t>>8&255)+(r>>8&255))/2,s=Math.floor((t&255)+(r&255))/2;return`#${(o<<16|i<<8|s).toString(16).padStart(6,"0")}`}const Ve=Object.freeze(Object.defineProperty({__proto__:null,getMiddleColorList:Je,grayColor:qe,mergeColor:Ge},Symbol.toStringTag,{value:"Module"}));function Ze(e){return e.getDay()%6!==0}function Qe(e){return e.toTimeString().slice(0,8)}function Cn(e){let n=e||e===0?new Date(e):new Date;return{year:n.getFullYear()+"",month:n.getMonth()+1,day:n.getDate(),hour:n.getHours(),minute:n.getMinutes(),second:n.getSeconds()}}function nt(e=new Date,n="YYYY-MM-DD hh:mm:ss"){const{year:t,month:r,day:o,hour:i,minute:s,second:a}=Cn(e);return n.replace(/YYYY/g,t).replace(/YY/g,t.substr(2,2)).replace(/MM/g,(r<10?"0":"")+r).replace(/DD/g,(o<10?"0":"")+o).replace(/hh/g,(i<10?"0":"")+i).replace(/mm/g,(s<10?"0":"")+s).replace(/ss/g,(a<10?"0":"")+a)}const H=e=>e<10?"0"+e:e;function et(e){const n=new Date(e),t=n.getFullYear(),r=n.getMonth()+1,o=n.getDate(),i=n.getHours(),s=n.getMinutes(),a=n.getSeconds();return`${t}-${H(r)}-${H(o)} ${H(i)}:${H(s)}:${H(a)}`}const tt={day:0,hours:0,minute:0,second:0};function Z(e=0,n=tt){if(e<60)n.second=e;else if(e<3600){const r=Math.floor(e/60),o=e-60*r;n.minute=r,o>0&&Z(o,n)}else if(e<3600*24){const r=Math.floor(e/3600),o=e-3600*r;n.hours=r,o>0&&Z(o,n)}else{const r=Math.floor(e/86400),o=e-86400*r;n.day=r,o>0&&Z(o,n)}return n}function rt(e=new Date){return new Date(e.toDateString()).getTime()}const ot=Object.freeze(Object.defineProperty({__proto__:null,dateFormater:nt,getCurrentDate:Cn,getDateTime:Qe,getNowDayZeroTimestamp:rt,getTimeDistance:Z,isWeekday:Ze,switchTimeFormat:et},Symbol.toStringTag,{value:"Module"}));function it(e,n){class t extends HTMLElement{constructor(){super();const o=this.attachShadow({mode:"open"}),i=document.createElement("template");if(typeof n=="string")i.innerHTML=n,o.appendChild(i.content.cloneNode(!0));else{i.appendChild(n);for(const s of i.childNodes)o.appendChild(s)}}}customElements.define(e,t)}function st(e){return e===document.activeElement}function at(e){var n=document.createElement("div");n.appendChild(e.cloneNode(!0));var t=n.innerHTML;return n=e=null,t}function lt(e,n){for(;e&&n;)e=e.parentElement,n--;return e}function ct(e,n){for(;e&&n;)if(n>0){if(e.nextElementSibling)e=e.nextElementSibling;else for(e.nextSibling;e&&e.nextSibling!=1;e=e.nextSibling);n--}else{if(e.previousElementSibling)e=e.previousElementSibling;else for(e.previousSibling;e&&e.previousSibling!=1;e=e.previousSibling);n++}return e}const ut=(e,n)=>window.getComputedStyle?window.getComputedStyle(e,null)[n]:e.style[n];function dt(e){e=e||window.event,e.stopPropagation?e.stopPropagation():e.cancelBubble=!0}function ht(e,n){if(mn(e,n))return;let t=e.className.split(" ");t.push(n),e.className=t.join(" ")}function mt(e,n){if(!mn(e,n))return;let t=new RegExp("(^|\\s)"+n+"(\\s|$)","g");e.className=e.className.replace(t," ")}function mn(e,n){return new RegExp("(^|\\s)"+n+"(\\s|$)").test(e.className)}function pt(e){e=e||window.event,e.preventDefault?e.preventDefault():e.returnValue=!1}function ft(e,n){e.addEventListener("mousedown",function(t){var r=t.clientX-e.offsetLeft,o=t.clientY-e.offsetTop;window.addEventListener("mousemove",i,!1),window.addEventListener("mouseup",()=>{window.removeEventListener("mousemove",i,!1)},!1);function i(s){e.style.left=s.clientX-r+"px",e.style.top=s.clientY-o+"px",n!==void 0&&(parseFloat(e.style.top)<n.offsetTop&&(e.style.top=n.offsetTop+"px"),parseFloat(e.style.left)<n.offsetLeft&&(e.style.left=n.offsetLeft+"px"),parseFloat(e.style.left+e.clientWidth)>n.offsetLeft+n.clientWidth-parseFloat(e.clientWidth+"")&&(e.style.left=n.offsetLeft+n.clientWidth-parseFloat(e.clientWidth+"")+"px"),parseFloat(e.style.top+e.clientHeight)>n.offsetTop+n.clientHeight-parseFloat(e.clientHeight+"")&&(e.style.top=n.offsetTop+n.clientHeight-parseFloat(e.clientHeight+"")+"px"))}},!1)}const gt=Object.freeze(Object.defineProperty({__proto__:null,addClass:ht,cancelHandler:pt,createTemplate:it,elementIsInFocus:st,getStyle:ut,hasClassName:mn,lookupParent:lt,mouseDrag:ft,nodeToString:at,removeClass:mt,retSibling:ct,stopBubble:dt},Symbol.toStringTag,{value:"Module"}));function yt(e){const n=new Uint8Array(e.match(/.{1,2}/g).map(r=>parseInt(r,16)));let t="";for(let r of n)t+=String.fromCharCode(r);return btoa(t)}function xt(e){const n=e.replace(/=/g,""),t=atob(n),r=new Uint8Array(t.length);for(let i=0;i<t.length;i++)r[i]=t.charCodeAt(i);let o="";for(let i=0;i<r.length;i++){const a=r[i].toString(16).padStart(2,"0");o+=a}return o}function bt(e){for(var n="",t=new Uint8Array(e),r=t.byteLength,o=0;o<r;o++)n+=String.fromCharCode(t[o]);return btoa(n)}function _t(e){const n=new FileReader;return new Promise((t,r)=>{n.readAsDataURL(e),n.addEventListener("load",o=>{t(o.target.result)})})}function vt(e,n="filename",t="image/jpg"){for(var r=e.split(","),o=atob(r[1]),i=o.length,s=new Uint8Array(i);i--;)s[i]=o.charCodeAt(i);return new File([s],n,{type:t})}function wt(e){const n=atob(e),t=new Uint8Array(n.length);for(let o=0;o<n.length;o++)t[o]=n.charCodeAt(o);const r=new Blob([t]);return URL.createObjectURL(r)}const St=Object.freeze(Object.defineProperty({__proto__:null,base64ToHex:xt,base64ToUrl:wt,base64toFile:vt,bufferToBase64:bt,fileToBase64:_t,hexToBase64:yt},Symbol.toStringTag,{value:"Module"}));function kt(e){return URL.createObjectURL(e)}function Ct(e,n){const t=document.createElement("a");t.href=e,t.download=n,t.click(),t.remove()}function Tt(e,n=1024*1024*5){return new Promise(async t=>{const r=Math.ceil(e.size/n),i=Un(`
+}
+// resolvePath('/path/to', './a/b/c');  //--> "/path/to/a/b/c"`,Te=`
+/**
+ * HTML 转 AST 语法树
+ * @param html
+ * @returns 返回 AST 语法树
+ */
+export function stringToVirtualDOM(html: string = '') {
+  // 创建一个虚拟 DOM 对象
+  const virtualDOM: any = {};
+
+  // 解析标签名称
+  const tagRegExp = /<([a-z]+)\\s*[^>]*>/;
+  const match = html.match(tagRegExp);
+  if (match) {
+    virtualDOM.tag = match[1];
+  }
+
+  // 解析属性
+  const attrRegExp = /\\s*([^=\\s]+)\\s*=\\s*['"]?([^'"\\s]+)['"]?/g;
+  let attrMatch;
+  const attrs = {};
+  while ((attrMatch = attrRegExp.exec(html))) {
+    attrs[attrMatch[1]] = attrMatch[2];
+  }
+  virtualDOM.attrs = attrs;
+
+  // 解析子节点
+  const childrenRegExp = />(.*)<\\/[a-z]+>/s;
+  const childrenMatch = html.match(childrenRegExp);
+  if (childrenMatch) {
+    const childrenStr = childrenMatch[1].trim();
+    if (childrenStr.length > 0) {
+      virtualDOM.children = childrenStr.split('\\n').map((childStr) => {
+        if (tagRegExp.test(childStr)) {
+          return stringToVirtualDOM(childStr);
+        } else {
+          return childStr;
+        }
+      });
+    }
+  }
+
+  return virtualDOM;
+}
+// stringToVirtualDOM('<div class="wrap">hello world <span>!</span></div>');
+
+
+/**
+ * 去除 xml 标签
+ * @param str 
+ */
+export function removeXMLTag(str: string) {
+  return str.replace(/<[^>]+>/g, '');
+}
+// removeXMLTag('<div class="wrap">hello world</div>'); // hello world`;function hn(e,n=0){return~~(Math.random()*(e-n)+n)}function Ce(e="",n=2){const t=String(e),r=/(?=(\B)(\d{3})+$)/g;if(t.includes(".")){const o=t.indexOf("."),i=t.slice(0,o),s=t.slice(o,o+n+1);return i.replace(r,",")+s}else return t.replace(r,",")}function Ee(e,n){return Math.abs(e*100).toFixed(n)+"%"}function Me(e){let n=0;for(;e!==0;)n=n*10+e%10,e=Math.trunc(e/10);return n>2**31||n<-(2**31)?0:n}function Pe(e=0,n=["B","KB","MB","GB","TB","PB","EB","ZB","YB","BB","NB","DB","CB","EB","ZB","YB","BB"]){const t=n.length;let r="";e<1024&&(r=e+n[0]);for(let o=1;o<t;o++)e>1024**o&&(r=Math.ceil(e/1024**o)+n[o]);return r}function je(e){function n(o){const i=["","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen"],s=["","","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety"],a=Array(3).fill("");let l=Math.trunc(o/100),u=o%100,h=o%10;return a[0]=l>0&&`${i[l]} Hundred`,a[1]=u<20?i[u]:s[Math.trunc(u/10)],a[2]=u>=20&&`${i[h]}`,a.filter(Boolean).join(" ")}let t=n(e%1e3);const r=["Thousand","Million","Billion"];for(let o=0;o<3;++o)e=Math.trunc(e/1e3),t=e%1e3!==0?[n(e%1e3),r[o],t].filter(Boolean).join(" "):t;return t.length===0?"Zero":t}const Le=Object.freeze(Object.defineProperty({__proto__:null,calculateByte:Pe,numberToWords:je,randomNum:hn,reverseInteger:Me,toFixed2AndBankCount:Ce,toPercentage:Ee},Symbol.toStringTag,{value:"Module"}));function an(e,n=void 0){const t=new Array(e);let r=0;for(;r<t.length;)t[r]=Yn(n),r++;return t}function Ae(e,n=10,t=0){let r=new Array(e);const o=i=>[...new Set(i)];return function i(){let s=0;for(;s<r.length;)r[s]=hn(n,t),s++;return o(r).length<e&&i()}(),r}function Oe(e,n){let t=n;typeof n=="string"&&(t=o=>o[n]);const r={};for(const o of e){let i=t(o);i&&(r[i]||(r[i]=[]),r[i].push(o))}return r}function kn(e,n,t="children"){if(!e.length)return[];const r=[];for(const o of e){if(n(o)){r.push(o);continue}if(!o[t])continue;const i=kn(o[t],n,t);i.length>0&&r.push({...o,[t]:i})}return r}function Tn(e,n={key:"id",parent:"parent",children:"children"},t=null){const r=[],o=[];return e.forEach(i=>{i.hasOwnProperty(n.parent)?i[n.parent]===t?r.push(i):o.push(i):r.push(i)}),e.forEach(i=>{i[n.parent]===t&&(i[n.children]=Tn(o,n,i[n.key]))}),r}function Ie(e){for(let n=e.length-1;n>0;n--){const t=Math.floor(Math.random()*(n+1));[e[n],e[t]]=[e[t],e[n]]}return e}function Re(e,n){if(e.length<n.length)return null;n=[...n];const t=new Array(2);let r=0;for(;r<e.length&&!(e.length-r<n.length);){const o=new Array(n.length);for(let i=0;i<n.length;i++)e[r+i]===n[i]&&(o[i]=r+i);if(o.filter(i=>i!==void 0).length===n.length){t[0]=o[0],t[1]=o[o.length-1];break}r++}return t.includes(void 0)?null:t}function Fe(e,n=2){const t=[];return e.forEach((r,o)=>{const i=Math.floor(o/n);!t[i]&&(t[i]=[]),t[i].push(r)}),t}function De(e,n){return!(e.length!==n.length||e.find(t=>!n.includes(t)))}function Be(e,n){const t=new Set(n);return e.filter(o=>!t.has(o))}function We(e,n){const t=new Set(n);return e.filter(r=>t.has(r))}function ze(e,n){return e.reduce((t,r)=>t.map(i=>i[n]).includes(r[n])?t:[...t,r],[])}function Ne(e){return e.reduce((n,t)=>n^t,0)}function He(e){let n=[],t=r=>{if(r.length===e.length){n.push(r);return}e.forEach(o=>{r.includes(o)||t([...r,o])})};return t([]),n}const $e=Object.freeze(Object.defineProperty({__proto__:null,arrayToTree:Tn,createArray:an,createRandomArray:Ae,findFragment:Re,groupBy:Oe,intersectionArray:Be,isArrayEqual:De,multArray:Fe,permute:He,querySingle:Ne,shuffle:Ie,treeArrayFilter:kn,union:We,uniqueArrayObject:ze},Symbol.toStringTag,{value:"Module"}));function mn(e){return new Promise(n=>setTimeout(n,e))}function Xe(e){return e.then(n=>[null,n]).catch(n=>[n,null])}function Ue(e){let n,t,r;return{exec(...o){return new Promise(async(i,s)=>{try{r=await e(...o)}catch(a){s(a)}n=i,t=s})},success(o){n(o||r)},fail(o){t(o)}}}const Ye=Object.freeze(Object.defineProperty({__proto__:null,asyncto:Xe,conformity:Ue,delay:mn},Symbol.toStringTag,{value:"Module"}));function Ke(e){let n=null;return new Proxy(e,{construct(t,r){return n||(n=new t(...r)),n}})}const qe=Object.freeze(Object.defineProperty({__proto__:null,singleton:Ke},Symbol.toStringTag,{value:"Module"}));function Ve(e="000000",n="ffffff"){const t=parseInt(e,16),r=parseInt(n,16);return"#"+hn(r,t).toString(16)}function Je(e,n,t){return .2126*e+.7152*n+.0722*t}function Ge(e,n,t){const r=(n[0]-e[0])/t,o=(n[1]-e[1])/t,i=(n[2]-e[2])/t,s=[];for(let a=0;a<t;a++)s.push([Math.round(e[0]+a*r),Math.round(e[1]+a*o),Math.round(e[2]+a*i)]);return s}function Ze(e,n){if(!/^#[0-9A-F]{6}$/i.test(e)||!/^#[0-9A-F]{6}$/i.test(n))throw new Error("Invalid hex color format");const t=parseInt(e.slice(1),16),r=parseInt(n.slice(1),16),o=Math.floor((t>>16)+(r>>16))/2,i=Math.floor((t>>8&255)+(r>>8&255))/2,s=Math.floor((t&255)+(r&255))/2;return`#${(o<<16|i<<8|s).toString(16).padStart(6,"0")}`}const Qe=Object.freeze(Object.defineProperty({__proto__:null,getMiddleColorList:Ge,grayColor:Je,mergeColor:Ze,randomColor:Ve},Symbol.toStringTag,{value:"Module"}));function nt(e){return e.getDay()%6!==0}function et(e){return e.toTimeString().slice(0,8)}function Cn(e){let n=e||e===0?new Date(e):new Date;return{year:n.getFullYear()+"",month:n.getMonth()+1,day:n.getDate(),hour:n.getHours(),minute:n.getMinutes(),second:n.getSeconds()}}function tt(e=new Date,n="YYYY-MM-DD hh:mm:ss"){const{year:t,month:r,day:o,hour:i,minute:s,second:a}=Cn(e);return n.replace(/YYYY/g,t).replace(/YY/g,t.substr(2,2)).replace(/MM/g,(r<10?"0":"")+r).replace(/DD/g,(o<10?"0":"")+o).replace(/hh/g,(i<10?"0":"")+i).replace(/mm/g,(s<10?"0":"")+s).replace(/ss/g,(a<10?"0":"")+a)}const H=e=>e<10?"0"+e:e;function rt(e){const n=new Date(e),t=n.getFullYear(),r=n.getMonth()+1,o=n.getDate(),i=n.getHours(),s=n.getMinutes(),a=n.getSeconds();return`${t}-${H(r)}-${H(o)} ${H(i)}:${H(s)}:${H(a)}`}const ot={day:0,hours:0,minute:0,second:0};function Z(e=0,n=ot){if(e<60)n.second=e;else if(e<3600){const r=Math.floor(e/60),o=e-60*r;n.minute=r,o>0&&Z(o,n)}else if(e<3600*24){const r=Math.floor(e/3600),o=e-3600*r;n.hours=r,o>0&&Z(o,n)}else{const r=Math.floor(e/86400),o=e-86400*r;n.day=r,o>0&&Z(o,n)}return n}function it(e=new Date){return new Date(e.toDateString()).getTime()}const st=Object.freeze(Object.defineProperty({__proto__:null,dateFormater:tt,getCurrentDate:Cn,getDateTime:et,getNowDayZeroTimestamp:it,getTimeDistance:Z,isWeekday:nt,switchTimeFormat:rt},Symbol.toStringTag,{value:"Module"}));function at(e,n){class t extends HTMLElement{constructor(){super();const o=this.attachShadow({mode:"open"}),i=document.createElement("template");if(typeof n=="string")i.innerHTML=n,o.appendChild(i.content.cloneNode(!0));else{i.appendChild(n);for(const s of i.childNodes)o.appendChild(s)}}}customElements.define(e,t)}function lt(e){return e===document.activeElement}function ct(e){var n=document.createElement("div");n.appendChild(e.cloneNode(!0));var t=n.innerHTML;return n=e=null,t}function ut(e,n){for(;e&&n;)e=e.parentElement,n--;return e}function dt(e,n){for(;e&&n;)if(n>0){if(e.nextElementSibling)e=e.nextElementSibling;else for(e.nextSibling;e&&e.nextSibling!=1;e=e.nextSibling);n--}else{if(e.previousElementSibling)e=e.previousElementSibling;else for(e.previousSibling;e&&e.previousSibling!=1;e=e.previousSibling);n++}return e}const ht=(e,n)=>window.getComputedStyle?window.getComputedStyle(e,null)[n]:e.style[n];function mt(e){e=e||window.event,e.stopPropagation?e.stopPropagation():e.cancelBubble=!0}function pt(e,n){if(pn(e,n))return;let t=e.className.split(" ");t.push(n),e.className=t.join(" ")}function ft(e,n){if(!pn(e,n))return;let t=new RegExp("(^|\\s)"+n+"(\\s|$)","g");e.className=e.className.replace(t," ")}function pn(e,n){return new RegExp("(^|\\s)"+n+"(\\s|$)").test(e.className)}function gt(e){e=e||window.event,e.preventDefault?e.preventDefault():e.returnValue=!1}function yt(e,n){e.addEventListener("mousedown",function(t){var r=t.clientX-e.offsetLeft,o=t.clientY-e.offsetTop;window.addEventListener("mousemove",i,!1),window.addEventListener("mouseup",()=>{window.removeEventListener("mousemove",i,!1)},!1);function i(s){e.style.left=s.clientX-r+"px",e.style.top=s.clientY-o+"px",n!==void 0&&(parseFloat(e.style.top)<n.offsetTop&&(e.style.top=n.offsetTop+"px"),parseFloat(e.style.left)<n.offsetLeft&&(e.style.left=n.offsetLeft+"px"),parseFloat(e.style.left+e.clientWidth)>n.offsetLeft+n.clientWidth-parseFloat(e.clientWidth+"")&&(e.style.left=n.offsetLeft+n.clientWidth-parseFloat(e.clientWidth+"")+"px"),parseFloat(e.style.top+e.clientHeight)>n.offsetTop+n.clientHeight-parseFloat(e.clientHeight+"")&&(e.style.top=n.offsetTop+n.clientHeight-parseFloat(e.clientHeight+"")+"px"))}},!1)}const xt=Object.freeze(Object.defineProperty({__proto__:null,addClass:pt,cancelHandler:gt,createTemplate:at,elementIsInFocus:lt,getStyle:ht,hasClassName:pn,lookupParent:ut,mouseDrag:yt,nodeToString:ct,removeClass:ft,retSibling:dt,stopBubble:mt},Symbol.toStringTag,{value:"Module"}));function bt(e){const n=new Uint8Array(e.match(/.{1,2}/g).map(r=>parseInt(r,16)));let t="";for(let r of n)t+=String.fromCharCode(r);return btoa(t)}function _t(e){const n=e.replace(/=/g,""),t=atob(n),r=new Uint8Array(t.length);for(let i=0;i<t.length;i++)r[i]=t.charCodeAt(i);let o="";for(let i=0;i<r.length;i++){const a=r[i].toString(16).padStart(2,"0");o+=a}return o}function vt(e){for(var n="",t=new Uint8Array(e),r=t.byteLength,o=0;o<r;o++)n+=String.fromCharCode(t[o]);return btoa(n)}function wt(e){const n=new FileReader;return new Promise((t,r)=>{n.readAsDataURL(e),n.addEventListener("load",o=>{t(o.target.result)})})}function St(e,n="filename",t="image/jpg"){for(var r=e.split(","),o=atob(r[1]),i=o.length,s=new Uint8Array(i);i--;)s[i]=o.charCodeAt(i);return new File([s],n,{type:t})}function kt(e){const n=atob(e),t=new Uint8Array(n.length);for(let o=0;o<n.length;o++)t[o]=n.charCodeAt(o);const r=new Blob([t]);return URL.createObjectURL(r)}const Tt=Object.freeze(Object.defineProperty({__proto__:null,base64ToHex:_t,base64ToUrl:kt,base64toFile:St,bufferToBase64:vt,fileToBase64:wt,hexToBase64:bt},Symbol.toStringTag,{value:"Module"}));function Ct(e){return URL.createObjectURL(e)}function Et(e,n){const t=document.createElement("a");t.href=e,t.download=n,t.click(),t.remove()}function Mt(e,n=1024*1024*5){return new Promise(async t=>{const r=Math.ceil(e.size/n),i=Kn(`
 function createChunk(file, index, chunkSize) {
   return new Promise(resovle => {
     const start = index * chunkSize;
@@ -2899,8 +3011,8 @@ onmessage = async (e) => {
   const chunks = await Promise.all(paoms);
   postMessage(chunks);
 }
-`);i.postMessage({file:e,chunkSize:n,start:0,end:r}),i.onmessage=s=>{i.terminate(),t(s.data)}})}const Et=Object.freeze(Object.defineProperty({__proto__:null,downloadFile:Ct,fileFragment:Tt,fileToUrl:kt},Symbol.toStringTag,{value:"Module"}));async function Mt(e,n={}){const t=e.match(/image\/.+;/)[0].slice(6,-1).toLocaleLowerCase();n=Object.assign({ratio:.8,sizeLimit:{width:800,height:800},rigid:!0},n);const r=new Image;return r.src=e,new Promise((o,i)=>{r.addEventListener("load",async s=>{const{naturalWidth:a,naturalHeight:l}=r;let u=0,d=0,m=0;const{sizeLimit:g}=n;g?(u=g.width,d=g.height,a>l&&(a>u?(m=a/u,d=l/m):(m=l/d,u=a/m)),l>a&&(l>d?(m=l/d,u=a/m):(m=a/u,d=l/m)),a<u&&l<d&&(u=a,d=l)):(u=a,d=l);const f=document.createElement("canvas");f.width=u,f.height=d,f.style.visibility="hidden",document.body.appendChild(f);const b=f.getContext("2d");b.clearRect(0,0,u,d),b.drawImage(r,0,0,u,d);const w=f.toDataURL(`image/${t}`,n.ratio),c=e.length>w.length?w:e;return f.remove(),console.log(e.length,w.length),o(c)})})}const Pt=Object.freeze(Object.defineProperty({__proto__:null,imageCompress:Mt},Symbol.toStringTag,{value:"Module"}));function jt(e){return e%2===1||e===-1}function Tn(e){const n=e/2;return n/Math.floor(n)===1||n===0}function Lt(e,n){e=Math.abs(e);const t=Math.floor(e/Math.abs(n)),r=e-t*Math.abs(n);return n>=0?r:-r}function At(e){return e<=0?!1:(e&e-1)===0}function En(e,n,t,r){const o=e-t,i=n-r;return Math.atan2(i,o)*(180/Math.PI)}function Ot(e,n,t,r){return Math.hypot(t-e,r-n)}function Mn(e,n){return n<=0?Math.abs(Math.atan2(n,e)*180/Math.PI):Math.abs(Math.atan2(n,-e)*180/Math.PI)+180}function It(e,n,t,r){return Mn(t-e/2,r-n/2)}function Pn(e,n=.4){if(e.length<2)return[];const t=e[0],r=e[1],o=[],[i,s]=G(t[0],r[0]),[a,l]=G(t[1],r[1]);if(o.push([i,a,s,l]),e.length===2)return o;let u=e[1],d=u[1]-e[0][1];for(let m=2;m<e.length;m++){const g=e[m],[f,b]=G(u[0],g[0]),[w,c]=G(u[1],g[1]);if(o.push([f,w,b,c]),g[1]-u[1]!==d){o[m-2][3]=u[1],g[1]>u[1],o[m-1][1]=u[1];const y=En(...u,...g),p=(180-Math.abs(y))*n;o[m-2][2]=Math.ceil(o[m-2][2]-p),o[m-1][0]=Math.ceil(o[m-1][0]+p)}d=g[1]-u[1],u=e[m]}return o}function G(e,n){const t=(n-e)/4,r=t*3;return[t+e,r+e]}function jn(e,n,t={}){const r={fontSize:12,gap:30,...t},o=[];for(let s=0;s<e.length;s++){const a=e[s];o.push(a.length*r.fontSize)}const i=Math.min(...o)+r.gap;if(i*e.length>n){const s=[],a=Math.floor(i*e.length/n);for(let l=0;l<e.length;l++)s.push(l%a===0?e[l]:"");if(t.last){const l=s.findLastIndex(u=>u!=="");e.length-l<a&&(s[l]=""),s[s.length-1]=e[e.length-1]}return s}return e}function an(e,n,t,r){const o=[],i=2*Math.PI/r;for(let s=0;s<r;s++){const a=s*i,l=e+t*Math.cos(a),u=n+t*Math.sin(a);o.push([l,u])}return o}function ln(e,n,t,r,o){return Math.sqrt(Math.pow(e-t,2)+Math.pow(n-r,2))<=o}function Ln(e,n,t){let r=!1;for(let o=0,i=t.length-1;o<t.length;i=o++){const s=t[o].x,a=t[o].y,l=t[i].x,u=t[i].y;a>n!=u>n&&e<(l-s)*(n-a)/(u-a)+s&&(r=!r)}return r}function Rt(e,n,t,r){if(e>=t&&n>=r)return 1;if(e<=t&&n>=r)return 2;if(e<=t&&n<=r)return 3;if(e>=t&&n<=r)return 4}function An(e){let n=0,t=0;const r=e.length;for(let s=0;s<r;s++)n+=e[s].x,t+=e[s].y;const o=n/r,i=t/r;return{x:o,y:i}}const Wt=Object.freeze(Object.defineProperty({__proto__:null,calculateAngle:En,calculateCentroid:An,computeControlPoint:Pn,count2Spotlength:Ot,elPointDegree:It,filterExceed:jn,getCirclePoints:an,getPointQuadrant:Rt,isEven:Tn,isOdd:jt,isPointInCircle:ln,isPointInPolygon:Ln,isPowerOf2:At,mod:Lt,pointDegree:Mn},Symbol.toStringTag,{value:"Module"})),{log:On}=console;window.addEventListener("load",()=>{setTimeout(()=>{const e=window.performance.timing,n={},t=window.performance.getEntriesByType("paint");n.DNS查询耗时=e.domainLookupEnd-e.domainLookupStart,n.TCP链接耗时=e.connectEnd-e.connectStart,n.request耗时=e.responseEnd-e.responseStart,n.解析DOM树耗时=e.domComplete-e.domInteractive,n.白屏时间=e.domLoading-e.fetchStart,n.domready=e.domContentLoadedEventEnd-e.fetchStart,n.onload=e.loadEventEnd-e.fetchStart,n["首次绘制时间(FC)"]=t[0].startTime,n["首次内容绘制时间(FCP)"]=t[1].startTime,window.load=n},0)});window.onerror=(e,n,t,r,o)=>{let i=o?o.stack:null;On(e,n,t,r,i)};window.onunhandledrejection=e=>{let n="",t="";typeof e.reason=="object"?(n=e.reason.message,t=e.reason.stack):n=e.reason,On(n,t)};function Ft(e,n,t){var r=document.createElement("script");r.src=e,n&&(r.onload=n),t&&(r.type="module"),r.async=!0,document.body.appendChild(r)}function Bt(e=1e3){setTimeout(()=>{console.log("long time fun ...")},0)}function Dt(e=1e3){return new Promise((n,t)=>{setTimeout(n,e)})}function Nt(e,n){let t=0;return function(...r){let o=new Date().getTime();o-t>n&&(e.apply(this,...r),t=o)}}function zt(e,n){let t=null;return function(...r){let o=this;clearTimeout(t),t=setTimeout(function(){e.apply(o,...r)},n)}}function In(e,...n){return function(...t){const r=[...n,...t];return r.length>=e.length?e.apply(this,r):In(e,...r)}}function Rn(e,n){const t=Date.now();requestAnimationFrame(()=>{Date.now()-t<=16.6?(e(),n()):Rn(e,n)})}const Ht=Object.freeze(Object.defineProperty({__proto__:null,choke:Bt,currying:In,debounce:zt,delay:Dt,loadScript:Ft,runTask:Rn,throttle:Nt},Symbol.toStringTag,{value:"Module"}));class pn{constructor(n=5){h(this,"_parallelCount");h(this,"_runingCount",0);h(this,"tasks",[]);this._parallelCount=n}add(n){const t=new Promise((r,o)=>{this.tasks.push({task:n,resolve:r,reject:o})});return this._run(),t}_run(){for(;this.tasks.length>this._runingCount&&this._runingCount<this._parallelCount;){const{task:n,resolve:t,reject:r}=this.tasks[this._runingCount];this._runingCount++,n().then(o=>t(o)).catch(o=>r(o)).finally(()=>{this._continue()})}}_continue(){this._parallelCount++,this._run()}}var X;class $t extends pn{constructor(t,r=!1){t.forEach((o,i,s)=>{i!==0&&(s[i]=o+s[i-1])});super();h(this,"_parallelCountList");h(this,"_parallelListIndex",0);h(this,"_executeCount",0);h(this,"_isAwait");T(this,X,null);this._parallelCountList=t,this._isAwait=r,C(this,X,this._run),this._run=()=>{this._parallelCount=this._parallelCountList[this._parallelListIndex],x(this,X).call(this)}}_continue(){if(this._executeCount++,this._isAwait){if(this._executeCount===this._parallelCount){this._parallelListIndex++,this._run();return}}else this._runingCount===this._parallelCount&&(this._parallelListIndex++,this._run());this._parallelCount++,this._run()}}X=new WeakMap;var Y;class Xt extends pn{constructor(t=!0){super();T(this,Y,void 0);this._parallelCount=1,C(this,Y,t)}_run(){for(;this.tasks.length>this._runingCount&&this._runingCount<this._parallelCount;){const{task:t,resolve:r,reject:o}=this.tasks[this._runingCount];this._runingCount++,t().then(i=>{r(i),this._continue()}).catch(i=>{o(i),x(this,Y)&&this._continue()})}}}Y=new WeakMap;var D,A,O,R,N;class Yt{constructor(...n){h(this,"START_FAILURE",Symbol("startFailure"));h(this,"ILLEGAL_CALL",Symbol("illegalCall"));h(this,"NOT_TASK",Symbol("notTask"));T(this,D,!1);T(this,A,!1);T(this,O,null);T(this,R,0);h(this,"start",async()=>{if(x(this,D))return console.warn("非法调用！任务队列正在执行中，无法重新执行"),Promise.reject(this.ILLEGAL_CALL);if(x(this,R)>x(this,O).length-1)return console.warn("没有任务可以继续执行"),Promise.resolve(this.NOT_TASK);C(this,D,!0),C(this,A,!0);const n=await x(this,N).call(this);return C(this,D,!1),n});T(this,N,async(n=[])=>{if(!x(this,A))return;const t=x(this,O).length;x(this,R)===t-1&&C(this,A,!1);const r=x(this,O)[x(this,R)]();return yn(this,R)._++,await r.then(async i=>await o.call(this,i)).catch(i=>(C(this,A,!1),Promise.reject(i)));async function o(i){return n.push(i),x(this,O).length>t?(C(this,A,!0),await x(this,N).call(this,n)):x(this,A)?await x(this,N).call(this,n):Promise.resolve(n)}});h(this,"pause",()=>(C(this,A,!1),x(this,R)-1));h(this,"add",n=>{x(this,O)&&x(this,O).push(n)});C(this,O,n)}}D=new WeakMap,A=new WeakMap,O=new WeakMap,R=new WeakMap,N=new WeakMap;const Kt=Object.freeze(Object.defineProperty({__proto__:null,ParallelTaskScheduling:pn,ParallelTaskSchedulings:$t,PausingSerialTasks:Yt,SerialTaskScheduling:Xt},Symbol.toStringTag,{value:"Module"}));function Ut(e){var n=0;return e.length<6||(/[0-9]/.test(e)&&n++,/[a-z]/.test(e)&&n++,/[A-Z]/.test(e)&&n++,/[\.|-|_]/.test(e)&&n++),n}function qt(e){return e.replace(/<[^>]+>/g,"")}function Jt(e){return/^(([1-9][0-9]*)|(([0]\.\d{1,2}|[1-9][0-9]*\.\d{1,2})))$/.test(e)}const Gt=Object.freeze(Object.defineProperty({__proto__:null,checkPasswordLevel:Ut,isFixed2Float:Jt,removeXMLTag:qt},Symbol.toStringTag,{value:"Module"}));function Vt(e,n=3,t=-4){let r="";const o=e.slice(0,n),i=e.slice(n,t).length,s=e.slice(t);for(let a=0;a<i;a++)r+="*";return o+r+s}function cn(e){let n=0;for(let t=0;t<e.length;){n++;const r=e.codePointAt(t);t+=r>65535?2:1}return n}function Wn(e,n){let t=0;for(let r=0;r<e.length;){if(t===n){const i=e.codePointAt(r);return String.fromCodePoint(i)}t++;const o=e.codePointAt(r);r+=o>65535?2:1}}function Zt(e,n,t){t??(t=cn(e));let r="";const o=cn(e);for(let i=n;i<o&&i<t;i++)r+=Wn(e,i);return r}function un(e){return e<=11?Math.random().toString(36).substring(2,2+e).padEnd(e,"0"):un(11)+un(e-11)}function Qt(e="000000",n="ffffff"){const t=parseInt(e,16),r=parseInt(n,16);return"#"+dn(r,t).toString(16)}function nr(e){const n={};return e.replace(/([^?&=]+)=([^&]+)/g,(t,r,o)=>n[r]=o),n}function er(e,n=1){let t=Math.abs(n),r="";for(;t;)t%2===1&&(r+=e),t>1&&(e+=e),t>>=1;return r}function tr(e){let n=e.length,t=0;for(;t<n;)e.charCodeAt(t)>255&&n++,t++;return n}function rr(e){const n=e.split("");let t=0;return n.forEach(r=>{t+=r.charCodeAt(0)}),t}const or=(e,n)=>{if(!e&&!n)return 0;if(!e)return-1;if(!n)return 1;const t=e.split("."),r=n.split("."),o=Math.max(t.length,r.length);for(let i=0;i<o;i++){const s=~~t[i],a=~~r[i];if(s>a)return 1;if(s<a)return-1}return 0};function ir(e=""){if(e==="")return"";if(isNaN(Number(e)))return"无效金额字符";if(e.length>80)return"金额过大";const n=["零","壹","贰","叁","肆","伍","陆","柒","捌","玖"],t=["","拾","佰","仟"],r=["","万","亿","兆","京","垓","杼","穰","沟","涧","正","载","极","恒河沙","阿僧祇","那由它","不可思议","无量","大数","古戈尔"],o=["角","分","厘","毫","丝"];let i="",s="",a="",l="";/\./.test(e)?(a=e.split(".")[0],l=e.split(".")[1].slice(0,5),Array(...l).forEach((g,f)=>{g==="0"?s+=n[g]:s+=n[g]+o[f]}),s=s.replace(/零+/,"零"),s=s.replace(/零$/,"")):a=e,a=a.replace(/^0+/,"");const u=/(?=(\B)(\d{4})+$)/g,d=a.replace(u,",").split(","),m=d.length;return d.forEach((g,f)=>{let b="";if(/^0000$/.test(g))return i;const w=g.length;g=g.replace(/0+$/,""),Array(...g).forEach((c,y)=>{c==="0"?b+=n[c]:b+=n[c]+t[w-y-1]}),b=b.replace(/零+/,"零"),i+=b+r[m-f-1],i||(i="零")}),s?i+"元"+s:i+"元整"}function Fn(e=""){const n={},t=/<([a-z]+)\s*[^>]*>/,r=e.match(t);r&&(n.tag=r[1]);const o=/\s*([^=\s]+)\s*=\s*['"]?([^'"\s]+)['"]?/g;let i;const s={};for(;i=o.exec(e);)s[i[1]]=i[2];n.attrs=s;const a=/>(.*)<\/[a-z]+>/s,l=e.match(a);if(l){const u=l[1].trim();u.length>0&&(n.children=u.split(`
-`).map(d=>t.test(d)?Fn(d):d))}return n}function sr(e=8,n="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"){let t="";for(let r=e;r>0;--r)t+=n[Math.floor(Math.random()*n.length)];return t}function ar(e){return"1111100000".slice(5-e,10-e)}const lr=Object.freeze(Object.defineProperty({__proto__:null,ascllSum:rr,cerateRepeatStr:er,compareVersion:or,digitUppercase:ir,encrypt:Vt,parseQuery:nr,pointAt:Wn,pointLength:cn,pointSlice:Zt,randomColor:Qt,randomString:un,rate:ar,strBytesLength:tr,stringToVirtualDOM:Fn,uuid:sr},Symbol.toStringTag,{value:"Module"})),cr=Object.freeze(Object.defineProperty({__proto__:null},Symbol.toStringTag,{value:"Module"}));function Bn(e){const n={};return e.replace(/([^?&=]+)=([^&]+)/g,(t,r,o)=>n[r]=o),n}function Dn(e){return Object.keys(e).map(n=>`${n}=${e[n]}`).join("&")}function ur(e){const n=new URL("http://0.0.0.0"+e);return{fullPath:n.href.replace(n.origin,""),path:n.pathname,query:Bn(n.search),hash:n.hash.slice(1)}}function dr(e){let n="";const{path:t,query:r,hash:o}=e;return t&&(n+=t),Object.keys(r).length>0&&(n+=`?${Dn(r)}`),o&&(n+=`#${o}`),n}function hr(e,n){const t=n.lastIndexOf("./")+1,r=n.slice(0,t);if(r==="."){const s=e.lastIndexOf("/");return e.slice(0,s)+n.slice(t)}const o=r.split("/").length+1;return e.split("/").slice(0,-o).join("/")+n.slice(t)}const mr=Object.freeze(Object.defineProperty({__proto__:null,parseQuery:Bn,parseUrl:ur,resolvePath:hr,stringifyQuery:Dn,stringifyUrl:dr},Symbol.toStringTag,{value:"Module"})),pr=`
+`);i.postMessage({file:e,chunkSize:n,start:0,end:r}),i.onmessage=s=>{i.terminate(),t(s.data)}})}const Pt=Object.freeze(Object.defineProperty({__proto__:null,downloadFile:Et,fileFragment:Mt,fileToUrl:Ct},Symbol.toStringTag,{value:"Module"}));async function jt(e,n={}){const t=e.match(/image\/.+;/)[0].slice(6,-1).toLocaleLowerCase();n=Object.assign({ratio:.8,sizeLimit:{width:800,height:800},rigid:!0},n);const r=new Image;return r.src=e,new Promise((o,i)=>{r.addEventListener("load",async s=>{const{naturalWidth:a,naturalHeight:l}=r;let u=0,h=0,m=0;const{sizeLimit:g}=n;g?(u=g.width,h=g.height,a>l&&(a>u?(m=a/u,h=l/m):(m=l/h,u=a/m)),l>a&&(l>h?(m=l/h,u=a/m):(m=a/u,h=l/m)),a<u&&l<h&&(u=a,h=l)):(u=a,h=l);const f=document.createElement("canvas");f.width=u,f.height=h,f.style.visibility="hidden",document.body.appendChild(f);const b=f.getContext("2d");b.clearRect(0,0,u,h),b.drawImage(r,0,0,u,h);const w=f.toDataURL(`image/${t}`,n.ratio),c=e.length>w.length?w:e;return f.remove(),console.log(e.length,w.length),o(c)})})}const Lt=Object.freeze(Object.defineProperty({__proto__:null,imageCompress:jt},Symbol.toStringTag,{value:"Module"}));function At(e){return e%2===1||e===-1}function En(e){const n=e/2;return n/Math.floor(n)===1||n===0}function Ot(e,n){e=Math.abs(e);const t=Math.floor(e/Math.abs(n)),r=e-t*Math.abs(n);return n>=0?r:-r}function It(e){return e<=0?!1:(e&e-1)===0}function Mn(e,n,t,r){const o=e-t,i=n-r;return Math.atan2(i,o)*(180/Math.PI)}function Rt(e,n,t,r){return Math.hypot(t-e,r-n)}function Pn(e,n){return n<=0?Math.abs(Math.atan2(n,e)*180/Math.PI):Math.abs(Math.atan2(n,-e)*180/Math.PI)+180}function Ft(e,n,t,r){return Pn(t-e/2,r-n/2)}function jn(e,n=.4){if(e.length<2)return[];const t=e[0],r=e[1],o=[],[i,s]=J(t[0],r[0]),[a,l]=J(t[1],r[1]);if(o.push([i,a,s,l]),e.length===2)return o;let u=e[1],h=u[1]-e[0][1];for(let m=2;m<e.length;m++){const g=e[m],[f,b]=J(u[0],g[0]),[w,c]=J(u[1],g[1]);if(o.push([f,w,b,c]),g[1]-u[1]!==h){o[m-2][3]=u[1],g[1]>u[1],o[m-1][1]=u[1];const y=Mn(...u,...g),p=(180-Math.abs(y))*n;o[m-2][2]=Math.ceil(o[m-2][2]-p),o[m-1][0]=Math.ceil(o[m-1][0]+p)}h=g[1]-u[1],u=e[m]}return o}function J(e,n){const t=(n-e)/4,r=t*3;return[t+e,r+e]}function Ln(e,n,t={}){const r={fontSize:12,gap:30,...t},o=[];for(let s=0;s<e.length;s++){const a=e[s];o.push(a.length*r.fontSize)}const i=Math.min(...o)+r.gap;if(i*e.length>n){const s=[],a=Math.floor(i*e.length/n);for(let l=0;l<e.length;l++)s.push(l%a===0?e[l]:"");if(t.last){const l=s.findLastIndex(u=>u!=="");e.length-l<a&&(s[l]=""),s[s.length-1]=e[e.length-1]}return s}return e}function ln(e,n,t,r){const o=[],i=2*Math.PI/r;for(let s=0;s<r;s++){const a=s*i,l=e+t*Math.cos(a),u=n+t*Math.sin(a);o.push([l,u])}return o}function cn(e,n,t,r,o){return Math.sqrt(Math.pow(e-t,2)+Math.pow(n-r,2))<=o}function An(e,n,t){let r=!1;for(let o=0,i=t.length-1;o<t.length;i=o++){const s=t[o].x,a=t[o].y,l=t[i].x,u=t[i].y;a>n!=u>n&&e<(l-s)*(n-a)/(u-a)+s&&(r=!r)}return r}function Dt(e,n,t,r){if(e>=t&&n>=r)return 1;if(e<=t&&n>=r)return 2;if(e<=t&&n<=r)return 3;if(e>=t&&n<=r)return 4}function On(e){let n=0,t=0;const r=e.length;for(let s=0;s<r;s++)n+=e[s].x,t+=e[s].y;const o=n/r,i=t/r;return{x:o,y:i}}const Bt=Object.freeze(Object.defineProperty({__proto__:null,calculateAngle:Mn,calculateCentroid:On,computeControlPoint:jn,count2Spotlength:Rt,elPointDegree:Ft,filterExceed:Ln,getCirclePoints:ln,getPointQuadrant:Dt,isEven:En,isOdd:At,isPointInCircle:cn,isPointInPolygon:An,isPowerOf2:It,mod:Ot,pointDegree:Pn},Symbol.toStringTag,{value:"Module"}));function Wt(e=1e3){setTimeout(()=>{console.log("long time fun ...")},0)}function zt(e=1e3){return new Promise((n,t)=>{setTimeout(n,e)})}function Nt(e,n){let t=0;return function(...r){let o=new Date().getTime();o-t>n&&(e.apply(this,...r),t=o)}}function Ht(e,n){let t=null;return function(...r){let o=this;clearTimeout(t),t=setTimeout(function(){e.apply(o,...r)},n)}}function In(e,...n){return function(...t){const r=[...n,...t];return r.length>=e.length?e.apply(this,r):In(e,...r)}}function Rn(e,n){const t=Date.now();requestAnimationFrame(()=>{Date.now()-t<=16.6?(e(),n()):Rn(e,n)})}function $t(e,n,t){const r=document.createElement("script");r.src=e,n&&(r.onload=n),t&&(r.type="module"),r.async=!0,document.body.appendChild(r)}window.addEventListener("load",()=>{setTimeout(()=>{const e=window.performance.timing,n={},t=window.performance.getEntriesByType("paint");n.DNS查询耗时=e.domainLookupEnd-e.domainLookupStart,n.TCP链接耗时=e.connectEnd-e.connectStart,n.request耗时=e.responseEnd-e.responseStart,n.解析DOM树耗时=e.domComplete-e.domInteractive,n.白屏时间=e.domLoading-e.fetchStart,n.domready=e.domContentLoadedEventEnd-e.fetchStart,n.onload=e.loadEventEnd-e.fetchStart,n["首次绘制时间(FC)"]=t[0].startTime,n["首次内容绘制时间(FCP)"]=t[1].startTime,console.log(n)},0)});window.onerror=(e,n,t,r,o)=>{let i=o?o.stack:null;console.log(e,n,t,r,i)};window.onunhandledrejection=e=>{let n="",t="";typeof e.reason=="object"?(n=e.reason.message,t=e.reason.stack):n=e.reason,console.log(n,t)};const Xt=Object.freeze(Object.defineProperty({__proto__:null,choke:Wt,currying:In,debounce:Ht,delay:zt,loadScript:$t,runTask:Rn,throttle:Nt},Symbol.toStringTag,{value:"Module"}));class fn{constructor(n=5){d(this,"_parallelCount");d(this,"_runingCount",0);d(this,"tasks",[]);this._parallelCount=n}add(n){const t=new Promise((r,o)=>{this.tasks.push({task:n,resolve:r,reject:o})});return this._run(),t}_run(){for(;this.tasks.length>this._runingCount&&this._runingCount<this._parallelCount;){const{task:n,resolve:t,reject:r}=this.tasks[this._runingCount];this._runingCount++,n().then(o=>t(o)).catch(o=>r(o)).finally(()=>{this._continue()})}}_continue(){this._parallelCount++,this._run()}}var X;class Ut extends fn{constructor(t,r=!1){t.forEach((o,i,s)=>{i!==0&&(s[i]=o+s[i-1])});super();d(this,"_parallelCountList");d(this,"_parallelListIndex",0);d(this,"_executeCount",0);d(this,"_isAwait");T(this,X,null);this._parallelCountList=t,this._isAwait=r,C(this,X,this._run),this._run=()=>{this._parallelCount=this._parallelCountList[this._parallelListIndex],x(this,X).call(this)}}_continue(){if(this._executeCount++,this._isAwait){if(this._executeCount===this._parallelCount){this._parallelListIndex++,this._run();return}}else this._runingCount===this._parallelCount&&(this._parallelListIndex++,this._run());this._parallelCount++,this._run()}}X=new WeakMap;var U;class Yt extends fn{constructor(t=!0){super();T(this,U,void 0);this._parallelCount=1,C(this,U,t)}_run(){for(;this.tasks.length>this._runingCount&&this._runingCount<this._parallelCount;){const{task:t,resolve:r,reject:o}=this.tasks[this._runingCount];this._runingCount++,t().then(i=>{r(i),this._continue()}).catch(i=>{o(i),x(this,U)&&this._continue()})}}}U=new WeakMap;var W,A,O,R,z;class Kt{constructor(...n){d(this,"START_FAILURE",Symbol("startFailure"));d(this,"ILLEGAL_CALL",Symbol("illegalCall"));d(this,"NOT_TASK",Symbol("notTask"));T(this,W,!1);T(this,A,!1);T(this,O,null);T(this,R,0);d(this,"start",async()=>{if(x(this,W))return console.warn("非法调用！任务队列正在执行中，无法重新执行"),Promise.reject(this.ILLEGAL_CALL);if(x(this,R)>x(this,O).length-1)return console.warn("没有任务可以继续执行"),Promise.resolve(this.NOT_TASK);C(this,W,!0),C(this,A,!0);const n=await x(this,z).call(this);return C(this,W,!1),n});T(this,z,async(n=[])=>{if(!x(this,A))return;const t=x(this,O).length;x(this,R)===t-1&&C(this,A,!1);const r=x(this,O)[x(this,R)]();return xn(this,R)._++,await r.then(async i=>await o.call(this,i)).catch(i=>(C(this,A,!1),Promise.reject(i)));async function o(i){return n.push(i),x(this,O).length>t?(C(this,A,!0),await x(this,z).call(this,n)):x(this,A)?await x(this,z).call(this,n):Promise.resolve(n)}});d(this,"pause",()=>(C(this,A,!1),x(this,R)-1));d(this,"add",n=>{x(this,O)&&x(this,O).push(n)});C(this,O,n)}}W=new WeakMap,A=new WeakMap,O=new WeakMap,R=new WeakMap,z=new WeakMap;const qt=Object.freeze(Object.defineProperty({__proto__:null,ParallelTaskScheduling:fn,ParallelTaskSchedulings:Ut,PausingSerialTasks:Kt,SerialTaskScheduling:Yt},Symbol.toStringTag,{value:"Module"}));function Vt(e,n=3,t=-4){let r="";const o=e.slice(0,n),i=e.slice(n,t).length,s=e.slice(t);for(let a=0;a<i;a++)r+="*";return o+r+s}function un(e){let n=0;for(let t=0;t<e.length;){n++;const r=e.codePointAt(t);t+=r>65535?2:1}return n}function Fn(e,n){let t=0;for(let r=0;r<e.length;){if(t===n){const i=e.codePointAt(r);return String.fromCodePoint(i)}t++;const o=e.codePointAt(r);r+=o>65535?2:1}}function Jt(e,n,t){t??(t=un(e));let r="";const o=un(e);for(let i=n;i<o&&i<t;i++)r+=Fn(e,i);return r}function Gt(e){let n=e.length,t=0;for(;t<n;)e.charCodeAt(t)>255&&n++,t++;return n}function Zt(e){const n=e.split("");let t=0;return n.forEach(r=>{t+=r.charCodeAt(0)}),t}function dn(e){return e<=11?Math.random().toString(36).substring(2,2+e).padEnd(e,"0"):dn(11)+dn(e-11)}function Qt(e){var n=0;return e.length<6||(/[0-9]/.test(e)&&n++,/[a-z]/.test(e)&&n++,/[A-Z]/.test(e)&&n++,/[\.|-|_]/.test(e)&&n++),n}function nr(e){return/^(([1-9][0-9]*)|(([0]\.\d{1,2}|[1-9][0-9]*\.\d{1,2})))$/.test(e)}function er(e,n=1){let t=Math.abs(n),r="";for(;t;)t%2===1&&(r+=e),t>1&&(e+=e),t>>=1;return r}function tr(e,n){if(!e&&!n)return 0;if(!e)return-1;if(!n)return 1;const t=e.split("."),r=n.split("."),o=Math.max(t.length,r.length);for(let i=0;i<o;i++){const s=~~t[i],a=~~r[i];if(s>a)return 1;if(s<a)return-1}return 0}function rr(e=""){if(e==="")return"";if(isNaN(Number(e)))return"无效金额字符";if(e.length>80)return"金额过大";const n=["零","壹","贰","叁","肆","伍","陆","柒","捌","玖"],t=["","拾","佰","仟"],r=["","万","亿","兆","京","垓","杼","穰","沟","涧","正","载","极","恒河沙","阿僧祇","那由它","不可思议","无量","大数","古戈尔"],o=["角","分","厘","毫","丝"];let i="",s="",a="",l="";/\./.test(e)?(a=e.split(".")[0],l=e.split(".")[1].slice(0,5),Array(...l).forEach((g,f)=>{g==="0"?s+=n[g]:s+=n[g]+o[f]}),s=s.replace(/零+/,"零"),s=s.replace(/零$/,"")):a=e,a=a.replace(/^0+/,"");const u=/(?=(\B)(\d{4})+$)/g,h=a.replace(u,",").split(","),m=h.length;return h.forEach((g,f)=>{let b="";if(/^0000$/.test(g))return i;const w=g.length;g=g.replace(/0+$/,""),Array(...g).forEach((c,y)=>{c==="0"?b+=n[c]:b+=n[c]+t[w-y-1]}),b=b.replace(/零+/,"零"),i+=b+r[m-f-1],i||(i="零")}),s?i+"元"+s:i+"元整"}function or(e){return"1111100000".slice(5-e,10-e)}function ir(e=8,n="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"){let t="";for(let r=e;r>0;--r)t+=n[Math.floor(Math.random()*n.length)];return t}const sr=Object.freeze(Object.defineProperty({__proto__:null,ascllSum:Zt,checkPasswordLevel:Qt,compareVersion:tr,digitUppercase:rr,encrypt:Vt,isFixed2Float:nr,pointAt:Fn,pointLength:un,pointSlice:Jt,randomString:dn,rate:or,repeatStr:er,strBytesLength:Gt,uuid:ir},Symbol.toStringTag,{value:"Module"})),ar=Object.freeze(Object.defineProperty({__proto__:null},Symbol.toStringTag,{value:"Module"}));function Dn(e){const n={};return e.replace(/([^?&=]+)=([^&]+)/g,(t,r,o)=>n[r]=o),n}function Bn(e){return Object.keys(e).map(n=>`${n}=${e[n]}`).join("&")}function lr(e){const n=new URL("http://0.0.0.0"+e);return{fullPath:n.href.replace(n.origin,""),path:n.pathname,query:Dn(n.search),hash:n.hash.slice(1)}}function cr(e){let n="";const{path:t,query:r,hash:o}=e;return t&&(n+=t),Object.keys(r).length>0&&(n+=`?${Bn(r)}`),o&&(n+=`#${o}`),n}function ur(e,n){const t=n.lastIndexOf("./")+1,r=n.slice(0,t);if(r==="."){const s=e.lastIndexOf("/");return e.slice(0,s)+n.slice(t)}const o=r.split("/").length+1;return e.split("/").slice(0,-o).join("/")+n.slice(t)}const dr=Object.freeze(Object.defineProperty({__proto__:null,parseQuery:Dn,parseUrl:lr,resolvePath:ur,stringifyQuery:Bn,stringifyUrl:cr},Symbol.toStringTag,{value:"Module"}));function Wn(e=""){const n={},t=/<([a-z]+)\s*[^>]*>/,r=e.match(t);r&&(n.tag=r[1]);const o=/\s*([^=\s]+)\s*=\s*['"]?([^'"\s]+)['"]?/g;let i;const s={};for(;i=o.exec(e);)s[i[1]]=i[2];n.attrs=s;const a=/>(.*)<\/[a-z]+>/s,l=e.match(a);if(l){const u=l[1].trim();u.length>0&&(n.children=u.split(`
+`).map(h=>t.test(h)?Wn(h):h))}return n}function hr(e){return e.replace(/<[^>]+>/g,"")}const mr=Object.freeze(Object.defineProperty({__proto__:null,removeXMLTag:hr,stringToVirtualDOM:Wn},Symbol.toStringTag,{value:"Module"})),pr=`
 export class BloomFilter {
 
   m:          number
@@ -3731,7 +3843,221 @@ export class ScrollAnimation {
     }
   }
 
-}`,Cr=`
+}`,Tr=`import { createNum } from "~/core/utils/generator"
+import { getLSUsedSpace } from "~/core/utils/object"
+
+type Key = string | number | symbol
+interface Item {
+  createTime: number
+  value:      any
+  overTime:   number
+  count:      number
+}
+
+export class CacheBasic {
+  map = new Map<Key, Item>();
+  #iter = createNum();
+
+  /**
+   * 设置缓存数据
+   * @param {string | symbol} key 如果不想覆盖此属性，请将 key 设置为 Symbol 类型
+   * @param {*} value 
+   * @param {number} overTime 过期时间，单位（ms）
+   */
+  set(key: Key, value: Item['value'], overTime: Item['overTime'] = Infinity) {
+    if (key === null || key === undefined || key === '') return;
+    this.map.set(key, {
+      createTime: Date.now(),
+      value,
+      overTime: overTime,
+      count: this.#iter.next().value as number,  // 同一毫秒内可能存很多数据，记录一个索引，越小则证明存放时间越早
+    })
+  }
+
+  /**
+   * 获取数据（过期后不会返回）
+   * @param key
+   * @returns 
+   */
+  get(key: Key) {
+    const value = this.map.get(key);
+    if (value == null) return;
+
+    if (Date.now() - value.createTime > value.overTime) {
+      this.delete(key);
+    }
+    const newValue = this.map.get(key);
+    return newValue && newValue.value;
+  }
+
+  /**
+   * 检测数据是否过期
+   * @param key 
+   * @returns 
+   */
+  isExpire(key: Key) {
+    const value = this.map.get(key);
+    if (value == null) return true;
+    if (Date.now() - value.createTime > value.overTime) {
+      return true;
+    }
+    return false;
+  }
+
+  /**
+   * 删除数据
+   * @param key 
+   */
+  delete(key: Key) {
+    this.map.delete(key);
+  }
+
+  /**
+   * 清空所有数据
+   */
+  clear() {
+    this.map.clear();
+  }
+
+  /**
+   * 获取缓存数据长度
+   * @returns 
+   */
+  length() {
+    return this.map.size;
+  }
+
+  /**
+   * 获取缓存数据大小
+   * @returns 
+   */
+  get size() {
+    return getLSUsedSpace(this.gainAll());
+  }
+
+  /**
+   * 获取所有缓存数据
+   * @returns 
+   */
+  gainAll() {
+    const result = {};
+    for (const [k, v] of this.map) {
+      result[k] = v.value;
+    }
+    return result;
+  }
+}
+
+interface SortItem extends Item {
+  key: Key
+}
+
+export class SimulateRedis extends CacheBasic {
+  /**
+   * 模拟 Redis 缓存场景
+   * @param maxSize 最大储存大小
+   */
+  constructor(maxSize = 1024 * 1024 * 2) {
+    super();
+    this.maxSize = maxSize;
+  }
+  maxSize: number
+
+  /**
+   * 存/取 数据一体，如果已经存在并且没有过期你会直接获取到该数据
+   * @param key      设置存放数据的键
+   * @param value    是一个函数时(必须返回数据)：可以进行数据请求，有缓存时并不会执行；其他类型：直接将数据存放进去
+   * @param overTime 过期时间，为 -1 时数据不过期。设置更小的数无意义
+   * @param cover    强制覆盖数据
+   * @returns 返回设置的 value
+   */
+  async deposit<V>(key: Key, value?: V | (() => V | Promise<V>), overTime: Item['overTime'] = -1, cover: boolean = false): Promise<V> {
+    if (overTime === -1) overTime = Infinity;  // 设置过期时间正无穷，使数据永久不会过期
+
+    if (cover) {
+      // @ts-ignore
+      typeof value === 'function' ? value = await value() : value;
+      this.set(key, value, overTime);
+      return this.get(key);
+    }
+
+    const data = this.get(key)
+    if (data) return data;
+
+    // @ts-ignore
+    typeof value === 'function' ? value = await value() : value;
+    this.set(key, value, overTime);  // 先存数据后清内存，防止溢出
+
+    this.deleteOverValue();
+    this.clearCache();
+
+    return this.get(key);
+  }
+
+  /**
+   * 清除已过期数据
+   * @returns 
+   */
+  clearCache() {
+    if (this.size < this.maxSize) return;
+
+    const arr: SortItem[] = [];
+    for (const [k, v] of Object.entries(this.map)) {
+      if (v.overTime === Infinity) continue;  // 跳过设置不过期数据
+      arr.push({key: k, ...v});
+    }
+    const newArr = choiceSort(arr);
+    this.deleteFristValue(newArr);
+  }
+
+  /**
+   * 删除过期的数据
+   */
+  deleteOverValue() {
+    const curTime = Date.now();
+    for (const [k, v] of Object.entries(this.map)) {
+      const createTime = v.createTime;
+      const overTime = v.overTime;
+      if (curTime - createTime > overTime) {
+        this.delete(k);
+      }
+    }
+  }
+
+  /**
+   * 删除最早缓存的数据
+   * @param arr 
+   * @returns 
+   */
+  deleteFristValue(arr: SortItem[]) {
+    const key = arr[0].key;
+    arr.shift();
+    this.delete(key);
+
+    if (this.size <= this.maxSize) return;
+    this.deleteFristValue(arr);  // 如果容器内存依然大于设定内存，继续删
+  }
+}
+
+/**
+ * 数据排序算法
+ * @param arr 
+ * @returns 
+ */
+function choiceSort(arr: SortItem[]) {
+  const len = arr.length;
+  if (arr == null || len === 0) return [];
+  for (let i = 0; i < len - 1; i++) {
+    for (let j = 0; j < len - 1; j++) {
+      const minValue = arr[j];
+      if (minValue.count > arr[j + 1].count) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], minValue];  // 调换位置
+      }
+    }
+  }
+  return arr;
+}
+`,Cr=`
 type StreamSplitOption = {
   normal?:    RegExp
   onMessage?: (str: string) => void
@@ -3773,7 +4099,7 @@ export class StreamSplit {
     return collect;
   }
 }
-`,Tr=`import { PromiseFn } from "../../utils/type"
+`,Er=`import { PromiseFn } from "../../utils/type"
 
 type TaskItem = {
   task:    PromiseFn
@@ -3784,6 +4110,7 @@ type TaskItem = {
 export class TaskScheduling {
   _parallelCount: number  // 并行执行任务数
   _runingCount = 0;       // 执行任务计数
+  _currentIndex = 0;      // 当前执行索引
   tasks: TaskItem[] = [];
 
   /**
@@ -3808,6 +4135,11 @@ export class TaskScheduling {
   }
 
   /**
+   * 结束任务
+   */
+  onEnd: Function
+
+  /**
    * 并行运行任务
    */
   _run() {
@@ -3819,6 +4151,10 @@ export class TaskScheduling {
         .catch(err => reject(err))
         .finally(() => {
           this._continue();
+          this._currentIndex ++;
+          if (this._currentIndex === this.tasks.length) {
+            this.onEnd && this.onEnd();
+          }
         });
     }
   }
@@ -3883,7 +4219,7 @@ export class TaskSchedulings extends TaskScheduling {
     this._run();
   }
 }
-`,Er=`import { BloomFilter } from ".";
+`,Mr=`import { BloomFilter } from ".";
 
 export default () => {
   const bloom = new BloomFilter(1024 * 8, 32);
@@ -3894,7 +4230,7 @@ export default () => {
   console.log('bar:', bloom.has('bar'));
   console.log('baz:', bloom.has('baz'));
 }
-`,Mr=`import { CodeConversion } from '.';
+`,Pr=`import { CodeConversion } from '.';
 
 export default () => {
   const code = \`
@@ -3929,7 +4265,7 @@ end
   const html = conversion.output(code);
 
   document.getElementById('container').innerHTML = \`<pre>\${html}</pre>\`;
-}`,Pr=`import { EventEmitter } from ".";
+}`,jr=`import { EventEmitter } from ".";
 
 export default () => {
   const container = document.getElementById('container');
@@ -3955,11 +4291,11 @@ export default () => {
   container.appendChild(button2);
   (async function() {
     while (1) {
-      const e = await btn.waitClick;
-      console.log(e);
+      const e: PointerEvent = await btn.waitClick;
+      console.log(e.detail);
     }
   }())
-}`,jr=`import { Fulls } from ".";
+}`,Lr=`import { Fulls } from ".";
 
 export default () => {
   const wrap = document.createElement('div');
@@ -3980,7 +4316,7 @@ export default () => {
     column: Math.max(Math.trunc(wrap.offsetWidth / 200), 2),
   })
 }
-`,Lr=`import { FullScreen } from '.';
+`,Ar=`import { FullScreen } from '.';
 
 export default () => {
   const container = document.getElementById('container');
@@ -4004,7 +4340,7 @@ export default () => {
   })
 
   container.appendChild(wrap);
-}`,Ar=`import { FuncOverload } from "."
+}`,Or=`import { FuncOverload } from "."
 
 export default () => {
   const f = new FuncOverload();
@@ -4020,7 +4356,7 @@ export default () => {
   })
   const str = f.overload('a', 'b');
   console.log(str);
-}`,Or=`import { Inlay } from ".";
+}`,Ir=`import { Inlay } from ".";
 
 export default () => {
   const container = document.getElementById('container');
@@ -4034,7 +4370,7 @@ export default () => {
 
   // @ts-ignore
   container.style = inlay.text;
-}`,Ir=`import { MemoizeMap } from '.'
+}`,Rr=`import { MemoizeMap } from '.'
 
 export default () => {
   const m = new MemoizeMap();
@@ -4042,29 +4378,33 @@ export default () => {
   m.set({}, 2);
 
   console.log(m.get('a'));
-}`,Rr=`import { Onion } from '.'
+}`,Fr=`import { Onion } from '.'
 
 export default () => {
   const ctx = {
     a: 123,
-    el: document.getElementById('container'),
   }
   const onion = new Onion(ctx);
 
   onion.use((ctx, next) => {
-    console.log(ctx.a);
+    console.log('中间件1：', ctx.a);
     ctx.a = 456;
     next();
-    console.log('end');
-  })
+    console.log('中间件1：end');
+    return ctx;
+  });
 
   onion.use((ctx, next) => {
-    console.log(ctx.a);
-  })
+    console.log('中间件2：', ctx.a);
+    next();
+    console.log('中间件2：end');
+  });
 
-  onion.callback();
+  onion.callback().then(res => {
+    console.log('result: ', res);
+  });
 }
-`,Wr=`import { PublishSubscribe } from "."
+`,Dr=`import { PublishSubscribe } from "."
 
 export default () => {
   const pubSub = new PublishSubscribe();
@@ -4082,7 +4422,7 @@ export default () => {
 
   container.appendChild(button);
 }
-`,Fr=`import { createAnimation, ScrollAnimation } from ".";
+`,Br=`import { createAnimation, ScrollAnimation } from ".";
 
 export default () => {
   const container = document.getElementById('container');
@@ -4118,7 +4458,32 @@ export default () => {
   container.addEventListener('scroll', (e) => {
     absorb.updateStyles();
   })
-}`,Br=`import { StreamSplit } from ".";
+}`,Wr=`import { SimulateRedis } from "."
+
+export default async () => {
+  const redis = new SimulateRedis();
+  const r1 = await redis.deposit(1, () => {
+    console.log('缓存数据');
+    return 123;
+  }, 100);  // 100ms后过期
+  console.log('r1', r1);
+
+  setTimeout(async () => {
+    const r2 = await redis.deposit(1, () => {
+      console.log('已缓存过，不会执行');
+      return 456;
+    });
+    console.log('r2', r2); // 123
+  }, 50);
+
+  setTimeout(async () => {
+    const r3 = await redis.deposit(1, () => {
+      console.log('重新缓存数据');
+      return 789;
+    }, 100);
+    console.log('r3', r3); // 123
+  }, 200);
+}`,zr=`import { StreamSplit } from ".";
 import { delay } from "../../utils/async";
 
 export default () => {
@@ -4144,11 +4509,17 @@ export default () => {
       await delay(100);
     }
   })()
-}`,Dr=`import { TaskScheduling } from ".";
+}`,Nr=`import { TaskScheduling } from ".";
 import { delay } from "../../utils/async";
 
 export default () => {
   const task = new TaskScheduling(3);
+
+  const start = Date.now();
+  task.onEnd = () => {
+    console.log('总耗时：', Date.now() - start);
+  }
+
   task.add(func(100));
   task.add(func(200));
   task.add(func(150));
@@ -4164,7 +4535,7 @@ export default () => {
       return num;
     }
   }
-}`;class Nr{constructor(n=1024**2*8,t=16){h(this,"m");h(this,"k");h(this,"buckets");h(this,"_locations");const r=Math.ceil(n/32);let o=-1;if(this.m=n=r*32,this.k=t,typeof ArrayBuffer<"u"){const i=1<<Math.ceil(Math.log(Math.ceil(Math.log(n)/Math.LN2/8))/Math.LN2),s=i===1?Uint8Array:i===2?Uint16Array:Uint32Array,a=new ArrayBuffer(i*t),l=this.buckets=new Int32Array(r);if(n)for(;++o<r;)l[o]=n[o];this._locations=new s(a)}else{const i=this.buckets=[];if(n)for(;++o<r;)i[o]=n[o];else for(;++o<r;)i[o]=0;this._locations=[]}}locations(n){const t=this.k,r=this.m,o=this._locations,i=bn(n),s=bn(n,1576284489);let a=i%r;for(let l=0;l<t;++l)o[l]=a<0?a+r:a,a=(a+s)%r;return o}add(n){const t=this.locations(n);for(let r=0;r<this.k;++r)this.buckets[Math.floor(t[r]/32)]|=1<<t[r]%32}has(n){let t=this.locations(n);for(let r=0;r<this.k;++r){let o=t[r];if(!(this.buckets[Math.floor(o/32)]&1<<o%32))return!1}return!0}delete(n){const t=this.locations(n);for(let r=0;r<this.k;++r){let o=t[r];this.buckets[Math.floor(o/32)]&=~(1<<o%32)}}clear(){this.buckets.fill(0)}get size(){const n=this.buckets,t=n.length,r=this.m,o=this.k;let i=0;for(let s=0,a=t;s<a;++s)i+=zr(n[s]);return-r*Math.log(1-i/r)/o}}function zr(e){return e-=e>>1&1431655765,e=(e&858993459)+(e>>2&858993459),(e+(e>>4)&252645135)*16843009>>24}function bn(e,n=0){let t=2166136261^n;for(let r=0,o=e.length;r<o;++r){let i=e.charCodeAt(r),s=i&65280;s&&(t=_n(t^s>>8)),t=_n(t^i&255)}return Hr(t)}function _n(e){return e+(e<<1)+(e<<4)+(e<<7)+(e<<8)+(e<<24)}function Hr(e){return e+=e<<13,e^=e>>>7,e+=e<<3,e^=e>>>17,e+=e<<5,e&4294967295}const $r=()=>{const e=new Nr(8192,32);e.add("foo"),e.add("bar"),console.log("foo:",e.has("foo")),console.log("bar:",e.has("bar")),console.log("baz:",e.has("baz"))},Xr=Object.freeze(Object.defineProperty({__proto__:null,default:$r},Symbol.toStringTag,{value:"Module"})),Yr=()=>{const e=`
+}`;class Hr{constructor(n=1024**2*8,t=16){d(this,"m");d(this,"k");d(this,"buckets");d(this,"_locations");const r=Math.ceil(n/32);let o=-1;if(this.m=n=r*32,this.k=t,typeof ArrayBuffer<"u"){const i=1<<Math.ceil(Math.log(Math.ceil(Math.log(n)/Math.LN2/8))/Math.LN2),s=i===1?Uint8Array:i===2?Uint16Array:Uint32Array,a=new ArrayBuffer(i*t),l=this.buckets=new Int32Array(r);if(n)for(;++o<r;)l[o]=n[o];this._locations=new s(a)}else{const i=this.buckets=[];if(n)for(;++o<r;)i[o]=n[o];else for(;++o<r;)i[o]=0;this._locations=[]}}locations(n){const t=this.k,r=this.m,o=this._locations,i=_n(n),s=_n(n,1576284489);let a=i%r;for(let l=0;l<t;++l)o[l]=a<0?a+r:a,a=(a+s)%r;return o}add(n){const t=this.locations(n);for(let r=0;r<this.k;++r)this.buckets[Math.floor(t[r]/32)]|=1<<t[r]%32}has(n){let t=this.locations(n);for(let r=0;r<this.k;++r){let o=t[r];if(!(this.buckets[Math.floor(o/32)]&1<<o%32))return!1}return!0}delete(n){const t=this.locations(n);for(let r=0;r<this.k;++r){let o=t[r];this.buckets[Math.floor(o/32)]&=~(1<<o%32)}}clear(){this.buckets.fill(0)}get size(){const n=this.buckets,t=n.length,r=this.m,o=this.k;let i=0;for(let s=0,a=t;s<a;++s)i+=$r(n[s]);return-r*Math.log(1-i/r)/o}}function $r(e){return e-=e>>1&1431655765,e=(e&858993459)+(e>>2&858993459),(e+(e>>4)&252645135)*16843009>>24}function _n(e,n=0){let t=2166136261^n;for(let r=0,o=e.length;r<o;++r){let i=e.charCodeAt(r),s=i&65280;s&&(t=vn(t^s>>8)),t=vn(t^i&255)}return Xr(t)}function vn(e){return e+(e<<1)+(e<<4)+(e<<7)+(e<<8)+(e<<24)}function Xr(e){return e+=e<<13,e^=e>>>7,e+=e<<3,e^=e>>>17,e+=e<<5,e&4294967295}const Ur=()=>{const e=new Hr(8192,32);e.add("foo"),e.add("bar"),console.log("foo:",e.has("foo")),console.log("bar:",e.has("bar")),console.log("baz:",e.has("baz"))},Yr=Object.freeze(Object.defineProperty({__proto__:null,default:Ur},Symbol.toStringTag,{value:"Module"})),Kr=()=>{const e=`
 /*
 金融机构大额交易和可疑交易报告管理办法
 第五条　金融机构应当报告下列大额交易：
@@ -4188,18 +4559,18 @@ prohibit tx.args.txtype == "JNKXHZ" and contract(tx.to).state.accountType[tx.arg
 prohibit tx.args.txtype == "KJKXHZ" and contract(tx.to).state.accountType[tx.args.account] == "Person" and 
     ((tx.args.currency == "RMB" and tx.args.amount >= 200000) or (tx.args.currency == "USD" and tx.args.amount >= 10000));
 end 
-`,t=new qn({keywords:["rule","end","knowledgebase","knowledge","reg","require","prohibit","and","or","in","true","false"]}).output(e);document.getElementById("container").innerHTML=`<pre>${t}</pre>`},Kr=Object.freeze(Object.defineProperty({__proto__:null,default:Yr},Symbol.toStringTag,{value:"Module"}));class vn extends EventTarget{constructor(){super(...arguments);h(this,"emit",(t,r)=>{this.dispatchEvent(new CustomEvent(t,{detail:r}))});h(this,"on",this.addEventListener);h(this,"once",(t,r)=>{this.on(t,r,{once:!0,capture:!0})});h(this,"off",this.removeEventListener)}static wait(t){return new Proxy(t,{get(o,i){if(!i.startsWith("wait"))return;const s=i.replace("wait","").toLowerCase();return new Promise(a=>{o.addEventListener(s,a,{once:!0})})}})}}const Ur=()=>{const e=document.getElementById("container"),n=new vn,t=document.createElement("button");t.innerText="send",t.addEventListener("click",()=>{n.emit("send","hello world!")}),e.appendChild(t),n.on("send",i=>{console.log(i.detail)});const r=document.createElement("button");r.innerText="wait event";const o=vn.wait(r);e.appendChild(r),async function(){for(;;){const i=await o.waitClick;console.log(i)}}()},qr=Object.freeze(Object.defineProperty({__proto__:null,default:Ur},Symbol.toStringTag,{value:"Module"}));class Jr{constructor(n={}){h(this,"option");h(this,"_matrix");const{column:t,rowGap:r,colGap:o,el:i}=n;if(this.option={column:t||5,rowGap:r||20,colGap:o||14},!i)return;i.style.position="relative";const s=[...i.children],a=s.map(m=>m.offsetHeight),{itemWidth:l,positions:u,wrapHeight:d}=this.compute(i.clientWidth,a);s.forEach((m,g)=>{m.style.position="absolute",m.style.width=l+"px",m.style.top=u[g].top+"px",m.style.left=u[g].left+"px"}),i.style.height=d+"px"}compute(n,t){const r=this.computeItemWidth(n),o=this.computeItemPosition(t,r),i=this.computeWrapHeight();return{itemWidth:r,positions:o,wrapHeight:i}}computeItemWidth(n){return(n-this.option.rowGap*(this.option.column-1))/this.option.column}computeItemPosition(n,t){this._matrix=sn(this.option.column,[0]);const r=[];for(let o=0;o<n.length;o++){const i=this._queryColumn("min"),s=this._matrix[i].reduce((a,l)=>a+l);r.push({top:s+this.option.colGap*(this._matrix[i].length-1),left:i*(t+this.option.rowGap)}),this._matrix[i].push(n[o])}return r}computeWrapHeight(){const n=this._queryColumn("max");return this._matrix[n].reduce((t,r)=>t+r+this.option.rowGap)-this.option.rowGap}_queryColumn(n){const t=sn(this._matrix.length,0);for(let o=0;o<this._matrix.length;o++)t[o]=this._matrix[o].reduce((i,s)=>i+s);const r=Math[n].apply(null,t);return t.indexOf(r)}}const Gr=()=>{const e=document.createElement("div");[200,300,270,100,400,100,200,300,100,140].forEach((t,r)=>{const o=document.createElement("div");o.innerText=r+"",o.style.height=`${t}px`,o.style.background="#eee",e.appendChild(o)}),document.getElementById("container").appendChild(e),new Jr({el:e,column:Math.max(Math.trunc(e.offsetWidth/200),2)})},Vr=Object.freeze(Object.defineProperty({__proto__:null,default:Gr},Symbol.toStringTag,{value:"Module"}));class ${constructor(){h(this,"enterFullScreenName");h(this,"exitFullScreenName");h(this,"fullScreenName");this.enterFullScreenName=$.getPropertyName(["requestFullscreen","mozRequestFullScreen","webkitRequestFullScreen","msRequestFullScreen"],document.documentElement),this.exitFullScreenName=$.getPropertyName(["exitFullscreen","mozCancelFullScreen","webkitExitFullScreen","msExitFullScreen"],document),this.fullScreenName=$.getPropertyName(["fullscreenElement","mozFullScreenElement","webkitFullScreenElement","msFullScreenElement"],document)}static getPropertyName(n,t){return n.find(r=>r in t)}enter(n=document.documentElement){this.enterFullScreenName&&n[this.enterFullScreenName]()}exit(){this.isFull()&&this.exitFullScreenName&&document[this.exitFullScreenName]()}isFull(){return!!this.getEl()}toggle(n=document.documentElement){this.isFull()?this.exit():this.enter(n)}getEl(){return document[this.fullScreenName]||null}}const Zr=()=>{const e=document.getElementById("container"),n=new $,t=[{name:"进入全屏",handler:()=>n.enter()},{name:"退出全屏",handler:()=>n.exit()},{name:"进入/退出全屏",handler:()=>n.toggle()},{name:"是否处于全屏状态全屏",handler:()=>console.log(n.isFull())},{name:"指定元素进入/退出全屏",handler:()=>n.toggle(e)}],r=document.createElement("div");t.forEach(o=>{const i=document.createElement("button");i.innerText=o.name,i.addEventListener("click",()=>{o.handler()}),r.appendChild(i)}),e.appendChild(r)},Qr=Object.freeze(Object.defineProperty({__proto__:null,default:Zr},Symbol.toStringTag,{value:"Module"}));class no{constructor(){h(this,"_map",new Map)}addImpl(...n){const t=n.pop();if(on(t)!=="Function")throw new Error("Last argument must be a function");const r=n.join(",");this._map.set(r,t)}overload(...n){const t=n.map(o=>on(o)).join(","),r=this._map.get(t);if(!r)throw new Error(`No implementation for ${t}`);return r.apply(this,n)}}const eo=()=>{const e=new no;e.addImpl("Number","Number",(r,o)=>r+o);const n=e.overload(1,2);console.log(n),e.addImpl("String","String",(r,o)=>"str: "+r+o);const t=e.overload("a","b");console.log(t)},to=Object.freeze(Object.defineProperty({__proto__:null,default:eo},Symbol.toStringTag,{value:"Module"}));var Q;class ro{constructor(){T(this,Q,new Map);const n=x(this,Q);return new Proxy(this,{get(t,r){return n.has(r)?n.get(r):(Reflect.set(t,r,function(o,...i){if(!o){console.warn(`[${r.toString()}] is empty`);return}let s="";for(let a=0;a<i.length;a++)s+=o[a],s+=i[a];return s+=o[o.length-1],n.set(r,s),o[0]}),t[r])}})}}Q=new WeakMap;const oo=()=>{const e=document.getElementById("container");e.innerText="hello";const n=new ro;n.text`
+`,t=new qn({keywords:["rule","end","knowledgebase","knowledge","reg","require","prohibit","and","or","in","true","false"]}).output(e);document.getElementById("container").innerHTML=`<pre>${t}</pre>`},qr=Object.freeze(Object.defineProperty({__proto__:null,default:Kr},Symbol.toStringTag,{value:"Module"}));class wn extends EventTarget{constructor(){super(...arguments);d(this,"emit",(t,r)=>{this.dispatchEvent(new CustomEvent(t,{detail:r}))});d(this,"on",this.addEventListener);d(this,"once",(t,r)=>{this.on(t,r,{once:!0,capture:!0})});d(this,"off",this.removeEventListener)}static wait(t){return new Proxy(t,{get(o,i){if(!i.startsWith("wait"))return;const s=i.replace("wait","").toLowerCase();return new Promise(a=>{o.addEventListener(s,a,{once:!0})})}})}}const Vr=()=>{const e=document.getElementById("container"),n=new wn,t=document.createElement("button");t.innerText="send",t.addEventListener("click",()=>{n.emit("send","hello world!")}),e.appendChild(t),n.on("send",i=>{console.log(i.detail)});const r=document.createElement("button");r.innerText="wait event";const o=wn.wait(r);e.appendChild(r),async function(){for(;;){const i=await o.waitClick;console.log(i.detail)}}()},Jr=Object.freeze(Object.defineProperty({__proto__:null,default:Vr},Symbol.toStringTag,{value:"Module"}));class Gr{constructor(n={}){d(this,"option");d(this,"_matrix");const{column:t,rowGap:r,colGap:o,el:i}=n;if(this.option={column:t||5,rowGap:r||20,colGap:o||14},!i)return;i.style.position="relative";const s=[...i.children],a=s.map(m=>m.offsetHeight),{itemWidth:l,positions:u,wrapHeight:h}=this.compute(i.clientWidth,a);s.forEach((m,g)=>{m.style.position="absolute",m.style.width=l+"px",m.style.top=u[g].top+"px",m.style.left=u[g].left+"px"}),i.style.height=h+"px"}compute(n,t){const r=this.computeItemWidth(n),o=this.computeItemPosition(t,r),i=this.computeWrapHeight();return{itemWidth:r,positions:o,wrapHeight:i}}computeItemWidth(n){return(n-this.option.rowGap*(this.option.column-1))/this.option.column}computeItemPosition(n,t){this._matrix=an(this.option.column,[0]);const r=[];for(let o=0;o<n.length;o++){const i=this._queryColumn("min"),s=this._matrix[i].reduce((a,l)=>a+l);r.push({top:s+this.option.colGap*(this._matrix[i].length-1),left:i*(t+this.option.rowGap)}),this._matrix[i].push(n[o])}return r}computeWrapHeight(){const n=this._queryColumn("max");return this._matrix[n].reduce((t,r)=>t+r+this.option.rowGap)-this.option.rowGap}_queryColumn(n){const t=an(this._matrix.length,0);for(let o=0;o<this._matrix.length;o++)t[o]=this._matrix[o].reduce((i,s)=>i+s);const r=Math[n].apply(null,t);return t.indexOf(r)}}const Zr=()=>{const e=document.createElement("div");[200,300,270,100,400,100,200,300,100,140].forEach((t,r)=>{const o=document.createElement("div");o.innerText=r+"",o.style.height=`${t}px`,o.style.background="#eee",e.appendChild(o)}),document.getElementById("container").appendChild(e),new Gr({el:e,column:Math.max(Math.trunc(e.offsetWidth/200),2)})},Qr=Object.freeze(Object.defineProperty({__proto__:null,default:Zr},Symbol.toStringTag,{value:"Module"}));class ${constructor(){d(this,"enterFullScreenName");d(this,"exitFullScreenName");d(this,"fullScreenName");this.enterFullScreenName=$.getPropertyName(["requestFullscreen","mozRequestFullScreen","webkitRequestFullScreen","msRequestFullScreen"],document.documentElement),this.exitFullScreenName=$.getPropertyName(["exitFullscreen","mozCancelFullScreen","webkitExitFullScreen","msExitFullScreen"],document),this.fullScreenName=$.getPropertyName(["fullscreenElement","mozFullScreenElement","webkitFullScreenElement","msFullScreenElement"],document)}static getPropertyName(n,t){return n.find(r=>r in t)}enter(n=document.documentElement){this.enterFullScreenName&&n[this.enterFullScreenName]()}exit(){this.isFull()&&this.exitFullScreenName&&document[this.exitFullScreenName]()}isFull(){return!!this.getEl()}toggle(n=document.documentElement){this.isFull()?this.exit():this.enter(n)}getEl(){return document[this.fullScreenName]||null}}const no=()=>{const e=document.getElementById("container"),n=new $,t=[{name:"进入全屏",handler:()=>n.enter()},{name:"退出全屏",handler:()=>n.exit()},{name:"进入/退出全屏",handler:()=>n.toggle()},{name:"是否处于全屏状态全屏",handler:()=>console.log(n.isFull())},{name:"指定元素进入/退出全屏",handler:()=>n.toggle(e)}],r=document.createElement("div");t.forEach(o=>{const i=document.createElement("button");i.innerText=o.name,i.addEventListener("click",()=>{o.handler()}),r.appendChild(i)}),e.appendChild(r)},eo=Object.freeze(Object.defineProperty({__proto__:null,default:no},Symbol.toStringTag,{value:"Module"}));class to{constructor(){d(this,"_map",new Map)}addImpl(...n){const t=n.pop();if(sn(t)!=="Function")throw new Error("Last argument must be a function");const r=n.join(",");this._map.set(r,t)}overload(...n){const t=n.map(o=>sn(o)).join(","),r=this._map.get(t);if(!r)throw new Error(`No implementation for ${t}`);return r.apply(this,n)}}const ro=()=>{const e=new to;e.addImpl("Number","Number",(r,o)=>r+o);const n=e.overload(1,2);console.log(n),e.addImpl("String","String",(r,o)=>"str: "+r+o);const t=e.overload("a","b");console.log(t)},oo=Object.freeze(Object.defineProperty({__proto__:null,default:ro},Symbol.toStringTag,{value:"Module"}));var Q;class io{constructor(){T(this,Q,new Map);const n=x(this,Q);return new Proxy(this,{get(t,r){return n.has(r)?n.get(r):(Reflect.set(t,r,function(o,...i){if(!o){console.warn(`[${r.toString()}] is empty`);return}let s="";for(let a=0;a<i.length;a++)s+=o[a],s+=i[a];return s+=o[o.length-1],n.set(r,s),o[0]}),t[r])}})}}Q=new WeakMap;const so=()=>{const e=document.getElementById("container");e.innerText="hello";const n=new io;n.text`
     --color: red;
     color: var(--color);
-  `,e.style=n.text},io=Object.freeze(Object.defineProperty({__proto__:null,default:oo},Symbol.toStringTag,{value:"Module"}));class so{constructor(){h(this,"_map",new Map);h(this,"_weakMap",new WeakMap)}_isObject(n){return typeof n=="object"&&n!==null}set(n,t){this._isObject(n)?this._weakMap.set(n,t):this._map.set(n,t)}get(n){return this._isObject(n)?this._weakMap.get(n):this._map.get(n)}has(n){this._isObject(n)?this._weakMap.has(n):this._map.has(n)}}const ao=()=>{const e=new so;e.set("a",1),e.set({},2),console.log(e.get("a"))},lo=Object.freeze(Object.defineProperty({__proto__:null,default:ao},Symbol.toStringTag,{value:"Module"}));var K,nn,Nn;class co{constructor(n){T(this,nn);h(this,"ctx");T(this,K,[]);this.ctx=n}use(n){x(this,K).push(n)}async callback(){return await xn(this,nn,Nn).call(this,x(this,K),this.ctx,()=>{})}}K=new WeakMap,nn=new WeakSet,Nn=function(n,t,r){function o(i){let s=n[i];return i===n.length&&(s=r),Promise.resolve(s(t,o.bind(null,++i)))}return o(0)};const uo=()=>{const e={a:123,el:document.getElementById("container")},n=new co(e);n.use((t,r)=>{console.log(t.a),t.a=456,r(),console.log("end")}),n.use((t,r)=>{console.log(t.a)}),n.callback()},ho=Object.freeze(Object.defineProperty({__proto__:null,default:uo},Symbol.toStringTag,{value:"Module"})),{warn:V}=console;var P;class mo{constructor(){T(this,P,new Map)}on(n,t){x(this,P).has(n)&&V(`${n} already exists`),x(this,P).set(n,{fn:t})}once(n,t){if(x(this,P).has(n)){V(`${n} already exists`);return}x(this,P).set(n,{fn:t,once:!0})}emit(n,...t){const r=x(this,P).get(n);if(!r){V(`no implementation for ${n}`);return}const o=r.fn(...t);return r.once&&x(this,P).delete(n),o}off(n){x(this,P).delete(n)}offAll(){x(this,P).clear()}reset(n,t,r=!1){if(!x(this,P).has(n)){V(`${n} not exists`);return}x(this,P).set(n,{fn:t,once:r})}}P=new WeakMap;const po=()=>{const e=new mo,n=document.getElementById("container");e.on("test",r=>{console.log(r)});const t=document.createElement("button");t.innerText="发送事件",t.addEventListener("click",()=>{e.emit("test","hello world")}),n.appendChild(t)},fo=Object.freeze(Object.defineProperty({__proto__:null,default:po},Symbol.toStringTag,{value:"Module"}));function wn(e,n,t,r){return o=>o<=e?t:o>=n?r:t+(r-t)*(o-e)/(n-e)}class go{constructor(n){h(this,"option",{direction:"y"});h(this,"animationMap",new Map);Object.assign(this.option,n)}set(n,t){this.animationMap.set(n,t)}updateStyles(){const{option:n,animationMap:t}=this,r=n.scrollEl[n.direction==="y"?"scrollTop":"scrollLeft"];for(const[o,i]of t)for(const s in i)o.style[s]=i[s](r)}}const yo=()=>{const e=document.getElementById("container");e.style.height="500px",e.style.position="relative";const n=`<div class='scroll-animation-wrap' style='height: 1100px;'>
+  `,e.style=n.text},ao=Object.freeze(Object.defineProperty({__proto__:null,default:so},Symbol.toStringTag,{value:"Module"}));class lo{constructor(){d(this,"_map",new Map);d(this,"_weakMap",new WeakMap)}_isObject(n){return typeof n=="object"&&n!==null}set(n,t){this._isObject(n)?this._weakMap.set(n,t):this._map.set(n,t)}get(n){return this._isObject(n)?this._weakMap.get(n):this._map.get(n)}has(n){this._isObject(n)?this._weakMap.has(n):this._map.has(n)}}const co=()=>{const e=new lo;e.set("a",1),e.set({},2),console.log(e.get("a"))},uo=Object.freeze(Object.defineProperty({__proto__:null,default:co},Symbol.toStringTag,{value:"Module"}));var Y,nn,zn;class ho{constructor(n){T(this,nn);d(this,"ctx");T(this,Y,[]);this.ctx=n}use(n){x(this,Y).push(n)}async callback(){return await bn(this,nn,zn).call(this,x(this,Y),this.ctx,()=>{})}}Y=new WeakMap,nn=new WeakSet,zn=function(n,t,r){function o(i){let s=n[i];return i===n.length&&(s=r),Promise.resolve(s(t,o.bind(null,++i)))}return o(0)};const mo=()=>{const e={a:123},n=new ho(e);n.use((t,r)=>(console.log("中间件1：",t.a),t.a=456,r(),console.log("中间件1：end"),t)),n.use((t,r)=>{console.log("中间件2：",t.a),r(),console.log("中间件2：end")}),n.callback().then(t=>{console.log("result: ",t)})},po=Object.freeze(Object.defineProperty({__proto__:null,default:mo},Symbol.toStringTag,{value:"Module"})),{warn:G}=console;var P;class fo{constructor(){T(this,P,new Map)}on(n,t){x(this,P).has(n)&&G(`${n} already exists`),x(this,P).set(n,{fn:t})}once(n,t){if(x(this,P).has(n)){G(`${n} already exists`);return}x(this,P).set(n,{fn:t,once:!0})}emit(n,...t){const r=x(this,P).get(n);if(!r){G(`no implementation for ${n}`);return}const o=r.fn(...t);return r.once&&x(this,P).delete(n),o}off(n){x(this,P).delete(n)}offAll(){x(this,P).clear()}reset(n,t,r=!1){if(!x(this,P).has(n)){G(`${n} not exists`);return}x(this,P).set(n,{fn:t,once:r})}}P=new WeakMap;const go=()=>{const e=new fo,n=document.getElementById("container");e.on("test",r=>{console.log(r)});const t=document.createElement("button");t.innerText="发送事件",t.addEventListener("click",()=>{e.emit("test","hello world")}),n.appendChild(t)},yo=Object.freeze(Object.defineProperty({__proto__:null,default:go},Symbol.toStringTag,{value:"Module"}));function Sn(e,n,t,r){return o=>o<=e?t:o>=n?r:t+(r-t)*(o-e)/(n-e)}class xo{constructor(n){d(this,"option",{direction:"y"});d(this,"animationMap",new Map);Object.assign(this.option,n)}set(n,t){this.animationMap.set(n,t)}updateStyles(){const{option:n,animationMap:t}=this,r=n.scrollEl[n.direction==="y"?"scrollTop":"scrollLeft"];for(const[o,i]of t)for(const s in i)o.style[s]=i[s](r)}}const bo=()=>{const e=document.getElementById("container");e.style.height="500px",e.style.position="relative";const n=`<div class='scroll-animation-wrap' style='height: 1100px;'>
     <div class='carry-off' style='margin-top: 300px; height: 500px; border: 1px dashed;'>
       <div class='remain' style='position: sticky; top: 0; height: 300px; border: 1px solid orange;'>
         <div class='box' style='width: 200px; height: 200px; background: red; position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto;'></div>
       </div>
     </div>
-  </div>`,r=new DOMParser().parseFromString(n,"text/html").body.firstChild;e.appendChild(r);const o=new go({scrollEl:e});o.set(document.querySelector(".scroll-animation-wrap .box"),{opacity(i){return wn(100,400,0,1)(i)},transform(i){return`translateX(${wn(100,300,-100,0)(i)}px)`}}),o.updateStyles(),e.addEventListener("scroll",i=>{o.updateStyles()})},xo=Object.freeze(Object.defineProperty({__proto__:null,default:yo},Symbol.toStringTag,{value:"Module"}));class bo{constructor(n={}){h(this,"option",{normal:/data:(.+)?\n\n/});h(this,"_text","");Object.assign(this.option,n)}add(n){this._text+=n;const{normal:t,onMessage:r}=this.option,o=[];for(;;){const i=this._text.match(t);if(!i)break;const s=i[1];o.push(s),this._text=this._text.slice(i[0].length),r&&r(s)}return o}}const _o=()=>{const e=document.getElementById("container"),n=new bo({onMessage(t){const r=JSON.parse(t);console.log(r);const o=document.createTextNode(r.data);e.appendChild(o)}});(async function(){const t=["hello",", ","world","!"];for(const r of t){const o={data:r,time:Date.now()};n.add(`data:${JSON.stringify(o)}
+  </div>`,r=new DOMParser().parseFromString(n,"text/html").body.firstChild;e.appendChild(r);const o=new xo({scrollEl:e});o.set(document.querySelector(".scroll-animation-wrap .box"),{opacity(i){return Sn(100,400,0,1)(i)},transform(i){return`translateX(${Sn(100,300,-100,0)(i)}px)`}}),o.updateStyles(),e.addEventListener("scroll",i=>{o.updateStyles()})},_o=Object.freeze(Object.defineProperty({__proto__:null,default:bo},Symbol.toStringTag,{value:"Module"}));var en;class vo{constructor(){d(this,"map",new Map);T(this,en,Vn())}set(n,t,r=1/0){n==null||n===""||this.map.set(n,{createTime:Date.now(),value:t,overTime:r,count:x(this,en).next().value})}get(n){const t=this.map.get(n);if(t==null)return;Date.now()-t.createTime>t.overTime&&this.delete(n);const r=this.map.get(n);return r&&r.value}isExpire(n){const t=this.map.get(n);return t==null||Date.now()-t.createTime>t.overTime}delete(n){this.map.delete(n)}clear(){this.map.clear()}length(){return this.map.size}get size(){return Jn(this.gainAll())}gainAll(){const n={};for(const[t,r]of this.map)n[t]=r.value;return n}}en=new WeakMap;class wo extends vo{constructor(t=1024*1024*2){super();d(this,"maxSize");this.maxSize=t}async deposit(t,r,o=-1,i=!1){if(o===-1&&(o=1/0),i)return typeof r=="function"&&(r=await r()),this.set(t,r,o),this.get(t);const s=this.get(t);return s||(typeof r=="function"&&(r=await r()),this.set(t,r,o),this.deleteOverValue(),this.clearCache(),this.get(t))}clearCache(){if(this.size<this.maxSize)return;const t=[];for(const[o,i]of Object.entries(this.map))i.overTime!==1/0&&t.push({key:o,...i});const r=So(t);this.deleteFristValue(r)}deleteOverValue(){const t=Date.now();for(const[r,o]of Object.entries(this.map)){const i=o.createTime,s=o.overTime;t-i>s&&this.delete(r)}}deleteFristValue(t){const r=t[0].key;t.shift(),this.delete(r),!(this.size<=this.maxSize)&&this.deleteFristValue(t)}}function So(e){const n=e.length;if(e==null||n===0)return[];for(let t=0;t<n-1;t++)for(let r=0;r<n-1;r++){const o=e[r];o.count>e[r+1].count&&([e[r],e[r+1]]=[e[r+1],o])}return e}const ko=async()=>{const e=new wo,n=await e.deposit(1,()=>(console.log("缓存数据"),123),100);console.log("r1",n),setTimeout(async()=>{const t=await e.deposit(1,()=>(console.log("已缓存过，不会执行"),456));console.log("r2",t)},50),setTimeout(async()=>{const t=await e.deposit(1,()=>(console.log("重新缓存数据"),789),100);console.log("r3",t)},200)},To=Object.freeze(Object.defineProperty({__proto__:null,default:ko},Symbol.toStringTag,{value:"Module"}));class Co{constructor(n={}){d(this,"option",{normal:/data:(.+)?\n\n/});d(this,"_text","");Object.assign(this.option,n)}add(n){this._text+=n;const{normal:t,onMessage:r}=this.option,o=[];for(;;){const i=this._text.match(t);if(!i)break;const s=i[1];o.push(s),this._text=this._text.slice(i[0].length),r&&r(s)}return o}}const Eo=()=>{const e=document.getElementById("container"),n=new Co({onMessage(t){const r=JSON.parse(t);console.log(r);const o=document.createTextNode(r.data);e.appendChild(o)}});(async function(){const t=["hello",", ","world","!"];for(const r of t){const o={data:r,time:Date.now()};n.add(`data:${JSON.stringify(o)}
 
-`),await hn(100)}})()},vo=Object.freeze(Object.defineProperty({__proto__:null,default:_o},Symbol.toStringTag,{value:"Module"}));class wo{constructor(n=5){h(this,"_parallelCount");h(this,"_runingCount",0);h(this,"tasks",[]);this._parallelCount=n}add(n){const t=new Promise((r,o)=>{this.tasks.push({task:n,resolve:r,reject:o})});return this._run(),t}_run(){for(;this.tasks.length>this._runingCount&&this._runingCount<this._parallelCount;){const{task:n,resolve:t,reject:r}=this.tasks[this._runingCount];this._runingCount++,n().then(o=>t(o)).catch(o=>r(o)).finally(()=>{this._continue()})}}_continue(){this._parallelCount++,this._run()}}const So=()=>{const e=new wo(3);e.add(n(100)),e.add(n(200)),e.add(n(150)),e.add(n(250)).then(t=>console.log("task")),e.add(n(180)),e.add(n(200)),e.add(n(300));function n(t){return async()=>(await hn(t),console.log(t),t)}},ko=Object.freeze(Object.defineProperty({__proto__:null,default:So},Symbol.toStringTag,{value:"Module"})),Co=`# 布隆过滤器
+`),await mn(100)}})()},Mo=Object.freeze(Object.defineProperty({__proto__:null,default:Eo},Symbol.toStringTag,{value:"Module"}));class Po{constructor(n=5){d(this,"_parallelCount");d(this,"_runingCount",0);d(this,"_currentIndex",0);d(this,"tasks",[]);d(this,"onEnd");this._parallelCount=n}add(n){const t=new Promise((r,o)=>{this.tasks.push({task:n,resolve:r,reject:o})});return this._run(),t}_run(){for(;this.tasks.length>this._runingCount&&this._runingCount<this._parallelCount;){const{task:n,resolve:t,reject:r}=this.tasks[this._runingCount];this._runingCount++,n().then(o=>t(o)).catch(o=>r(o)).finally(()=>{this._continue(),this._currentIndex++,this._currentIndex===this.tasks.length&&this.onEnd&&this.onEnd()})}}_continue(){this._parallelCount++,this._run()}}const jo=()=>{const e=new Po(3),n=Date.now();e.onEnd=()=>{console.log("总耗时：",Date.now()-n)},e.add(t(100)),e.add(t(200)),e.add(t(150)),e.add(t(250)).then(r=>console.log("task")),e.add(t(180)),e.add(t(200)),e.add(t(300));function t(r){return async()=>(await mn(r),console.log(r),r)}},Lo=Object.freeze(Object.defineProperty({__proto__:null,default:jo},Symbol.toStringTag,{value:"Module"})),Ao=`# 布隆过滤器
 
 ## Option
 
@@ -4214,7 +4585,7 @@ end
 
 1. 布隆过滤器是一种空间效率高的概率数据结构，用于判断一个元素是否在一个集合中；
 2. 可以用来判断一个元素是否在一个集合中，但不能保证100%准确，但是可以保证百分之99.99的准确率。
-`,To=`# 自定义代码高亮
+`,Oo=`# 自定义代码高亮
 
 ## Option
 
@@ -4258,7 +4629,7 @@ class CodeConversion2 extends CodeConversion {
 const conversion = new CodeConversion2();
 conversion.output(\`code\`)
 \`\`\`
-`,Eo=`# 事件触发形式
+`,Io=`# 事件触发形式
 
 ## Methods
 
@@ -4268,8 +4639,8 @@ conversion.output(\`code\`)
 | off | 关闭接收消息通道 | \`(type)\` | - |
 | emit | 发送消息 | \`(type, data)\` | - |
 | once | 只接收一次消息 | \`(type, callback)\` | - |
-| static wait | 给元素注册等待事件 | \`(ele)\` | - |
-`,Mo=`# 瀑布流布局
+| *static* wait | 给元素注册等待事件 | \`(ele)\` | - |
+`,Ro=`# 瀑布流布局
 
 ## Option
 
@@ -4301,12 +4672,12 @@ console.log(
 );
 //--> 184 (10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}] 540
 \`\`\`
-`,Po=`# 全屏控制
+`,Fo=`# 全屏控制
 
 ## 说明
 
 该 API 对原生事件做了兼容处理 
-`,jo=`# 函数重载
+`,Do=`# 函数重载
 
 ## Methods
 
@@ -4314,9 +4685,9 @@ console.log(
 | --- | --- | --- | --- |
 | addImpl | 添加重载函数 | \`(...args)\` | 最后一个参数为函数 |
 | overload | 调用已注册的重载函数 | \`(...args)\` | 对应注册时参数类型 |
-`,Lo="",Ao=`# 记忆 Map
-`,Oo=`# 洋葱皮式中间件
-`,Io=`# 发布订阅
+`,Bo="",Wo=`# 记忆 Map
+`,zo=`# 洋葱皮式中间件
+`,No=`# 发布订阅
 
 ## Methods
 
@@ -4328,7 +4699,7 @@ console.log(
 | off | 关闭事件 | \`( name: string, fn: (...args: any[]) => void )\` | |
 | offAll | 关闭所有事件 | | |
 | reset | 重置已注册的事件 | \`( name: string, fn: (...args: any[]) => void, once: boolen )\` | |
-`,Ro=`# 滚动控制
+`,Ho=`# 滚动控制
 
 
 ## Option
@@ -4345,7 +4716,50 @@ console.log(
 | --- | --- | --- | --- |
 | set | 设置元素动画样式 | \`dom, value\` | - |
 | updateStyles | 更新样式状态 | - | - |
-`,Wo=`# 事件流切割
+`,$o=`# 模拟 Redis 数据缓存
+
+## SimulateRedis
+
+### Option
+
+| 属性名 | 说明 | 类型 | 默认值 | 备注 |
+| --- | --- | --- | --- | --- |
+| maxSize | 最大储存大小 | \`number\` | \`1024 * 1024 * 2\` | - |
+
+### Methods
+
+| 方法名 | 说明 | 参数 | 备注 |
+| --- | --- | --- | --- |
+| deposit | 存/取 数据 | \`key, value, overTime, cover\` | - |
+| clearCache | 清除已过期数据 | - | - |
+| deleteOverValue | 删除过期的数据 | - | - |
+| deleteFristValue | 删除最早缓存的数据 | - | - |
+
+## CacheBasic
+
+### Methods
+
+| 方法名 | 说明 | 参数 | 备注 |
+| --- | --- | --- | --- |
+| set | 设置缓存数据 | \`key, value, overTime\` | - |
+| get | 获取数据（过期后不会返回） | \`key\` | - |
+| isExpire | 检测数据是否过期 | \`key\` | - |
+| delete | 删除数据 | \`key\` | - |
+| clear | 清空所有数据 | - | - |
+| gainAll | 获取所有缓存数据 | - | - |
+| length | 获取缓存数据长度 | - | - |
+| *static* size | 获取缓存数据大小 | - | - |
+
+\`\`\`ts
+import { CacheBasic, SimulateRedis } from "."
+
+const cache = new CacheBasic();
+cache.set('a', 123, 100);
+setTimeout(() => {
+  console.log(cache.get('a'));  //--> undefined
+}, 200)
+\`\`\`
+`,Xo=`# 事件流切割
 
 ## Option
 
@@ -4387,8 +4801,8 @@ fetch('/api/stream/sse', {
   }
 })
 \`\`\`
-`,Fo=`# 任务队列控制
-`,Bo=`import { isPointInCircle } from "~/core/utils/math"
+`,Uo=`# 任务队列控制
+`,Yo=`import { isPointInCircle } from "~/core/utils/math"
 
 type Option = {
   el:           HTMLElement
@@ -4608,7 +5022,7 @@ export class JoinLine {
   getRelations() {
     return this._connectingLines;
   }
-}`,Do=`import { computeControlPoint, filterExceed } from '../../utils/math'
+}`,Ko=`import { computeControlPoint, filterExceed } from '../../utils/math'
 import { priorityObject } from '../../utils/object'
 
 type Serie = {
@@ -5127,7 +5541,7 @@ export class ChartTimerBar {
     this.isPlay ? this.pause() : this.play(fixed);
   }
 }
-`,No=`import { isEven } from "../../utils/math"
+`,qo=`import { isEven } from "../../utils/math"
 
 
 type Option = {
@@ -5309,7 +5723,7 @@ export class ChartWait {
   }
 
 }
-`,zo=`import { calculateCentroid, getCirclePoints, isPointInPolygon } from "../../utils/math"
+`,Vo=`import { calculateCentroid, getCirclePoints, isPointInPolygon } from "../../utils/math"
 
 type DataItem = { [k: string]: any } & {
   name?:   string
@@ -5512,7 +5926,7 @@ export class ChartWheelDisc {
     })
   }
 
-}`,Ho=`import { JoinLine } from ".";
+}`,Jo=`import { JoinLine } from ".";
 
 export default () => {
   const container = document.getElementById('container');
@@ -5532,7 +5946,7 @@ export default () => {
     console.log(data);
   })
   container.appendChild(btn);
-}`,$o=`import { ChartTimerBar } from ".";
+}`,Go=`import { ChartTimerBar } from ".";
 
 export default () => {
   const container = document.getElementById('container');
@@ -5560,7 +5974,7 @@ export default () => {
     timerBar.play(true);
   })
   container.appendChild(btn);
-}`,Xo=`import { ChartWait } from ".";
+}`,Zo=`import { ChartWait } from ".";
 
 export default () => {
   const container = document.getElementById('container');
@@ -5577,7 +5991,7 @@ export default () => {
     wait.option.color = num > 60 ? '#ffaa00' : '#0080ff';
   }, 2000)
 }
-`,Yo=`import { ChartWheelDisc } from '.';
+`,Qo=`import { ChartWheelDisc } from '.';
 
 export default () => {
   const container = document.getElementById('container');
@@ -5630,8 +6044,8 @@ export default () => {
     ]
   })
 }
-`;class Ko{constructor(n){h(this,"option",{el:null,leftLen:3,rightLen:2,type:"single-single",gap:40,size:8,fillStyle:"#0080ff",lineWidth:1});h(this,"ctx");h(this,"_dpr",window.devicePixelRatio||1);h(this,"_prevMouseDownFunc",null);h(this,"_connectingLines",[]);h(this,"_repeat",{leftIndexs:[],rightIndexs:[]});Object.assign(this.option,n);const t=document.createElement("canvas"),r=t.getContext("2d");this.ctx=r,this.refresh(),n.el.appendChild(t)}refresh(){const{ctx:n,option:t,_dpr:r}=this,o=n.canvas;o.width=(t.width||t.el.offsetWidth)*r,o.height=(t.height||t.el.offsetHeight)*r,this._connectingLines.length=0,n.scale(r,r),this.draw(),o.style.width=`${o.width/r}px`,o.style.height=`${o.height/r}px`}draw(){const{_connectingLines:n,ctx:t,option:r,_dpr:o}=this;t.fillStyle=r.fillStyle,t.strokeStyle=r.fillStyle,t.lineWidth=r.lineWidth;const i=[],s=[],a=[],l=t.canvas,u=l.width/o,[d,m]=r.type.split("-");function g(){i.length=0,s.length=0,t.beginPath();for(let c=0;c<r.leftLen;c++){const p=c*r.gap+14;i.push({x:14,y:p}),t.arc(14,p,r.size,0,4*Math.PI)}t.fill(),t.beginPath();for(let c=0;c<r.rightLen;c++){const y=u-14,p=c*r.gap+14;s.push({x:y,y:p}),t.arc(y,p,r.size,0,4*Math.PI)}t.fill()}function f(c,y,p,v){t.beginPath(),t.moveTo(c,y),t.lineTo(p,v),t.stroke()}g(),n.forEach(c=>{const[y,p]=c,v=i[y],j=s[p],E=v.x,k=v.y,L=j.x,S=j.y;a.push({x1:E,y1:k,x2:L,y2:S}),f(E,k,L,S)});function b(){g(),a.forEach(c=>{f(c.x1,c.y1,c.x2,c.y2)})}l.removeEventListener("mousedown",this._prevMouseDownFunc),l.addEventListener("mousedown",w),this._prevMouseDownFunc=w;function w(c){let y=null,p=null,v=null;for(let k=0;k<i.length;k++){const{x:L,y:S}=i[k];if(ln(c.offsetX,c.offsetY,L,S,r.size)){y=k,p=L,v=S;break}}if(y===null)return;document.addEventListener("mousemove",j);function j(k){t.clearRect(0,0,l.width,l.height),b(),f(p,v,k.offsetX,k.offsetY)}document.addEventListener("mouseup",E);function E(k){document.removeEventListener("mousemove",j);let L=null,S=null,I=null;for(let M=0;M<s.length;M++){const{x:W,y:B}=s[M];if(ln(k.offsetX,k.offsetY,W,B,r.size)){S=W,I=B,L=M;break}}if(t.clearRect(0,0,l.width,l.height),L===null){b();return}for(let M=0;M<a.length;){const{x1:W,y1:B,x2:q,y2:en}=a[M];if(d==="single"&&W===p&&B===v||m==="single"&&q===S&&en===I){a.splice(M,1),n.splice(M,1);continue}M++}a.push({x1:p,y1:v,x2:S,y2:I}),n.push([y,L]),b(),document.removeEventListener("mouseup",E)}}}joinLine(n,t){const[r,o]=this.option.type.split("-"),{leftIndexs:i,rightIndexs:s}=this._repeat,a=r==="single"&&i.includes(n),l=o==="single"&&s.includes(t);if(a||l){console.warn(`连线 [${n}, ${t}] 重复，当前模式：${this.option.type}`);return}i.push(n),s.push(t),this._connectingLines.push([n,t]),this.draw()}getRelations(){return this._connectingLines}}const Uo=()=>{const e=document.getElementById("container"),n=new Ko({el:e,leftLen:3,rightLen:2,width:300,type:"single-multi"});n.joinLine(0,1);const t=document.createElement("button");t.innerText="获取连线数据",t.addEventListener("click",()=>{const r=n.getRelations();console.log(r)}),e.appendChild(t)},qo=Object.freeze(Object.defineProperty({__proto__:null,default:Uo},Symbol.toStringTag,{value:"Module"}));class Jo{constructor(n){h(this,"option");h(this,"ctx");h(this,"_cfg",{slider:{left:0,right:0},contentH:0,gap:0});h(this,"_backupSilderIndex",new Array(2));h(this,"_timer");const t={el:null,slider:{start:.2,end:.6,width:2,stroke:"#5879d1",color:"#5879d155"},playSpeed:4,isPoint:!0,xAxis:{show:!0,data:[],font:{size:"12px",color:"#666",textAlign:"center"},line:{width:1,stroke:"#5879d1"},scale:{stroke:"#5879d1"}},series:[{smooth:!1,data:[],line:{width:1,stroke:"#5879d1",fill:"#5879d155"},point:{size:3,stroke:"#5879d1",strokeWidth:1,fill:"#5879d155"}}]};this.option=Jn(n,t),this._init(),n.el.appendChild(this.ctx.canvas),this.draw()}_init(){const n=document.createElement("canvas");this.ctx=n.getContext("2d"),this._change();const t=this.option.slider;this._cfg.slider={left:t.start*n.width,right:t.end*n.width},n.addEventListener("mousemove",r=>{const o=r.offsetX,i=r.offsetY;this._inSlider(o,i)?n.style.cursor="ew-resize":this._inRectangle(o,i)?n.style.cursor="move":n.style.cursor="default"}),n.addEventListener("mousedown",r=>{const o=r.offsetX,i=r.offsetY,s=this,a=s._cfg.slider,l=o-a.left,u=Math.floor(a.right-a.left);function d(m){const g=b=>{s.pause(),m==="block"?(a.left=Math.floor(b.offsetX-l),a.right=a.left+u):a[m]=b.offsetX,a.left>=a.right&&(a.left=a.right-4),a.right<=a.left&&(a.right=a.left+4),a.left<0&&(a.left=0,a.right=a.left+u),a.right>n.width&&(a.right=n.width,a.left=a.right-u),s.draw()};n.addEventListener("mousemove",g);const f=b=>{n.removeEventListener("mousemove",g),document.removeEventListener("mouseup",f)};document.addEventListener("mouseup",f)}this._inSlider(o,i,"left")?d("left"):this._inSlider(o,i,"right")?d("right"):this._inRectangle(o,i)&&d("block")})}_change(){const n=this.option.width||this.option.el.offsetWidth,t=this.option.height||this.option.el.offsetHeight;this.ctx.canvas.width=n,this.ctx.canvas.height=t,this._cfg.contentH=t-(this.option.xAxis.height||24)}refresh(){this._change(),this.draw()}draw(){const{width:n,height:t}=this.ctx.canvas;this.ctx.clearRect(0,0,n,t),this.option.series.forEach(r=>{this._drawData(r)}),this._drawSlider(),this._drawXAxisScaleLine(),this._drawXAxisData()}_drawData(n){const t=this.ctx,{width:r}=t.canvas,o=this._cfg.contentH,i=n.data,s=Math.max(...i),a=r/(i.length-1);this._cfg.gap=a;const l=n.line;t.beginPath(),t.lineWidth=l.width,t.strokeStyle=l.stroke;const u=n.smooth,d=[0,Math.ceil(o-i[0]/s*o)];t.moveTo(d[0],d[1]);const m=[d];for(let f=1;f<i.length;f++){const b=[a*f,Math.ceil(o-i[f]/s*o)];u?m.push(b):t.lineTo(...b)}if(u){const f=Pn(m,o/300);for(let b=1;b<m.length;b++)t.bezierCurveTo(...f[b-1],...m[b])}t.stroke(),t.strokeStyle="transparent",t.lineTo(r,o),t.lineTo(0,o),t.fillStyle=l.fill,t.fill();const g=Object.assign({size:3,stroke:"#5879d1",strokeWidth:1},n.point);if(this.option.isPoint){t.fillStyle=g.fill,t.strokeStyle=g.stroke,t.lineWidth=g.strokeWidth;for(let f=0;f<i.length;f++)t.beginPath(),t.arc(a*f,o-i[f]/s*o,g.size,0,2*Math.PI),t.fill(),t.stroke()}}_drawXAxisScaleLine(){const n=this.ctx,{width:t}=n.canvas,r=this._cfg.contentH,o=Object.assign({width:.5,stroke:"#000"},this.option.xAxis.scale);n.beginPath(),n.strokeStyle=o.stroke,n.lineWidth=o.width,n.moveTo(0,r),n.lineTo(t,r),n.stroke();const i=this.option.xAxis.data,s=this._cfg.gap,a=Object.assign({stroke:"#000"});n.strokeStyle=a.stroke;for(let l=0;l<i.length;l++)n.beginPath(),n.moveTo(s*l,r),n.lineTo(s*l,r+5),n.stroke()}_drawXAxisData(){const n=this.ctx,t=this.option.xAxis,r=t.font,o=jn(t.data,n.canvas.width,{fontSize:parseInt(r.size),last:!0}),i=this._cfg.gap,s=this._cfg.contentH;if(t.show){n.beginPath(),n.textAlign=r.textAlign,n.font=r.size+" Arial",n.fillStyle=r.color;for(let a=0;a<o.length;a++)n.fillText(o[a],i*a,s+20);n.stroke()}}_drawSlider(){const n=this.ctx,{left:t,right:r}=this._cfg.slider,o=this._cfg.contentH,i=this.option.slider;n.beginPath(),n.fillStyle=i.color,n.rect(t,0,r-t,o),n.fill(),n.beginPath(),n.lineWidth=i.width,n.strokeStyle=i.stroke,n.moveTo(t,0),n.lineTo(t,o),n.stroke(),n.beginPath(),n.moveTo(r,0),n.lineTo(r,o),n.stroke(),this._getSliderData()}destroy(){this.ctx.canvas.remove()}_getSliderData(){const{left:n,right:t}=this._cfg.slider,r=this.ctx.canvas.width/(this.option.xAxis.data.length-1),o=Math.ceil(n/r),i=Math.floor(t/r);if(this._backupSilderIndex[0]!==o||this._backupSilderIndex[1]!==i){this._backupSilderIndex=[o,i];const s=this.option.onSliderIndexChange;s&&s(o,i)}}_inContent(n){return n>=0&&n<=this._cfg.contentH}_inSlider(n,t,r="both"){const{left:o,right:i}=this._cfg.slider,s=this.option.slider.width,a=this._inContent(t),l=n>=o-s&&n<=o+s;if(r==="left")return l&&a;const u=n>=i-s&&n<=i+s;return r==="right"?u&&a:(l||u)&&a}_inRectangle(n,t){const{left:r,right:o}=this._cfg.slider;return n>=r&&n<=o&&this._inContent(t)}_inPoint(n,t){if(!this.option.isPoint)return!1;const r=this._cfg.gap,{series:o}=this.option;for(let i=0;i<o.length;i++){const s=o[i].data;for(let a=0;a<s.length;a++)console.log(r*a,t)}}get isPlay(){return!!this._timer}play(n=!1){if(this.isPlay)return;this._cfg.slider.right>=this.ctx.canvas.width&&(this._cfg.slider.left=0,this._cfg.slider.right=2);const t=this.option.playSpeed;this._timer=setInterval(()=>{if(this._cfg.slider.right>=this.ctx.canvas.width){clearInterval(this._timer),this._timer=null;const r=this.option.onPlayEnd;r&&r(this.isPlay);return}n&&(this._cfg.slider.left+=t),this._cfg.slider.right+=t,this.draw()},16)}pause(){clearInterval(this._timer),this._timer=null}togglePlay(n=!1){this.isPlay?this.pause():this.play(n)}}const Go=()=>{const e=document.getElementById("container"),n=new Jo({el:e,height:200,xAxis:{data:["2021","2022","2023","2024","2025","2026"]},series:[{data:[120,230,220,907,150,101]}],onSliderIndexChange(r,o){console.log(r,o)}}),t=document.createElement("button");t.innerText="play",t.addEventListener("click",()=>{n._cfg.slider.left=0,n._cfg.slider.right=n._cfg.gap,n.play(!0)}),e.appendChild(t)},Vo=Object.freeze(Object.defineProperty({__proto__:null,default:Go},Symbol.toStringTag,{value:"Module"}));var U,z,F;class Zo{constructor(n){h(this,"_canvas");h(this,"_ctx");h(this,"option");h(this,"_dpr",window.devicePixelRatio||1);T(this,U,0);T(this,z,0);T(this,F,0);h(this,"_animationId",null);var o;this.option=Object.assign({percentage:0,radian:1,color:"#0080ff",noTransition:!1,speed:1},n),(o=this.option).size??(o.size=n.el.clientWidth),this.option.size=Array.isArray(this.option.size)?this.option.size:[this.option.size,this.option.size],this._canvas=document.createElement("canvas");const t=this.option.size[0],r=this.option.size[1];this._canvas.style.width=t+"px",this._canvas.style.height=r+"px",this._canvas.width=t*this._dpr,this._canvas.height=r*this._dpr,n.el.appendChild(this._canvas),this._ctx=this._canvas.getContext("2d"),this._ctx.scale(this._dpr,this._dpr),C(this,F,this._canvas.width/2),this.animation()}_drawWave(n){const t=this._ctx,r=x(this,F),o=x(this,z)/this._dpr,i=x(this,U);function s(u){const d=r*(u+1)+n;return u===0?t.moveTo(r*u+n,o):t.lineTo(r*u+n,o),t.quadraticCurveTo(r*(u+1)-r/2+n,o+i,d,o),d}function a(u){const d=r*(u+1)+n;return u===0?t.moveTo(r*u+n,o):t.lineTo(r*u+n,o),t.quadraticCurveTo(r*(u+1)-r/2+n,o*2-(o+i),d,o),d}let l=0;return function(d){for(;l<=d;){const m=Tn(l)?s(l):a(l);if(l===d)return m;l++}}}_graph(n=0,t="#00f"){this._ctx.beginPath();const r=this._drawWave(n),o=this._canvas.width/x(this,F)*2,i=r(o);this._ctx.lineTo(i,x(this,z)),this._ctx.lineTo(i,this._canvas.height),this._ctx.lineTo(n,this._canvas.height),this._ctx.closePath(),this._ctx.fillStyle=t,this._ctx.fill()}animation(){let n=-this._canvas.width,t=-this._canvas.width,r=-this._canvas.width,o=0;const i=this;s();function s(){o>i.option.percentage&&o--,o<i.option.percentage&&o++,C(i,z,i._canvas.height-i._canvas.height*(o/100));const a=o<60?o/2:(100-o)/2+10;C(i,U,a*i.option.radian*i._dpr),n>0&&(n=-i._canvas.width),t>0&&(t=-i._canvas.width),r>0&&(r=-i._canvas.width),i._ctx.clearRect(0,0,i._canvas.width,i._canvas.height);const l=i.option.color;i._graph(n,l+"33"),i._graph(t,l+"55"),i._graph(r,l),n+=4*i.option.speed,t+=3*i.option.speed,r+=2*i.option.speed,i._animationId=requestAnimationFrame(s)}}refresh(){var i;if((i=this.option).size??(i.size=this.option.el.clientWidth),this.option.size=Array.isArray(this.option.size)?this.option.size:[this.option.size,this.option.size],this._canvas.width=this.option.size[0],this._canvas.height=this.option.size[1],C(this,F,this._canvas.width/2),this.option.noTransition)return;let n=0,t=null;const r=this;(function(){cancelAnimationFrame(r._animationId),n=r.option.percentage,r.option.percentage=0,o(),r.animation()})();function o(){if(r.option.percentage>=n){cancelAnimationFrame(t);return}r.option.percentage++,t=requestAnimationFrame(o)}}}U=new WeakMap,z=new WeakMap,F=new WeakMap;const Qo=()=>{const e=document.getElementById("container"),n=new Zo({el:e,percentage:30,size:300});n._canvas.style.borderRadius="50%",setInterval(()=>{const t=Math.random()*100;n.option.percentage=t,n.option.color=t>60?"#ffaa00":"#0080ff"},2e3)},ni=Object.freeze(Object.defineProperty({__proto__:null,default:Qo},Symbol.toStringTag,{value:"Module"}));class ei{constructor(n){h(this,"option");h(this,"ctx");h(this,"dpr",window.devicePixelRatio||1);h(this,"_collectPolygons",[]);this.option=n;const t=document.createElement("canvas"),r=n.width||n.el.clientWidth,o=n.height||n.el.clientHeight;t.style.width=r+"px",t.style.height=o+"px",t.width=r*this.dpr,t.height=o*this.dpr,this.ctx=t.getContext("2d"),this.ctx.scale(this.dpr,this.dpr),n.el.appendChild(t),this.draw(),this.event()}draw(n,t){const{width:r,height:o}=this.ctx.canvas;this.ctx.clearRect(0,0,r,o);const i=this.option.controls;for(let s=0;s<i.length;s++)this._drawControl(i[s],n===s&&t)}refresh(){this.draw()}_drawControl(n,t){const{width:r,height:o}=this.ctx.canvas,i=this.ctx,s=n.outerSize,a=s/2,l=(s-(n.interSize||0))/2;let u=0;const d=[];n.data.forEach(p=>{if(p.value>1){const v=p.value-1,j=[];for(let E=1;E<=v;E++)j.push(u+E);d.push(...j)}u+=p.value||1});const m=s/2+(r/this.dpr-s)/2,g=s/2+(o/this.dpr-s)/2;let f=an(m,g,a,u),b=an(m,g,a-l,u);if(u>n.data.length){for(const p of d)delete f[p],delete b[p];f=f.filter(Boolean),b=b.filter(Boolean)}i.textAlign="center",i.lineWidth=n.lineWidth||3;let w=0;const c=[],y=f.length;for(let p=0;p<y;p++){const v=p===y-1?0:p+1,j=b[p],E=b[v],k=f[p],L=f[v],S=[{x:j[0],y:j[1]},{x:E[0],y:E[1]},{x:L[0],y:L[1]},{x:k[0],y:k[1]}];c.push(S),i.strokeStyle=n.lineColor,i.beginPath();const I=Math.PI*2/u;i.moveTo(S[0].x,S[0].y),i.lineTo(S[3].x,S[3].y);const M=n.data[p].value||1;i.arc(m,g,a-l,I*w,I*(w+M)),i.lineTo(S[1].x,S[1].y),i.arc(m,g,a,I*(w+M),I*w,!0),w+=M,i.stroke(),t===p&&n.activeBackground?i.fillStyle=n.activeBackground:i.fillStyle=n.background,i.fill(),i.fillStyle=n.color;const W=An(S),B=n.data[p].name.split(`
-`),q=n.data[p].offset||[0,0];B.forEach((en,gn)=>{i.fillText(en,W.x+q[0],W.y+q[1]+gn*14)})}this._collectPolygons.push(c)}queryPosition(n,t){const r=this._collectPolygons;let o=-1,i=-1;n:for(let s=0;s<r.length;s++){const a=r[s];for(let l=0;l<a.length;l++){const u=a[l];if(Ln(n,t,u)){o=s,i=l;break n}}}return{layer:o,index:i}}event(){const n=this.ctx.canvas,{controls:t}=this.option;n.addEventListener("mousemove",r=>{const{layer:o,index:i}=this.queryPosition(r.offsetX,r.offsetY);[o,i].includes(-1)?(this.draw(),n.style.cursor="default"):(this.draw(o,i),n.style.cursor="pointer")}),n.addEventListener("click",r=>{const{layer:o,index:i}=this.queryPosition(r.offsetX,r.offsetY);if([o,i].includes(-1))return;const{handle:s}=t[o].data[i];s&&s()})}}const ti=()=>{const e=document.getElementById("container");new ei({el:e,height:300,controls:[{outerSize:140,interSize:40,color:"white",background:"#475dbd",lineColor:"#D1D1D3",lineWidth:3,data:[{name:"效果",value:4,offset:[6,8]},{name:"外部查询",value:2},{name:"布局",value:3},{name:"操作",value:4,offset:[6,-8]}]},{outerSize:280,interSize:144,color:"white",background:"#65656C",lineColor:"#D1D1D3",lineWidth:3,activeBackground:"#32325D",data:[{name:"隐藏",icon:"",handle(){console.log("隐藏")}},{name:"锁定",icon:"",handle(){}},{name:"固定",icon:""},{name:"聚焦",icon:""},{name:"恶意IP画像",icon:""},{name:"路径搜索",icon:""},{name:"横向布局",icon:""},{name:"纵向布局",icon:""},{name:"网格布局",icon:""},{name:"扩展",icon:""},{name:"收藏",icon:""},{name:"标记",icon:""},{name:"标签",icon:""}]}]})},ri=Object.freeze(Object.defineProperty({__proto__:null,default:ti},Symbol.toStringTag,{value:"Module"})),oi="# 数据连线\n\n## Option\n\n| 属性名 | 说明 | 类型 | 默认值 | 备注 |\n| --- | --- | --- | --- | --- |\n| el* | 绑定元素 | `HTMLElement` | - | - |\n| leftLen* | 左侧点个数 | `number` | - | - |\n| rightLen* | 右侧点个数 | `number` | - | - |\n| type | 连接类型 | `string` | single-single | 连接模式（一对一、一对多、多对一、多对多） |\n| width | 指定宽度 | `number` | el 的宽 | - |\n| height | 指定高度 | `number` | el 的高 | - |\n| gap | 每行点之间的间距 | `number` | 40 | - |\n| size | 点大小 | `number` | 8 | - |\n| fillStyle | 填充颜色 | `string` | #0080ff | - |\n| lineWidth | 连线宽度 | `number` | 2 | - |\n",ii=`# 时间轴过滤
+`;class ni{constructor(n){d(this,"option",{el:null,leftLen:3,rightLen:2,type:"single-single",gap:40,size:8,fillStyle:"#0080ff",lineWidth:1});d(this,"ctx");d(this,"_dpr",window.devicePixelRatio||1);d(this,"_prevMouseDownFunc",null);d(this,"_connectingLines",[]);d(this,"_repeat",{leftIndexs:[],rightIndexs:[]});Object.assign(this.option,n);const t=document.createElement("canvas"),r=t.getContext("2d");this.ctx=r,this.refresh(),n.el.appendChild(t)}refresh(){const{ctx:n,option:t,_dpr:r}=this,o=n.canvas;o.width=(t.width||t.el.offsetWidth)*r,o.height=(t.height||t.el.offsetHeight)*r,this._connectingLines.length=0,n.scale(r,r),this.draw(),o.style.width=`${o.width/r}px`,o.style.height=`${o.height/r}px`}draw(){const{_connectingLines:n,ctx:t,option:r,_dpr:o}=this;t.fillStyle=r.fillStyle,t.strokeStyle=r.fillStyle,t.lineWidth=r.lineWidth;const i=[],s=[],a=[],l=t.canvas,u=l.width/o,[h,m]=r.type.split("-");function g(){i.length=0,s.length=0,t.beginPath();for(let c=0;c<r.leftLen;c++){const p=c*r.gap+14;i.push({x:14,y:p}),t.arc(14,p,r.size,0,4*Math.PI)}t.fill(),t.beginPath();for(let c=0;c<r.rightLen;c++){const y=u-14,p=c*r.gap+14;s.push({x:y,y:p}),t.arc(y,p,r.size,0,4*Math.PI)}t.fill()}function f(c,y,p,v){t.beginPath(),t.moveTo(c,y),t.lineTo(p,v),t.stroke()}g(),n.forEach(c=>{const[y,p]=c,v=i[y],j=s[p],E=v.x,k=v.y,L=j.x,S=j.y;a.push({x1:E,y1:k,x2:L,y2:S}),f(E,k,L,S)});function b(){g(),a.forEach(c=>{f(c.x1,c.y1,c.x2,c.y2)})}l.removeEventListener("mousedown",this._prevMouseDownFunc),l.addEventListener("mousedown",w),this._prevMouseDownFunc=w;function w(c){let y=null,p=null,v=null;for(let k=0;k<i.length;k++){const{x:L,y:S}=i[k];if(cn(c.offsetX,c.offsetY,L,S,r.size)){y=k,p=L,v=S;break}}if(y===null)return;document.addEventListener("mousemove",j);function j(k){t.clearRect(0,0,l.width,l.height),b(),f(p,v,k.offsetX,k.offsetY)}document.addEventListener("mouseup",E);function E(k){document.removeEventListener("mousemove",j);let L=null,S=null,I=null;for(let M=0;M<s.length;M++){const{x:F,y:B}=s[M];if(cn(k.offsetX,k.offsetY,F,B,r.size)){S=F,I=B,L=M;break}}if(t.clearRect(0,0,l.width,l.height),L===null){b();return}for(let M=0;M<a.length;){const{x1:F,y1:B,x2:q,y2:tn}=a[M];if(h==="single"&&F===p&&B===v||m==="single"&&q===S&&tn===I){a.splice(M,1),n.splice(M,1);continue}M++}a.push({x1:p,y1:v,x2:S,y2:I}),n.push([y,L]),b(),document.removeEventListener("mouseup",E)}}}joinLine(n,t){const[r,o]=this.option.type.split("-"),{leftIndexs:i,rightIndexs:s}=this._repeat,a=r==="single"&&i.includes(n),l=o==="single"&&s.includes(t);if(a||l){console.warn(`连线 [${n}, ${t}] 重复，当前模式：${this.option.type}`);return}i.push(n),s.push(t),this._connectingLines.push([n,t]),this.draw()}getRelations(){return this._connectingLines}}const ei=()=>{const e=document.getElementById("container"),n=new ni({el:e,leftLen:3,rightLen:2,width:300,type:"single-multi"});n.joinLine(0,1);const t=document.createElement("button");t.innerText="获取连线数据",t.addEventListener("click",()=>{const r=n.getRelations();console.log(r)}),e.appendChild(t)},ti=Object.freeze(Object.defineProperty({__proto__:null,default:ei},Symbol.toStringTag,{value:"Module"}));class ri{constructor(n){d(this,"option");d(this,"ctx");d(this,"_cfg",{slider:{left:0,right:0},contentH:0,gap:0});d(this,"_backupSilderIndex",new Array(2));d(this,"_timer");const t={el:null,slider:{start:.2,end:.6,width:2,stroke:"#5879d1",color:"#5879d155"},playSpeed:4,isPoint:!0,xAxis:{show:!0,data:[],font:{size:"12px",color:"#666",textAlign:"center"},line:{width:1,stroke:"#5879d1"},scale:{stroke:"#5879d1"}},series:[{smooth:!1,data:[],line:{width:1,stroke:"#5879d1",fill:"#5879d155"},point:{size:3,stroke:"#5879d1",strokeWidth:1,fill:"#5879d155"}}]};this.option=Gn(n,t),this._init(),n.el.appendChild(this.ctx.canvas),this.draw()}_init(){const n=document.createElement("canvas");this.ctx=n.getContext("2d"),this._change();const t=this.option.slider;this._cfg.slider={left:t.start*n.width,right:t.end*n.width},n.addEventListener("mousemove",r=>{const o=r.offsetX,i=r.offsetY;this._inSlider(o,i)?n.style.cursor="ew-resize":this._inRectangle(o,i)?n.style.cursor="move":n.style.cursor="default"}),n.addEventListener("mousedown",r=>{const o=r.offsetX,i=r.offsetY,s=this,a=s._cfg.slider,l=o-a.left,u=Math.floor(a.right-a.left);function h(m){const g=b=>{s.pause(),m==="block"?(a.left=Math.floor(b.offsetX-l),a.right=a.left+u):a[m]=b.offsetX,a.left>=a.right&&(a.left=a.right-4),a.right<=a.left&&(a.right=a.left+4),a.left<0&&(a.left=0,a.right=a.left+u),a.right>n.width&&(a.right=n.width,a.left=a.right-u),s.draw()};n.addEventListener("mousemove",g);const f=b=>{n.removeEventListener("mousemove",g),document.removeEventListener("mouseup",f)};document.addEventListener("mouseup",f)}this._inSlider(o,i,"left")?h("left"):this._inSlider(o,i,"right")?h("right"):this._inRectangle(o,i)&&h("block")})}_change(){const n=this.option.width||this.option.el.offsetWidth,t=this.option.height||this.option.el.offsetHeight;this.ctx.canvas.width=n,this.ctx.canvas.height=t,this._cfg.contentH=t-(this.option.xAxis.height||24)}refresh(){this._change(),this.draw()}draw(){const{width:n,height:t}=this.ctx.canvas;this.ctx.clearRect(0,0,n,t),this.option.series.forEach(r=>{this._drawData(r)}),this._drawSlider(),this._drawXAxisScaleLine(),this._drawXAxisData()}_drawData(n){const t=this.ctx,{width:r}=t.canvas,o=this._cfg.contentH,i=n.data,s=Math.max(...i),a=r/(i.length-1);this._cfg.gap=a;const l=n.line;t.beginPath(),t.lineWidth=l.width,t.strokeStyle=l.stroke;const u=n.smooth,h=[0,Math.ceil(o-i[0]/s*o)];t.moveTo(h[0],h[1]);const m=[h];for(let f=1;f<i.length;f++){const b=[a*f,Math.ceil(o-i[f]/s*o)];u?m.push(b):t.lineTo(...b)}if(u){const f=jn(m,o/300);for(let b=1;b<m.length;b++)t.bezierCurveTo(...f[b-1],...m[b])}t.stroke(),t.strokeStyle="transparent",t.lineTo(r,o),t.lineTo(0,o),t.fillStyle=l.fill,t.fill();const g=Object.assign({size:3,stroke:"#5879d1",strokeWidth:1},n.point);if(this.option.isPoint){t.fillStyle=g.fill,t.strokeStyle=g.stroke,t.lineWidth=g.strokeWidth;for(let f=0;f<i.length;f++)t.beginPath(),t.arc(a*f,o-i[f]/s*o,g.size,0,2*Math.PI),t.fill(),t.stroke()}}_drawXAxisScaleLine(){const n=this.ctx,{width:t}=n.canvas,r=this._cfg.contentH,o=Object.assign({width:.5,stroke:"#000"},this.option.xAxis.scale);n.beginPath(),n.strokeStyle=o.stroke,n.lineWidth=o.width,n.moveTo(0,r),n.lineTo(t,r),n.stroke();const i=this.option.xAxis.data,s=this._cfg.gap,a=Object.assign({stroke:"#000"});n.strokeStyle=a.stroke;for(let l=0;l<i.length;l++)n.beginPath(),n.moveTo(s*l,r),n.lineTo(s*l,r+5),n.stroke()}_drawXAxisData(){const n=this.ctx,t=this.option.xAxis,r=t.font,o=Ln(t.data,n.canvas.width,{fontSize:parseInt(r.size),last:!0}),i=this._cfg.gap,s=this._cfg.contentH;if(t.show){n.beginPath(),n.textAlign=r.textAlign,n.font=r.size+" Arial",n.fillStyle=r.color;for(let a=0;a<o.length;a++)n.fillText(o[a],i*a,s+20);n.stroke()}}_drawSlider(){const n=this.ctx,{left:t,right:r}=this._cfg.slider,o=this._cfg.contentH,i=this.option.slider;n.beginPath(),n.fillStyle=i.color,n.rect(t,0,r-t,o),n.fill(),n.beginPath(),n.lineWidth=i.width,n.strokeStyle=i.stroke,n.moveTo(t,0),n.lineTo(t,o),n.stroke(),n.beginPath(),n.moveTo(r,0),n.lineTo(r,o),n.stroke(),this._getSliderData()}destroy(){this.ctx.canvas.remove()}_getSliderData(){const{left:n,right:t}=this._cfg.slider,r=this.ctx.canvas.width/(this.option.xAxis.data.length-1),o=Math.ceil(n/r),i=Math.floor(t/r);if(this._backupSilderIndex[0]!==o||this._backupSilderIndex[1]!==i){this._backupSilderIndex=[o,i];const s=this.option.onSliderIndexChange;s&&s(o,i)}}_inContent(n){return n>=0&&n<=this._cfg.contentH}_inSlider(n,t,r="both"){const{left:o,right:i}=this._cfg.slider,s=this.option.slider.width,a=this._inContent(t),l=n>=o-s&&n<=o+s;if(r==="left")return l&&a;const u=n>=i-s&&n<=i+s;return r==="right"?u&&a:(l||u)&&a}_inRectangle(n,t){const{left:r,right:o}=this._cfg.slider;return n>=r&&n<=o&&this._inContent(t)}_inPoint(n,t){if(!this.option.isPoint)return!1;const r=this._cfg.gap,{series:o}=this.option;for(let i=0;i<o.length;i++){const s=o[i].data;for(let a=0;a<s.length;a++)console.log(r*a,t)}}get isPlay(){return!!this._timer}play(n=!1){if(this.isPlay)return;this._cfg.slider.right>=this.ctx.canvas.width&&(this._cfg.slider.left=0,this._cfg.slider.right=2);const t=this.option.playSpeed;this._timer=setInterval(()=>{if(this._cfg.slider.right>=this.ctx.canvas.width){clearInterval(this._timer),this._timer=null;const r=this.option.onPlayEnd;r&&r(this.isPlay);return}n&&(this._cfg.slider.left+=t),this._cfg.slider.right+=t,this.draw()},16)}pause(){clearInterval(this._timer),this._timer=null}togglePlay(n=!1){this.isPlay?this.pause():this.play(n)}}const oi=()=>{const e=document.getElementById("container"),n=new ri({el:e,height:200,xAxis:{data:["2021","2022","2023","2024","2025","2026"]},series:[{data:[120,230,220,907,150,101]}],onSliderIndexChange(r,o){console.log(r,o)}}),t=document.createElement("button");t.innerText="play",t.addEventListener("click",()=>{n._cfg.slider.left=0,n._cfg.slider.right=n._cfg.gap,n.play(!0)}),e.appendChild(t)},ii=Object.freeze(Object.defineProperty({__proto__:null,default:oi},Symbol.toStringTag,{value:"Module"}));var K,N,D;class si{constructor(n){d(this,"_canvas");d(this,"_ctx");d(this,"option");d(this,"_dpr",window.devicePixelRatio||1);T(this,K,0);T(this,N,0);T(this,D,0);d(this,"_animationId",null);var o;this.option=Object.assign({percentage:0,radian:1,color:"#0080ff",noTransition:!1,speed:1},n),(o=this.option).size??(o.size=n.el.clientWidth),this.option.size=Array.isArray(this.option.size)?this.option.size:[this.option.size,this.option.size],this._canvas=document.createElement("canvas");const t=this.option.size[0],r=this.option.size[1];this._canvas.style.width=t+"px",this._canvas.style.height=r+"px",this._canvas.width=t*this._dpr,this._canvas.height=r*this._dpr,n.el.appendChild(this._canvas),this._ctx=this._canvas.getContext("2d"),this._ctx.scale(this._dpr,this._dpr),C(this,D,this._canvas.width/2),this.animation()}_drawWave(n){const t=this._ctx,r=x(this,D),o=x(this,N)/this._dpr,i=x(this,K);function s(u){const h=r*(u+1)+n;return u===0?t.moveTo(r*u+n,o):t.lineTo(r*u+n,o),t.quadraticCurveTo(r*(u+1)-r/2+n,o+i,h,o),h}function a(u){const h=r*(u+1)+n;return u===0?t.moveTo(r*u+n,o):t.lineTo(r*u+n,o),t.quadraticCurveTo(r*(u+1)-r/2+n,o*2-(o+i),h,o),h}let l=0;return function(h){for(;l<=h;){const m=En(l)?s(l):a(l);if(l===h)return m;l++}}}_graph(n=0,t="#00f"){this._ctx.beginPath();const r=this._drawWave(n),o=this._canvas.width/x(this,D)*2,i=r(o);this._ctx.lineTo(i,x(this,N)),this._ctx.lineTo(i,this._canvas.height),this._ctx.lineTo(n,this._canvas.height),this._ctx.closePath(),this._ctx.fillStyle=t,this._ctx.fill()}animation(){let n=-this._canvas.width,t=-this._canvas.width,r=-this._canvas.width,o=0;const i=this;s();function s(){o>i.option.percentage&&o--,o<i.option.percentage&&o++,C(i,N,i._canvas.height-i._canvas.height*(o/100));const a=o<60?o/2:(100-o)/2+10;C(i,K,a*i.option.radian*i._dpr),n>0&&(n=-i._canvas.width),t>0&&(t=-i._canvas.width),r>0&&(r=-i._canvas.width),i._ctx.clearRect(0,0,i._canvas.width,i._canvas.height);const l=i.option.color;i._graph(n,l+"33"),i._graph(t,l+"55"),i._graph(r,l),n+=4*i.option.speed,t+=3*i.option.speed,r+=2*i.option.speed,i._animationId=requestAnimationFrame(s)}}refresh(){var i;if((i=this.option).size??(i.size=this.option.el.clientWidth),this.option.size=Array.isArray(this.option.size)?this.option.size:[this.option.size,this.option.size],this._canvas.width=this.option.size[0],this._canvas.height=this.option.size[1],C(this,D,this._canvas.width/2),this.option.noTransition)return;let n=0,t=null;const r=this;(function(){cancelAnimationFrame(r._animationId),n=r.option.percentage,r.option.percentage=0,o(),r.animation()})();function o(){if(r.option.percentage>=n){cancelAnimationFrame(t);return}r.option.percentage++,t=requestAnimationFrame(o)}}}K=new WeakMap,N=new WeakMap,D=new WeakMap;const ai=()=>{const e=document.getElementById("container"),n=new si({el:e,percentage:30,size:300});n._canvas.style.borderRadius="50%",setInterval(()=>{const t=Math.random()*100;n.option.percentage=t,n.option.color=t>60?"#ffaa00":"#0080ff"},2e3)},li=Object.freeze(Object.defineProperty({__proto__:null,default:ai},Symbol.toStringTag,{value:"Module"}));class ci{constructor(n){d(this,"option");d(this,"ctx");d(this,"dpr",window.devicePixelRatio||1);d(this,"_collectPolygons",[]);this.option=n;const t=document.createElement("canvas"),r=n.width||n.el.clientWidth,o=n.height||n.el.clientHeight;t.style.width=r+"px",t.style.height=o+"px",t.width=r*this.dpr,t.height=o*this.dpr,this.ctx=t.getContext("2d"),this.ctx.scale(this.dpr,this.dpr),n.el.appendChild(t),this.draw(),this.event()}draw(n,t){const{width:r,height:o}=this.ctx.canvas;this.ctx.clearRect(0,0,r,o);const i=this.option.controls;for(let s=0;s<i.length;s++)this._drawControl(i[s],n===s&&t)}refresh(){this.draw()}_drawControl(n,t){const{width:r,height:o}=this.ctx.canvas,i=this.ctx,s=n.outerSize,a=s/2,l=(s-(n.interSize||0))/2;let u=0;const h=[];n.data.forEach(p=>{if(p.value>1){const v=p.value-1,j=[];for(let E=1;E<=v;E++)j.push(u+E);h.push(...j)}u+=p.value||1});const m=s/2+(r/this.dpr-s)/2,g=s/2+(o/this.dpr-s)/2;let f=ln(m,g,a,u),b=ln(m,g,a-l,u);if(u>n.data.length){for(const p of h)delete f[p],delete b[p];f=f.filter(Boolean),b=b.filter(Boolean)}i.textAlign="center",i.lineWidth=n.lineWidth||3;let w=0;const c=[],y=f.length;for(let p=0;p<y;p++){const v=p===y-1?0:p+1,j=b[p],E=b[v],k=f[p],L=f[v],S=[{x:j[0],y:j[1]},{x:E[0],y:E[1]},{x:L[0],y:L[1]},{x:k[0],y:k[1]}];c.push(S),i.strokeStyle=n.lineColor,i.beginPath();const I=Math.PI*2/u;i.moveTo(S[0].x,S[0].y),i.lineTo(S[3].x,S[3].y);const M=n.data[p].value||1;i.arc(m,g,a-l,I*w,I*(w+M)),i.lineTo(S[1].x,S[1].y),i.arc(m,g,a,I*(w+M),I*w,!0),w+=M,i.stroke(),t===p&&n.activeBackground?i.fillStyle=n.activeBackground:i.fillStyle=n.background,i.fill(),i.fillStyle=n.color;const F=On(S),B=n.data[p].name.split(`
+`),q=n.data[p].offset||[0,0];B.forEach((tn,yn)=>{i.fillText(tn,F.x+q[0],F.y+q[1]+yn*14)})}this._collectPolygons.push(c)}queryPosition(n,t){const r=this._collectPolygons;let o=-1,i=-1;n:for(let s=0;s<r.length;s++){const a=r[s];for(let l=0;l<a.length;l++){const u=a[l];if(An(n,t,u)){o=s,i=l;break n}}}return{layer:o,index:i}}event(){const n=this.ctx.canvas,{controls:t}=this.option;n.addEventListener("mousemove",r=>{const{layer:o,index:i}=this.queryPosition(r.offsetX,r.offsetY);[o,i].includes(-1)?(this.draw(),n.style.cursor="default"):(this.draw(o,i),n.style.cursor="pointer")}),n.addEventListener("click",r=>{const{layer:o,index:i}=this.queryPosition(r.offsetX,r.offsetY);if([o,i].includes(-1))return;const{handle:s}=t[o].data[i];s&&s()})}}const ui=()=>{const e=document.getElementById("container");new ci({el:e,height:300,controls:[{outerSize:140,interSize:40,color:"white",background:"#475dbd",lineColor:"#D1D1D3",lineWidth:3,data:[{name:"效果",value:4,offset:[6,8]},{name:"外部查询",value:2},{name:"布局",value:3},{name:"操作",value:4,offset:[6,-8]}]},{outerSize:280,interSize:144,color:"white",background:"#65656C",lineColor:"#D1D1D3",lineWidth:3,activeBackground:"#32325D",data:[{name:"隐藏",icon:"",handle(){console.log("隐藏")}},{name:"锁定",icon:"",handle(){}},{name:"固定",icon:""},{name:"聚焦",icon:""},{name:"恶意IP画像",icon:""},{name:"路径搜索",icon:""},{name:"横向布局",icon:""},{name:"纵向布局",icon:""},{name:"网格布局",icon:""},{name:"扩展",icon:""},{name:"收藏",icon:""},{name:"标记",icon:""},{name:"标签",icon:""}]}]})},di=Object.freeze(Object.defineProperty({__proto__:null,default:ui},Symbol.toStringTag,{value:"Module"})),hi="# 数据连线\n\n## Option\n\n| 属性名 | 说明 | 类型 | 默认值 | 备注 |\n| --- | --- | --- | --- | --- |\n| el* | 绑定元素 | `HTMLElement` | - | - |\n| leftLen* | 左侧点个数 | `number` | - | - |\n| rightLen* | 右侧点个数 | `number` | - | - |\n| type | 连接类型 | `string` | single-single | 连接模式（一对一、一对多、多对一、多对多） |\n| width | 指定宽度 | `number` | el 的宽 | - |\n| height | 指定高度 | `number` | el 的高 | - |\n| gap | 每行点之间的间距 | `number` | 40 | - |\n| size | 点大小 | `number` | 8 | - |\n| fillStyle | 填充颜色 | `string` | #0080ff | - |\n| lineWidth | 连线宽度 | `number` | 2 | - |\n",mi=`# 时间轴过滤
 
 ## Option
 
@@ -5654,7 +6068,7 @@ export default () => {
 | refresh | 一般在容器大小改变后调用 | - |
 | play | 播放 | fiexd 是否固定滑块大小 |
 | puase | 暂停播放 | |
-`,si=`# 波浪百分比
+`,pi=`# 波浪百分比
 
 ## Option
 
@@ -5680,7 +6094,7 @@ window.addEventListener('resize', () => {
   wait.refresh();
 })
 \`\`\`
-`,ai=`# 转盘菜单
+`,fi=`# 转盘菜单
 
 ## Option
 
@@ -5696,4 +6110,4 @@ window.addEventListener('resize', () => {
 | 事件名 | 说明 | 参数 |
 | --- | --- | --- |
 | refresh | 一般在容器大小改变后调用 | - |
-`,fn="/core";function zn(e){return e.replace(fn,"")}function fi(){const e={keys:[],body:{}},n=Object.assign({"/core/utils/array.ts":re,"/core/utils/async.ts":oe,"/core/utils/browser.ts":ie,"/core/utils/class.ts":se,"/core/utils/color.ts":ae,"/core/utils/date.ts":le,"/core/utils/dom.ts":ce,"/core/utils/encoding.ts":ue,"/core/utils/file.ts":de,"/core/utils/generator.ts":he,"/core/utils/image.ts":me,"/core/utils/judge.ts":pe,"/core/utils/math.ts":fe,"/core/utils/number.ts":ge,"/core/utils/object.ts":ye,"/core/utils/optimize.ts":xe,"/core/utils/queue.ts":be,"/core/utils/regexp.ts":_e,"/core/utils/string.ts":ve,"/core/utils/type.ts":we,"/core/utils/url.ts":Se});for(const t in n){const r=zn(t);e.keys.push(r),e.body[r]=n[t]}return e}function gi(){const e=Object.assign({"/core/utils/array.ts":He,"/core/utils/async.ts":Ye,"/core/utils/browser.ts":Gn,"/core/utils/class.ts":Ue,"/core/utils/color.ts":Ve,"/core/utils/date.ts":ot,"/core/utils/dom.ts":gt,"/core/utils/encoding.ts":St,"/core/utils/file.ts":Et,"/core/utils/generator.ts":Vn,"/core/utils/image.ts":Pt,"/core/utils/judge.ts":Zn,"/core/utils/math.ts":Wt,"/core/utils/number.ts":je,"/core/utils/object.ts":Qn,"/core/utils/optimize.ts":Ht,"/core/utils/queue.ts":Kt,"/core/utils/regexp.ts":Gt,"/core/utils/string.ts":lr,"/core/utils/type.ts":cr,"/core/utils/url.ts":mr}),n={};for(const t in e){const r=t.split("/").pop().replace(".ts","");n[r]=e[t]}return n}function Hn(e){var a,l;const{codeObj:n,demoObj:t,execObj:r,readmeObj:o,path:i}=e,s=[];for(const u in n){const d=zn(u).split("/")[2],m=o[`${i}${d}/readme.md`]||"";s.push({name:d,title:(a=m.match(/# (.*)/))==null?void 0:a[1],code:n[u],exec:(l=r[`${i}${d}/demo.ts`])==null?void 0:l.default,demo:t[`${i}${d}/demo.ts`]||"",readme:m.replace(/# (.*)/,"")})}return s}function yi(){return Hn({codeObj:Object.assign({"/core/tools/bloomFilter/index.ts":pr,"/core/tools/codeConversion/index.ts":fr,"/core/tools/eventEmitter/index.ts":gr,"/core/tools/falls/index.ts":yr,"/core/tools/fullScreen/index.ts":xr,"/core/tools/funcOverload/index.ts":br,"/core/tools/inlay/index.ts":_r,"/core/tools/memoizeMap/index.ts":vr,"/core/tools/onion/index.ts":wr,"/core/tools/publishSubscribe/index.ts":Sr,"/core/tools/scrollAnimation/index.ts":kr,"/core/tools/streamSplit/index.ts":Cr,"/core/tools/taskScheduling/index.ts":Tr}),demoObj:Object.assign({"/core/tools/bloomFilter/demo.ts":Er,"/core/tools/codeConversion/demo.ts":Mr,"/core/tools/eventEmitter/demo.ts":Pr,"/core/tools/falls/demo.ts":jr,"/core/tools/fullScreen/demo.ts":Lr,"/core/tools/funcOverload/demo.ts":Ar,"/core/tools/inlay/demo.ts":Or,"/core/tools/memoizeMap/demo.ts":Ir,"/core/tools/onion/demo.ts":Rr,"/core/tools/publishSubscribe/demo.ts":Wr,"/core/tools/scrollAnimation/demo.ts":Fr,"/core/tools/streamSplit/demo.ts":Br,"/core/tools/taskScheduling/demo.ts":Dr}),execObj:Object.assign({"/core/tools/bloomFilter/demo.ts":Xr,"/core/tools/codeConversion/demo.ts":Kr,"/core/tools/eventEmitter/demo.ts":qr,"/core/tools/falls/demo.ts":Vr,"/core/tools/fullScreen/demo.ts":Qr,"/core/tools/funcOverload/demo.ts":to,"/core/tools/inlay/demo.ts":io,"/core/tools/memoizeMap/demo.ts":lo,"/core/tools/onion/demo.ts":ho,"/core/tools/publishSubscribe/demo.ts":fo,"/core/tools/scrollAnimation/demo.ts":xo,"/core/tools/streamSplit/demo.ts":vo,"/core/tools/taskScheduling/demo.ts":ko}),readmeObj:Object.assign({"/core/tools/bloomFilter/readme.md":Co,"/core/tools/codeConversion/readme.md":To,"/core/tools/eventEmitter/readme.md":Eo,"/core/tools/falls/readme.md":Mo,"/core/tools/fullScreen/readme.md":Po,"/core/tools/funcOverload/readme.md":jo,"/core/tools/inlay/readme.md":Lo,"/core/tools/memoizeMap/readme.md":Ao,"/core/tools/onion/readme.md":Oo,"/core/tools/publishSubscribe/readme.md":Io,"/core/tools/scrollAnimation/readme.md":Ro,"/core/tools/streamSplit/readme.md":Wo,"/core/tools/taskScheduling/readme.md":Fo}),path:`${fn}/tools/`})}function xi(){return Hn({codeObj:Object.assign({"/core/canvas/joinLine/index.ts":Bo,"/core/canvas/timebar/index.ts":Do,"/core/canvas/wave/index.ts":No,"/core/canvas/wheelDisc/index.ts":zo}),demoObj:Object.assign({"/core/canvas/joinLine/demo.ts":Ho,"/core/canvas/timebar/demo.ts":$o,"/core/canvas/wave/demo.ts":Xo,"/core/canvas/wheelDisc/demo.ts":Yo}),execObj:Object.assign({"/core/canvas/joinLine/demo.ts":qo,"/core/canvas/timebar/demo.ts":Vo,"/core/canvas/wave/demo.ts":ni,"/core/canvas/wheelDisc/demo.ts":ri}),readmeObj:Object.assign({"/core/canvas/joinLine/readme.md":oi,"/core/canvas/timebar/readme.md":ii,"/core/canvas/wave/readme.md":si,"/core/canvas/wheelDisc/readme.md":ai}),path:`${fn}/canvas/`})}export{mi as C,fi as a,gi as b,xi as c,yi as g,pi as t};
+`,gn="/core";function Nn(e){return e.replace(gn,"")}function Si(){const e={keys:[],body:{}},n=Object.assign({"/core/utils/array.ts":ie,"/core/utils/async.ts":se,"/core/utils/browser.ts":ae,"/core/utils/class.ts":le,"/core/utils/color.ts":ce,"/core/utils/date.ts":ue,"/core/utils/dom.ts":de,"/core/utils/encoding.ts":he,"/core/utils/file.ts":me,"/core/utils/generator.ts":pe,"/core/utils/image.ts":fe,"/core/utils/judge.ts":ge,"/core/utils/math.ts":ye,"/core/utils/number.ts":xe,"/core/utils/object.ts":be,"/core/utils/optimize.ts":_e,"/core/utils/queue.ts":ve,"/core/utils/string.ts":we,"/core/utils/type.ts":Se,"/core/utils/url.ts":ke,"/core/utils/xml.ts":Te});for(const t in n){const r=Nn(t);e.keys.push(r),e.body[r]=n[t]}return e}function ki(){const e=Object.assign({"/core/utils/array.ts":$e,"/core/utils/async.ts":Ye,"/core/utils/browser.ts":Zn,"/core/utils/class.ts":qe,"/core/utils/color.ts":Qe,"/core/utils/date.ts":st,"/core/utils/dom.ts":xt,"/core/utils/encoding.ts":Tt,"/core/utils/file.ts":Pt,"/core/utils/generator.ts":Qn,"/core/utils/image.ts":Lt,"/core/utils/judge.ts":ne,"/core/utils/math.ts":Bt,"/core/utils/number.ts":Le,"/core/utils/object.ts":ee,"/core/utils/optimize.ts":Xt,"/core/utils/queue.ts":qt,"/core/utils/string.ts":sr,"/core/utils/type.ts":ar,"/core/utils/url.ts":dr,"/core/utils/xml.ts":mr}),n={};for(const t in e){const r=t.split("/").pop().replace(".ts","");n[r]=e[t]}return n}function Hn(e){var a,l;const{codeObj:n,demoObj:t,execObj:r,readmeObj:o,path:i}=e,s=[];for(const u in n){const h=Nn(u).split("/")[2],m=o[`${i}${h}/readme.md`]||"";s.push({name:h,title:(a=m.match(/# (.*)/))==null?void 0:a[1],code:n[u],exec:(l=r[`${i}${h}/demo.ts`])==null?void 0:l.default,demo:t[`${i}${h}/demo.ts`]||"",readme:m.replace(/# (.*)/,"")})}return s}function Ti(){return Hn({codeObj:Object.assign({"/core/tools/bloomFilter/index.ts":pr,"/core/tools/codeConversion/index.ts":fr,"/core/tools/eventEmitter/index.ts":gr,"/core/tools/falls/index.ts":yr,"/core/tools/fullScreen/index.ts":xr,"/core/tools/funcOverload/index.ts":br,"/core/tools/inlay/index.ts":_r,"/core/tools/memoizeMap/index.ts":vr,"/core/tools/onion/index.ts":wr,"/core/tools/publishSubscribe/index.ts":Sr,"/core/tools/scrollAnimation/index.ts":kr,"/core/tools/simulateRedis/index.ts":Tr,"/core/tools/streamSplit/index.ts":Cr,"/core/tools/taskScheduling/index.ts":Er}),demoObj:Object.assign({"/core/tools/bloomFilter/demo.ts":Mr,"/core/tools/codeConversion/demo.ts":Pr,"/core/tools/eventEmitter/demo.ts":jr,"/core/tools/falls/demo.ts":Lr,"/core/tools/fullScreen/demo.ts":Ar,"/core/tools/funcOverload/demo.ts":Or,"/core/tools/inlay/demo.ts":Ir,"/core/tools/memoizeMap/demo.ts":Rr,"/core/tools/onion/demo.ts":Fr,"/core/tools/publishSubscribe/demo.ts":Dr,"/core/tools/scrollAnimation/demo.ts":Br,"/core/tools/simulateRedis/demo.ts":Wr,"/core/tools/streamSplit/demo.ts":zr,"/core/tools/taskScheduling/demo.ts":Nr}),execObj:Object.assign({"/core/tools/bloomFilter/demo.ts":Yr,"/core/tools/codeConversion/demo.ts":qr,"/core/tools/eventEmitter/demo.ts":Jr,"/core/tools/falls/demo.ts":Qr,"/core/tools/fullScreen/demo.ts":eo,"/core/tools/funcOverload/demo.ts":oo,"/core/tools/inlay/demo.ts":ao,"/core/tools/memoizeMap/demo.ts":uo,"/core/tools/onion/demo.ts":po,"/core/tools/publishSubscribe/demo.ts":yo,"/core/tools/scrollAnimation/demo.ts":_o,"/core/tools/simulateRedis/demo.ts":To,"/core/tools/streamSplit/demo.ts":Mo,"/core/tools/taskScheduling/demo.ts":Lo}),readmeObj:Object.assign({"/core/tools/bloomFilter/readme.md":Ao,"/core/tools/codeConversion/readme.md":Oo,"/core/tools/eventEmitter/readme.md":Io,"/core/tools/falls/readme.md":Ro,"/core/tools/fullScreen/readme.md":Fo,"/core/tools/funcOverload/readme.md":Do,"/core/tools/inlay/readme.md":Bo,"/core/tools/memoizeMap/readme.md":Wo,"/core/tools/onion/readme.md":zo,"/core/tools/publishSubscribe/readme.md":No,"/core/tools/scrollAnimation/readme.md":Ho,"/core/tools/simulateRedis/readme.md":$o,"/core/tools/streamSplit/readme.md":Xo,"/core/tools/taskScheduling/readme.md":Uo}),path:`${gn}/tools/`})}function Ci(){return Hn({codeObj:Object.assign({"/core/canvas/joinLine/index.ts":Yo,"/core/canvas/timebar/index.ts":Ko,"/core/canvas/wave/index.ts":qo,"/core/canvas/wheelDisc/index.ts":Vo}),demoObj:Object.assign({"/core/canvas/joinLine/demo.ts":Jo,"/core/canvas/timebar/demo.ts":Go,"/core/canvas/wave/demo.ts":Zo,"/core/canvas/wheelDisc/demo.ts":Qo}),execObj:Object.assign({"/core/canvas/joinLine/demo.ts":ti,"/core/canvas/timebar/demo.ts":ii,"/core/canvas/wave/demo.ts":li,"/core/canvas/wheelDisc/demo.ts":di}),readmeObj:Object.assign({"/core/canvas/joinLine/readme.md":hi,"/core/canvas/timebar/readme.md":mi,"/core/canvas/wave/readme.md":pi,"/core/canvas/wheelDisc/readme.md":fi}),path:`${gn}/canvas/`})}export{vi as C,Si as a,ki as b,Ci as c,Ti as g,wi as t};
