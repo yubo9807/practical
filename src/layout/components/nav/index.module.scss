@@ -41,6 +41,7 @@
 }
 
 .navigation{
+  font-weight: 600;
   @include utils.mediaSmall() {
     flex-wrap: wrap;
     width: 50%;
@@ -58,7 +59,7 @@
     padding: 0 20px;
     box-sizing: border-box;
     &:global(.active) {
-      background: #6088b622;
+      background: var(--link-active-bg-color);
     }
   }
 }

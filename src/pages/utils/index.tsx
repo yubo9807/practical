@@ -1,6 +1,6 @@
 import { parse } from '@babel/parser'
 import { Comment } from '@babel/types';
-import { h, useEffect, useLayoutEffect, useMemo, useRef, useState, useStore } from "pl-react"
+import { h, useEffect, useMemo, useRef, useState, useStore } from "pl-react"
 import { Link, PageProps, useRouter } from "pl-react/router"
 import style from './style.module.scss';
 import { defineStoreVariable } from '@/store/variable';
@@ -40,23 +40,8 @@ export default (props: PageProps) => {
   // #endregion
 
 
-  // #region 路由监听
   const router = useRouter();
-  useEffect(() => router.monitor(async to => {
-    if (!to.path.startsWith(props.path)) return;
-    const key = to.path + '.ts';
-    change(key);
-  }), []);
-
-  // 初始位置滚动
-  useEffect(() => {
-    const line = router.current.query.line;
-    if (!line) return;
-    setTimeout(() => {
-      queryElement(Number(line));
-    })
-  }, [])
-  // #endregion
+  
 
 
   const [isFrist, setIsFirst] = useState(true);
@@ -118,6 +103,26 @@ export default (props: PageProps) => {
     }
     return result;
   }, [current.content]);
+  // #endregion
+
+
+  // #region 路由监听
+  useEffect(() => router.monitor(async (to, from) => {
+    if (!to.path.startsWith(props.path)) return;
+    const key = to.path + '.ts';
+    change(key);
+  }), []);
+
+  // 初始位置滚动
+  useEffect(() => {
+    if (!data.length) return;
+    const name = router.current.query.name;
+    if (!name) return;
+    const query = data.find(val => val.name === name);
+    query && setTimeout(() => {
+      queryElement(query.commentStart);
+    })
+  }, [data])
   // #endregion
 
 
@@ -204,9 +209,8 @@ export default (props: PageProps) => {
     <aside className={style.outline}>
       <ul>{
         ...data.map(val => <li className='text-ellipsis' onclick={() => {
-          const line = val.commentStart || val.start;
-          queryElement(line);
-          router.replace({ path: current.name.replace('.ts', ''), query: { line: line+'' }});
+          queryElement(val.commentStart || val.start);
+          router.replace({ path: current.name.replace('.ts', ''), query: { name: val.name }});
         }}>{val.title || val.name}</li>)
       }</ul>
       <div className={style.total}>total: {data.length}</div>

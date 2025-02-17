@@ -15,6 +15,7 @@ export function deleteEmpty(obj: AnyObj, option = [null, undefined, '']) {
   }
   return newObj;
 }
+// deleteEmpty({ a: 1, b: null, c: '', d: undefined });  //--> {a: 1}
 
 /**
  * 深度克隆
@@ -107,6 +108,7 @@ export function flatObject(obj: object, prefix = '', collect: Record<string, Ban
   }
   return collect;
 }
+// flatObject({ a: { b: 1 } });  //--> {a.b: 1}
 
 /**
  * 获取对象的 value 值
@@ -147,7 +149,9 @@ export function setNestedPropertyValue(obj: AnyObj, propPath: string | string[],
     obj[propPath[0]] = value;
   }
 }
-// const obj = {} setNestedPropertyValue(obj, 'a.b', 3)  //--> obj={a: {b: 3}}
+// const obj = {};
+// setNestedPropertyValue(obj, 'a.b', 3)
+// console.log(obj);  //--> {a: {b: 3}}
 
 /**
  * 创建一个可连续赋值的对象
@@ -174,7 +178,8 @@ export function createAnyObject(target = {}) {
     }
   })
 }
-// const obj = createAnyObject(); obj.a.b.c = 123
+// const obj = createAnyObject();
+// obj.a.b.c = 123
 
 /**
  * 优先考虑对象
@@ -200,6 +205,8 @@ export function priorityObject<T extends object, S extends object>(target: T, so
   })
   return p as T & S;
 }
+// const config = priorityObject({ server: void 0 }, { server: { port: 8080 } });
+// console.log(config.server.port);  // 8080
 
 
 /**
@@ -207,25 +214,25 @@ export function priorityObject<T extends object, S extends object>(target: T, so
  * @param obj 
  * @returns 
  */
-export function getLSUsedSpace(obj: any) {
+export function getLSUsedSpace(obj: object) {
 
-  const length = Object.keys(obj).reduce((total, curKey) => {
-    if (!obj.hasOwnProperty(curKey)) return total;
+  function getSize(o: any) {
+    if (typeof o === 'object' && o !== null) {
+      let size = 0;
+      for (const k in o) {
+        const v = o[k];
+        size += getSize(k) + getSize(v);
+      }
+      return size;
+    }
+    return o.toString().length;
+  }
 
-    if (typeof obj[curKey] === 'string') total += obj[curKey].length + curKey.length;
-    else total += JSON.stringify(obj[curKey]).replace(/"/g, '').length + curKey.length;
-
-    return total;
+  const symbolLen = Object.getOwnPropertySymbols(obj).reduce((total, key) => {
+    return total += getSize(obj[key]);
   }, 0);
 
-  const symbolLen = Object.getOwnPropertySymbols(obj).reduce((total, curKey) => {
-    if (!obj.hasOwnProperty(curKey)) return total;
-
-    if (typeof obj[curKey] === 'string') total += obj[curKey].length;
-    else total += JSON.stringify(obj[curKey]).replace(/"/g, '').length;
-
-    return total;
-  }, 0);
-
-  return length + symbolLen;
+  return getSize(obj) + symbolLen;
 }
+// const obj = { a: '111', [Symbol('b')]: '222' }
+// getLSUsedSpace(obj);  //--> 7

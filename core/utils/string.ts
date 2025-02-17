@@ -16,6 +16,8 @@ export function encrypt(str: string, start = 3, end = -4) {
   }
   return startNum + password + endNum;
 }
+// encrypt('1234567890', 3, -4);  //--> 123****7890
+
 
 /**
  * 获取字符串码点长度
@@ -31,6 +33,8 @@ export function pointLength(str: string) {
   }
   return len;
 }
+// pointLength('🤣');  //--> 1
+// pointLength('🅰️');  //--> 2
 
 /**
  * 按码点获取字符串某一位
@@ -50,6 +54,7 @@ export function pointAt(str: string, index: number) {
     i += point > 0xffff ? 2 : 1;
   }
 }
+// pointAt('hello 🅰️ world', 6);  //--> 🅰
 
 /**
  * 按码点截取字符串
@@ -67,6 +72,37 @@ export function pointSlice(str: string, start: number, end?: number) {
   }
   return result;
 }
+// pointSlice('hello 🅰️ world', 6, 10);  //--> 🅰️ w
+
+/**
+ * 计算字符串字节长度
+ * @param str 传入字符串
+ */
+export function strBytesLength(str: string) {
+  let len = str.length, i = 0;
+  while (i < len) {
+    str.charCodeAt(i) > 255 && len++;  // .charCodeAt() 返回指定位置的字符的 Unicode 编码
+    i++;
+  }
+  return len;
+}
+// strBytesLength('h');   //--> 1
+// strBytesLength('哈');  //--> 2
+// strBytesLength('🅰️');  //--> 6
+
+/**
+ * 求一个字符串的 ascll 总和
+ * @param str 
+ */
+export function ascllSum(str: string) {
+  const arr = str.split('');
+  let num = 0;
+  arr.forEach(val => {
+    num += val.charCodeAt(0);
+  })
+  return num;
+}
+// ascllSum('hello world');  //--> 1116
 
 /**
  * 生成随机字符串
@@ -81,31 +117,43 @@ export function randomString(len: number) {
   }
 }
 
-/**
- * 生成随机颜色
- */
-export function randomColor(min = '000000', max = 'ffffff') {
-  const minNumber = parseInt(min, 16), maxNumber = parseInt(max, 16);
-  return '#' + randomNum(maxNumber, minNumber).toString(16);
-}
 
 /**
- * 获取 url query
- * @param url 
+ * 检测密码强度（最强为 4 级）
+ * @param str 
+ */
+export function checkPasswordLevel(str: string) {
+  var lv = 0;
+  if (str.length < 6) return lv;
+  /[0-9]/.test(str) && lv++;
+  /[a-z]/.test(str) && lv++;
+  /[A-Z]/.test(str) && lv++;
+  /[\.|-|_]/.test(str) && lv++;
+  return lv;
+}
+// checkPasswordLevel('123456');  //--> 1
+// checkPasswordLevel('abc123');  //--> 2
+// checkPasswordLevel('Abc123');  //--> 3
+// checkPasswordLevel('Abc12.');  //--> 4
+
+/**
+ * 是否符合两位浮点数
+ * @param str 
  * @returns 
  */
-export function parseQuery(url: string) {
-  const query = {};
-  url.replace(/([^?&=]+)=([^&]+)/g, (_, k, v) => (query[k] = v));
-  return query;
+export function isFixed2Float(str: string) {
+  const reg = /^(([1-9][0-9]*)|(([0]\.\d{1,2}|[1-9][0-9]*\.\d{1,2})))$/;
+  return reg.test(str);
 }
+// isFixed2Float('1.1');  //--> true
+
 
 /**
- * 生成重复字符串
+ * 生成重复字符串 (String.repeat)
  * @param str 传入字符串
  * @param n 重复次数
  */
-export function cerateRepeatStr(str: string, n: number = 1) {
+export function repeatStr(str: string, n: number = 1) {
   let num = Math.abs(n), res = '';  // 防止传入负数，造成死循环
   while (num) {
     num % 2 === 1 && (res += str);
@@ -115,32 +163,7 @@ export function cerateRepeatStr(str: string, n: number = 1) {
   }
   return res;
 }
-
-/**
- * 计算字符串字节长度
- * @param str 传入字符串
- */
-export function strBytesLength(str: string) {
-  let len = str.length, i = 0;
-  while (i < len) {
-    str.charCodeAt(i) > 255 && len++;  // .charCodeAt() 返回指定位置的字符的 Unicode 编码
-    i++;
-  }
-  return len;
-}
-
-/**
- * 求一个字符串的 ascll 总和
- * @param str 
- */
-export function ascllSum(str: string) {
-  const arr = str.split('');
-  let num = 0;
-  arr.forEach(val => {
-    num += val.charCodeAt(0);
-  })
-  return num;
-}
+// repeatStr('a', 3);  //--> 'aaa'
 
 /**
  * 版本号比较
@@ -148,7 +171,7 @@ export function ascllSum(str: string) {
  * @param v2 版本号2
  * @returns 如果版本号相等，返回 0, 如果第一个版本号低于第二个返回 -1，否则返回 1
  */
-export const compareVersion = (v1: string, v2: string) => {
+export function compareVersion(v1: string, v2: string) {
   if (!v1 && !v2) return 0;
   if (!v1) return -1;
   if (!v2) return 1;
@@ -164,6 +187,9 @@ export const compareVersion = (v1: string, v2: string) => {
   }
   return 0;
 }
+// compareVersion('1.2.3', '1.2.3');  //--> 0
+// compareVersion('1.2.3', '1.2.4');  //--> -1
+// compareVersion('1.2.3', '1.2.2');  //--> 1
 
 /**
  * 金额大写转换
@@ -227,51 +253,17 @@ export function digitUppercase(num: string = '') {
     return money + '元整';
   }
 }
+// digitUppercase('1004.01'); //--> 壹仟零肆元零壹分
 
 /**
- * HTML 转 AST 语法树
- * @param html
- * @returns 返回 AST 语法树
+ * 评分
+ * @param r 
+ * @returns 
  */
-export function stringToVirtualDOM(html: string = '') {
-  // 创建一个虚拟 DOM 对象
-  const virtualDOM: any = {};
-
-  // 解析标签名称
-  const tagRegExp = /<([a-z]+)\s*[^>]*>/;
-  const match = html.match(tagRegExp);
-  if (match) {
-    virtualDOM.tag = match[1];
-  }
-
-  // 解析属性
-  const attrRegExp = /\s*([^=\s]+)\s*=\s*['"]?([^'"\s]+)['"]?/g;
-  let attrMatch;
-  const attrs = {};
-  while ((attrMatch = attrRegExp.exec(html))) {
-    attrs[attrMatch[1]] = attrMatch[2];
-  }
-  virtualDOM.attrs = attrs;
-
-  // 解析子节点
-  const childrenRegExp = />(.*)<\/[a-z]+>/s;
-  const childrenMatch = html.match(childrenRegExp);
-  if (childrenMatch) {
-    const childrenStr = childrenMatch[1].trim();
-    if (childrenStr.length > 0) {
-      virtualDOM.children = childrenStr.split('\n').map((childStr) => {
-        if (tagRegExp.test(childStr)) {
-          return stringToVirtualDOM(childStr);
-        } else {
-          return childStr;
-        }
-      });
-    }
-  }
-
-  return virtualDOM;
+export function rate(r: number) {
+  return '1111100000'.slice(5 - r, 10 - r);
 }
-
+// rate(3) --> 11100
 
 /**
  * 生成随机id
@@ -284,13 +276,5 @@ export function uuid(length = 8, chars = '0123456789abcdefghijklmnopqrstuvwxyzAB
     result += chars[Math.floor(Math.random() * chars.length)];
   return result;
 }
-
-/**
- * 评分
- * @param r 
- * @returns 
- */
-export function rate(r: number) {
-  return '1111100000'.slice(5 - r, 10 - r);
-}
-// rate(3) --> 11100
+// uuid(32);
+// crypto.randomUUID();

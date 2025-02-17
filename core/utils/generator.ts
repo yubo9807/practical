@@ -29,6 +29,7 @@ export function* walkVersion(str: string) {
   if (part) yield part;
 }
 // const iter = walkVersion('1.0.0');
+// iter.next().value;  //--> 1
 
 /**
  * 依次获取数组每一项

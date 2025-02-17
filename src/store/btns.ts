@@ -9,10 +9,6 @@ type Action
 const state: State = []
 
 function reducer(state: State, action: Action): State {
-  function findBtn(id: State[number]['id']) {
-    return state.find(btn => btn.id === id)
-  }
-
   switch (action.type) {
     case 'btnAdd':
       const isExist = state.find(btn => btn.id === action.payload.id);

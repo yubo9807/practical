@@ -13,11 +13,9 @@ export default () => {
   const [open, setOpen] = useState(false);
 
   const router = useRouter();
-  useEffect(() => {
-    router.monitor(to => {
-      setOpen(false);
-    })
-  }, []);
+  useEffect(() => router.monitor(to => {
+    setOpen(false);
+  }), []);
   // #endregion
 
 

@@ -3,6 +3,12 @@ import { delay } from "../../utils/async";
 
 export default () => {
   const task = new TaskScheduling(3);
+
+  const start = Date.now();
+  task.onEnd = () => {
+    console.log('总耗时：', Date.now() - start);
+  }
+
   task.add(func(100));
   task.add(func(200));
   task.add(func(150));

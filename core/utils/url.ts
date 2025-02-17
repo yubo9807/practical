@@ -10,6 +10,7 @@ export function parseQuery(url: string) {
   url.replace(/([^?&=]+)=([^&]+)/g, (_, k, v) => (query[k] = v));
   return query;
 }
+// parseQuery("/path?a=1&b=2");  //--> {a: '1', b: '2'}
 
 /**
  * 组装 url query
@@ -21,6 +22,7 @@ export function stringifyQuery(query: Query) {
     .map((key) => `${key}=${query[key]}`)
     .join("&");
 }
+// stringifyQuery({a: '1', b: '2'});  //--> "a=1&b=2"
 
 /**
  * 解析 url
@@ -36,13 +38,14 @@ export function parseUrl(url: string) {
     hash: newUrl.hash.slice(1),
   }
 }
+// parseUrl("/path?a=1&b=2#hash");  //--> {fullPath: '/path?a=1&b=2#hash', path: '/path', query: {a: '1', b: '2'}, hash: 'hash'}
+
 
 interface BaseRoute {
   path?: string
   query?: Query
   hash?: string
 }
-
 /**
  * 组装 url
  * @param option 
@@ -56,6 +59,7 @@ export function stringifyUrl(option: BaseRoute) {
   hash && (url += `#${hash}`);
   return url;
 }
+// stringifyUrl({path: '/path', query: {a: '1', b: '2'}, hash: 'hash'});  //--> "/path?a=1&b=2#hash"
 
 /**
  * 根据完整路径解析相对路径
@@ -75,3 +79,4 @@ export function resolvePath(integrity: string, path: string) {
   const arr = integrity.split('/').slice(0, -layer);
   return arr.join('/') + path.slice(index);
 }
+// resolvePath('/path/to', './a/b/c');  //--> "/path/to/a/b/c"

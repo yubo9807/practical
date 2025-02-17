@@ -1,18 +1,10 @@
 /**
- * 生成随机数
- * @param max 最大值（取不到，只可取正整数）
+ * 生成随机数（只可取正整数）
+ * @param max 最大值（取不到）
  * @param min 最小值
  */
 export function randomNum(max: number, min: number = 0) {
   return ~~(Math.random() * (max - min) + min);
-}
-
-/**
- * 数字求和
- * @param args
- */
-export function sum(...args: number[]) {
-  return args.reduce((s, e) => s + e, 0);
 }
 
 /**
@@ -33,6 +25,8 @@ export function toFixed2AndBankCount(num: string | number = '', fixed = 2) {
     return str.replace(reg, ',');
   }
 }
+// toFixed2AndBankCount(1234);       //--> 1,234
+// toFixed2AndBankCount(1234.5678);  //--> 1,234.56
 
 /**
  * 小数转百分比
@@ -43,6 +37,7 @@ export function toFixed2AndBankCount(num: string | number = '', fixed = 2) {
 export function toPercentage(num: number, digit: number) {
   return Math.abs(num * 100).toFixed(digit) + '%';
 }
+// toPercentage(0.123456, 2);  //--> 12.35%
 
 /**
  * 反转整数
@@ -60,6 +55,7 @@ export function reverseInteger(num: number) {
   if (result > 2 ** 31 || result < -(2 ** 31)) return 0;
   return result;
 }
+// reverseInteger(123);  //--> 321
 
 /**
  * 计算字节大小
@@ -76,6 +72,7 @@ export function calculateByte(num = 0, utils = ['B', 'KB', 'MB', 'GB', 'TB', 'PB
   }
   return str;
 }
+// calculateByte(1024 * 3);  //--> 3KB
 
 /**
  * 整数转英文单词
@@ -103,3 +100,4 @@ export function numberToWords(num: number) {
   }
   return result.length === 0 ? "Zero" : result;
 }
+// numberToWords(1004);  //--> One Thousand Four

@@ -24,8 +24,8 @@ export default () => {
   container.appendChild(button2);
   (async function() {
     while (1) {
-      const e = await btn.waitClick;
-      console.log(e);
+      const e: PointerEvent = await btn.waitClick;
+      console.log(e.detail);
     }
   }())
 }

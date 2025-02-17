@@ -9,6 +9,7 @@ type TaskItem = {
 export class TaskScheduling {
   _parallelCount: number  // 并行执行任务数
   _runingCount = 0;       // 执行任务计数
+  _currentIndex = 0;      // 当前执行索引
   tasks: TaskItem[] = [];
 
   /**
@@ -33,6 +34,11 @@ export class TaskScheduling {
   }
 
   /**
+   * 结束任务
+   */
+  onEnd: Function
+
+  /**
    * 并行运行任务
    */
   _run() {
@@ -44,6 +50,10 @@ export class TaskScheduling {
         .catch(err => reject(err))
         .finally(() => {
           this._continue();
+          this._currentIndex ++;
+          if (this._currentIndex === this.tasks.length) {
+            this.onEnd && this.onEnd();
+          }
         });
     }
   }

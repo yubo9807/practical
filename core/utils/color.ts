@@ -1,5 +1,15 @@
+import { randomNum } from "./number";
 
 type Color = [number, number, number];
+
+/**
+ * 生成随机颜色
+ */
+export function randomColor(min = '000000', max = 'ffffff') {
+  const minNumber = parseInt(min, 16), maxNumber = parseInt(max, 16);
+  return '#' + randomNum(maxNumber, minNumber).toString(16);
+}
+
 
 /**
  * 将 rgb 颜色灰度化（基于光感加权平均）

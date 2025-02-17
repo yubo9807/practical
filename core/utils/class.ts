@@ -16,3 +16,9 @@ export function singleton(classFn: WideClass) {
     }
   })
 }
+// const Cla = singleton(class {
+//   a = 1;
+// });
+// const a = new Cla();
+// const b = new Cla(); b.a = 3;
+// console.log(a.a);  //--> 3

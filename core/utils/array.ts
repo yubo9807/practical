@@ -17,6 +17,8 @@ export function createArray(len: number, item: any = void 0) {
   }
   return arr;
 }
+// createArray(3, { a: 1 });
+
 
 /**
  * 创建指定长度的随机数的数组，且规定范围不重复
@@ -38,6 +40,7 @@ export function createRandomArray(len: number, max: number = 10, min: number = 0
   }());
   return arr;
 }
+
 
 /**
  * 数组数据分组
@@ -61,6 +64,10 @@ export function groupBy<T extends object>(arr: T[], generateKey: string | ((item
   }
   return result;
 }
+// const data = [{ name: 'Alice', age: 21 }, { name: 'Bob', age: 32 }]
+// groupBy(data, 'name');  // 按键名分组
+// groupBy(data, val => val.age > 30 ? '老年' : '小孩')  // 自定义规则分组
+
 
 /**
  * 树形数据过滤（数组）
@@ -88,15 +95,28 @@ export function treeArrayFilter<D extends any[]>(data: D, filter: (item: D[numbe
   }
   return retain;  // 等着蹲小黑屋
 }
+// const data = [
+//   {
+//     name: '1',
+//     age: 21,
+//     children: [
+//       { name: '1-1', age: 32 }
+//     ]
+//   },
+//   { name: '2', age: 20 }
+// ]
+// const result = treeArrayFilter(data, val => val.age > 30);
+// console.log(result);  //=> [{ name: '1', age: 21, children: [{ name: '1-1', age: 32 }]}]
+
 
 /**
  * 扁平数组转为树形数据
  * @param list   数据
- * @param props  配置项 { parent: 父级键, children: 子集键 }
+ * @param props  配置项 { key: 父级键, parent: 父级键指向, children: 子集收纳 }
  * @param parent 父级默认值
  * @returns 
  */
-export function arrayToTree(list: any[], props = { parent: 'parent', children: 'children' }, parent = null) {
+export function arrayToTree(list: any[], props = { key: 'id', parent: 'parent', children: 'children' }, parent = null) {
   const newList = [], childrenList = [];
   list.forEach(val => {
     if (val.hasOwnProperty(props.parent)) {
@@ -107,11 +127,21 @@ export function arrayToTree(list: any[], props = { parent: 'parent', children: '
   })
   list.forEach(val => {
     if (val[props.parent] === parent) {
-      val[props.children] = arrayToTree(childrenList, props, val.id);
+      val[props.children] = arrayToTree(childrenList, props, val[props.key]);
     };
   });
   return newList;
 }
+// const arr = [
+//   { id: '1', name: 'aaa' parent: null },
+//   { id: '2', name: 'bbb' parent: '1' },
+//   { id: '3', name: 'ccc' parent: '1' },
+//   { id: '4', name: 'ddd' parent: '2' },
+//   { id: '5', name: 'eee' parent: '2' },
+//   { id: '6', name: 'fff' parent: '3' },
+// ]
+// console.log(arrayToTree(arr))
+
 
 /**
  * 洗牌算法
@@ -125,6 +155,8 @@ export function shuffle(numbers: number[]) {
   }
   return numbers;
 }
+// console.log(shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
+
 
 /**
  * 查找数组中重复的数组段
@@ -159,6 +191,8 @@ export function findFragment(array: number[], query: any[]) {
 
   return record.includes(void 0) ? null : record;
 }
+// findFragment([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [1, 2, 3, 4, 5]);  //--> [0, 4]
+
 
 /**
  * 一维数组转换为二维数组
@@ -174,6 +208,8 @@ export function multArray(arr: any[], count = 2) {
   });
   return pages;
 }
+// multArray([1, 2, 3, 4, 5, 6, 7], 3);  //--> [[1, 2, 3], [4, 5, 6], [7]]
+
 
 /**
  * 检查两个数组各项是否相等
@@ -188,6 +224,7 @@ export function isArrayEqual(a: any[], b: any[]) {
 }
 // isArrayEqual([6, 5, 2, 4, 1, 3], [1, 2, 3, 4, 5, 6])  //--> true
 
+
 /**
  * 两个数组的 交集
  * @param a 数组1
@@ -201,6 +238,7 @@ export function intersectionArray(a: any[], b: any[]) {
 }
 // intersectionArray(['a', 2, 6, 7], ['a', 2, 9, 'b'])  //--> [6, 7]
 
+
 /**
  * 两个数组的 并集
  * @param a 
@@ -212,6 +250,7 @@ export function union(a: any[], b: any[]) {
   return a.filter(x => s.has(x));
 }
 // unionArr([1, 2, 6, 7], [1, 2, 9, 5])  //--> [1, 2]
+
 
 /**
  * 数组对象去重
@@ -225,6 +264,8 @@ export function uniqueArrayObject(arr: object[], key: string | number) {
     return ids.includes(cur[key]) ? acc : [...acc, cur];
   }, []);
 }
+// uniqueArrayObject([{ id: 1 }, { id: 2 }, { id: 1 }], 'id')  //--> [{ id: 1 }, { id: 2 }]
+
 
 /**
  * 找出数组中只出现一次的数字
@@ -234,6 +275,7 @@ export function uniqueArrayObject(arr: object[], key: string | number) {
 export function querySingle(arr: number[]) {
   return arr.reduce((a, b) => a ^ b, 0);
 }
+// querySingle([1, 2, 2, 3, 1])  //--> 3
 
 /**
  * 数组排列，看有多少种情况

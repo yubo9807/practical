@@ -2,7 +2,7 @@
 type WideDate = number | string | Date
 
 /**
- * 检查当前是否为工作日
+ * 检查该时间是否为工作日
  * @param date 
  * @returns 
  */

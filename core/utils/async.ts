@@ -8,6 +8,7 @@ import { PromiseType } from "./type";
 export function delay(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
+// delay(1000).then(() => console.log('1s'))
 
 /**
  * 格式化异步函数，以数组形式返回
@@ -20,6 +21,7 @@ export function asyncto<P extends Promise<unknown>>(promise: P): Promise<[unknow
     .then(res => [null, res])
     .catch(err => [err, null]);
 }
+// const [err, res] = await asyncto(promise);
 
 /**
  * 整合游散的回调，将完成事件和错误事件整合到同一个函数中，通过 .then | .catch 接收
@@ -49,3 +51,18 @@ export function conformity<F extends (...args: any[]) => any, R = unknown, E = u
     }
   }
 }
+/*
+// 多用在框架组件事件传递上。如：
+// 打开弹窗
+const open = conformity((info) => {
+  console.log('info,', info);
+})
+// 提交表单
+setTimeout(() => {
+  open.success(456);
+}, 100)
+// 打开弹窗
+open.exec(123).then(res => {
+  // 弹窗关闭，刷新列表
+  console.log(res);
+}) */
