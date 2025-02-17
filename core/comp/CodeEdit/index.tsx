@@ -34,7 +34,9 @@ export default function(props: CodeEditFoldProps) {
   // 整理数据
   const [data, setData] = useState<Data[]>([]);
   useEffect(() => {
-    function tidyUp(lines: Line[], collect: Data[]) {
+    if (!lines.length) return;
+
+    function tidyUp(lines: Line[], collect: Data[] = []) {
       customForEach(lines, val => {
         const start = val.start - 1;
         const children: Data[] = [];
@@ -49,7 +51,7 @@ export default function(props: CodeEditFoldProps) {
       })
       return collect;
     }
-    setData(tidyUp(lines, []));
+    setData(tidyUp(lines));
   }, [value, lines])
 
 
