@@ -41,8 +41,16 @@ export default defineConfig({
           if (url.includes('node_modules')) {
             return url.split('node_modules/')[1].split('/')[0];
           }
-        }
-      }
+        },
+        entryFileNames: 'js/[name]-[hash].js',
+        chunkFileNames: 'js/[name]-[hash].js',
+        assetFileNames(assetInfo) {
+          if (assetInfo.name?.endsWith('.css')) {
+            return 'css/[name]-[hash].css';
+          }
+          return 'assets/[name]-[hash].[ext]'
+        },
+      },
     },
     assetsInlineLimit: 0,
   }
