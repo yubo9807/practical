@@ -6,13 +6,12 @@ import style from './style.module.scss';
 import { defineStoreVariable } from '@/store/variable';
 import { defineStoreSuspension } from '@/store/suspension';
 import { CodeEditFoldProps } from "~/core/comp/CodeEdit";
-import '~/core/tools/codeConversion/index.scss'
 import { CodeEditExpose } from "~/core/comp/CodeEdit/basic";
 import Dialog from '~/core/comp/Dialog/basic';
 import CodePreview from '@/components/CodePreview';
 import Container from '@/components/Container';
 import { scrollTo } from "~/core/utils/browser";
-import { getUtilsFuncs, getUtilsSourceCode } from "@/utils/source"
+import { getUtilsFuncs, getUtilsSourceCode } from './utils';
 import { tsToJs } from '@/utils/code-convert';
 import { defineStoreBtns } from '@/store/btns';
 import Console, { ConsoleExpose } from '@/components/Console';

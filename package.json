@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Practical",
   "scripts": {
-    "dev": "vite --force",
+    "dev": "vite --force --host",
     "preview": "vite preview",
     "build": "vite build"
   },
@@ -19,6 +19,6 @@
     "@babel/parser": "^7.26.2",
     "@babel/traverse": "^7.25.9",
     "marked": "^15.0.4",
-    "pl-react": "^0.0.7"
+    "pl-react": "^0.0.9"
   }
 }

@@ -72,27 +72,6 @@ export type ArrayType<T> = T extends (infer I)[] ? I : T
 // type ItemType = ArrayType<[1, 'a']>
 
 
-type Curried<A, R> = A extends []
-  ? () => R
-  : A extends [infer ARG]
-  ? (param: ARG) => R
-  : A extends [infer ARG, ...infer REST]
-  ? (param: ARG) => Curried<REST, R>
-  : never
-
-/**
- * 柯理化函数推导
- * @param fn 
- */
-export declare function curry<A extends any[], R>(
-  fn: (...args: A) => R
-): Curried<A, R>
-// function sum(a: string, b: number, c: object) {
-//   return 123;
-// }
-// const currySum = curry(sum);
-// currySum('')(1)({})
-
 /**
  * 将类型改为可选（深度）
  */

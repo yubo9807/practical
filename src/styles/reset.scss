@@ -14,6 +14,9 @@
   --link-active-bg-color: #ece3ff;
   --line-color: #eee;
 
+  --scrollbar-width: 6px;
+  --scrollbar-color: #ddd;
+
   @include utils.mediaSmall() {
     --both-sides-padding: 10px;
   }
@@ -52,6 +55,21 @@ input{
 input, button {
   appearance: none;
   border-radius: 0;
+}
+
+::-webkit-scrollbar{
+  width: var(--scrollbar-width);
+  height: var(--scrollbar-width);
+}
+::-webkit-scrollbar-thumb{
+  background: var(--scrollbar-color);
+  border-radius: calc(var(--scrollbar-width) / 2);
+}
+::-webkit-scrollbar-track{
+  background: var(--mark-bg-color);
+}
+@include utils.themeDark{
+  --scrollbar-color: #888;
 }
 
 @include utils.mediaMiddle() {

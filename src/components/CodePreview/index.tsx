@@ -1,6 +1,7 @@
 import { Fragment, h } from "pl-react"
 import CodeEdit, { CodeEditFoldProps } from "~/core/comp/CodeEdit"
 import { CodeConversion } from "~/core/tools/codeConversion";
+import "~/core/tools/codeConversion/index.scss";
 import { copyToBoard } from "~/core/utils/browser";
 import './index.scss';
 

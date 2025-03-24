@@ -56,10 +56,10 @@ export default () => {
     <main className={style.main}>
       <Router>
         <Route path="/" element={Home} />
-        <Route path="/tools" element={import('@/pages/tools')} exact={false} />
-        <Route path="/utils" element={import('@/pages/utils')} exact={false} />
-        <Route path="/canvas" element={import('@/pages/canvas')} exact={false} />
-        <Route path="/binary" element={import('@/pages/binary')} />
+        <Route path="/tools" element={() => import('@/pages/tools')} exact={false} />
+        <Route path="/utils" element={() => import('@/pages/utils')} exact={false} />
+        <Route path="/canvas" element={() => import('@/pages/canvas')} exact={false} />
+        <Route path="/binary" element={() => import('@/pages/binary')} />
       </Router>
     </main>
     <footer className={style.footer}>

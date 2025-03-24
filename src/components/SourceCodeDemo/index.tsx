@@ -9,12 +9,12 @@ import Console, { ConsoleExpose } from "../Console";
 import Container from "../Container";
 import { defineStoreVariable } from "@/store/variable";
 import { defineStoreSuspension } from "@/store/suspension";
-import { getToolsSourceCode } from "@/utils/source";
 import { tsToJs } from "@/utils/code-convert";
 import style from './style.module.scss';
+import { commonHandle } from '@/utils/source';
 
 type Props = PageProps & {
-  getSource: typeof getToolsSourceCode;
+  getSource: () => ReturnType<typeof commonHandle>;
 }
 export default (props: Props) => {
 

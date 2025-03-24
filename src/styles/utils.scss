@@ -27,6 +27,12 @@
   }
 }
 
+@mixin mediaOversized() {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
+
 // 竖屏
 @mixin mediaPortrait() {
   @media (orientation:portrait) {

@@ -108,7 +108,7 @@ export default function(props: CodeEditFoldProps) {
       content,
       rows,
     }
-  }, [data]);
+  }, [data, props.value]);
 
 
   function handleFold(i: number) {

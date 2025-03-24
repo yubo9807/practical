@@ -10,16 +10,6 @@ export function choke(time = 1000) {
   }, 0);
 }
 
-/**
- * 延时
- * @param time 
- * @returns 
- */
-export function delay(time = 1000) {
-  return new Promise((resolve, reject) => {
-    setTimeout(resolve, time);
-  })
-}
 
 /**
  * 节流
@@ -38,6 +28,7 @@ export function throttle<A extends any[], R>(handler: (...args: A) => R, wait: n
   }
 }
 
+
 /**
  * 防抖
  * @param handler 
@@ -55,45 +46,94 @@ export function debounce<A extends any[], R>(handler: (...args: A) => R, delay: 
   }
 }
 
+
+type Curried<A, R> = A extends []
+  ? () => R
+  : A extends [infer ARG]
+  ? (param: ARG) => R
+  : A extends [infer ARG, ...infer REST]
+  ? (param: ARG) => Curried<REST, R>
+  : never
 /**
  * 函数柯理化
  * @param fn 
  * @param args 
  * @returns 
  */
-export function currying(fn: Function, ...args: any[]) {
-  return function (...rest: any[]) {
+export function currying<A extends any[], R>(fn: (...args: A) => R, ...args: any[]) {
+  return function (...rest) {
     const allArgs = [...args, ...rest];
     if (allArgs.length >= fn.length) {
       return fn.apply(this, allArgs);
     }
     return currying(fn, ...allArgs);
-  }
+  } as Curried<A, R>
 }
+// function sum(a: string, b: number, c: object) {
+//   return a + b + c;
+// }
+// const currySum = currying(sum);
+// currySum('1')(2)({});  //--> 12[object Object]
 
 
-export function runTask(task: Function, callback: Function) {
-  // requestIdleCallback(deadline => {
-  // 	if (deadline) {
-  // 		task();
-  // 		callback();
-  // 	} else {
-  // 		runTask(task, callback);
-  // 	}
-  // })
+type Scheduler = (scheduler: (isGoOn: () => boolean) => void) => void
+/**
+ * 执行耗时任务队列
+ * @param tasks 
+ * @param scheduler 
+ * @returns 
+ */
+export function performTask(tasks: Function[], scheduler: Scheduler) {
+  if (!tasks.length) return;
+  let index = 0;
+  function _run() {
+    scheduler(isGoOn => {
+      while (index < tasks.length && isGoOn()) {
+        tasks[index++]();
+      }
+      if (index < tasks.length) _run();
+    })
+  }
+  _run();
+}
+// const tasks = new Array(20).fill(0).map((_, i) => () => console.log(i));
+// performTask(tasks, scheduler => {
+//   let count = 0;
+//   setTimeout(() => {
+//     scheduler(() => count++ < 2)
+//   }, 1000)
+// })
 
-  // MessageChannel
 
-  const start = Date.now();
-  requestAnimationFrame(() => {
-    if (Date.now() - start <= 16.6) {
-      task();
-      callback();
-    } else {
-      runTask(task, callback);
-    }
+/**
+ * 执行耗时任务队列，requestIdleCallback
+ * @param tasks 
+ * @returns 
+ */
+export function idlePerformTask(tasks: Function[]) {
+  return performTask(tasks, scheduler => {
+    requestIdleCallback(idle => {
+      scheduler(() => idle.timeRemaining() > 0);
+    })
   })
 }
+// const tasks = new Array(20).fill(0).map((_, i) => () => console.log(i));
+// idlePerformTask(tasks);
+
+// requestIdleCallback
+// MessageChannel
+// requestAnimationFrame
+// function runTask(task: Function, callback: Function) {
+//   const start = Date.now();
+//   requestAnimationFrame(() => {
+//     if (Date.now() - start <= 16.6) {
+//       task();
+//       callback();
+//     } else {
+//       runTask(task, callback);
+//     }
+//   })
+// }
 
 
 // 将 script 变为异步加载

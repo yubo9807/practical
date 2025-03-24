@@ -12,6 +12,18 @@ export function randomColor(min = '000000', max = 'ffffff') {
 
 
 /**
+ * @description: 16进制颜色转换成rgb
+ */
+export function colorToRGB(color: string): string {
+  const hex = color.replace('#', '')
+  const r = parseInt(hex.substring(0, 2), 16)
+  const g = parseInt(hex.substring(2, 4), 16)
+  const b = parseInt(hex.substring(4, 6), 16)
+  return `${r}, ${g}, ${b}`
+}
+
+
+/**
  * 将 rgb 颜色灰度化（基于光感加权平均）
  * @param r 
  * @param g 

@@ -101,3 +101,41 @@ export function numberToWords(num: number) {
   return result.length === 0 ? "Zero" : result;
 }
 // numberToWords(1004);  //--> One Thousand Four
+
+
+type ChangeAnimationOptions = {
+  from: number,
+  to: number,
+  duration: number,
+  onProgress: (v: number) => void
+}
+/**
+ * 数字变化动画
+ * @param param0 
+ */
+export function changeAnimation({ from, to, duration, onProgress }: ChangeAnimationOptions) {
+  let v = from;
+  const start = Date.now();
+  const steed = (to - from) / duration;
+  // 让 v 变化一点
+  function _run() {
+    const t = Date.now() - start;
+    if (t >= duration) {
+      v = to;
+      onProgress(v);
+      return;
+    }
+    v = from + steed * t;
+    onProgress(v);
+    requestAnimationFrame(_run);
+  }
+  _run();
+}
+// changeAnimation({
+//   from: 0,
+//   to: 985,
+//   duration: 1000,
+//   onProgress(v) {
+//     console.log(v);
+//   } 
+// });
