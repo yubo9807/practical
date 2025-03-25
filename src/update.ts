@@ -2,12 +2,11 @@ import env from "~/config/env";
 
 // 提示用户更新
 if (env.NODE_ENV === 'production') {
-
   const KEY = '__CACHE_VERSION__';
-  const oldVersion = sessionStorage.getItem(KEY);
   const reg = new RegExp(`<script .+ src="(.+?)"></script>`);
 
   const timer = setInterval(() => {
+    const oldVersion = sessionStorage.getItem(KEY);
     fetch(env.BASE_URL + '/', {
       headers: {
         'Cache-Control': 'no-cache',
@@ -30,13 +29,3 @@ if (env.NODE_ENV === 'production') {
     })
   }, 5000);
 }
-
-/* 
-鼠  牛  虎  兔
-
-猪          龙
-
-狗          蛇
-
-鸡  猴  羊  马
-*/

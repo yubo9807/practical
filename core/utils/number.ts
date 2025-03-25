@@ -135,7 +135,56 @@ export function changeAnimation({ from, to, duration, onProgress }: ChangeAnimat
 //   from: 0,
 //   to: 985,
 //   duration: 1000,
-//   onProgress(v) {
-//     console.log(v);
-//   } 
+//   onProgress: (v) => console.log(v),
 // });
+
+/**
+ * 分页计算
+ * @param option 
+ * @returns 
+ */
+export function pagingCompute(option: {
+  total:     number  // 总条数
+  size?:     number  // 每页条数
+  current?:  number  // 当前页码
+  blockNum?: number  // 中间部分需要的页码数量
+  neat?:     boolean // 是否需要补齐
+}) {
+  const { total, current, size, blockNum, neat } = Object.assign({
+    size:     10,
+    current:  1,
+    blockNum: 5,
+    neat:     true,
+  }, option);
+  const maxCurrent = Math.ceil(total / size) - Math.floor(blockNum / 2);
+  const newBlockNum = Math.min(blockNum, Math.ceil(total / size));
+
+  let middenStart = Math.max(1, Math.min(maxCurrent, current) - Math.floor(blockNum / 2));
+  // const pageEnd = Math.min(pages, pageStart + blockNum - 1);
+  if (neat) {
+    middenStart = Math.max(middenStart, 2);
+    middenStart = Math.min(middenStart, maxCurrent - newBlockNum + 2);
+  }
+
+  const midden = new Array(newBlockNum).fill(0).map((_, i) => middenStart + i);
+  const pages = Math.ceil(total / size);
+  let start: number, end: number;
+  if (middenStart > 1) {
+    start = 1;
+  }
+  if (midden[midden.length - 1] < pages) {
+    end = pages;
+  }
+
+  return {
+    start,
+    midden,
+    end,
+    current: Math.min(current, pages),
+  }
+}
+// pagingCompute({
+//   total: 100,
+//   current: 11,
+//   neat: false,
+// })  //--> {start: 1, midden: [6, 7, 8, 9, 10], end: undefined, current: 10}
