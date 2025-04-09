@@ -5,6 +5,7 @@ type Option = {
   multiRowComment:   RegExp    // 多行注释
   singleLineComment: RegExp    // 单行注释
   string:            RegExp    // 字符串
+  regexp:            RegExp    // 正则
   constant:          RegExp    // 常量
   number:            RegExp    // 数字
   methods:           RegExp    // 方法
@@ -22,6 +23,7 @@ export class CodeConversion {
       multiRowComment: /\/\*.*?\*\//gs,
       singleLineComment: /\/\/[^\n]+\n?/g,
       string: /"[^"]*"|'[^']*'/g,
+      regexp: /\/[^\/]+\//g,
       constant: /(?<=\s|\(|\[|{|,|:|=)[A-Z][\w|\d]+/g,
       number: /(?<=\s|\(|\[|{|,|:|=|\+|-|\*|\/|\%|<|>)\d*\.?\d+/g,
       methods: /\w+(?=\()/g,
@@ -125,6 +127,7 @@ export class CodeConversion {
       ._commonDealWith(option.multiRowComment, 'block-comment')
       ._commonDealWith(option.singleLineComment, 'line-comment')
       ._commonDealWith(option.string, 'string')
+      ._commonDealWith(option.regexp, 'regexp')
       ._commonDealWith(option.number, 'number')
       ._commonDealWith(option.constant, 'constant')
       ._keyword(option.keywords)
