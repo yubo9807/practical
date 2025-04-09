@@ -188,3 +188,14 @@ export function pagingCompute(option: {
 //   current: 11,
 //   neat: false,
 // })  //--> {start: 1, midden: [6, 7, 8, 9, 10], end: undefined, current: 10}
+
+/**
+ * 索引取正
+ * @param total 
+ * @param index 
+ * @returns 
+ */
+export function indexCorrect(total: number, index = 0) {
+  if (index >= 0) return index;
+  return total + index;
+}
