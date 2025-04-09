@@ -1,4 +1,4 @@
-var L=Object.defineProperty;var A=(o,n,t)=>n in o?L(o,n,{enumerable:!0,configurable:!0,writable:!0,value:t}):o[n]=t;var a=(o,n,t)=>(A(o,typeof n!="symbol"?n+"":n,t),t),E=(o,n,t)=>{if(!n.has(o))throw TypeError("Cannot "+t)};var u=(o,n,t)=>(E(o,n,"read from private field"),t?t.call(o):n.get(o)),f=(o,n,t)=>{if(n.has(o))throw TypeError("Cannot add the same private member more than once");n instanceof WeakSet?n.add(o):n.set(o,t)};var M=(o,n,t)=>(E(o,n,"access private method"),t);import{C as N,i as T,c as W,g as P}from"./index-cbd910c8.js";import{c as C,d as S}from"./async-abb0497e.js";import{h as z}from"./pl-react-491477f1.js";import{S as D}from"./index-d08c42c9.js";import{c as B,C as K}from"./source-1ce25409.js";import"./marked-4b92e03d.js";import"./@babel-228ab864.js";import"./debug-ddf39923.js";import"./ms-f6814399.js";import"./globals-aa9f7777.js";import"./@jridgewell-b3e211dc.js";import"./jsesc-4cfd8464.js";import"./picocolors-cddfbdbe.js";import"./js-tokens-bc2e8ff2.js";import"./basic-596bbc4d.js";const J=`
+var A=Object.defineProperty;var W=(o,n,t)=>n in o?A(o,n,{enumerable:!0,configurable:!0,writable:!0,value:t}):o[n]=t;var a=(o,n,t)=>(W(o,typeof n!="symbol"?n+"":n,t),t),M=(o,n,t)=>{if(!n.has(o))throw TypeError("Cannot "+t)};var u=(o,n,t)=>(M(o,n,"read from private field"),t?t.call(o):n.get(o)),f=(o,n,t)=>{if(n.has(o))throw TypeError("Cannot add the same private member more than once");n instanceof WeakSet?n.add(o):n.set(o,t)};var T=(o,n,t)=>(M(o,n,"access private method"),t);import{C as N,i as C,c as P,g as z}from"./index-110f8445.js";import{c as O,d as k,i as S}from"./async-7021699a.js";import{h as B}from"./pl-react-491477f1.js";import{S as D}from"./index-ba88fe6e.js";import{c as K,C as J}from"./source-0d1faa1b.js";import"./marked-cbc50a59.js";import"./@babel-307d9f40.js";import"./debug-ddf39923.js";import"./ms-f6814399.js";import"./globals-aa9f7777.js";import"./@jridgewell-aa057988.js";import"./jsesc-4cfd8464.js";import"./picocolors-cddfbdbe.js";import"./js-tokens-bc2e8ff2.js";import"./basic-596bbc4d.js";const $=`
 export class BloomFilter {
 
   m:          number
@@ -144,13 +144,14 @@ function fnv_mix(a: number) {
   a += a << 5;
   return a & 0xffffffff;
 }
-`,$=`import { OptionalDeep } from "../../utils/type";
+`,H=`import { OptionalDeep } from "../../utils/type";
 
 type Option = {
   keywords:          string[]  // 关键字
   multiRowComment:   RegExp    // 多行注释
   singleLineComment: RegExp    // 单行注释
   string:            RegExp    // 字符串
+  regexp:            RegExp    // 正则
   constant:          RegExp    // 常量
   number:            RegExp    // 数字
   methods:           RegExp    // 方法
@@ -168,6 +169,7 @@ export class CodeConversion {
       multiRowComment: /\\/\\*.*?\\*\\//gs,
       singleLineComment: /\\/\\/[^\\n]+\\n?/g,
       string: /"[^"]*"|'[^']*'/g,
+      regexp: /\\/[^\\/]+\\//g,
       constant: /(?<=\\s|\\(|\\[|{|,|:|=)[A-Z][\\w|\\d]+/g,
       number: /(?<=\\s|\\(|\\[|{|,|:|=|\\+|-|\\*|\\/|\\%|<|>)\\d*\\.?\\d+/g,
       methods: /\\w+(?=\\()/g,
@@ -271,6 +273,7 @@ export class CodeConversion {
       ._commonDealWith(option.multiRowComment, 'block-comment')
       ._commonDealWith(option.singleLineComment, 'line-comment')
       ._commonDealWith(option.string, 'string')
+      ._commonDealWith(option.regexp, 'regexp')
       ._commonDealWith(option.number, 'number')
       ._commonDealWith(option.constant, 'constant')
       ._keyword(option.keywords)
@@ -280,7 +283,7 @@ export class CodeConversion {
   }
 
 }
-`,H=`type Callback = (e: CustomEvent) => void
+`,V=`type Callback = (e: CustomEvent) => void
 type On = (type: string, callback: Callback, options?: boolean | AddEventListenerOptions) => void
 type Off = (type: string) => void
 
@@ -338,7 +341,7 @@ export class EventEmitter extends EventTarget {
     return p as WaitHTMLElement<T>;
   }
 }
-`,V=`import { createArray } from "../../utils/array"
+`,X=`import { createArray } from "../../utils/array"
 
 export type Option = {
   el?:     HTMLElement  // 挂载的节点
@@ -450,7 +453,7 @@ export class Fulls {
   }
 
 }
-`,X=`
+`,G=`
 export class FullScreen {
   enterFullScreenName: string
   exitFullScreenName:  string
@@ -521,7 +524,7 @@ export class FullScreen {
   }
 
 }
-`,G=`import { isType } from "~/core/utils/judge"
+`,U=`import { isType } from "~/core/utils/judge"
 
 interface JSTypeMap {
   String:    string
@@ -578,7 +581,7 @@ export class FuncOverload {
   }
 
 }
-`,U=`export class Inlay {
+`,q=`export class Inlay {
   #map = new Map();
   [k: string]: Function
 
@@ -615,7 +618,7 @@ export class FuncOverload {
 
   }
 }
-`,q=`
+`,Z=`
 export class MemoizeMap<K = any, V = any> {
   _isObject(v: unknown): v is object {
     return typeof v === 'object' && v !== null;
@@ -646,7 +649,7 @@ export class MemoizeMap<K = any, V = any> {
     }
   }
 }
-`,Z=`
+`,Y=`
 type Next = () => any
 type Middleware<C> = (ctx?: C, next?: null | Next) => void
 
@@ -693,7 +696,7 @@ export class Onion<C> {
     }
     return dispatch(0);
   }
-}`,Y=`
+}`,Q=`
 type BaseMap = {
   [k: string]: any[];
 }
@@ -780,7 +783,7 @@ export class PublishSubscribe<M extends BaseMap> {
   }
 
 }
-`,Q=`
+`,nn=`
 /**
  * 创建动画函数
  * @param scrollStart 滚动条开始位置
@@ -829,7 +832,7 @@ export class ScrollAnimation {
     }
   }
 
-}`,nn=`import { createNum } from "~/core/utils/generator"
+}`,tn=`import { createNum } from "~/core/utils/generator"
 import { getLSUsedSpace } from "~/core/utils/object"
 
 type Key = string | number | symbol
@@ -1043,7 +1046,7 @@ function choiceSort(arr: SortItem[]) {
   }
   return arr;
 }
-`,tn=`
+`,en=`
 type StreamSplitOption = {
   normal?:    RegExp
   onMessage?: (str: string) => void
@@ -1085,7 +1088,7 @@ export class StreamSplit {
     return collect;
   }
 }
-`,en=`import { PromiseFn } from "../../utils/type"
+`,on=`import { PromiseFn } from "../../utils/type"
 
 type TaskItem = {
   task:    PromiseFn
@@ -1205,7 +1208,101 @@ export class TaskSchedulings extends TaskScheduling {
     this._run();
   }
 }
-`,on=`
+`,rn=`import { indexCorrect } from "../../utils/number";
+
+type Record = {
+  origin: string
+  target: string
+  start:  number
+  end:    number
+  append: string
+}
+type Option = {
+  text: string
+  onInsert?: (record: Record) => void
+  onReset?: (item: { target: string, start: number, end: number, origin: string }) => void
+}
+export class TextInsert {
+  constructor(option: Option) {
+    this.option = option;
+    this.text = option.text;
+    this.records = [{ start: 0, end: 0, append: option.text, origin: '', target: option.text }];
+    option.onInsert?.(this.records[0]);
+  }
+  option: Option
+  records: Record[]
+  text: string
+
+  /**
+   * 插入文本
+   * @param content 
+   * @param start 
+   * @param end 
+   * @returns 
+   */
+  insert(content: string, start: number | ((t: string) => number), end?: number | ((t: string) => number)) {
+    const t = this.text;
+    start = typeof start === 'function' ? start(t) : start;
+    end = typeof end === 'function' ? end(t) : end ?? start;
+    const target = t.slice(0, start) + content + t.slice(end);
+    const len = this.text.length - 1;
+    const item: Record = {
+      target,
+      origin: this.text,
+      start: indexCorrect(len, start),
+      end: indexCorrect(len, end),
+      append: content,
+    }
+    this.records.push(item);
+    this.text = target;
+    this.option.onInsert?.(item);
+    return this.records.length - 1;
+  }
+
+  /**
+   * 向前插入内容
+   * @param content 
+   * @param reg 
+   * @returns 
+   */
+  insertFirst(content: string, reg: RegExp) {
+    return this.insert(content, t => t.search(reg));
+  }
+
+  /**
+   * 向后插入内容
+   * @param content 
+   * @param reg 
+   * @returns 
+   */
+  insertLast(content: string, reg: RegExp) {
+    return this.insert(content, t => {
+      const matched = t.match(reg);
+      if (!matched) return 0;
+      return matched.index + matched[0].length;
+    });
+  }
+
+  /***
+   * 重置到指定位置
+   * @param last
+   */
+  reset(index?: number) {
+    const last = indexCorrect(this.records.length - 1, index) + 1;
+    const item = this.records[last];
+    const start = item.start, end = start + item.append.length;
+    this.option.onReset?.({
+      target: item.origin,
+      origin: this.text,
+      start,
+      end,
+    });
+    this.text = item.origin;
+    this.records.length = last;
+    return [start, end];
+  }
+}
+`,sn=`
 type VoiceTextSplitOption = {
   rouseKeywords: string[]          // 唤醒关键词
   endKeywords?:  string[]          // 结束关键词
@@ -1292,7 +1389,7 @@ export class VoiceTextSplit {
     this._count = 0;
     clearTimeout(this._timer);
   }
-}`,rn=`import { BloomFilter } from ".";
+}`,an=`import { BloomFilter } from ".";
 
 export default () => {
   const bloom = new BloomFilter(1024 * 8, 32);
@@ -1303,7 +1400,7 @@ export default () => {
   console.log('bar:', bloom.has('bar'));
   console.log('baz:', bloom.has('baz'));
 }
-`,sn=`import { CodeConversion } from '.';
+`,ln=`import { CodeConversion } from '.';
 
 export default () => {
   const code = \`
@@ -1338,7 +1435,7 @@ end
   const html = conversion.output(code);
 
   document.getElementById('container').innerHTML = \`<pre>\${html}</pre>\`;
-}`,an=`import { EventEmitter } from ".";
+}`,cn=`import { EventEmitter } from ".";
 
 export default () => {
   const container = document.getElementById('container');
@@ -1368,7 +1465,7 @@ export default () => {
       console.log(e.detail);
     }
   }())
-}`,ln=`import { Fulls } from ".";
+}`,un=`import { Fulls } from ".";
 
 export default () => {
   const wrap = document.createElement('div');
@@ -1389,7 +1486,7 @@ export default () => {
     column: Math.max(Math.trunc(wrap.offsetWidth / 200), 2),
   })
 }
-`,cn=`import { FullScreen } from '.';
+`,mn=`import { FullScreen } from '.';
 
 export default () => {
   const container = document.getElementById('container');
@@ -1413,7 +1510,7 @@ export default () => {
   })
 
   container.appendChild(wrap);
-}`,un=`import { FuncOverload } from "."
+}`,dn=`import { FuncOverload } from "."
 
 export default () => {
   const f = new FuncOverload();
@@ -1429,7 +1526,7 @@ export default () => {
   })
   const str = f.overload('a', 'b');
   console.log(str);
-}`,mn=`import { Inlay } from ".";
+}`,pn=`import { Inlay } from ".";
 
 export default () => {
   const container = document.getElementById('container');
@@ -1443,7 +1540,7 @@ export default () => {
 
   // @ts-ignore
   container.style = inlay.text;
-}`,dn=`import { MemoizeMap } from '.'
+}`,hn=`import { MemoizeMap } from '.'
 
 export default () => {
   const m = new MemoizeMap();
@@ -1451,7 +1548,7 @@ export default () => {
   m.set({}, 2);
 
   console.log(m.get('a'));
-}`,pn=`import { Onion } from '.'
+}`,gn=`import { Onion } from '.'
 
 export default () => {
   const ctx = {
@@ -1477,7 +1574,7 @@ export default () => {
     console.log('result: ', res);
   });
 }
-`,hn=`import { PublishSubscribe } from "."
+`,fn=`import { PublishSubscribe } from "."
 
 export default () => {
   const pubSub = new PublishSubscribe();
@@ -1495,7 +1592,7 @@ export default () => {
 
   container.appendChild(button);
 }
-`,gn=`import { createAnimation, ScrollAnimation } from ".";
+`,_n=`import { createAnimation, ScrollAnimation } from ".";
 
 export default () => {
   const container = document.getElementById('container');
@@ -1531,7 +1628,7 @@ export default () => {
   container.addEventListener('scroll', (e) => {
     absorb.updateStyles();
   })
-}`,fn=`import { SimulateRedis } from "."
+}`,xn=`import { SimulateRedis } from "."
 
 export default async () => {
   const redis = new SimulateRedis();
@@ -1556,7 +1653,7 @@ export default async () => {
     }, 100);
     console.log('r3', r3); // 123
   }, 200);
-}`,_n=`import { StreamSplit } from ".";
+}`,bn=`import { StreamSplit } from ".";
 import { delay } from "../../utils/async";
 
 export default () => {
@@ -1582,7 +1679,7 @@ export default () => {
       await delay(100);
     }
   })()
-}`,bn=`import { TaskScheduling } from ".";
+}`,yn=`import { TaskScheduling } from ".";
 import { delay } from "../../utils/async";
 
 export default () => {
@@ -1608,7 +1705,30 @@ export default () => {
       return num;
     }
   }
-}`,xn=`import { delay } from "../../utils/async";
+}`,vn=`import { TextInsert } from "."
+
+export default () => {
+  const pre = document.createElement('pre');
+  document.getElementById('container').appendChild(pre);
+
+  const ti = new TextInsert({
+    text: \`class Car {\\n  constructor(name: string) {\\n  }\\n}\`,
+    onInsert(item) {
+      pre.textContent = item.target;
+    },
+    onReset(item) {
+      pre.textContent = item.target;
+    }
+  })
+
+  ti.insertLast(\`\\n  name = 'hello';\\n\`, /constructor\\(.+\\)\\s?\\{\\n.*\\}\\n/);
+  ti.insert(\`\\n  fn () {
+    console.log(this.name);
+  }\\n\`, -1)
+  ti.insertFirst(\`\\n  age = 18;\`, /\\n  name = /);
+  ti.insertFirst(\`\\n  age = 20;\`, /\\n  name = /);
+  ti.reset(-1);  // 向前回退，撤回
+}`,wn=`import { delay } from "../../utils/async";
 import { VoiceTextSplit } from "."
 
 export default async () => {
@@ -1658,7 +1778,7 @@ export default async () => {
   endBtn.innerText = '停止收录';
   endBtn.onclick = () => voiceSplit.stop();
   container.append(startBtn, endBtn, content);
-}`;class yn{constructor(n=1024**2*8,t=16){a(this,"m");a(this,"k");a(this,"buckets");a(this,"_locations");const e=Math.ceil(n/32);let r=-1;if(this.m=n=e*32,this.k=t,typeof ArrayBuffer<"u"){const s=1<<Math.ceil(Math.log(Math.ceil(Math.log(n)/Math.LN2/8))/Math.LN2),i=s===1?Uint8Array:s===2?Uint16Array:Uint32Array,l=new ArrayBuffer(s*t),c=this.buckets=new Int32Array(e);if(n)for(;++r<e;)c[r]=n[r];this._locations=new i(l)}else{const s=this.buckets=[];if(n)for(;++r<e;)s[r]=n[r];else for(;++r<e;)s[r]=0;this._locations=[]}}locations(n){const t=this.k,e=this.m,r=this._locations,s=O(n),i=O(n,1576284489);let l=s%e;for(let c=0;c<t;++c)r[c]=l<0?l+e:l,l=(l+i)%e;return r}add(n){const t=this.locations(n);for(let e=0;e<this.k;++e)this.buckets[Math.floor(t[e]/32)]|=1<<t[e]%32}has(n){let t=this.locations(n);for(let e=0;e<this.k;++e){let r=t[e];if(!(this.buckets[Math.floor(r/32)]&1<<r%32))return!1}return!0}delete(n){const t=this.locations(n);for(let e=0;e<this.k;++e){let r=t[e];this.buckets[Math.floor(r/32)]&=~(1<<r%32)}}clear(){this.buckets.fill(0)}get size(){const n=this.buckets,t=n.length,e=this.m,r=this.k;let s=0;for(let i=0,l=t;i<l;++i)s+=vn(n[i]);return-e*Math.log(1-s/e)/r}}function vn(o){return o-=o>>1&1431655765,o=(o&858993459)+(o>>2&858993459),(o+(o>>4)&252645135)*16843009>>24}function O(o,n=0){let t=2166136261^n;for(let e=0,r=o.length;e<r;++e){let s=o.charCodeAt(e),i=s&65280;i&&(t=j(t^i>>8)),t=j(t^s&255)}return wn(t)}function j(o){return o+(o<<1)+(o<<4)+(o<<7)+(o<<8)+(o<<24)}function wn(o){return o+=o<<13,o^=o>>>7,o+=o<<3,o^=o>>>17,o+=o<<5,o&4294967295}const Sn=()=>{const o=new yn(8192,32);o.add("foo"),o.add("bar"),console.log("foo:",o.has("foo")),console.log("bar:",o.has("bar")),console.log("baz:",o.has("baz"))},kn=Object.freeze(Object.defineProperty({__proto__:null,default:Sn},Symbol.toStringTag,{value:"Module"})),En=()=>{const o=`
+}`;class Sn{constructor(n=1024**2*8,t=16){a(this,"m");a(this,"k");a(this,"buckets");a(this,"_locations");const e=Math.ceil(n/32);let r=-1;if(this.m=n=e*32,this.k=t,typeof ArrayBuffer<"u"){const s=1<<Math.ceil(Math.log(Math.ceil(Math.log(n)/Math.LN2/8))/Math.LN2),i=s===1?Uint8Array:s===2?Uint16Array:Uint32Array,l=new ArrayBuffer(s*t),c=this.buckets=new Int32Array(e);if(n)for(;++r<e;)c[r]=n[r];this._locations=new i(l)}else{const s=this.buckets=[];if(n)for(;++r<e;)s[r]=n[r];else for(;++r<e;)s[r]=0;this._locations=[]}}locations(n){const t=this.k,e=this.m,r=this._locations,s=j(n),i=j(n,1576284489);let l=s%e;for(let c=0;c<t;++c)r[c]=l<0?l+e:l,l=(l+i)%e;return r}add(n){const t=this.locations(n);for(let e=0;e<this.k;++e)this.buckets[Math.floor(t[e]/32)]|=1<<t[e]%32}has(n){let t=this.locations(n);for(let e=0;e<this.k;++e){let r=t[e];if(!(this.buckets[Math.floor(r/32)]&1<<r%32))return!1}return!0}delete(n){const t=this.locations(n);for(let e=0;e<this.k;++e){let r=t[e];this.buckets[Math.floor(r/32)]&=~(1<<r%32)}}clear(){this.buckets.fill(0)}get size(){const n=this.buckets,t=n.length,e=this.m,r=this.k;let s=0;for(let i=0,l=t;i<l;++i)s+=kn(n[i]);return-e*Math.log(1-s/e)/r}}function kn(o){return o-=o>>1&1431655765,o=(o&858993459)+(o>>2&858993459),(o+(o>>4)&252645135)*16843009>>24}function j(o,n=0){let t=2166136261^n;for(let e=0,r=o.length;e<r;++e){let s=o.charCodeAt(e),i=s&65280;i&&(t=I(t^i>>8)),t=I(t^s&255)}return En(t)}function I(o){return o+(o<<1)+(o<<4)+(o<<7)+(o<<8)+(o<<24)}function En(o){return o+=o<<13,o^=o>>>7,o+=o<<3,o^=o>>>17,o+=o<<5,o&4294967295}const Mn=()=>{const o=new Sn(8192,32);o.add("foo"),o.add("bar"),console.log("foo:",o.has("foo")),console.log("bar:",o.has("bar")),console.log("baz:",o.has("baz"))},Tn=Object.freeze(Object.defineProperty({__proto__:null,default:Mn},Symbol.toStringTag,{value:"Module"})),Cn=()=>{const o=`
 /*
 金融机构大额交易和可疑交易报告管理办法
 第五条　金融机构应当报告下列大额交易：
@@ -1682,18 +1802,29 @@ prohibit tx.args.txtype == "JNKXHZ" and contract(tx.to).state.accountType[tx.arg
 prohibit tx.args.txtype == "KJKXHZ" and contract(tx.to).state.accountType[tx.args.account] == "Person" and 
     ((tx.args.currency == "RMB" and tx.args.amount >= 200000) or (tx.args.currency == "USD" and tx.args.amount >= 10000));
 end 
-`,t=new N({keywords:["rule","end","knowledgebase","knowledge","reg","require","prohibit","and","or","in","true","false"]}).output(o);document.getElementById("container").innerHTML=`<pre>${t}</pre>`},Mn=Object.freeze(Object.defineProperty({__proto__:null,default:En},Symbol.toStringTag,{value:"Module"}));class F extends EventTarget{constructor(){super(...arguments);a(this,"emit",(t,e)=>{this.dispatchEvent(new CustomEvent(t,{detail:e}))});a(this,"on",this.addEventListener);a(this,"once",(t,e)=>{this.on(t,e,{once:!0,capture:!0})});a(this,"off",this.removeEventListener)}static wait(t){return new Proxy(t,{get(r,s){if(!s.startsWith("wait"))return;const i=s.replace("wait","").toLowerCase();return new Promise(l=>{r.addEventListener(i,l,{once:!0})})}})}}const Tn=()=>{const o=document.getElementById("container"),n=new F,t=document.createElement("button");t.innerText="send",t.addEventListener("click",()=>{n.emit("send","hello world!")}),o.appendChild(t),n.on("send",s=>{console.log(s.detail)});const e=document.createElement("button");e.innerText="wait event";const r=F.wait(e);o.appendChild(e),async function(){for(;;){const s=await r.waitClick;console.log(s.detail)}}()},Cn=Object.freeze(Object.defineProperty({__proto__:null,default:Tn},Symbol.toStringTag,{value:"Module"}));class On{constructor(n={}){a(this,"option");a(this,"_matrix");const{column:t,rowGap:e,colGap:r,el:s}=n;if(this.option={column:t||5,rowGap:e||20,colGap:r||14},!s)return;s.style.position="relative";const i=[...s.children],l=i.map(m=>m.offsetHeight),{itemWidth:c,positions:p,wrapHeight:h}=this.compute(s.clientWidth,l);i.forEach((m,g)=>{m.style.position="absolute",m.style.width=c+"px",m.style.top=p[g].top+"px",m.style.left=p[g].left+"px"}),s.style.height=h+"px"}compute(n,t){const e=this.computeItemWidth(n),r=this.computeItemPosition(t,e),s=this.computeWrapHeight();return{itemWidth:e,positions:r,wrapHeight:s}}computeItemWidth(n){return(n-this.option.rowGap*(this.option.column-1))/this.option.column}computeItemPosition(n,t){this._matrix=C(this.option.column,[0]);const e=[];for(let r=0;r<n.length;r++){const s=this._queryColumn("min"),i=this._matrix[s].reduce((l,c)=>l+c);e.push({top:i+this.option.colGap*(this._matrix[s].length-1),left:s*(t+this.option.rowGap)}),this._matrix[s].push(n[r])}return e}computeWrapHeight(){const n=this._queryColumn("max");return this._matrix[n].reduce((t,e)=>t+e+this.option.rowGap)-this.option.rowGap}_queryColumn(n){const t=C(this._matrix.length,0);for(let r=0;r<this._matrix.length;r++)t[r]=this._matrix[r].reduce((s,i)=>s+i);const e=Math[n].apply(null,t);return t.indexOf(e)}}const jn=()=>{const o=document.createElement("div");[200,300,270,100,400,100,200,300,100,140].forEach((t,e)=>{const r=document.createElement("div");r.innerText=e+"",r.style.height=`${t}px`,r.style.background="#eee",o.appendChild(r)}),document.getElementById("container").appendChild(o),new On({el:o,column:Math.max(Math.trunc(o.offsetWidth/200),2)})},Fn=Object.freeze(Object.defineProperty({__proto__:null,default:jn},Symbol.toStringTag,{value:"Module"}));class _{constructor(){a(this,"enterFullScreenName");a(this,"exitFullScreenName");a(this,"fullScreenName");this.enterFullScreenName=_.getPropertyName(["requestFullscreen","mozRequestFullScreen","webkitRequestFullScreen","msRequestFullScreen"],document.documentElement),this.exitFullScreenName=_.getPropertyName(["exitFullscreen","mozCancelFullScreen","webkitExitFullScreen","msExitFullScreen"],document),this.fullScreenName=_.getPropertyName(["fullscreenElement","mozFullScreenElement","webkitFullScreenElement","msFullScreenElement"],document)}static getPropertyName(n,t){return n.find(e=>e in t)}enter(n=document.documentElement){this.enterFullScreenName&&n[this.enterFullScreenName]()}exit(){this.isFull()&&this.exitFullScreenName&&document[this.exitFullScreenName]()}isFull(){return!!this.getEl()}toggle(n=document.documentElement){this.isFull()?this.exit():this.enter(n)}getEl(){return document[this.fullScreenName]||null}}const In=()=>{const o=document.getElementById("container"),n=new _,t=[{name:"进入全屏",handler:()=>n.enter()},{name:"退出全屏",handler:()=>n.exit()},{name:"进入/退出全屏",handler:()=>n.toggle()},{name:"是否处于全屏状态全屏",handler:()=>console.log(n.isFull())},{name:"指定元素进入/退出全屏",handler:()=>n.toggle(o)}],e=document.createElement("div");t.forEach(r=>{const s=document.createElement("button");s.innerText=r.name,s.addEventListener("click",()=>{r.handler()}),e.appendChild(s)}),o.appendChild(e)},Rn=Object.freeze(Object.defineProperty({__proto__:null,default:In},Symbol.toStringTag,{value:"Module"}));class Ln{constructor(){a(this,"_map",new Map)}addImpl(...n){const t=n.pop();if(T(t)!=="Function")throw new Error("Last argument must be a function");const e=n.join(",");this._map.set(e,t)}overload(...n){const t=n.map(r=>T(r)).join(","),e=this._map.get(t);if(!e)throw new Error(`No implementation for ${t}`);return e.apply(this,n)}}const An=()=>{const o=new Ln;o.addImpl("Number","Number",(e,r)=>e+r);const n=o.overload(1,2);console.log(n),o.addImpl("String","String",(e,r)=>"str: "+e+r);const t=o.overload("a","b");console.log(t)},Nn=Object.freeze(Object.defineProperty({__proto__:null,default:An},Symbol.toStringTag,{value:"Module"}));var y;class Wn{constructor(){f(this,y,new Map);const n=u(this,y);return new Proxy(this,{get(t,e){return n.has(e)?n.get(e):(Reflect.set(t,e,function(r,...s){if(!r){console.warn(`[${e.toString()}] is empty`);return}let i="";for(let l=0;l<s.length;l++)i+=r[l],i+=s[l];return i+=r[r.length-1],n.set(e,i),r[0]}),t[e])}})}}y=new WeakMap;const Pn=()=>{const o=document.getElementById("container");o.innerText="hello";const n=new Wn;n.text`
+`,t=new N({keywords:["rule","end","knowledgebase","knowledge","reg","require","prohibit","and","or","in","true","false"]}).output(o);document.getElementById("container").innerHTML=`<pre>${t}</pre>`},On=Object.freeze(Object.defineProperty({__proto__:null,default:Cn},Symbol.toStringTag,{value:"Module"}));class F extends EventTarget{constructor(){super(...arguments);a(this,"emit",(t,e)=>{this.dispatchEvent(new CustomEvent(t,{detail:e}))});a(this,"on",this.addEventListener);a(this,"once",(t,e)=>{this.on(t,e,{once:!0,capture:!0})});a(this,"off",this.removeEventListener)}static wait(t){return new Proxy(t,{get(r,s){if(!s.startsWith("wait"))return;const i=s.replace("wait","").toLowerCase();return new Promise(l=>{r.addEventListener(i,l,{once:!0})})}})}}const jn=()=>{const o=document.getElementById("container"),n=new F,t=document.createElement("button");t.innerText="send",t.addEventListener("click",()=>{n.emit("send","hello world!")}),o.appendChild(t),n.on("send",s=>{console.log(s.detail)});const e=document.createElement("button");e.innerText="wait event";const r=F.wait(e);o.appendChild(e),async function(){for(;;){const s=await r.waitClick;console.log(s.detail)}}()},In=Object.freeze(Object.defineProperty({__proto__:null,default:jn},Symbol.toStringTag,{value:"Module"}));class Fn{constructor(n={}){a(this,"option");a(this,"_matrix");const{column:t,rowGap:e,colGap:r,el:s}=n;if(this.option={column:t||5,rowGap:e||20,colGap:r||14},!s)return;s.style.position="relative";const i=[...s.children],l=i.map(d=>d.offsetHeight),{itemWidth:c,positions:m,wrapHeight:h}=this.compute(s.clientWidth,l);i.forEach((d,g)=>{d.style.position="absolute",d.style.width=c+"px",d.style.top=m[g].top+"px",d.style.left=m[g].left+"px"}),s.style.height=h+"px"}compute(n,t){const e=this.computeItemWidth(n),r=this.computeItemPosition(t,e),s=this.computeWrapHeight();return{itemWidth:e,positions:r,wrapHeight:s}}computeItemWidth(n){return(n-this.option.rowGap*(this.option.column-1))/this.option.column}computeItemPosition(n,t){this._matrix=O(this.option.column,[0]);const e=[];for(let r=0;r<n.length;r++){const s=this._queryColumn("min"),i=this._matrix[s].reduce((l,c)=>l+c);e.push({top:i+this.option.colGap*(this._matrix[s].length-1),left:s*(t+this.option.rowGap)}),this._matrix[s].push(n[r])}return e}computeWrapHeight(){const n=this._queryColumn("max");return this._matrix[n].reduce((t,e)=>t+e+this.option.rowGap)-this.option.rowGap}_queryColumn(n){const t=O(this._matrix.length,0);for(let r=0;r<this._matrix.length;r++)t[r]=this._matrix[r].reduce((s,i)=>s+i);const e=Math[n].apply(null,t);return t.indexOf(e)}}const Rn=()=>{const o=document.createElement("div");[200,300,270,100,400,100,200,300,100,140].forEach((t,e)=>{const r=document.createElement("div");r.innerText=e+"",r.style.height=`${t}px`,r.style.background="#eee",o.appendChild(r)}),document.getElementById("container").appendChild(o),new Fn({el:o,column:Math.max(Math.trunc(o.offsetWidth/200),2)})},Ln=Object.freeze(Object.defineProperty({__proto__:null,default:Rn},Symbol.toStringTag,{value:"Module"}));class _{constructor(){a(this,"enterFullScreenName");a(this,"exitFullScreenName");a(this,"fullScreenName");this.enterFullScreenName=_.getPropertyName(["requestFullscreen","mozRequestFullScreen","webkitRequestFullScreen","msRequestFullScreen"],document.documentElement),this.exitFullScreenName=_.getPropertyName(["exitFullscreen","mozCancelFullScreen","webkitExitFullScreen","msExitFullScreen"],document),this.fullScreenName=_.getPropertyName(["fullscreenElement","mozFullScreenElement","webkitFullScreenElement","msFullScreenElement"],document)}static getPropertyName(n,t){return n.find(e=>e in t)}enter(n=document.documentElement){this.enterFullScreenName&&n[this.enterFullScreenName]()}exit(){this.isFull()&&this.exitFullScreenName&&document[this.exitFullScreenName]()}isFull(){return!!this.getEl()}toggle(n=document.documentElement){this.isFull()?this.exit():this.enter(n)}getEl(){return document[this.fullScreenName]||null}}const An=()=>{const o=document.getElementById("container"),n=new _,t=[{name:"进入全屏",handler:()=>n.enter()},{name:"退出全屏",handler:()=>n.exit()},{name:"进入/退出全屏",handler:()=>n.toggle()},{name:"是否处于全屏状态全屏",handler:()=>console.log(n.isFull())},{name:"指定元素进入/退出全屏",handler:()=>n.toggle(o)}],e=document.createElement("div");t.forEach(r=>{const s=document.createElement("button");s.innerText=r.name,s.addEventListener("click",()=>{r.handler()}),e.appendChild(s)}),o.appendChild(e)},Wn=Object.freeze(Object.defineProperty({__proto__:null,default:An},Symbol.toStringTag,{value:"Module"}));class Nn{constructor(){a(this,"_map",new Map)}addImpl(...n){const t=n.pop();if(C(t)!=="Function")throw new Error("Last argument must be a function");const e=n.join(",");this._map.set(e,t)}overload(...n){const t=n.map(r=>C(r)).join(","),e=this._map.get(t);if(!e)throw new Error(`No implementation for ${t}`);return e.apply(this,n)}}const Pn=()=>{const o=new Nn;o.addImpl("Number","Number",(e,r)=>e+r);const n=o.overload(1,2);console.log(n),o.addImpl("String","String",(e,r)=>"str: "+e+r);const t=o.overload("a","b");console.log(t)},zn=Object.freeze(Object.defineProperty({__proto__:null,default:Pn},Symbol.toStringTag,{value:"Module"}));var y;class Bn{constructor(){f(this,y,new Map);const n=u(this,y);return new Proxy(this,{get(t,e){return n.has(e)?n.get(e):(Reflect.set(t,e,function(r,...s){if(!r){console.warn(`[${e.toString()}] is empty`);return}let i="";for(let l=0;l<s.length;l++)i+=r[l],i+=s[l];return i+=r[r.length-1],n.set(e,i),r[0]}),t[e])}})}}y=new WeakMap;const Dn=()=>{const o=document.getElementById("container");o.innerText="hello";const n=new Bn;n.text`
     --color: red;
     color: var(--color);
-  `,o.style=n.text},zn=Object.freeze(Object.defineProperty({__proto__:null,default:Pn},Symbol.toStringTag,{value:"Module"}));class Dn{constructor(){a(this,"_map",new Map);a(this,"_weakMap",new WeakMap)}_isObject(n){return typeof n=="object"&&n!==null}set(n,t){this._isObject(n)?this._weakMap.set(n,t):this._map.set(n,t)}get(n){return this._isObject(n)?this._weakMap.get(n):this._map.get(n)}has(n){this._isObject(n)?this._weakMap.has(n):this._map.has(n)}}const Bn=()=>{const o=new Dn;o.set("a",1),o.set({},2),console.log(o.get("a"))},Kn=Object.freeze(Object.defineProperty({__proto__:null,default:Bn},Symbol.toStringTag,{value:"Module"}));var b,v,R;class Jn{constructor(n){f(this,v);a(this,"ctx");f(this,b,[]);this.ctx=n}use(n){u(this,b).push(n)}async callback(){return await M(this,v,R).call(this,u(this,b),this.ctx,()=>{})}}b=new WeakMap,v=new WeakSet,R=function(n,t,e){function r(s){let i=n[s];return s===n.length&&(i=e),Promise.resolve(i(t,r.bind(null,++s)))}return r(0)};const $n=()=>{const o={a:123},n=new Jn(o);n.use((t,e)=>(console.log("中间件1：",t.a),t.a=456,e(),console.log("中间件1：end"),t)),n.use((t,e)=>{console.log("中间件2：",t.a),e(),console.log("中间件2：end")}),n.callback().then(t=>{console.log("result: ",t)})},Hn=Object.freeze(Object.defineProperty({__proto__:null,default:$n},Symbol.toStringTag,{value:"Module"})),{warn:x}=console;var d;class Vn{constructor(){f(this,d,new Map)}on(n,t){u(this,d).has(n)&&x(`${n} already exists`),u(this,d).set(n,{fn:t})}once(n,t){if(u(this,d).has(n)){x(`${n} already exists`);return}u(this,d).set(n,{fn:t,once:!0})}emit(n,...t){const e=u(this,d).get(n);if(!e){x(`no implementation for ${n}`);return}const r=e.fn(...t);return e.once&&u(this,d).delete(n),r}off(n){u(this,d).delete(n)}offAll(){u(this,d).clear()}reset(n,t,e=!1){if(!u(this,d).has(n)){x(`${n} not exists`);return}u(this,d).set(n,{fn:t,once:e})}}d=new WeakMap;const Xn=()=>{const o=new Vn,n=document.getElementById("container");o.on("test",e=>{console.log(e)});const t=document.createElement("button");t.innerText="发送事件",t.addEventListener("click",()=>{o.emit("test","hello world")}),n.appendChild(t)},Gn=Object.freeze(Object.defineProperty({__proto__:null,default:Xn},Symbol.toStringTag,{value:"Module"}));function I(o,n,t,e){return r=>r<=o?t:r>=n?e:t+(e-t)*(r-o)/(n-o)}class Un{constructor(n){a(this,"option",{direction:"y"});a(this,"animationMap",new Map);Object.assign(this.option,n)}set(n,t){this.animationMap.set(n,t)}updateStyles(){const{option:n,animationMap:t}=this,e=n.scrollEl[n.direction==="y"?"scrollTop":"scrollLeft"];for(const[r,s]of t)for(const i in s)r.style[i]=s[i](e)}}const qn=()=>{const o=document.getElementById("container");o.style.height="500px",o.style.position="relative";const n=`<div class='scroll-animation-wrap' style='height: 1100px;'>
+  `,o.style=n.text},Kn=Object.freeze(Object.defineProperty({__proto__:null,default:Dn},Symbol.toStringTag,{value:"Module"}));class Jn{constructor(){a(this,"_map",new Map);a(this,"_weakMap",new WeakMap)}_isObject(n){return typeof n=="object"&&n!==null}set(n,t){this._isObject(n)?this._weakMap.set(n,t):this._map.set(n,t)}get(n){return this._isObject(n)?this._weakMap.get(n):this._map.get(n)}has(n){this._isObject(n)?this._weakMap.has(n):this._map.has(n)}}const $n=()=>{const o=new Jn;o.set("a",1),o.set({},2),console.log(o.get("a"))},Hn=Object.freeze(Object.defineProperty({__proto__:null,default:$n},Symbol.toStringTag,{value:"Module"}));var x,v,L;class Vn{constructor(n){f(this,v);a(this,"ctx");f(this,x,[]);this.ctx=n}use(n){u(this,x).push(n)}async callback(){return await T(this,v,L).call(this,u(this,x),this.ctx,()=>{})}}x=new WeakMap,v=new WeakSet,L=function(n,t,e){function r(s){let i=n[s];return s===n.length&&(i=e),Promise.resolve(i(t,r.bind(null,++s)))}return r(0)};const Xn=()=>{const o={a:123},n=new Vn(o);n.use((t,e)=>(console.log("中间件1：",t.a),t.a=456,e(),console.log("中间件1：end"),t)),n.use((t,e)=>{console.log("中间件2：",t.a),e(),console.log("中间件2：end")}),n.callback().then(t=>{console.log("result: ",t)})},Gn=Object.freeze(Object.defineProperty({__proto__:null,default:Xn},Symbol.toStringTag,{value:"Module"})),{warn:b}=console;var p;class Un{constructor(){f(this,p,new Map)}on(n,t){u(this,p).has(n)&&b(`${n} already exists`),u(this,p).set(n,{fn:t})}once(n,t){if(u(this,p).has(n)){b(`${n} already exists`);return}u(this,p).set(n,{fn:t,once:!0})}emit(n,...t){const e=u(this,p).get(n);if(!e){b(`no implementation for ${n}`);return}const r=e.fn(...t);return e.once&&u(this,p).delete(n),r}off(n){u(this,p).delete(n)}offAll(){u(this,p).clear()}reset(n,t,e=!1){if(!u(this,p).has(n)){b(`${n} not exists`);return}u(this,p).set(n,{fn:t,once:e})}}p=new WeakMap;const qn=()=>{const o=new Un,n=document.getElementById("container");o.on("test",e=>{console.log(e)});const t=document.createElement("button");t.innerText="发送事件",t.addEventListener("click",()=>{o.emit("test","hello world")}),n.appendChild(t)},Zn=Object.freeze(Object.defineProperty({__proto__:null,default:qn},Symbol.toStringTag,{value:"Module"}));function R(o,n,t,e){return r=>r<=o?t:r>=n?e:t+(e-t)*(r-o)/(n-o)}class Yn{constructor(n){a(this,"option",{direction:"y"});a(this,"animationMap",new Map);Object.assign(this.option,n)}set(n,t){this.animationMap.set(n,t)}updateStyles(){const{option:n,animationMap:t}=this,e=n.scrollEl[n.direction==="y"?"scrollTop":"scrollLeft"];for(const[r,s]of t)for(const i in s)r.style[i]=s[i](e)}}const Qn=()=>{const o=document.getElementById("container");o.style.height="500px",o.style.position="relative";const n=`<div class='scroll-animation-wrap' style='height: 1100px;'>
     <div class='carry-off' style='margin-top: 300px; height: 500px; border: 1px dashed;'>
       <div class='remain' style='position: sticky; top: 0; height: 300px; border: 1px solid orange;'>
         <div class='box' style='width: 200px; height: 200px; background: red; position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto;'></div>
       </div>
     </div>
-  </div>`,e=new DOMParser().parseFromString(n,"text/html").body.firstChild;o.appendChild(e);const r=new Un({scrollEl:o});r.set(document.querySelector(".scroll-animation-wrap .box"),{opacity(s){return I(100,400,0,1)(s)},transform(s){return`translateX(${I(100,300,-100,0)(s)}px)`}}),r.updateStyles(),o.addEventListener("scroll",s=>{r.updateStyles()})},Zn=Object.freeze(Object.defineProperty({__proto__:null,default:qn},Symbol.toStringTag,{value:"Module"}));var w;class Yn{constructor(){a(this,"map",new Map);f(this,w,W())}set(n,t,e=1/0){n==null||n===""||this.map.set(n,{createTime:Date.now(),value:t,overTime:e,count:u(this,w).next().value})}get(n){const t=this.map.get(n);if(t==null)return;Date.now()-t.createTime>t.overTime&&this.delete(n);const e=this.map.get(n);return e&&e.value}isExpire(n){const t=this.map.get(n);return t==null||Date.now()-t.createTime>t.overTime}delete(n){this.map.delete(n)}clear(){this.map.clear()}length(){return this.map.size}get size(){return P(this.gainAll())}gainAll(){const n={};for(const[t,e]of this.map)n[t]=e.value;return n}}w=new WeakMap;class Qn extends Yn{constructor(t=1024*1024*2){super();a(this,"maxSize");this.maxSize=t}async deposit(t,e,r=-1,s=!1){if(r===-1&&(r=1/0),s)return typeof e=="function"&&(e=await e()),this.set(t,e,r),this.get(t);const i=this.get(t);return i||(typeof e=="function"&&(e=await e()),this.set(t,e,r),this.deleteOverValue(),this.clearCache(),this.get(t))}clearCache(){if(this.size<this.maxSize)return;const t=[];for(const[r,s]of Object.entries(this.map))s.overTime!==1/0&&t.push({key:r,...s});const e=nt(t);this.deleteFristValue(e)}deleteOverValue(){const t=Date.now();for(const[e,r]of Object.entries(this.map)){const s=r.createTime,i=r.overTime;t-s>i&&this.delete(e)}}deleteFristValue(t){const e=t[0].key;t.shift(),this.delete(e),!(this.size<=this.maxSize)&&this.deleteFristValue(t)}}function nt(o){const n=o.length;if(o==null||n===0)return[];for(let t=0;t<n-1;t++)for(let e=0;e<n-1;e++){const r=o[e];r.count>o[e+1].count&&([o[e],o[e+1]]=[o[e+1],r])}return o}const tt=async()=>{const o=new Qn,n=await o.deposit(1,()=>(console.log("缓存数据"),123),100);console.log("r1",n),setTimeout(async()=>{const t=await o.deposit(1,()=>(console.log("已缓存过，不会执行"),456));console.log("r2",t)},50),setTimeout(async()=>{const t=await o.deposit(1,()=>(console.log("重新缓存数据"),789),100);console.log("r3",t)},200)},et=Object.freeze(Object.defineProperty({__proto__:null,default:tt},Symbol.toStringTag,{value:"Module"}));class ot{constructor(n={}){a(this,"option",{normal:/data:(.+)?\n\n/});a(this,"_text","");Object.assign(this.option,n)}add(n){this._text+=n;const{normal:t,onMessage:e}=this.option,r=[];for(;;){const s=this._text.match(t);if(!s)break;const i=s[1];r.push(i),this._text=this._text.slice(s[0].length),e&&e(i)}return r}}const rt=()=>{const o=document.getElementById("container"),n=new ot({onMessage(t){const e=JSON.parse(t);console.log(e);const r=document.createTextNode(e.data);o.appendChild(r)}});(async function(){const t=["hello",", ","world","!"];for(const e of t){const r={data:e,time:Date.now()};n.add(`data:${JSON.stringify(r)}
+  </div>`,e=new DOMParser().parseFromString(n,"text/html").body.firstChild;o.appendChild(e);const r=new Yn({scrollEl:o});r.set(document.querySelector(".scroll-animation-wrap .box"),{opacity(s){return R(100,400,0,1)(s)},transform(s){return`translateX(${R(100,300,-100,0)(s)}px)`}}),r.updateStyles(),o.addEventListener("scroll",s=>{r.updateStyles()})},nt=Object.freeze(Object.defineProperty({__proto__:null,default:Qn},Symbol.toStringTag,{value:"Module"}));var w;class tt{constructor(){a(this,"map",new Map);f(this,w,P())}set(n,t,e=1/0){n==null||n===""||this.map.set(n,{createTime:Date.now(),value:t,overTime:e,count:u(this,w).next().value})}get(n){const t=this.map.get(n);if(t==null)return;Date.now()-t.createTime>t.overTime&&this.delete(n);const e=this.map.get(n);return e&&e.value}isExpire(n){const t=this.map.get(n);return t==null||Date.now()-t.createTime>t.overTime}delete(n){this.map.delete(n)}clear(){this.map.clear()}length(){return this.map.size}get size(){return z(this.gainAll())}gainAll(){const n={};for(const[t,e]of this.map)n[t]=e.value;return n}}w=new WeakMap;class et extends tt{constructor(t=1024*1024*2){super();a(this,"maxSize");this.maxSize=t}async deposit(t,e,r=-1,s=!1){if(r===-1&&(r=1/0),s)return typeof e=="function"&&(e=await e()),this.set(t,e,r),this.get(t);const i=this.get(t);return i||(typeof e=="function"&&(e=await e()),this.set(t,e,r),this.deleteOverValue(),this.clearCache(),this.get(t))}clearCache(){if(this.size<this.maxSize)return;const t=[];for(const[r,s]of Object.entries(this.map))s.overTime!==1/0&&t.push({key:r,...s});const e=ot(t);this.deleteFristValue(e)}deleteOverValue(){const t=Date.now();for(const[e,r]of Object.entries(this.map)){const s=r.createTime,i=r.overTime;t-s>i&&this.delete(e)}}deleteFristValue(t){const e=t[0].key;t.shift(),this.delete(e),!(this.size<=this.maxSize)&&this.deleteFristValue(t)}}function ot(o){const n=o.length;if(o==null||n===0)return[];for(let t=0;t<n-1;t++)for(let e=0;e<n-1;e++){const r=o[e];r.count>o[e+1].count&&([o[e],o[e+1]]=[o[e+1],r])}return o}const rt=async()=>{const o=new et,n=await o.deposit(1,()=>(console.log("缓存数据"),123),100);console.log("r1",n),setTimeout(async()=>{const t=await o.deposit(1,()=>(console.log("已缓存过，不会执行"),456));console.log("r2",t)},50),setTimeout(async()=>{const t=await o.deposit(1,()=>(console.log("重新缓存数据"),789),100);console.log("r3",t)},200)},st=Object.freeze(Object.defineProperty({__proto__:null,default:rt},Symbol.toStringTag,{value:"Module"}));class it{constructor(n={}){a(this,"option",{normal:/data:(.+)?\n\n/});a(this,"_text","");Object.assign(this.option,n)}add(n){this._text+=n;const{normal:t,onMessage:e}=this.option,r=[];for(;;){const s=this._text.match(t);if(!s)break;const i=s[1];r.push(i),this._text=this._text.slice(s[0].length),e&&e(i)}return r}}const at=()=>{const o=document.getElementById("container"),n=new it({onMessage(t){const e=JSON.parse(t);console.log(e);const r=document.createTextNode(e.data);o.appendChild(r)}});(async function(){const t=["hello",", ","world","!"];for(const e of t){const r={data:e,time:Date.now()};n.add(`data:${JSON.stringify(r)}
 
-`),await S(100)}})()},st=Object.freeze(Object.defineProperty({__proto__:null,default:rt},Symbol.toStringTag,{value:"Module"}));class it{constructor(n=5){a(this,"_parallelCount");a(this,"_runingCount",0);a(this,"_currentIndex",0);a(this,"tasks",[]);a(this,"onEnd");this._parallelCount=n}add(n){const t=new Promise((e,r)=>{this.tasks.push({task:n,resolve:e,reject:r})});return this._run(),t}_run(){for(;this.tasks.length>this._runingCount&&this._runingCount<this._parallelCount;){const{task:n,resolve:t,reject:e}=this.tasks[this._runingCount];this._runingCount++,n().then(r=>t(r)).catch(r=>e(r)).finally(()=>{this._continue(),this._currentIndex++,this._currentIndex===this.tasks.length&&this.onEnd&&this.onEnd()})}}_continue(){this._parallelCount++,this._run()}}const at=()=>{const o=new it(3),n=Date.now();o.onEnd=()=>{console.log("总耗时：",Date.now()-n)},o.add(t(100)),o.add(t(200)),o.add(t(150)),o.add(t(250)).then(e=>console.log("task")),o.add(t(180)),o.add(t(200)),o.add(t(300));function t(e){return async()=>(await S(e),console.log(e),e)}},lt=Object.freeze(Object.defineProperty({__proto__:null,default:at},Symbol.toStringTag,{value:"Module"}));class ct{constructor(n){a(this,"option",{autoEndTime:3e3});a(this,"status","finish");a(this,"regRouse");a(this,"regEnd");a(this,"text","");a(this,"_count",0);a(this,"_timer");Object.assign(this.option,n),this.regRouse=new RegExp(`(${n.rouseKeywords.join("|")})`,"g"),this.option.endKeywords&&(this.regEnd=new RegExp(`(${this.option.endKeywords.join("|")})`,"g"))}add(n){var c,p,h;const{status:t,_count:e,regRouse:r,regEnd:s,option:i}=this;if(t==="finish")return;clearTimeout(this._timer),this.text+=n;const l=this.text.match(r);if(l){if(l.length>e){const m=l[l.length-1],g=this.text.search(m),k=this.text.slice(g);i.onMessage(e===0?k:n,m),(c=i.onRouseStart)==null||c.call(i,k),e>0&&((p=i.onComplete)==null||p.call(i,this.text.slice(0,g))),this.text=this.text.slice(g),this._count=l.length}else if(i.onMessage(n),s&&this.text.match(s)){(h=i.onRouseStop)==null||h.call(i,this.text),this.stop();return}i.autoEndTime&&(this._timer=setTimeout(()=>{var m;(m=i.onAutoStop)==null||m.call(i,this.text),this.stop()},i.autoEndTime))}}start(){this.status="running"}stop(){var n,t;this._count>0&&((t=(n=this.option).onComplete)==null||t.call(n,this.text)),this.status="finish",this.text="",this._count=0,clearTimeout(this._timer)}}const ut=async()=>{const o=document.getElementById("container"),n=document.createElement("pre"),t=[];function e(){n.innerHTML=JSON.stringify(t,null,2)}const r=new ct({rouseKeywords:["你好小肚","小肚，小肚"],endKeywords:["结束","完了"],onRouseStart(c){t.push({type:"rouse",text:c}),t.push({type:"reply",text:"哎，俺在！"}),t.push({type:"talk",text:""}),e()},onMessage(c,p){if(!t.length)return;const h=t[t.length-1];h.text+=c,p&&(h.text=h.text.replace(p,"")),e()}});async function s(){if(r.status==="running")return;r.start();const c="这是个语音合成的文字哈。你好小肚，我是你爸爸，小肚，小肚，乃鼻窦了一天天是，叫你也不吭个气。说完了小杂毛，";for(const p of c)await S(100),r.add(p)}s();const i=document.createElement("button");i.innerText="开始收录",i.onclick=s;const l=document.createElement("button");l.innerText="停止收录",l.onclick=()=>r.stop(),o.append(i,l,n)},mt=Object.freeze(Object.defineProperty({__proto__:null,default:ut},Symbol.toStringTag,{value:"Module"})),dt=`# 布隆过滤器
+`),await k(100)}})()},lt=Object.freeze(Object.defineProperty({__proto__:null,default:at},Symbol.toStringTag,{value:"Module"}));class ct{constructor(n=5){a(this,"_parallelCount");a(this,"_runingCount",0);a(this,"_currentIndex",0);a(this,"tasks",[]);a(this,"onEnd");this._parallelCount=n}add(n){const t=new Promise((e,r)=>{this.tasks.push({task:n,resolve:e,reject:r})});return this._run(),t}_run(){for(;this.tasks.length>this._runingCount&&this._runingCount<this._parallelCount;){const{task:n,resolve:t,reject:e}=this.tasks[this._runingCount];this._runingCount++,n().then(r=>t(r)).catch(r=>e(r)).finally(()=>{this._continue(),this._currentIndex++,this._currentIndex===this.tasks.length&&this.onEnd&&this.onEnd()})}}_continue(){this._parallelCount++,this._run()}}const ut=()=>{const o=new ct(3),n=Date.now();o.onEnd=()=>{console.log("总耗时：",Date.now()-n)},o.add(t(100)),o.add(t(200)),o.add(t(150)),o.add(t(250)).then(e=>console.log("task")),o.add(t(180)),o.add(t(200)),o.add(t(300));function t(e){return async()=>(await k(e),console.log(e),e)}},mt=Object.freeze(Object.defineProperty({__proto__:null,default:ut},Symbol.toStringTag,{value:"Module"}));class dt{constructor(n){a(this,"option");a(this,"records");a(this,"text");var t;this.option=n,this.text=n.text,this.records=[{start:0,end:0,append:n.text,origin:"",target:n.text}],(t=n.onInsert)==null||t.call(n,this.records[0])}insert(n,t,e){var c,m;const r=this.text;t=typeof t=="function"?t(r):t,e=typeof e=="function"?e(r):e??t;const s=r.slice(0,t)+n+r.slice(e),i=this.text.length-1,l={target:s,origin:this.text,start:S(i,t),end:S(i,e),append:n};return this.records.push(l),this.text=s,(m=(c=this.option).onInsert)==null||m.call(c,l),this.records.length-1}insertFirst(n,t){return this.insert(n,e=>e.search(t))}insertLast(n,t){return this.insert(n,e=>{const r=e.match(t);return r?r.index+r[0].length:0})}reset(n){var i,l;const t=S(this.records.length-1,n)+1,e=this.records[t],r=e.start,s=r+e.append.length;return(l=(i=this.option).onReset)==null||l.call(i,{target:e.origin,origin:this.text,start:r,end:s}),this.text=e.origin,this.records.length=t,[r,s]}}const pt=()=>{const o=document.createElement("pre");document.getElementById("container").appendChild(o);const n=new dt({text:`class Car {
+  constructor(name: string) {
+  }
+}`,onInsert(t){o.textContent=t.target},onReset(t){o.textContent=t.target}});n.insertLast(`
+  name = 'hello';
+`,/constructor\(.+\)\s?\{\n.*\}\n/),n.insert(`
+  fn () {
+    console.log(this.name);
+  }
+`,-1),n.insertFirst(`
+  age = 18;`,/\n  name = /),n.insertFirst(`
+  age = 20;`,/\n  name = /),n.reset(-1)},ht=Object.freeze(Object.defineProperty({__proto__:null,default:pt},Symbol.toStringTag,{value:"Module"}));class gt{constructor(n){a(this,"option",{autoEndTime:3e3});a(this,"status","finish");a(this,"regRouse");a(this,"regEnd");a(this,"text","");a(this,"_count",0);a(this,"_timer");Object.assign(this.option,n),this.regRouse=new RegExp(`(${n.rouseKeywords.join("|")})`,"g"),this.option.endKeywords&&(this.regEnd=new RegExp(`(${this.option.endKeywords.join("|")})`,"g"))}add(n){var c,m,h;const{status:t,_count:e,regRouse:r,regEnd:s,option:i}=this;if(t==="finish")return;clearTimeout(this._timer),this.text+=n;const l=this.text.match(r);if(l){if(l.length>e){const d=l[l.length-1],g=this.text.search(d),E=this.text.slice(g);i.onMessage(e===0?E:n,d),(c=i.onRouseStart)==null||c.call(i,E),e>0&&((m=i.onComplete)==null||m.call(i,this.text.slice(0,g))),this.text=this.text.slice(g),this._count=l.length}else if(i.onMessage(n),s&&this.text.match(s)){(h=i.onRouseStop)==null||h.call(i,this.text),this.stop();return}i.autoEndTime&&(this._timer=setTimeout(()=>{var d;(d=i.onAutoStop)==null||d.call(i,this.text),this.stop()},i.autoEndTime))}}start(){this.status="running"}stop(){var n,t;this._count>0&&((t=(n=this.option).onComplete)==null||t.call(n,this.text)),this.status="finish",this.text="",this._count=0,clearTimeout(this._timer)}}const ft=async()=>{const o=document.getElementById("container"),n=document.createElement("pre"),t=[];function e(){n.innerHTML=JSON.stringify(t,null,2)}const r=new gt({rouseKeywords:["你好小肚","小肚，小肚"],endKeywords:["结束","完了"],onRouseStart(c){t.push({type:"rouse",text:c}),t.push({type:"reply",text:"哎，俺在！"}),t.push({type:"talk",text:""}),e()},onMessage(c,m){if(!t.length)return;const h=t[t.length-1];h.text+=c,m&&(h.text=h.text.replace(m,"")),e()}});async function s(){if(r.status==="running")return;r.start();const c="这是个语音合成的文字哈。你好小肚，我是你爸爸，小肚，小肚，乃鼻窦了一天天是，叫你也不吭个气。说完了小杂毛，";for(const m of c)await k(100),r.add(m)}s();const i=document.createElement("button");i.innerText="开始收录",i.onclick=s;const l=document.createElement("button");l.innerText="停止收录",l.onclick=()=>r.stop(),o.append(i,l,n)},_t=Object.freeze(Object.defineProperty({__proto__:null,default:ft},Symbol.toStringTag,{value:"Module"})),xt=`# 布隆过滤器
 
 ## Option
 
@@ -1708,7 +1839,7 @@ end
 
 1. 布隆过滤器是一种空间效率高的概率数据结构，用于判断一个元素是否在一个集合中；
 2. 可以用来判断一个元素是否在一个集合中，但不能保证100%准确，但是可以保证百分之99.99的准确率。
-`,pt=`# 自定义代码高亮
+`,bt=`# 自定义代码高亮
 
 ## Option
 
@@ -1752,7 +1883,7 @@ class CodeConversion2 extends CodeConversion {
 const conversion = new CodeConversion2();
 conversion.output(\`code\`)
 \`\`\`
-`,ht=`# 事件触发形式
+`,yt=`# 事件触发形式
 
 ## Methods
 
@@ -1763,7 +1894,7 @@ conversion.output(\`code\`)
 | emit | 发送消息 | \`(type, data)\` | - |
 | once | 只接收一次消息 | \`(type, callback)\` | - |
 | *static* wait | 给元素注册等待事件 | \`(ele)\` | - |
-`,gt=`# 瀑布流布局
+`,vt=`# 瀑布流布局
 
 ## Option
 
@@ -1795,12 +1926,12 @@ console.log(
 );
 //--> 184 (10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}] 540
 \`\`\`
-`,ft=`# 全屏控制
+`,wt=`# 全屏控制
 
 ## 说明
 
 该 API 对原生事件做了兼容处理 
-`,_t=`# 函数重载
+`,St=`# 函数重载
 
 ## Methods
 
@@ -1808,9 +1939,9 @@ console.log(
 | --- | --- | --- | --- |
 | addImpl | 添加重载函数 | \`(...args)\` | 最后一个参数为函数 |
 | overload | 调用已注册的重载函数 | \`(...args)\` | 对应注册时参数类型 |
-`,bt="",xt=`# 记忆 Map
-`,yt=`# 洋葱皮式中间件
-`,vt=`# 发布订阅
+`,kt="",Et=`# 记忆 Map
+`,Mt=`# 洋葱皮式中间件
+`,Tt=`# 发布订阅
 
 ## Methods
 
@@ -1822,7 +1953,7 @@ console.log(
 | off | 关闭事件 | \`( name: string, fn: (...args: any[]) => void )\` | |
 | offAll | 关闭所有事件 | | |
 | reset | 重置已注册的事件 | \`( name: string, fn: (...args: any[]) => void, once: boolen )\` | |
-`,wt=`# 滚动控制
+`,Ct=`# 滚动控制
 
 
 ## Option
@@ -1839,7 +1970,7 @@ console.log(
 | --- | --- | --- | --- |
 | set | 设置元素动画样式 | \`dom, value\` | - |
 | updateStyles | 更新样式状态 | - | - |
-`,St=`# 模拟 Redis 数据缓存
+`,Ot=`# 模拟 Redis 数据缓存
 
 ## SimulateRedis
 
@@ -1882,7 +2013,7 @@ setTimeout(() => {
   console.log(cache.get('a'));  //--> undefined
 }, 200)
 \`\`\`
-`,kt=`# 事件流切割
+`,jt=`# 事件流切割
 
 ## Option
 
@@ -1924,8 +2055,26 @@ fetch('/api/stream/sse', {
   }
 })
 \`\`\`
-`,Et=`# 任务队列控制
-`,Mt=`# 语音文字切割
+`,It=`# 任务队列控制
+`,Ft=`# 文本插入
+
+## Option
+
+| 属性名 | 说明 | 类型 | 默认值 | 备注 |
+| --- | --- | --- | --- | --- |
+| *text | 默认文本 | \`string\` | - | - |
+| onInsert | 插入文本回调 | \`(record) => void\` | - | - |
+| onReset | 撤回回调 | \`(reset) => void\` | - | - |
+
+## Methods
+
+| 方法名 | 说明 | 参数 | 备注 |
+| --- | --- | --- | --- |
+| insert | 插入文本 | \`content, start, end\` | - |
+| insertFirst | 向前插入内容 | \`content, reg\` | - |
+| insertLast | 向后插入内容 | \`content, reg\` | - |
+| reset | 重置到指定位置 | \`index\` | - |
+`,Rt=`# 语音文字切割
 
 ## Option
 
@@ -1947,4 +2096,4 @@ fetch('/api/stream/sse', {
 | start | 开始监听 | - | - |
 | add | 添加流内容 | \`string\` | - |
 | stop | 结束监听 | - | - |
-`;function Tt(){return B({codeObj:Object.assign({"/core/tools/bloomFilter/index.ts":J,"/core/tools/codeConversion/index.ts":$,"/core/tools/eventEmitter/index.ts":H,"/core/tools/falls/index.ts":V,"/core/tools/fullScreen/index.ts":X,"/core/tools/funcOverload/index.ts":G,"/core/tools/inlay/index.ts":U,"/core/tools/memoizeMap/index.ts":q,"/core/tools/onion/index.ts":Z,"/core/tools/publishSubscribe/index.ts":Y,"/core/tools/scrollAnimation/index.ts":Q,"/core/tools/simulateRedis/index.ts":nn,"/core/tools/streamSplit/index.ts":tn,"/core/tools/taskScheduling/index.ts":en,"/core/tools/voiceTextSplit/index.ts":on}),demoObj:Object.assign({"/core/tools/bloomFilter/demo.ts":rn,"/core/tools/codeConversion/demo.ts":sn,"/core/tools/eventEmitter/demo.ts":an,"/core/tools/falls/demo.ts":ln,"/core/tools/fullScreen/demo.ts":cn,"/core/tools/funcOverload/demo.ts":un,"/core/tools/inlay/demo.ts":mn,"/core/tools/memoizeMap/demo.ts":dn,"/core/tools/onion/demo.ts":pn,"/core/tools/publishSubscribe/demo.ts":hn,"/core/tools/scrollAnimation/demo.ts":gn,"/core/tools/simulateRedis/demo.ts":fn,"/core/tools/streamSplit/demo.ts":_n,"/core/tools/taskScheduling/demo.ts":bn,"/core/tools/voiceTextSplit/demo.ts":xn}),execObj:Object.assign({"/core/tools/bloomFilter/demo.ts":kn,"/core/tools/codeConversion/demo.ts":Mn,"/core/tools/eventEmitter/demo.ts":Cn,"/core/tools/falls/demo.ts":Fn,"/core/tools/fullScreen/demo.ts":Rn,"/core/tools/funcOverload/demo.ts":Nn,"/core/tools/inlay/demo.ts":zn,"/core/tools/memoizeMap/demo.ts":Kn,"/core/tools/onion/demo.ts":Hn,"/core/tools/publishSubscribe/demo.ts":Gn,"/core/tools/scrollAnimation/demo.ts":Zn,"/core/tools/simulateRedis/demo.ts":et,"/core/tools/streamSplit/demo.ts":st,"/core/tools/taskScheduling/demo.ts":lt,"/core/tools/voiceTextSplit/demo.ts":mt}),readmeObj:Object.assign({"/core/tools/bloomFilter/readme.md":dt,"/core/tools/codeConversion/readme.md":pt,"/core/tools/eventEmitter/readme.md":ht,"/core/tools/falls/readme.md":gt,"/core/tools/fullScreen/readme.md":ft,"/core/tools/funcOverload/readme.md":_t,"/core/tools/inlay/readme.md":bt,"/core/tools/memoizeMap/readme.md":xt,"/core/tools/onion/readme.md":yt,"/core/tools/publishSubscribe/readme.md":vt,"/core/tools/scrollAnimation/readme.md":wt,"/core/tools/simulateRedis/readme.md":St,"/core/tools/streamSplit/readme.md":kt,"/core/tools/taskScheduling/readme.md":Et,"/core/tools/voiceTextSplit/readme.md":Mt}),path:`${K}/tools/`})}function $t(o){return z(D,{...o,getSource:Tt})}export{$t as default};
+`;function Lt(){return K({codeObj:Object.assign({"/core/tools/bloomFilter/index.ts":$,"/core/tools/codeConversion/index.ts":H,"/core/tools/eventEmitter/index.ts":V,"/core/tools/falls/index.ts":X,"/core/tools/fullScreen/index.ts":G,"/core/tools/funcOverload/index.ts":U,"/core/tools/inlay/index.ts":q,"/core/tools/memoizeMap/index.ts":Z,"/core/tools/onion/index.ts":Y,"/core/tools/publishSubscribe/index.ts":Q,"/core/tools/scrollAnimation/index.ts":nn,"/core/tools/simulateRedis/index.ts":tn,"/core/tools/streamSplit/index.ts":en,"/core/tools/taskScheduling/index.ts":on,"/core/tools/textInsert/index.ts":rn,"/core/tools/voiceTextSplit/index.ts":sn}),demoObj:Object.assign({"/core/tools/bloomFilter/demo.ts":an,"/core/tools/codeConversion/demo.ts":ln,"/core/tools/eventEmitter/demo.ts":cn,"/core/tools/falls/demo.ts":un,"/core/tools/fullScreen/demo.ts":mn,"/core/tools/funcOverload/demo.ts":dn,"/core/tools/inlay/demo.ts":pn,"/core/tools/memoizeMap/demo.ts":hn,"/core/tools/onion/demo.ts":gn,"/core/tools/publishSubscribe/demo.ts":fn,"/core/tools/scrollAnimation/demo.ts":_n,"/core/tools/simulateRedis/demo.ts":xn,"/core/tools/streamSplit/demo.ts":bn,"/core/tools/taskScheduling/demo.ts":yn,"/core/tools/textInsert/demo.ts":vn,"/core/tools/voiceTextSplit/demo.ts":wn}),execObj:Object.assign({"/core/tools/bloomFilter/demo.ts":Tn,"/core/tools/codeConversion/demo.ts":On,"/core/tools/eventEmitter/demo.ts":In,"/core/tools/falls/demo.ts":Ln,"/core/tools/fullScreen/demo.ts":Wn,"/core/tools/funcOverload/demo.ts":zn,"/core/tools/inlay/demo.ts":Kn,"/core/tools/memoizeMap/demo.ts":Hn,"/core/tools/onion/demo.ts":Gn,"/core/tools/publishSubscribe/demo.ts":Zn,"/core/tools/scrollAnimation/demo.ts":nt,"/core/tools/simulateRedis/demo.ts":st,"/core/tools/streamSplit/demo.ts":lt,"/core/tools/taskScheduling/demo.ts":mt,"/core/tools/textInsert/demo.ts":ht,"/core/tools/voiceTextSplit/demo.ts":_t}),readmeObj:Object.assign({"/core/tools/bloomFilter/readme.md":xt,"/core/tools/codeConversion/readme.md":bt,"/core/tools/eventEmitter/readme.md":yt,"/core/tools/falls/readme.md":vt,"/core/tools/fullScreen/readme.md":wt,"/core/tools/funcOverload/readme.md":St,"/core/tools/inlay/readme.md":kt,"/core/tools/memoizeMap/readme.md":Et,"/core/tools/onion/readme.md":Mt,"/core/tools/publishSubscribe/readme.md":Tt,"/core/tools/scrollAnimation/readme.md":Ct,"/core/tools/simulateRedis/readme.md":Ot,"/core/tools/streamSplit/readme.md":jt,"/core/tools/taskScheduling/readme.md":It,"/core/tools/textInsert/readme.md":Ft,"/core/tools/voiceTextSplit/readme.md":Rt}),path:`${J}/tools/`})}function Zt(o){return B(D,{...o,getSource:Lt})}export{Zt as default};
