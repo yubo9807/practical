@@ -6,6 +6,7 @@ import Home from '@/pages/home'
 import Nav from "./components/nav";
 import { defineStoreBtns } from "@/store/btns";
 import { scrollTo } from "~/core/utils/browser";
+import Loading from "~/core/comp/Loading";
 
 export default () => {
 
@@ -54,7 +55,7 @@ export default () => {
       <Nav open={open} />
     </header>
     <main className={style.main}>
-      <Router>
+      <Router loading={<Loading visible={true} />}>
         <Route path="/" element={Home} />
         <Route path="/tools" element={() => import('@/pages/tools')} exact={false} />
         <Route path="/utils" element={() => import('@/pages/utils')} exact={false} />
