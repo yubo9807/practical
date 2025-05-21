@@ -1,10 +1,9 @@
 import { Onion } from '.'
 
 export default () => {
-  const ctx = {
+  const onion = new Onion({
     a: 123,
-  }
-  const onion = new Onion(ctx);
+  });
 
   onion.use((ctx, next) => {
     console.log('中间件1：', ctx.a);
