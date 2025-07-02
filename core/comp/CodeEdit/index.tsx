@@ -20,6 +20,7 @@ interface Data extends Line {
 export interface CodeEditFoldProps extends CodeEditProps {
   lines:          Line[]
   defaultUnfold?: boolean
+  onFlodDbClick?: (item: Data) => void
 }
 /**
  * 代码折叠组件
@@ -119,15 +120,19 @@ export default function(props: CodeEditFoldProps) {
   }
 
   function isFolded(i: number) {
-    const val = rows[i] || { key: i, fold: 0 };
+    const { key: index, fold } = rows[i] || { key: i, fold: 0 };
     const classNameConfog = {
       0: '',
       1: 'unfold',
       2: 'fold',
     }
     return <div>
-      <label>{val.key + 1}</label>
-      <span className={classNameConfog[val.fold]} onclick={val.fold ? () => handleFold(val.key) : null}></span>
+      <i ondblclick={fold ? () => {
+        const query = data.find(item => item.start === index);
+        if (!query) return;
+        props.onFlodDbClick(query);
+      } : null}>{index + 1}</i>
+      <span className={classNameConfog[fold]} onclick={fold ? () => handleFold(index) : null}></span>
     </div>
   }
 

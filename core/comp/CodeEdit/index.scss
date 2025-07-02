@@ -14,10 +14,11 @@
         transform: rotate(90deg);
       }
     }
-    label{
+    i{
       display: inline-block;
       width: calc(var(--row-width) - 14px);
       text-align: center;
+      font-style: normal;
     }
   }
 }

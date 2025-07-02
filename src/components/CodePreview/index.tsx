@@ -3,6 +3,7 @@ import CodeEdit, { CodeEditFoldProps } from "~/core/comp/CodeEdit"
 import { CodeConversion } from "~/core/tools/codeConversion";
 import "~/core/tools/codeConversion/index.scss";
 import { copyToBoard } from "~/core/utils/browser";
+import message from "~/core/comp/Message";
 import './index.scss';
 
 interface Props {
@@ -52,6 +53,7 @@ export default (props: Props) => {
 
   function copy(value: string) {
     copyToBoard(value);
+    message.success('复制成功');
   }
 
   return <CodeEdit
@@ -64,5 +66,6 @@ export default (props: Props) => {
     slotBtns={<>
       <span style='cursor: pointer;' onclick={() => copy(props.value)}>复制</span>
     </>}
+    onFlodDbClick={row => copy(row.source)}
   />
 }
