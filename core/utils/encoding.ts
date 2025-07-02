@@ -22,7 +22,7 @@ export function hexToBase64(hex: string) {
  * @param base64 
  * @returns 
  */
-export function base64ToHex(base64) {
+export function base64ToHex(base64: string) {
   // 去除Base64字符串中的URL安全字符（去掉可能出现的等号）
   const base64WithoutPadding = base64.replace(/=/g, '');
 

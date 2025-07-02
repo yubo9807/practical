@@ -1,6 +1,25 @@
 import { execWorkerCode } from "./browser";
 
 /**
+ * blob 转 file
+ * @param blob 
+ * @param fileName 
+ * @returns 
+ */
+export function blobToFile(blob: Blob, fileName: string) {
+  return new Promise<File>((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const arrayBuffer = reader.result as ArrayBuffer;
+      const file = new File([arrayBuffer], fileName);
+      resolve(file);
+    };
+    reader.onerror = reject;
+    reader.readAsArrayBuffer(blob);
+  });
+}
+
+/**
  * 文件转url
  * @param file 
  * @returns 
@@ -14,7 +33,7 @@ export function fileToUrl(file: File | Blob) {
  * @param url 文件地址
  * @param fileName 
  */
-export function downloadFile(url: string, fileName: string) {
+export function fileDownload(url: string, fileName: string) {
   const a = document.createElement('a');
   a.href = url;
   a.download = fileName;

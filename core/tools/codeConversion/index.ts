@@ -23,11 +23,11 @@ export class CodeConversion {
       multiRowComment: /\/\*.*?\*\//gs,
       singleLineComment: /\/\/[^\n]+\n?/g,
       string: /"[^"]*"|'[^']*'/g,
-      regexp: /\/[^\/]+\//g,
+      regexp: /\/[^\/|\n]+\//g,
       constant: /(?<=\s|\(|\[|{|,|:|=)[A-Z][\w|\d]+/g,
       number: /(?<=\s|\(|\[|{|,|:|=|\+|-|\*|\/|\%|<|>)\d*\.?\d+/g,
       methods: /\w+(?=\()/g,
-      object: /\w*\./sg,
+      object: /\w+\./sg,
     }, option);
   }
 

@@ -43,7 +43,8 @@ export function getCurrentDate(t: WideDate) {
  * @param t 
  * @returns
  */
-export function dateFormater(t: WideDate = new Date(), formater: string = 'YYYY-MM-DD hh:mm:ss') {
+export function dateFormater(t: WideDate, formater: string = 'YYYY-MM-DD hh:mm:ss') {
+  if (!t && t !== 0) return '';
   const { year, month, day, hour, minute, second } = getCurrentDate(t);
   return formater.replace(/YYYY/g, year)
     .replace(/YY/g, year.substr(2, 2))
@@ -74,19 +75,17 @@ export function switchTimeFormat(time: Date | string) {
 }
 
 
-const intiailObj = {
-  day: 0,
-  hours: 0,
-  minute: 0,
-  second: 0,
-}
-
 /**
  * 计算距离当前时间的时间差
  * @param diff 时间差
  * @param obj
  */
-export function getTimeDistance(diff = 0, obj = intiailObj) {
+export function getTimeDistance(diff = 0, obj = {
+  day: 0,
+  hours: 0,
+  minute: 0,
+  second: 0,
+}) {
   if (diff < 60) {
     obj.second = diff;
   } else if (diff < 3600) {
