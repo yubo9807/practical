@@ -1,4 +1,4 @@
-var A=Object.defineProperty;var W=(o,n,t)=>n in o?A(o,n,{enumerable:!0,configurable:!0,writable:!0,value:t}):o[n]=t;var a=(o,n,t)=>(W(o,typeof n!="symbol"?n+"":n,t),t),M=(o,n,t)=>{if(!n.has(o))throw TypeError("Cannot "+t)};var u=(o,n,t)=>(M(o,n,"read from private field"),t?t.call(o):n.get(o)),f=(o,n,t)=>{if(n.has(o))throw TypeError("Cannot add the same private member more than once");n instanceof WeakSet?n.add(o):n.set(o,t)};var T=(o,n,t)=>(M(o,n,"access private method"),t);import{C as N,i as C,c as P,g as z}from"./index-090728ef.js";import{c as O,d as k,i as S}from"./async-282e44d2.js";import{h as B}from"./pl-react-90970e94.js";import{S as D}from"./index-f19b634e.js";import{c as K,C as J}from"./source-d58d326c.js";import"./marked-2f197cfc.js";import"./@babel-10806970.js";import"./debug-207d77b3.js";import"./ms-f6814399.js";import"./globals-aa9f7777.js";import"./@jridgewell-4c9d015f.js";import"./jsesc-4cfd8464.js";import"./picocolors-cddfbdbe.js";import"./js-tokens-bc2e8ff2.js";import"./basic-24603cf4.js";const $=`
+var A=Object.defineProperty;var W=(o,n,t)=>n in o?A(o,n,{enumerable:!0,configurable:!0,writable:!0,value:t}):o[n]=t;var a=(o,n,t)=>(W(o,typeof n!="symbol"?n+"":n,t),t),M=(o,n,t)=>{if(!n.has(o))throw TypeError("Cannot "+t)};var u=(o,n,t)=>(M(o,n,"read from private field"),t?t.call(o):n.get(o)),f=(o,n,t)=>{if(n.has(o))throw TypeError("Cannot add the same private member more than once");n instanceof WeakSet?n.add(o):n.set(o,t)};var T=(o,n,t)=>(M(o,n,"access private method"),t);import{C as N,i as C,c as P,g as z}from"./index-5ddcf2ec.js";import{c as O,d as k,i as S}from"./async-cc3c6e5f.js";import{h as B}from"./pl-react-e237b40f.js";import{S as D}from"./index-340a066b.js";import{c as K,C as J}from"./source-9816c404.js";import"./marked-c333d169.js";import"./@babel-552504fa.js";import"./debug-207d77b3.js";import"./ms-f6814399.js";import"./globals-aa9f7777.js";import"./@jridgewell-67f05017.js";import"./jsesc-4cfd8464.js";import"./picocolors-cddfbdbe.js";import"./js-tokens-bc2e8ff2.js";import"./basic-8ad50415.js";const $=`
 export class BloomFilter {
 
   m:          number
@@ -169,11 +169,11 @@ export class CodeConversion {
       multiRowComment: /\\/\\*.*?\\*\\//gs,
       singleLineComment: /\\/\\/[^\\n]+\\n?/g,
       string: /"[^"]*"|'[^']*'/g,
-      regexp: /\\/[^\\/]+\\//g,
+      regexp: /\\/[^\\/|\\n]+\\//g,
       constant: /(?<=\\s|\\(|\\[|{|,|:|=)[A-Z][\\w|\\d]+/g,
       number: /(?<=\\s|\\(|\\[|{|,|:|=|\\+|-|\\*|\\/|\\%|<|>)\\d*\\.?\\d+/g,
       methods: /\\w+(?=\\()/g,
-      object: /\\w*\\./sg,
+      object: /\\w+\\./sg,
     }, option);
   }
 
@@ -1551,10 +1551,9 @@ export default () => {
 }`,gn=`import { Onion } from '.'
 
 export default () => {
-  const ctx = {
+  const onion = new Onion({
     a: 123,
-  }
-  const onion = new Onion(ctx);
+  });
 
   onion.use((ctx, next) => {
     console.log('中间件1：', ctx.a);
@@ -1805,7 +1804,7 @@ end
 `,t=new N({keywords:["rule","end","knowledgebase","knowledge","reg","require","prohibit","and","or","in","true","false"]}).output(o);document.getElementById("container").innerHTML=`<pre>${t}</pre>`},On=Object.freeze(Object.defineProperty({__proto__:null,default:Cn},Symbol.toStringTag,{value:"Module"}));class F extends EventTarget{constructor(){super(...arguments);a(this,"emit",(t,e)=>{this.dispatchEvent(new CustomEvent(t,{detail:e}))});a(this,"on",this.addEventListener);a(this,"once",(t,e)=>{this.on(t,e,{once:!0,capture:!0})});a(this,"off",this.removeEventListener)}static wait(t){return new Proxy(t,{get(r,s){if(!s.startsWith("wait"))return;const i=s.replace("wait","").toLowerCase();return new Promise(l=>{r.addEventListener(i,l,{once:!0})})}})}}const jn=()=>{const o=document.getElementById("container"),n=new F,t=document.createElement("button");t.innerText="send",t.addEventListener("click",()=>{n.emit("send","hello world!")}),o.appendChild(t),n.on("send",s=>{console.log(s.detail)});const e=document.createElement("button");e.innerText="wait event";const r=F.wait(e);o.appendChild(e),async function(){for(;;){const s=await r.waitClick;console.log(s.detail)}}()},In=Object.freeze(Object.defineProperty({__proto__:null,default:jn},Symbol.toStringTag,{value:"Module"}));class Fn{constructor(n={}){a(this,"option");a(this,"_matrix");const{column:t,rowGap:e,colGap:r,el:s}=n;if(this.option={column:t||5,rowGap:e||20,colGap:r||14},!s)return;s.style.position="relative";const i=[...s.children],l=i.map(d=>d.offsetHeight),{itemWidth:c,positions:m,wrapHeight:h}=this.compute(s.clientWidth,l);i.forEach((d,g)=>{d.style.position="absolute",d.style.width=c+"px",d.style.top=m[g].top+"px",d.style.left=m[g].left+"px"}),s.style.height=h+"px"}compute(n,t){const e=this.computeItemWidth(n),r=this.computeItemPosition(t,e),s=this.computeWrapHeight();return{itemWidth:e,positions:r,wrapHeight:s}}computeItemWidth(n){return(n-this.option.rowGap*(this.option.column-1))/this.option.column}computeItemPosition(n,t){this._matrix=O(this.option.column,[0]);const e=[];for(let r=0;r<n.length;r++){const s=this._queryColumn("min"),i=this._matrix[s].reduce((l,c)=>l+c);e.push({top:i+this.option.colGap*(this._matrix[s].length-1),left:s*(t+this.option.rowGap)}),this._matrix[s].push(n[r])}return e}computeWrapHeight(){const n=this._queryColumn("max");return this._matrix[n].reduce((t,e)=>t+e+this.option.rowGap)-this.option.rowGap}_queryColumn(n){const t=O(this._matrix.length,0);for(let r=0;r<this._matrix.length;r++)t[r]=this._matrix[r].reduce((s,i)=>s+i);const e=Math[n].apply(null,t);return t.indexOf(e)}}const Rn=()=>{const o=document.createElement("div");[200,300,270,100,400,100,200,300,100,140].forEach((t,e)=>{const r=document.createElement("div");r.innerText=e+"",r.style.height=`${t}px`,r.style.background="#eee",o.appendChild(r)}),document.getElementById("container").appendChild(o),new Fn({el:o,column:Math.max(Math.trunc(o.offsetWidth/200),2)})},Ln=Object.freeze(Object.defineProperty({__proto__:null,default:Rn},Symbol.toStringTag,{value:"Module"}));class _{constructor(){a(this,"enterFullScreenName");a(this,"exitFullScreenName");a(this,"fullScreenName");this.enterFullScreenName=_.getPropertyName(["requestFullscreen","mozRequestFullScreen","webkitRequestFullScreen","msRequestFullScreen"],document.documentElement),this.exitFullScreenName=_.getPropertyName(["exitFullscreen","mozCancelFullScreen","webkitExitFullScreen","msExitFullScreen"],document),this.fullScreenName=_.getPropertyName(["fullscreenElement","mozFullScreenElement","webkitFullScreenElement","msFullScreenElement"],document)}static getPropertyName(n,t){return n.find(e=>e in t)}enter(n=document.documentElement){this.enterFullScreenName&&n[this.enterFullScreenName]()}exit(){this.isFull()&&this.exitFullScreenName&&document[this.exitFullScreenName]()}isFull(){return!!this.getEl()}toggle(n=document.documentElement){this.isFull()?this.exit():this.enter(n)}getEl(){return document[this.fullScreenName]||null}}const An=()=>{const o=document.getElementById("container"),n=new _,t=[{name:"进入全屏",handler:()=>n.enter()},{name:"退出全屏",handler:()=>n.exit()},{name:"进入/退出全屏",handler:()=>n.toggle()},{name:"是否处于全屏状态全屏",handler:()=>console.log(n.isFull())},{name:"指定元素进入/退出全屏",handler:()=>n.toggle(o)}],e=document.createElement("div");t.forEach(r=>{const s=document.createElement("button");s.innerText=r.name,s.addEventListener("click",()=>{r.handler()}),e.appendChild(s)}),o.appendChild(e)},Wn=Object.freeze(Object.defineProperty({__proto__:null,default:An},Symbol.toStringTag,{value:"Module"}));class Nn{constructor(){a(this,"_map",new Map)}addImpl(...n){const t=n.pop();if(C(t)!=="Function")throw new Error("Last argument must be a function");const e=n.join(",");this._map.set(e,t)}overload(...n){const t=n.map(r=>C(r)).join(","),e=this._map.get(t);if(!e)throw new Error(`No implementation for ${t}`);return e.apply(this,n)}}const Pn=()=>{const o=new Nn;o.addImpl("Number","Number",(e,r)=>e+r);const n=o.overload(1,2);console.log(n),o.addImpl("String","String",(e,r)=>"str: "+e+r);const t=o.overload("a","b");console.log(t)},zn=Object.freeze(Object.defineProperty({__proto__:null,default:Pn},Symbol.toStringTag,{value:"Module"}));var y;class Bn{constructor(){f(this,y,new Map);const n=u(this,y);return new Proxy(this,{get(t,e){return n.has(e)?n.get(e):(Reflect.set(t,e,function(r,...s){if(!r){console.warn(`[${e.toString()}] is empty`);return}let i="";for(let l=0;l<s.length;l++)i+=r[l],i+=s[l];return i+=r[r.length-1],n.set(e,i),r[0]}),t[e])}})}}y=new WeakMap;const Dn=()=>{const o=document.getElementById("container");o.innerText="hello";const n=new Bn;n.text`
     --color: red;
     color: var(--color);
-  `,o.style=n.text},Kn=Object.freeze(Object.defineProperty({__proto__:null,default:Dn},Symbol.toStringTag,{value:"Module"}));class Jn{constructor(){a(this,"_map",new Map);a(this,"_weakMap",new WeakMap)}_isObject(n){return typeof n=="object"&&n!==null}set(n,t){this._isObject(n)?this._weakMap.set(n,t):this._map.set(n,t)}get(n){return this._isObject(n)?this._weakMap.get(n):this._map.get(n)}has(n){this._isObject(n)?this._weakMap.has(n):this._map.has(n)}}const $n=()=>{const o=new Jn;o.set("a",1),o.set({},2),console.log(o.get("a"))},Hn=Object.freeze(Object.defineProperty({__proto__:null,default:$n},Symbol.toStringTag,{value:"Module"}));var x,v,L;class Vn{constructor(n){f(this,v);a(this,"ctx");f(this,x,[]);this.ctx=n}use(n){u(this,x).push(n)}async callback(){return await T(this,v,L).call(this,u(this,x),this.ctx,()=>{})}}x=new WeakMap,v=new WeakSet,L=function(n,t,e){function r(s){let i=n[s];return s===n.length&&(i=e),Promise.resolve(i(t,r.bind(null,++s)))}return r(0)};const Xn=()=>{const o={a:123},n=new Vn(o);n.use((t,e)=>(console.log("中间件1：",t.a),t.a=456,e(),console.log("中间件1：end"),t)),n.use((t,e)=>{console.log("中间件2：",t.a),e(),console.log("中间件2：end")}),n.callback().then(t=>{console.log("result: ",t)})},Gn=Object.freeze(Object.defineProperty({__proto__:null,default:Xn},Symbol.toStringTag,{value:"Module"})),{warn:b}=console;var p;class Un{constructor(){f(this,p,new Map)}on(n,t){u(this,p).has(n)&&b(`${n} already exists`),u(this,p).set(n,{fn:t})}once(n,t){if(u(this,p).has(n)){b(`${n} already exists`);return}u(this,p).set(n,{fn:t,once:!0})}emit(n,...t){const e=u(this,p).get(n);if(!e){b(`no implementation for ${n}`);return}const r=e.fn(...t);return e.once&&u(this,p).delete(n),r}off(n){u(this,p).delete(n)}offAll(){u(this,p).clear()}reset(n,t,e=!1){if(!u(this,p).has(n)){b(`${n} not exists`);return}u(this,p).set(n,{fn:t,once:e})}}p=new WeakMap;const qn=()=>{const o=new Un,n=document.getElementById("container");o.on("test",e=>{console.log(e)});const t=document.createElement("button");t.innerText="发送事件",t.addEventListener("click",()=>{o.emit("test","hello world")}),n.appendChild(t)},Zn=Object.freeze(Object.defineProperty({__proto__:null,default:qn},Symbol.toStringTag,{value:"Module"}));function R(o,n,t,e){return r=>r<=o?t:r>=n?e:t+(e-t)*(r-o)/(n-o)}class Yn{constructor(n){a(this,"option",{direction:"y"});a(this,"animationMap",new Map);Object.assign(this.option,n)}set(n,t){this.animationMap.set(n,t)}updateStyles(){const{option:n,animationMap:t}=this,e=n.scrollEl[n.direction==="y"?"scrollTop":"scrollLeft"];for(const[r,s]of t)for(const i in s)r.style[i]=s[i](e)}}const Qn=()=>{const o=document.getElementById("container");o.style.height="500px",o.style.position="relative";const n=`<div class='scroll-animation-wrap' style='height: 1100px;'>
+  `,o.style=n.text},Kn=Object.freeze(Object.defineProperty({__proto__:null,default:Dn},Symbol.toStringTag,{value:"Module"}));class Jn{constructor(){a(this,"_map",new Map);a(this,"_weakMap",new WeakMap)}_isObject(n){return typeof n=="object"&&n!==null}set(n,t){this._isObject(n)?this._weakMap.set(n,t):this._map.set(n,t)}get(n){return this._isObject(n)?this._weakMap.get(n):this._map.get(n)}has(n){this._isObject(n)?this._weakMap.has(n):this._map.has(n)}}const $n=()=>{const o=new Jn;o.set("a",1),o.set({},2),console.log(o.get("a"))},Hn=Object.freeze(Object.defineProperty({__proto__:null,default:$n},Symbol.toStringTag,{value:"Module"}));var x,v,L;class Vn{constructor(n){f(this,v);a(this,"ctx");f(this,x,[]);this.ctx=n}use(n){u(this,x).push(n)}async callback(){return await T(this,v,L).call(this,u(this,x),this.ctx,()=>{})}}x=new WeakMap,v=new WeakSet,L=function(n,t,e){function r(s){let i=n[s];return s===n.length&&(i=e),Promise.resolve(i(t,r.bind(null,++s)))}return r(0)};const Xn=()=>{const o=new Vn({a:123});o.use((n,t)=>(console.log("中间件1：",n.a),n.a=456,t(),console.log("中间件1：end"),n)),o.use((n,t)=>{console.log("中间件2：",n.a),t(),console.log("中间件2：end")}),o.callback().then(n=>{console.log("result: ",n)})},Gn=Object.freeze(Object.defineProperty({__proto__:null,default:Xn},Symbol.toStringTag,{value:"Module"})),{warn:b}=console;var p;class Un{constructor(){f(this,p,new Map)}on(n,t){u(this,p).has(n)&&b(`${n} already exists`),u(this,p).set(n,{fn:t})}once(n,t){if(u(this,p).has(n)){b(`${n} already exists`);return}u(this,p).set(n,{fn:t,once:!0})}emit(n,...t){const e=u(this,p).get(n);if(!e){b(`no implementation for ${n}`);return}const r=e.fn(...t);return e.once&&u(this,p).delete(n),r}off(n){u(this,p).delete(n)}offAll(){u(this,p).clear()}reset(n,t,e=!1){if(!u(this,p).has(n)){b(`${n} not exists`);return}u(this,p).set(n,{fn:t,once:e})}}p=new WeakMap;const qn=()=>{const o=new Un,n=document.getElementById("container");o.on("test",e=>{console.log(e)});const t=document.createElement("button");t.innerText="发送事件",t.addEventListener("click",()=>{o.emit("test","hello world")}),n.appendChild(t)},Zn=Object.freeze(Object.defineProperty({__proto__:null,default:qn},Symbol.toStringTag,{value:"Module"}));function R(o,n,t,e){return r=>r<=o?t:r>=n?e:t+(e-t)*(r-o)/(n-o)}class Yn{constructor(n){a(this,"option",{direction:"y"});a(this,"animationMap",new Map);Object.assign(this.option,n)}set(n,t){this.animationMap.set(n,t)}updateStyles(){const{option:n,animationMap:t}=this,e=n.scrollEl[n.direction==="y"?"scrollTop":"scrollLeft"];for(const[r,s]of t)for(const i in s)r.style[i]=s[i](e)}}const Qn=()=>{const o=document.getElementById("container");o.style.height="500px",o.style.position="relative";const n=`<div class='scroll-animation-wrap' style='height: 1100px;'>
     <div class='carry-off' style='margin-top: 300px; height: 500px; border: 1px dashed;'>
       <div class='remain' style='position: sticky; top: 0; height: 300px; border: 1px solid orange;'>
         <div class='box' style='width: 200px; height: 200px; background: red; position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto;'></div>
@@ -1833,6 +1832,16 @@ end
 | m | 比特位大小 | \`number\` | 1024*\\*2\\*8 | - |
 | k | hash 次数 | \`number\` | 16 | - |
 
+## Methods
+
+| 方法名 | 说明 | 参数 | 备注 |
+| --- | --- | --- | --- |
+| add | 添加内容 | \`string\` | - |
+| has | 查看有无添加过该内容 | \`string\` | - |
+| delete | 删除内容 | \`string\` | - |
+| clear | 清空布隆过滤器 | - | - |
+| *static* size | 获取当前布隆过滤器的大小 | - | - |
+
 ## 说明
 
 为解决数据量太大，导致内存占用过大的问题。
@@ -1849,6 +1858,8 @@ end
 | multiRowComment | 多行注释 | \`regexp\` | - | - |
 | singleLineComment | 单行注释 | \`regexp\` | - | - |
 | string | 字符串 | \`regexp\` | - | - |
+| regexp | 正则 | \`regexp\` | - | - |
+| constant | 常量 | \`regexp\` | - | - |
 | number | 单行注释 | \`regexp\` | - | - |
 | methods | 方法调用 | \`regexp\` | - | - |
 | object | 对象取值 | \`regexp\` | - | - |
@@ -1928,9 +1939,18 @@ console.log(
 \`\`\`
 `,wt=`# 全屏控制
 
+## Methods
+
+| 方法名 | 说明 | 参数 | 备注 |
+| --- | --- | --- | --- |
+| enter | 进入全屏 | \`HTMLElement\` | - |
+| exit | 退出全屏 | - | - |
+| isFull | 是否处于全屏状态 | - | - |
+| toggle | 进入/退出全屏 | \`HTMLElement\` | - |
+
 ## 说明
 
-该 API 对原生事件做了兼容处理 
+该 API 对原生事件做了兼容处理，iPhone 设备受系统影响不支持
 `,St=`# 函数重载
 
 ## Methods
@@ -1941,6 +1961,19 @@ console.log(
 | overload | 调用已注册的重载函数 | \`(...args)\` | 对应注册时参数类型 |
 `,kt="",Et=`# 记忆 Map
 `,Mt=`# 洋葱皮式中间件
+
+## Options
+
+| 属性名 | 说明 | 类型 | 默认值 | 备注 |
+| --- | --- | --- | --- | --- |
+| context | 上下文 | \`object\` | - | - |
+
+## Methods
+
+| 方法名 | 说明 | 参数 | 备注 |
+| --- | --- | --- | --- |
+| use | 使用一个中间件 | \`function\` | - |
+| callback | 执行回调 | - | - |
 `,Tt=`# 发布订阅
 
 ## Methods
