@@ -135,7 +135,7 @@ export default (props: PageProps) => {
   function queryElement(line: number) {
     const childs = codeEditRef.current.getEl().getElementsByClassName('row-num')[0].childNodes;
     for (const child of childs) {
-      const label = (child as HTMLElement).getElementsByTagName('label')[0];
+      const label = (child as HTMLElement).getElementsByTagName('i')[0];
       if (label.textContent === line + '') {
         scrollTo(child);
         break;
