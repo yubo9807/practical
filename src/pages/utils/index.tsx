@@ -60,6 +60,7 @@ export default (props: PageProps) => {
     name: string
     title?: string
     commentStart?: number
+    comment: string
   }
   const data = useMemo(() => {
     const ast = parse(current.content, {
@@ -90,14 +91,29 @@ export default (props: PageProps) => {
           const { loc, declaration, leadingComments } = node;
           const { start, end } = loc;
           const { start: commentStart, title } = getTitle(leadingComments);
-          // @ts-ignore
-          result.push({ start: start.line, end: end.line, name: declaration.id.name, title, commentStart });
+          const comment = leadingComments[leadingComments.length - 1];
+          result.push({
+            start: start.line,
+            end: end.line,
+            name: (declaration as any).id.name,
+            title,
+            comment: comment.type === 'CommentBlock' ? comment.value : '',
+            commentStart,
+          });
         }
       } else if (node.type === 'FunctionDeclaration') {
         const { loc, id, leadingComments } = node;
         const { start, end } = loc;
         const { start: commentStart, title } = getTitle(leadingComments);
-        result.push({ start: start.line, end: end.line, name: id.name, title, commentStart });
+        const comment = leadingComments[leadingComments.length - 1];
+        result.push({
+          start: start.line,
+          end: end.line,
+          name: id.name,
+          title,
+          comment: comment.type === 'CommentBlock' ? comment.value : '',
+          commentStart,
+        });
       }
     }
     return result;

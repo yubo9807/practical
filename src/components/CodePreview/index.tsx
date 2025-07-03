@@ -6,9 +6,10 @@ import { copyToBoard } from "~/core/utils/browser";
 import message from "~/core/comp/Message";
 import './index.scss';
 
+type Line = CodeEditFoldProps['lines'][number] & { comment: string }
 interface Props {
   value:  string
-  lines?: CodeEditFoldProps['lines'],
+  lines?: Line[],
   ref?:   CodeEditFoldProps['ref'],
 }
 export default (props: Props) => {
@@ -66,6 +67,9 @@ export default (props: Props) => {
     slotBtns={<>
       <span style='cursor: pointer;' onclick={() => copy(props.value)}>复制</span>
     </>}
-    onFlodDbClick={row => copy(row.source)}
+    onFlodDbClick={row => {
+      const query = props.lines.find(val => val.start === row.start + 1);
+      copy('/*' + query.comment + '*/\n' + row.source);
+    }}
   />
 }
