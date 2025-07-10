@@ -96,7 +96,7 @@ export default () => {
       </li>)}
     </ul>
 
-    <Dialog open={open} onClose={onClose}>
+    <Dialog visible={open} onClose={onClose}>
       {currentUrl && (currentUrl.endsWith('.jpg')
         ? <img className={style.media} src={PREFIX + currentUrl} />
         : <video ref={videoRef} className={style.media} src={PREFIX + currentUrl} controls autoplay onended={() => setOpen(false)}></video>)

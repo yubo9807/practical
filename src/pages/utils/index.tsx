@@ -6,7 +6,6 @@ import style from './style.module.scss';
 import { defineStoreVariable } from '@/store/variable';
 import { defineStoreSuspension } from '@/store/suspension';
 import { CodeEditFoldProps } from "~/core/comp/CodeEdit";
-import { CodeEditExpose } from "~/core/comp/CodeEdit/basic";
 import Dialog from '~/core/comp/Dialog/basic';
 import CodePreview from '@/components/CodePreview';
 import Container from '@/components/Container';
@@ -142,7 +141,7 @@ export default (props: PageProps) => {
 
 
 
-  const codeEditRef = useRef<CodeEditExpose>();
+  const codeEditRef = useRef<CodeEditFoldProps['ref']['current']>();
 
   /**
    * 根据行号滚动到相应位置
@@ -230,7 +229,7 @@ export default (props: PageProps) => {
       }</ul>
       <div className={style.total}>total: {data.length}</div>
     </aside>
-    <Dialog open={open} onClose={() => {
+    <Dialog visible={open} onClose={() => {
       consoleRef.current.clear();
       setOpen(false);
     }} style='width: 500px'>

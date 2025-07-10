@@ -7,7 +7,7 @@ export interface DialogExpose {
   close: () => void
 }
 export interface DialogProps extends PropsType {
-  open:          boolean
+  visible:       boolean
   onClose?:      (open: false) => void
   className?:    string | string[]
   style?:        string | StyleObject
@@ -18,10 +18,10 @@ export interface DialogProps extends PropsType {
 
 export default function(props: DialogProps) {
 
-  const [model, setModel] = useState(props.open);
+  const [model, setModel] = useState(props.visible);
   useEffect(() => {
-    setModel(props.open);
-  }, [props.open])
+    setModel(props.visible);
+  }, [props.visible])
 
   const dialogRef = useRef<HTMLDialogElement>();
   useLayoutEffect(() => {

@@ -1,8 +1,9 @@
-import { h, useEffect, useMemo, useState } from "pl-react";
+import { h, useEffect, useLayoutEffect, useMemo, useState } from "pl-react";
 import { customForEach } from "pl-react/utils";
 import { walkArray } from "~/core/utils/generator";
 import { deepClone } from "~/core/utils/object";
-import CodeEdit, { CodeEditProps } from "./basic";
+import CodeEdit, { CodeEditExpose, CodeEditProps } from "./basic";
+import { RefItem } from "pl-react/hooks";
 import "./index.scss";
 
 interface Line {
@@ -21,6 +22,9 @@ export interface CodeEditFoldProps extends CodeEditProps {
   lines:          Line[]
   defaultUnfold?: boolean
   onFlodDbClick?: (item: Data) => void
+  ref?:           RefItem<CodeEditExpose & {
+    getData():    Data[]
+  }>
 }
 /**
  * 代码折叠组件
@@ -110,6 +114,12 @@ export default function(props: CodeEditFoldProps) {
       rows,
     }
   }, [data, props.value]);
+
+
+  useLayoutEffect(() => {
+    if (!props.ref) return;
+    props.ref.current.getData = () => data;
+  })
 
 
   function handleFold(i: number) {

@@ -5,19 +5,19 @@ import { RefItem } from "pl-react/hooks";
 import { isClient } from "pl-react/utils";
 
 
-type MessageEepose = {
+type MessageExpose = {
   close:   () => void
   destroy: () => void
 }
 interface Props extends PropsType {
   visible:    boolean
-  type:       "success" | "error" | "warning" | "info"
+  type:       'success' | 'error' | 'warning' | 'info'
   message:    string
   duration?:  number | null  // 持续时间，默认 4s
   className?: string | string[]
   style?:     string | StyleObject
   onDestroy?: () => void
-  ref?:       RefItem<MessageEepose>
+  ref?:       RefItem<MessageExpose>
 }
 function Message(props: Props) {
   const [visible, setVisible] = useState(false);
@@ -50,7 +50,7 @@ function Message(props: Props) {
     props.onDestroy?.();
   }
 
-  useImperativeHandle<MessageEepose>(props.ref, () => {
+  useImperativeHandle<MessageExpose>(props.ref, () => {
     return {
       close,
       destroy,
@@ -95,13 +95,13 @@ class M {
     this._root = el;
   }
   _root: HTMLDivElement;
-  _collect = new Set<MessageEepose>();
+  _collect = new Set<MessageExpose>();
 
   #common(type: Props['type'], message: string, duration?: number) {
     if (!isClient()) return;
     const root = this._root;
     const gap = 50;
-    const expose: MessageEepose = useComponent(Message, {
+    const expose: MessageExpose = useComponent(Message, {
       visible: true,
       type,
       message,

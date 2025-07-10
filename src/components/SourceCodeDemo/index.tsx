@@ -128,7 +128,7 @@ export default (props: Props) => {
         <div id="container"></div>
         <Console ref={consoleRef} />
       </div>
-      <Dialog open={dialogOpen} onClose={setDialogOpen} title="源码实现" style='width: 1000px'>
+      <Dialog visible={dialogOpen} onClose={setDialogOpen} title="源码实现" style='width: 1000px'>
         <CodePreview value={body.code} />
       </Dialog>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
