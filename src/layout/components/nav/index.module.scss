@@ -45,7 +45,7 @@
   @include utils.mediaSmall() {
     flex-wrap: wrap;
     width: 50%;
-    a{
+    > a{
       display: block;
       width: 100%;
       &:not(:last-child){
@@ -53,13 +53,39 @@
       }
     }
   }
-  a{
+  > a{
     display: inline-block;
     height: var(--line-height);
     padding: 0 20px;
     box-sizing: border-box;
     &:global(.active) {
       background: var(--link-active-bg-color);
+    }
+  }
+  .more{
+    display: inline-block;
+    summary{
+      font-size: 14px;
+    }
+    li{
+      line-height: 2;
+    }
+    a{
+      color: var(--main-font-color);
+    }
+    @include utils.mediaSmall() {
+      padding-left: 20px;
+    }
+    @include utils.noMediaSmall{
+      padding-left: 14px;
+      .wrap{
+        position: absolute;
+        background: var(--main-bg-color);
+        padding: 14px;
+        border-radius: 8px;
+        right: 0;
+        box-shadow: 0 0 10px rgba(0,0,0,.1);
+      }
     }
   }
 }

@@ -80,19 +80,31 @@ export default function(props: Props) {
     {isMainMenu ? '' : <span className={style.return} onclick={() => setIsMainMenu(!isMainMenu)}>回到主菜单</span>}
     <div className={style.box} style={`--translate-x: ${isMainMenu ? 0 : -50}%`}>
       <div className={style.navigation}>
-        <Select active={storeVariable.state.theme} onChange={setTheme}>
-          <Option value="OS">跟随系统</Option>
-          <Option value="light">亮色主题</Option>
-          <Option value="dark">暗色主题</Option>
-        </Select>
-        <Select active={storeVariable.state.codeLanguage} onChange={codeLanguageChange}>
-          <Option value="ts">TypeScript</Option>
-          <Option value="js">JavaScript</Option>
-        </Select>
         <Link to='/tools'>Class</Link>
         <Link to='/utils'>Func</Link>
         <Link to='/canvas'>Canvas</Link>
         <Link to='/binary'>Binary</Link>
+        <details className={style.more}>
+          <summary>更多</summary>
+          <ul className={style.wrap}>
+            <li>
+              <a href="https://github.com/yubo9807/practical" target="_blank">GitHub</a>
+            </li>
+            <li>
+              <Select active={storeVariable.state.codeLanguage} onChange={codeLanguageChange}>
+                <Option value="ts">TypeScript</Option>
+                <Option value="js">JavaScript</Option>
+              </Select>
+            </li>
+            <li>
+              <Select active={storeVariable.state.theme} onChange={setTheme}>
+                <Option value="OS">跟随系统</Option>
+                <Option value="light">亮色主题</Option>
+                <Option value="dark">暗色主题</Option>
+              </Select>
+            </li>
+          </ul>
+        </details>
       </div>
       <div className={style.subMenu}>
         {storeSuspension.state.menu}
