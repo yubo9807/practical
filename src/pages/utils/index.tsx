@@ -15,7 +15,7 @@ import { tsToJs } from '@/utils/code-convert';
 import { defineStoreBtns } from '@/store/btns';
 import Console, { ConsoleExpose } from '@/components/Console';
 
-export default (props: PageProps) => {
+export default function(props: PageProps) {
 
   const storeVariable = useStore(defineStoreVariable);
   const [list, setList] = useState<string[]>([]);

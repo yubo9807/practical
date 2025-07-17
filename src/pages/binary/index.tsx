@@ -4,7 +4,7 @@ import style from './index.module.scss'
 import { nextTick } from "pl-react/utils";
 import Container from "@/components/Container";
 
-export default () => {
+export default function() {
   const PREFIX = 'http://static.hpyyb.cn';
   const list = [
     {

@@ -16,7 +16,7 @@ import { commonHandle } from '@/utils/source';
 type Props = PageProps & {
   getSource: () => ReturnType<typeof commonHandle>;
 }
-export default (props: Props) => {
+export default function(props: Props) {
 
   const storeVariable = useStore(defineStoreVariable);
   const [list, setList] = useState<{ name: string, title: string }[]>([]);

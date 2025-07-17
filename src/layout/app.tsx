@@ -1,5 +1,5 @@
 import { Fragment, h, useEffect, useState, useStore } from "pl-react"
-import { Link, Router, Route, useRouter } from "pl-react/router"
+import { Link, Router, Route } from "pl-react/router"
 import env from '~/config/env'
 import style from './style.module.scss';
 import Home from '@/pages/home'
@@ -12,13 +12,6 @@ export default () => {
 
   // #region 展开侧边栏（手机端有效）
   const [open, setOpen] = useState(false);
-
-  const router = useRouter();
-  useEffect(() => router.monitor(to => {
-    setOpen(false);
-  }), []);
-  // #endregion
-
 
   // #region 悬浮按钮
   const storeBtns = useStore(defineStoreBtns);
@@ -55,7 +48,7 @@ export default () => {
       <Nav open={open} />
     </header>
     <main className={style.main}>
-      <Router loading={<Loading visible={true} />}>
+      <Router loading={<Loading visible={true} />} afterEach={(to) => setOpen(false)}>
         <Route path="/" element={Home} />
         <Route path="/tools" element={() => import('@/pages/tools')} exact={false} />
         <Route path="/utils" element={() => import('@/pages/utils')} exact={false} />

@@ -19,6 +19,6 @@
     "@babel/parser": "^7.26.2",
     "@babel/traverse": "^7.25.9",
     "marked": "^15.0.4",
-    "pl-react": "^0.0.10"
+    "pl-react": "^0.0.11"
   }
 }
