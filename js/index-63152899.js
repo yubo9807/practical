@@ -1,4 +1,4 @@
-var A=Object.defineProperty;var W=(o,n,t)=>n in o?A(o,n,{enumerable:!0,configurable:!0,writable:!0,value:t}):o[n]=t;var a=(o,n,t)=>(W(o,typeof n!="symbol"?n+"":n,t),t),M=(o,n,t)=>{if(!n.has(o))throw TypeError("Cannot "+t)};var u=(o,n,t)=>(M(o,n,"read from private field"),t?t.call(o):n.get(o)),f=(o,n,t)=>{if(n.has(o))throw TypeError("Cannot add the same private member more than once");n instanceof WeakSet?n.add(o):n.set(o,t)};var T=(o,n,t)=>(M(o,n,"access private method"),t);import{C as N,i as C,c as P,g as z}from"./index-5ddcf2ec.js";import{c as O,d as k,i as S}from"./async-cc3c6e5f.js";import{h as B}from"./pl-react-e237b40f.js";import{S as D}from"./index-340a066b.js";import{c as K,C as J}from"./source-9816c404.js";import"./marked-c333d169.js";import"./@babel-552504fa.js";import"./debug-207d77b3.js";import"./ms-f6814399.js";import"./globals-aa9f7777.js";import"./@jridgewell-67f05017.js";import"./jsesc-4cfd8464.js";import"./picocolors-cddfbdbe.js";import"./js-tokens-bc2e8ff2.js";import"./basic-8ad50415.js";const $=`
+var A=Object.defineProperty;var W=(o,n,t)=>n in o?A(o,n,{enumerable:!0,configurable:!0,writable:!0,value:t}):o[n]=t;var a=(o,n,t)=>(W(o,typeof n!="symbol"?n+"":n,t),t),M=(o,n,t)=>{if(!n.has(o))throw TypeError("Cannot "+t)};var u=(o,n,t)=>(M(o,n,"read from private field"),t?t.call(o):n.get(o)),f=(o,n,t)=>{if(n.has(o))throw TypeError("Cannot add the same private member more than once");n instanceof WeakSet?n.add(o):n.set(o,t)};var T=(o,n,t)=>(M(o,n,"access private method"),t);import{C as N,i as C,c as P,g as z}from"./index-eeb30e17.js";import{c as O,d as k,i as S}from"./async-325209f7.js";import{h as B}from"./pl-react-532112ff.js";import{S as D}from"./index-0e385236.js";import{c as K,C as J}from"./source-8f9735e3.js";import"./marked-c333d169.js";import"./@babel-d1fe47a8.js";import"./debug-207d77b3.js";import"./ms-f6814399.js";import"./@jridgewell-873a78ab.js";import"./jsesc-4cfd8464.js";import"./picocolors-cddfbdbe.js";import"./js-tokens-bc2e8ff2.js";import"./basic-343393ce.js";const $=`
 export class BloomFilter {
 
   m:          number
@@ -2089,6 +2089,32 @@ fetch('/api/stream/sse', {
 })
 \`\`\`
 `,It=`# 任务队列控制
+
+异步任务队列控制，在队列中有空闲时执行下一个任务。
+
+## TaskScheduling
+
+### Option
+
+| 属性名 | 说明 | 类型 | 默认值 | 备注 |
+| --- | --- | --- | --- | --- |
+| parallelCount* | 队列中最多可同时执行几个任务 | \`number\` | - | - |
+
+### Methods
+
+| 方法名 | 说明 | 参数 | 备注 |
+| --- | --- | --- | --- |
+| add | 添加任务 | \`task\` | - |
+
+## TaskSchedulings
+
+### Option
+
+| 属性名 | 说明 | 类型 | 默认值 | 备注 |
+| --- | --- | --- | --- | --- |
+| parallelCountList* | 按数组中规定的个数挨个同时执行任务 | \`number[]\` | - | - |
+| isAwait | 是否等待每个规定的数字任务 | \`boolean\` | \`false\` | - |
+
 `,Ft=`# 文本插入
 
 ## Option
@@ -2129,4 +2155,4 @@ fetch('/api/stream/sse', {
 | start | 开始监听 | - | - |
 | add | 添加流内容 | \`string\` | - |
 | stop | 结束监听 | - | - |
-`;function Lt(){return K({codeObj:Object.assign({"/core/tools/bloomFilter/index.ts":$,"/core/tools/codeConversion/index.ts":H,"/core/tools/eventEmitter/index.ts":V,"/core/tools/falls/index.ts":X,"/core/tools/fullScreen/index.ts":G,"/core/tools/funcOverload/index.ts":U,"/core/tools/inlay/index.ts":q,"/core/tools/memoizeMap/index.ts":Z,"/core/tools/onion/index.ts":Y,"/core/tools/publishSubscribe/index.ts":Q,"/core/tools/scrollAnimation/index.ts":nn,"/core/tools/simulateRedis/index.ts":tn,"/core/tools/streamSplit/index.ts":en,"/core/tools/taskScheduling/index.ts":on,"/core/tools/textInsert/index.ts":rn,"/core/tools/voiceTextSplit/index.ts":sn}),demoObj:Object.assign({"/core/tools/bloomFilter/demo.ts":an,"/core/tools/codeConversion/demo.ts":ln,"/core/tools/eventEmitter/demo.ts":cn,"/core/tools/falls/demo.ts":un,"/core/tools/fullScreen/demo.ts":mn,"/core/tools/funcOverload/demo.ts":dn,"/core/tools/inlay/demo.ts":pn,"/core/tools/memoizeMap/demo.ts":hn,"/core/tools/onion/demo.ts":gn,"/core/tools/publishSubscribe/demo.ts":fn,"/core/tools/scrollAnimation/demo.ts":_n,"/core/tools/simulateRedis/demo.ts":xn,"/core/tools/streamSplit/demo.ts":bn,"/core/tools/taskScheduling/demo.ts":yn,"/core/tools/textInsert/demo.ts":vn,"/core/tools/voiceTextSplit/demo.ts":wn}),execObj:Object.assign({"/core/tools/bloomFilter/demo.ts":Tn,"/core/tools/codeConversion/demo.ts":On,"/core/tools/eventEmitter/demo.ts":In,"/core/tools/falls/demo.ts":Ln,"/core/tools/fullScreen/demo.ts":Wn,"/core/tools/funcOverload/demo.ts":zn,"/core/tools/inlay/demo.ts":Kn,"/core/tools/memoizeMap/demo.ts":Hn,"/core/tools/onion/demo.ts":Gn,"/core/tools/publishSubscribe/demo.ts":Zn,"/core/tools/scrollAnimation/demo.ts":nt,"/core/tools/simulateRedis/demo.ts":st,"/core/tools/streamSplit/demo.ts":lt,"/core/tools/taskScheduling/demo.ts":mt,"/core/tools/textInsert/demo.ts":ht,"/core/tools/voiceTextSplit/demo.ts":_t}),readmeObj:Object.assign({"/core/tools/bloomFilter/readme.md":xt,"/core/tools/codeConversion/readme.md":bt,"/core/tools/eventEmitter/readme.md":yt,"/core/tools/falls/readme.md":vt,"/core/tools/fullScreen/readme.md":wt,"/core/tools/funcOverload/readme.md":St,"/core/tools/inlay/readme.md":kt,"/core/tools/memoizeMap/readme.md":Et,"/core/tools/onion/readme.md":Mt,"/core/tools/publishSubscribe/readme.md":Tt,"/core/tools/scrollAnimation/readme.md":Ct,"/core/tools/simulateRedis/readme.md":Ot,"/core/tools/streamSplit/readme.md":jt,"/core/tools/taskScheduling/readme.md":It,"/core/tools/textInsert/readme.md":Ft,"/core/tools/voiceTextSplit/readme.md":Rt}),path:`${J}/tools/`})}function Zt(o){return B(D,{...o,getSource:Lt})}export{Zt as default};
+`;function Lt(){return K({codeObj:Object.assign({"/core/tools/bloomFilter/index.ts":$,"/core/tools/codeConversion/index.ts":H,"/core/tools/eventEmitter/index.ts":V,"/core/tools/falls/index.ts":X,"/core/tools/fullScreen/index.ts":G,"/core/tools/funcOverload/index.ts":U,"/core/tools/inlay/index.ts":q,"/core/tools/memoizeMap/index.ts":Z,"/core/tools/onion/index.ts":Y,"/core/tools/publishSubscribe/index.ts":Q,"/core/tools/scrollAnimation/index.ts":nn,"/core/tools/simulateRedis/index.ts":tn,"/core/tools/streamSplit/index.ts":en,"/core/tools/taskScheduling/index.ts":on,"/core/tools/textInsert/index.ts":rn,"/core/tools/voiceTextSplit/index.ts":sn}),demoObj:Object.assign({"/core/tools/bloomFilter/demo.ts":an,"/core/tools/codeConversion/demo.ts":ln,"/core/tools/eventEmitter/demo.ts":cn,"/core/tools/falls/demo.ts":un,"/core/tools/fullScreen/demo.ts":mn,"/core/tools/funcOverload/demo.ts":dn,"/core/tools/inlay/demo.ts":pn,"/core/tools/memoizeMap/demo.ts":hn,"/core/tools/onion/demo.ts":gn,"/core/tools/publishSubscribe/demo.ts":fn,"/core/tools/scrollAnimation/demo.ts":_n,"/core/tools/simulateRedis/demo.ts":xn,"/core/tools/streamSplit/demo.ts":bn,"/core/tools/taskScheduling/demo.ts":yn,"/core/tools/textInsert/demo.ts":vn,"/core/tools/voiceTextSplit/demo.ts":wn}),execObj:Object.assign({"/core/tools/bloomFilter/demo.ts":Tn,"/core/tools/codeConversion/demo.ts":On,"/core/tools/eventEmitter/demo.ts":In,"/core/tools/falls/demo.ts":Ln,"/core/tools/fullScreen/demo.ts":Wn,"/core/tools/funcOverload/demo.ts":zn,"/core/tools/inlay/demo.ts":Kn,"/core/tools/memoizeMap/demo.ts":Hn,"/core/tools/onion/demo.ts":Gn,"/core/tools/publishSubscribe/demo.ts":Zn,"/core/tools/scrollAnimation/demo.ts":nt,"/core/tools/simulateRedis/demo.ts":st,"/core/tools/streamSplit/demo.ts":lt,"/core/tools/taskScheduling/demo.ts":mt,"/core/tools/textInsert/demo.ts":ht,"/core/tools/voiceTextSplit/demo.ts":_t}),readmeObj:Object.assign({"/core/tools/bloomFilter/readme.md":xt,"/core/tools/codeConversion/readme.md":bt,"/core/tools/eventEmitter/readme.md":yt,"/core/tools/falls/readme.md":vt,"/core/tools/fullScreen/readme.md":wt,"/core/tools/funcOverload/readme.md":St,"/core/tools/inlay/readme.md":kt,"/core/tools/memoizeMap/readme.md":Et,"/core/tools/onion/readme.md":Mt,"/core/tools/publishSubscribe/readme.md":Tt,"/core/tools/scrollAnimation/readme.md":Ct,"/core/tools/simulateRedis/readme.md":Ot,"/core/tools/streamSplit/readme.md":jt,"/core/tools/taskScheduling/readme.md":It,"/core/tools/textInsert/readme.md":Ft,"/core/tools/voiceTextSplit/readme.md":Rt}),path:`${J}/tools/`})}function qt(o){return B(D,{...o,getSource:Lt})}export{qt as default};
