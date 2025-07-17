@@ -34,6 +34,9 @@ export default function(props: Props) {
 
 
   // #region 主题切换
+  useLayoutEffect(() => {
+    storeVariable.dispatch({ type: 'initTheme' });
+  }, [])
   type Theme = typeof storeVariable.state.theme;
   function setTheme(value: Theme) {
     storeVariable.dispatch({
@@ -41,39 +44,7 @@ export default function(props: Props) {
       playload: value,
     })
   }
-  const [isFirst, setIsFirst] = useState(true);
-  const THEME_KEY = '__theme__';
-
-  // 手动切换主题
-  useLayoutEffect(() => {
-    const theme = storeVariable.state.theme;
-    const prefers = matchMedia('(prefers-color-scheme: dark)');
-    const result = theme === 'OS' ? prefers.matches ? 'dark' : 'light' : theme;
-    if (isFirst) {
-      const theme = localStorage.getItem(THEME_KEY) as Theme || 'OS';
-      setTheme(theme);
-      setIsFirst(false);
-    } else {
-      localStorage.setItem(THEME_KEY, storeVariable.state.theme);
-    }
-    document.documentElement.dataset.theme = result;
-  }, [storeVariable.state.theme])
-
-  // 系统自动切换主题
-  useLayoutEffect(() => {
-    const prefers = matchMedia('(prefers-color-scheme: dark)');
-    function followOS() {
-      const cacheTheme = localStorage.getItem(THEME_KEY);
-      if (cacheTheme !== 'OS') return;
-      document.documentElement.dataset.theme = prefers.matches ? 'dark' : 'light';
-    }
-    prefers.addEventListener('change', followOS);
-    return () => {
-      prefers.removeEventListener('change', followOS);
-    }
-  }, [])
   // #endregion
-
 
 
   return <nav className={[style.nav, props.open && style.active]}>
