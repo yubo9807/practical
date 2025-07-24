@@ -46,11 +46,11 @@ function Message(props: Props) {
    * 直接销毁
    */
   function destroy() {
-    elRef.current.remove();
     props.onDestroy?.();
+    elRef.current.remove();
   }
 
-  useImperativeHandle<MessageExpose>(props.ref, () => {
+  useImperativeHandle(props.ref, () => {
     return {
       close,
       destroy,
@@ -100,20 +100,34 @@ class M {
   #common(type: Props['type'], message: string, duration?: number) {
     if (!isClient()) return;
     const root = this._root;
-    const gap = 50;
+    const GAP = 30;
+    let index = 0;
+    let top = 0;
+    for (const item of root.children) {
+      index ++;
+      top += item.clientHeight + GAP;
+    }
     const expose: MessageExpose = useComponent(Message, {
       visible: true,
       type,
       message,
       duration,
-      style: `top: ${root.children.length * gap}px`,
+      style: `top: ${top}px`,
       onDestroy: () => {
-        for (const item of root.children as HTMLCollectionOf<HTMLDivElement>) {
-          item.style.top = `${parseInt(item.style.top) - gap}px`;
+        // @ts-ignore
+        const el = expose._nodes[0] as HTMLDivElement;
+        const index = Number(el.dataset.index);
+        const num = el.offsetHeight + GAP;
+        for (let i = index; i < root.children.length; i ++) {
+          const item = root.children[i] as HTMLDivElement;
+          item.style.top = `${Math.max(0, parseInt(item.style.top) - num)}px`;
+          item.dataset.index = Math.max(0, index - 1) + '';
         }
         this._collect.delete(expose);
       },
     }, root);
+    // @ts-ignore
+    expose._nodes[0].dataset['index'] = index;
     this._collect.add(expose);
   }
 
