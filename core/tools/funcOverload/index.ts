@@ -1,4 +1,4 @@
-import { isType } from "~/core/utils/judge"
+import { isType } from "../../utils/judge"
 
 interface JSTypeMap {
   String:    string

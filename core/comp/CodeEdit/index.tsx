@@ -1,7 +1,7 @@
 import { h, useEffect, useLayoutEffect, useMemo, useState } from "pl-react";
 import { customForEach } from "pl-react/utils";
-import { walkArray } from "~/core/utils/generator";
-import { deepClone } from "~/core/utils/object";
+import { walkArray } from "../../utils/generator";
+import { deepClone } from "../../utils/object";
 import CodeEdit, { CodeEditExpose, CodeEditProps } from "./basic";
 import { RefItem } from "pl-react/hooks";
 import "./index.scss";

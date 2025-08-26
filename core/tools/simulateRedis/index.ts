@@ -1,5 +1,5 @@
-import { createNum } from "~/core/utils/generator"
-import { getLSUsedSpace } from "~/core/utils/object"
+import { createNum } from "../../utils/generator"
+import { getLSUsedSpace } from "../../utils/object"
 
 type Key = string | number | symbol
 interface Item {

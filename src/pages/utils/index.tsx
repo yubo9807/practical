@@ -90,13 +90,13 @@ export default function(props: PageProps) {
           const { loc, declaration, leadingComments } = node;
           const { start, end } = loc;
           const { start: commentStart, title } = getTitle(leadingComments);
-          const comment = leadingComments[leadingComments.length - 1];
+          const comment = leadingComments?.[leadingComments.length - 1];
           result.push({
             start: start.line,
             end: end.line,
             name: (declaration as any).id.name,
             title,
-            comment: comment.type === 'CommentBlock' ? comment.value : '',
+            comment: comment?.type === 'CommentBlock' ? comment.value : '',
             commentStart,
           });
         }
@@ -104,13 +104,13 @@ export default function(props: PageProps) {
         const { loc, id, leadingComments } = node;
         const { start, end } = loc;
         const { start: commentStart, title } = getTitle(leadingComments);
-        const comment = leadingComments[leadingComments.length - 1];
+        const comment = leadingComments?.[leadingComments.length - 1];
         result.push({
           start: start.line,
           end: end.line,
           name: id.name,
           title,
-          comment: comment.type === 'CommentBlock' ? comment.value : '',
+          comment: comment?.type === 'CommentBlock' ? comment.value : '',
           commentStart,
         });
       }

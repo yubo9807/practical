@@ -1,5 +1,3 @@
-import { randomNum } from "./number";
-
 /**
  * 敏感信息加密
  * @param str   手机号，银行卡号之类的字符
@@ -190,6 +188,15 @@ export function compareVersion(v1: string, v2: string) {
 // compareVersion('1.2.3', '1.2.3');  //--> 0
 // compareVersion('1.2.3', '1.2.4');  //--> -1
 // compareVersion('1.2.3', '1.2.2');  //--> 1
+
+/**
+ * 获取最大版本号
+ * @param versions 
+ * @returns 
+ */
+export function getMaxVersion(versions: string[]) {
+  return versions.sort(compareVersion).pop();
+}
 
 /**
  * 金额大写转换

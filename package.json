@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "vite --force --host",
     "preview": "vite preview",
-    "build": "vite build"
+    "build": "vite build",
+
+    "tsc:lib": "tsc --project build/tsconfig.lib.json --declaration",
+    "build:lib": "rm -rf lib && npm run tsc:lib && node build/lib.js"
   },
   "license": "ISC",
   "devDependencies": {

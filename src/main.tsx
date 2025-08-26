@@ -1,6 +1,6 @@
 import { createApp, h } from 'pl-react'
 import App from './layout/app'
-import './styles/index.scss'
+import '@/styles/index.scss'
 import { initRouter } from 'pl-react/router';
 import env from '~/config/env';
 

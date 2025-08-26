@@ -80,7 +80,7 @@ export function switchTimeFormat(time: Date | string) {
  * @param diff 时间差
  * @param obj
  */
-export function getTimeDistance(diff = 0, obj = {
+export function timeDistance(diff = 0, obj = {
   day: 0,
   hours: 0,
   minute: 0,
@@ -93,19 +93,19 @@ export function getTimeDistance(diff = 0, obj = {
     const month = Math.floor(diff / num);
     const remain = diff - num * month;
     obj.minute = month
-    if (remain > 0) getTimeDistance(remain, obj);
+    if (remain > 0) timeDistance(remain, obj);
   } else if (diff < 3600 * 24) {
     const num = 3600;
     const hours = Math.floor(diff / num);
     const remain = diff - num * hours;
     obj.hours = hours
-    if (remain > 0) getTimeDistance(remain, obj);
+    if (remain > 0) timeDistance(remain, obj);
   } else {
     const num = 3600 * 24;
     const day = Math.floor(diff / num);
     const remain = diff - num * day;
     obj.day = day;
-    if (remain > 0) getTimeDistance(remain, obj);
+    if (remain > 0) timeDistance(remain, obj);
   }
   return obj;
 }

@@ -1,4 +1,4 @@
-import { isPointInCircle } from "~/core/utils/math"
+import { isPointInCircle } from "../../utils/math"
 
 type Option = {
   el:           HTMLElement

@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "target": "ESNext",
+    "module": "ESNext",
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "../lib",
+    "moduleResolution": "node",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
+  },
+  "include": ["../core"],
+}

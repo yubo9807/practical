@@ -139,6 +139,28 @@ export function changeAnimation({ from, to, duration, onProgress }: ChangeAnimat
 // });
 
 /**
+ * 分页索引计算
+ * @param pageNumber 
+ * @param pageSize 
+ * @param index 
+ * @returns 
+ */
+export function pagingIndex(pageNumber: number, pageSize: number, index: number) {
+  return (pageNumber - 1) * pageSize + index + 1;
+}
+
+/**
+ * 数据分页
+ * @param arr 
+ * @param pageNumber 
+ * @param pageSize 
+ * @returns 
+ */
+export function pagingData<I>(arr: I[], pageNumber: number, pageSize: number) {
+  return arr.slice((pageNumber - 1) * pageSize, pageNumber * pageSize);
+}
+
+/**
  * 分页计算
  * @param option 
  * @returns 

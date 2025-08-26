@@ -1,0 +1,31 @@
+@use './utils.scss';
+
+:root{
+  --header-height: 60px;
+  --footer-height: 100px;
+
+  --both-sides-padding: 20px;
+
+  --main-bg-color: #fff;
+  --mark-bg-color: #F5F7FA;
+  --main-font-color: #404040;
+  --mark-font-color: #999;
+  --link-font-color: #0069c2;
+  --link-active-bg-color: #ece3ff;
+  --line-color: #eee;
+
+  --scrollbar-width: 6px;
+  --scrollbar-color: #ddd;
+
+  @include utils.mediaSmall() {
+    --both-sides-padding: 10px;
+  }
+}
+@include utils.themeDark() {
+  --main-bg-color: #1a1a1a;
+  --main-font-color: #dadada;
+  --mark-bg-color: #0e2a35;
+  --link-font-color: #8cb4ff;
+  --link-active-bg-color: #332a46;
+  --line-color: #333;
+}

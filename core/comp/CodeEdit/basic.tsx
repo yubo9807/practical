@@ -13,8 +13,8 @@ export interface CodeEditProps extends PropsType {
   onKeyDown?:   (e: KeyboardEvent) => void  // 按键按下事件
   className?:   string | string[]
   style?:       string | StyleObject
-  slotRowItem?: (i: number) => JSX.IntrinsicElements
-  slotBtns?:    JSX.IntrinsicElements
+  slotRowItem?: (i: number) => any
+  slotBtns?:    any
   ref?:         RefItem<CodeEditExpose>
 }
 export default function(props: CodeEditProps) {

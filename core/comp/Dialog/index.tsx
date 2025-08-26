@@ -4,8 +4,8 @@ import "./index.scss";
 
 interface LayerDialogProps extends DialogProps {
   title?:      string
-  slotHeader?: JSX.IntrinsicElements
-  slotFotter?: JSX.IntrinsicElements
+  slotHeader?: any
+  slotFotter?: any
 }
 export default function(props: LayerDialogProps) {
   const { slotHeader, title, children, slotFotter, className, ref, ...rest } = props;
