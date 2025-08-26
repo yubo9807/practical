@@ -1,4 +1,4 @@
-var pe=Object.defineProperty;var de=(e,r,n)=>r in e?pe(e,r,{enumerable:!0,configurable:!0,writable:!0,value:n}):e[r]=n;var y=(e,r,n)=>(de(e,typeof r!="symbol"?r+"":r,n),n),ee=(e,r,n)=>{if(!r.has(e))throw TypeError("Cannot "+n)};var m=(e,r,n)=>(ee(e,r,"read from private field"),n?n.call(e):r.get(e)),M=(e,r,n)=>{if(r.has(e))throw TypeError("Cannot add the same private member more than once");r instanceof WeakSet?r.add(e):r.set(e,n)},_=(e,r,n,t)=>(ee(e,r,"write to private field"),t?t.call(e,n):r.set(e,n),n);var re=(e,r,n,t)=>({set _(o){_(e,r,o,n)},get _(){return m(e,r,t)}});import{p as fe}from"./@babel-d1fe47a8.js";import{l as K,u as z,b as ne,a as E,c as te,h as b,q as ge,L as he}from"./pl-react-532112ff.js";import{e as ye,_ as be,a as xe,b as ve,d as _e,f as we,h as ke,s as Se,j as Te,k as Ce,l as je}from"./index-eeb30e17.js";import{D as Ae}from"./basic-343393ce.js";import{r as Me,_ as Le,a as Pe,b as Ee}from"./async-325209f7.js";import{_ as Oe}from"./math-c1d85691.js";import{f as Re,a as Fe,t as Be}from"./source-8f9735e3.js";import"./debug-207d77b3.js";import"./ms-f6814399.js";import"./@jridgewell-873a78ab.js";import"./jsesc-4cfd8464.js";import"./picocolors-cddfbdbe.js";import"./js-tokens-bc2e8ff2.js";import"./marked-c333d169.js";const Ne="page-utils-f86c23",De="navigation-62969b",Ie="content-bea58d",Ue="outline-690e4e",We="total-307071",I={"page-utils":"page-utils-f86c23",pageUtils:Ne,navigation:De,content:Ie,outline:Ue,total:We},He=`import { randomNum } from './number';\r
+var de=Object.defineProperty;var fe=(e,n,r)=>n in e?de(e,n,{enumerable:!0,configurable:!0,writable:!0,value:r}):e[n]=r;var b=(e,n,r)=>(fe(e,typeof n!="symbol"?n+"":n,r),r),ee=(e,n,r)=>{if(!n.has(e))throw TypeError("Cannot "+r)};var m=(e,n,r)=>(ee(e,n,"read from private field"),r?r.call(e):n.get(e)),L=(e,n,r)=>{if(n.has(e))throw TypeError("Cannot add the same private member more than once");n instanceof WeakSet?n.add(e):n.set(e,r)},w=(e,n,r,t)=>(ee(e,n,"write to private field"),t?t.call(e,r):n.set(e,r),r);var ne=(e,n,r,t)=>({set _(o){w(e,n,o,r)},get _(){return m(e,n,t)}});import{p as ge}from"./@babel-667fc88d.js";import{l as K,u as q,b as re,a as O,c as te,h as x,q as he,L as ye}from"./pl-react-532112ff.js";import{e as be,_ as xe,a as ve,b as _e,d as we,f as ke,h as Se,s as Te,j as Ce,k as je,l as Ae}from"./index-2aaa6a80.js";import{D as Me}from"./basic-343393ce.js";import{r as Le,_ as Pe,a as Ee,b as Oe}from"./async-9f157f3b.js";import{_ as Re}from"./math-c1d85691.js";import{f as Ne,a as Fe,t as Be}from"./source-b7a3e777.js";import"./debug-207d77b3.js";import"./ms-f6814399.js";import"./@jridgewell-d6b790c1.js";import"./jsesc-4cfd8464.js";import"./picocolors-cddfbdbe.js";import"./js-tokens-bc2e8ff2.js";import"./marked-c333d169.js";const De="page-utils-f86c23",Ie="navigation-62969b",Ue="content-bea58d",We="outline-690e4e",He="total-307071",I={"page-utils":"page-utils-f86c23",pageUtils:De,navigation:Ie,content:Ue,outline:We,total:He},ze=`import { randomNum } from './number';\r
 import { deepClone } from "./object";\r
 \r
 /**\r
@@ -368,7 +368,7 @@ open.exec(123).then(res => {
   // 弹窗关闭，刷新列表
   console.log(res);
 }) */
-`,ze=`import { AnyObj } from "./type";\r
+`,$e=`import { AnyObj } from "./type";\r
 \r
 /**\r
  * 执行 worker 代码\r
@@ -544,7 +544,7 @@ export function assetsLoadError(newUrl: string) {\r
     }\r
   }, true)\r
 }\r
-`,$e=`import { WideClass } from "./type";
+`,Ye=`import { WideClass } from "./type";
 
 /**
  * 将类变为单例模式
@@ -568,7 +568,7 @@ export function singleton(classFn: WideClass) {
 // const a = new Cla();
 // const b = new Cla(); b.a = 3;
 // console.log(a.a);  //--> 3
-`,Ye=`import { randomNum } from "./number";
+`,Ke=`import { randomNum } from "./number";
 
 type Color = [number, number, number];
 
@@ -652,7 +652,7 @@ export function mergeColor(a: string, b: string) {
 
   return mergedColor;
 }
-`,Ke=`
+`,Ve=`
 type WideDate = number | string | Date
 
 /**
@@ -734,7 +734,7 @@ export function switchTimeFormat(time: Date | string) {
  * @param diff 时间差
  * @param obj
  */
-export function getTimeDistance(diff = 0, obj = {
+export function timeDistance(diff = 0, obj = {
   day: 0,
   hours: 0,
   minute: 0,
@@ -747,19 +747,19 @@ export function getTimeDistance(diff = 0, obj = {
     const month = Math.floor(diff / num);
     const remain = diff - num * month;
     obj.minute = month
-    if (remain > 0) getTimeDistance(remain, obj);
+    if (remain > 0) timeDistance(remain, obj);
   } else if (diff < 3600 * 24) {
     const num = 3600;
     const hours = Math.floor(diff / num);
     const remain = diff - num * hours;
     obj.hours = hours
-    if (remain > 0) getTimeDistance(remain, obj);
+    if (remain > 0) timeDistance(remain, obj);
   } else {
     const num = 3600 * 24;
     const day = Math.floor(diff / num);
     const remain = diff - num * day;
     obj.day = day;
-    if (remain > 0) getTimeDistance(remain, obj);
+    if (remain > 0) timeDistance(remain, obj);
   }
   return obj;
 }
@@ -771,7 +771,7 @@ export function getTimeDistance(diff = 0, obj = {
 export function getNowDayZeroTimestamp(t = new Date()) {
   return new Date(t.toDateString()).getTime();
 }
-`,Ve=`\r
+`,Xe=`\r
 /**\r
  * 创建自定义元素\r
  * @param name \r
@@ -976,7 +976,7 @@ export function mouseDrag(ele: HTMLElement, limit: any) {\r
       }\r
     }\r
   }, false)\r
-}`,Xe=`/**
+}`,Ge=`/**
  * 十六进制 转 base64
  * @param hex 
  * @returns 
@@ -1085,7 +1085,7 @@ export function base64ToUrl(base64String: string) {
   const blob = new Blob([uint8Array]);
   return URL.createObjectURL(blob);
 }
-`,Ge=`import { execWorkerCode } from "./browser";
+`,Qe=`import { execWorkerCode } from "./browser";
 
 /**
  * blob 转 file
@@ -1173,7 +1173,7 @@ onmessage = async (e) => {
     }
   })
 }
-`,Qe=`
+`,Ze=`
 /**
  * 数字生成器
  */
@@ -1225,7 +1225,7 @@ export function* walkObject<T extends object>(obj: T) {
     yield { key, value: obj[key]};
   }
 }
-`,Ze=`import { execWorkerCode } from "./browser"
+`,Je=`import { execWorkerCode } from "./browser"
 
 type ImageCompressOption = {
   ratio?:     number
@@ -1363,7 +1363,7 @@ async function imageRigidCompress(base64: string, ratio: number) {
     })
   })
 }
-`,Je=`
+`,en=`
 type Type = 'String'    | 'Number'  | 'Boolean' |
             'Symbol'    | 'Bigint'  |
             'Undefined' | 'Null'    |
@@ -1442,7 +1442,7 @@ export function isEquals(val1: any, val2: any) {
     return val1 === val2;
   }
 }
-`,er=`
+`,nn=`
 /**
  * 判断数字是否是一个基数
  * @param num 
@@ -1756,7 +1756,7 @@ export function calculateCentroid(polygon: { x: number, y: number }[]) {
 }
 // const arr = [{ x: 0, y: 0 }, { x: 20, y: 0 }, { x: 20, y: 20 }, { x: 0, y: 20 }]
 // calculateCentroid(arr);  //--> { x: 10, y: 10 }
-`,rr=`/**\r
+`,rn=`/**\r
  * 生成随机数（只可取正整数）\r
  * @param max 最大值（取不到）\r
  * @param min 最小值\r
@@ -1897,6 +1897,28 @@ export function changeAnimation({ from, to, duration, onProgress }: ChangeAnimat
 // });\r
 \r
 /**\r
+ * 分页索引计算\r
+ * @param pageNumber \r
+ * @param pageSize \r
+ * @param index \r
+ * @returns \r
+ */\r
+export function pagingIndex(pageNumber: number, pageSize: number, index: number) {\r
+  return (pageNumber - 1) * pageSize + index + 1;\r
+}\r
+\r
+/**\r
+ * 数据分页\r
+ * @param arr \r
+ * @param pageNumber \r
+ * @param pageSize \r
+ * @returns \r
+ */\r
+export function pagingData<I>(arr: I[], pageNumber: number, pageSize: number) {\r
+  return arr.slice((pageNumber - 1) * pageSize, pageNumber * pageSize);\r
+}\r
+\r
+/**\r
  * 分页计算\r
  * @param option \r
  * @returns \r
@@ -1956,7 +1978,7 @@ export function pagingCompute(option: {\r
 export function indexCorrect(total: number, index = 0) {\r
   if (index >= 0) return index;\r
   return total + index;\r
-}`,nr=`import { isType } from "./judge";\r
+}`,tn=`import { isType } from "./judge";\r
 import { AnyObj, BanType } from "./type";\r
 \r
 /**\r
@@ -2194,7 +2216,7 @@ export function getLSUsedSpace(obj: object) {\r
 }\r
 // const obj = { a: '111', [Symbol('b')]: '222' }\r
 // getLSUsedSpace(obj);  //--> 7\r
-`,tr=`/**
+`,on=`/**
  * 程序阻塞多长时间
  * @param time 
  */
@@ -2382,7 +2404,7 @@ window.onunhandledrejection = (e) => {
   // 这里进行上报
   console.log(errorMsg, errorStack)
 }
-`,or=`import { PromiseFn } from "./type";
+`,an=`import { PromiseFn } from "./type";
 
 type TaskItem = {
   task:    PromiseFn
@@ -2625,9 +2647,7 @@ export class PausingSerialTasks {
   }
 
 }
-`,ar=`import { randomNum } from "./number";\r
-\r
-/**\r
+`,sn=`/**\r
  * 敏感信息加密\r
  * @param str   手机号，银行卡号之类的字符\r
  * @param start 开始加密索引\r
@@ -2819,6 +2839,15 @@ export function compareVersion(v1: string, v2: string) {\r
 // compareVersion('1.2.3', '1.2.2');  //--> 1\r
 \r
 /**\r
+ * 获取最大版本号\r
+ * @param versions \r
+ * @returns \r
+ */\r
+export function getMaxVersion(versions: string[]) {\r
+  return versions.sort(compareVersion).pop();\r
+}\r
+\r
+/**\r
  * 金额大写转换\r
  * @param num 字符串类型数字\r
  * @returns \r
@@ -2905,7 +2934,7 @@ export function uuid(length = 8, chars = '0123456789abcdefghijklmnopqrstuvwxyzAB
 }\r
 // uuid(32);\r
 // crypto.randomUUID();\r
-`,ir=`
+`,ln=`
 /**
  * 不能是某种类型
 */
@@ -2999,7 +3028,7 @@ export type WritableDeep<T extends Record<string|symbol, any>> = {
  * 类数组
  */
 export type ClassArray = Iterable<unknown> | ArrayLike<unknown>
-`,sr=`type Query = Record<string, string>
+`,un=`type Query = Record<string, string>
 
 /**
  * 解析 url query
@@ -3080,7 +3109,7 @@ export function resolvePath(integrity: string, path: string) {
   const arr = integrity.split('/').slice(0, -layer);
   return arr.join('/') + path.slice(index);
 }
-// resolvePath('/path/to', './a/b/c');  //--> "/path/to/a/b/c"`,lr=`
+// resolvePath('/path/to', './a/b/c');  //--> "/path/to/a/b/c"`,cn=`
 /**
  * HTML 转 AST 语法树
  * @param html
@@ -3134,7 +3163,7 @@ export function stringToVirtualDOM(html: string = '') {
 export function removeXMLTag(str: string) {
   return str.replace(/<[^>]+>/g, '');
 }
-// removeXMLTag('<div class="wrap">hello world</div>'); // hello world`;function cr(e){let r=null;return new Proxy(e,{construct(n,t){return r||(r=new n(...t)),r}})}const ur=Object.freeze(Object.defineProperty({__proto__:null,singleton:cr},Symbol.toStringTag,{value:"Module"}));function mr(e="000000",r="ffffff"){const n=parseInt(e,16),t=parseInt(r,16);return"#"+Me(t,n).toString(16)}function pr(e){const r=e.replace("#",""),n=parseInt(r.substring(0,2),16),t=parseInt(r.substring(2,4),16),o=parseInt(r.substring(4,6),16);return`${n}, ${t}, ${o}`}function dr(e,r,n){return .2126*e+.7152*r+.0722*n}function fr(e,r,n){const t=(r[0]-e[0])/n,o=(r[1]-e[1])/n,a=(r[2]-e[2])/n,i=[];for(let s=0;s<n;s++)i.push([Math.round(e[0]+s*t),Math.round(e[1]+s*o),Math.round(e[2]+s*a)]);return i}function gr(e,r){if(!/^#[0-9A-F]{6}$/i.test(e)||!/^#[0-9A-F]{6}$/i.test(r))throw new Error("Invalid hex color format");const n=parseInt(e.slice(1),16),t=parseInt(r.slice(1),16),o=Math.floor((n>>16)+(t>>16))/2,a=Math.floor((n>>8&255)+(t>>8&255))/2,i=Math.floor((n&255)+(t&255))/2;return`#${(o<<16|a<<8|i).toString(16).padStart(6,"0")}`}const hr=Object.freeze(Object.defineProperty({__proto__:null,colorToRGB:pr,getMiddleColorList:fr,grayColor:dr,mergeColor:gr,randomColor:mr},Symbol.toStringTag,{value:"Module"}));function yr(e){return e.getDay()%6!==0}function br(e){return e.toTimeString().slice(0,8)}function oe(e){let r=e||e===0?new Date(e):new Date;return{year:r.getFullYear()+"",month:r.getMonth()+1,day:r.getDate(),hour:r.getHours(),minute:r.getMinutes(),second:r.getSeconds()}}function xr(e,r="YYYY-MM-DD hh:mm:ss"){if(!e&&e!==0)return"";const{year:n,month:t,day:o,hour:a,minute:i,second:s}=oe(e);return r.replace(/YYYY/g,n).replace(/YY/g,n.substr(2,2)).replace(/MM/g,(t<10?"0":"")+t).replace(/DD/g,(o<10?"0":"")+o).replace(/hh/g,(a<10?"0":"")+a).replace(/mm/g,(i<10?"0":"")+i).replace(/ss/g,(s<10?"0":"")+s)}const U=e=>e<10?"0"+e:e;function vr(e){const r=new Date(e),n=r.getFullYear(),t=r.getMonth()+1,o=r.getDate(),a=r.getHours(),i=r.getMinutes(),s=r.getSeconds();return`${n}-${U(t)}-${U(o)} ${U(a)}:${U(i)}:${U(s)}`}function $(e=0,r={day:0,hours:0,minute:0,second:0}){if(e<60)r.second=e;else if(e<3600){const t=Math.floor(e/60),o=e-60*t;r.minute=t,o>0&&$(o,r)}else if(e<3600*24){const t=Math.floor(e/3600),o=e-3600*t;r.hours=t,o>0&&$(o,r)}else{const t=Math.floor(e/86400),o=e-86400*t;r.day=t,o>0&&$(o,r)}return r}function _r(e=new Date){return new Date(e.toDateString()).getTime()}const wr=Object.freeze(Object.defineProperty({__proto__:null,dateFormater:xr,getCurrentDate:oe,getDateTime:br,getNowDayZeroTimestamp:_r,getTimeDistance:$,isWeekday:yr,switchTimeFormat:vr},Symbol.toStringTag,{value:"Module"}));function kr(e,r){class n extends HTMLElement{constructor(){super();const o=this.attachShadow({mode:"open"}),a=document.createElement("template");if(typeof r=="string")a.innerHTML=r,o.appendChild(a.content.cloneNode(!0));else{a.appendChild(r);for(const i of a.childNodes)o.appendChild(i)}}}customElements.define(e,n)}function Sr(e){return e===document.activeElement}function Tr(e){var r=document.createElement("div");r.appendChild(e.cloneNode(!0));var n=r.innerHTML;return r=e=null,n}function Cr(e,r){for(;e&&r;)e=e.parentElement,r--;return e}function jr(e,r){for(;e&&r;)if(r>0){if(e.nextElementSibling)e=e.nextElementSibling;else for(e.nextSibling;e&&e.nextSibling!=1;e=e.nextSibling);r--}else{if(e.previousElementSibling)e=e.previousElementSibling;else for(e.previousSibling;e&&e.previousSibling!=1;e=e.previousSibling);r++}return e}const Ar=(e,r)=>window.getComputedStyle?window.getComputedStyle(e,null)[r]:e.style[r];function Mr(e){e=e||window.event,e.stopPropagation?e.stopPropagation():e.cancelBubble=!0}function Lr(e,r){if(G(e,r))return;let n=e.className.split(" ");n.push(r),e.className=n.join(" ")}function Pr(e,r){if(!G(e,r))return;let n=new RegExp("(^|\\s)"+r+"(\\s|$)","g");e.className=e.className.replace(n," ")}function G(e,r){return new RegExp("(^|\\s)"+r+"(\\s|$)").test(e.className)}function Er(e){e=e||window.event,e.preventDefault?e.preventDefault():e.returnValue=!1}function Or(e,r){e.addEventListener("mousedown",function(n){var t=n.clientX-e.offsetLeft,o=n.clientY-e.offsetTop;window.addEventListener("mousemove",a,!1),window.addEventListener("mouseup",()=>{window.removeEventListener("mousemove",a,!1)},!1);function a(i){e.style.left=i.clientX-t+"px",e.style.top=i.clientY-o+"px",r!==void 0&&(parseFloat(e.style.top)<r.offsetTop&&(e.style.top=r.offsetTop+"px"),parseFloat(e.style.left)<r.offsetLeft&&(e.style.left=r.offsetLeft+"px"),parseFloat(e.style.left+e.clientWidth)>r.offsetLeft+r.clientWidth-parseFloat(e.clientWidth+"")&&(e.style.left=r.offsetLeft+r.clientWidth-parseFloat(e.clientWidth+"")+"px"),parseFloat(e.style.top+e.clientHeight)>r.offsetTop+r.clientHeight-parseFloat(e.clientHeight+"")&&(e.style.top=r.offsetTop+r.clientHeight-parseFloat(e.clientHeight+"")+"px"))}},!1)}const Rr=Object.freeze(Object.defineProperty({__proto__:null,addClass:Lr,cancelHandler:Er,createTemplate:kr,elementIsInFocus:Sr,getStyle:Ar,hasClassName:G,lookupParent:Cr,mouseDrag:Or,nodeToString:Tr,removeClass:Pr,retSibling:jr,stopBubble:Mr},Symbol.toStringTag,{value:"Module"}));function Fr(e){const r=new Uint8Array(e.match(/.{1,2}/g).map(t=>parseInt(t,16)));let n="";for(let t of r)n+=String.fromCharCode(t);return btoa(n)}function Br(e){const r=e.replace(/=/g,""),n=atob(r),t=new Uint8Array(n.length);for(let a=0;a<n.length;a++)t[a]=n.charCodeAt(a);let o="";for(let a=0;a<t.length;a++){const s=t[a].toString(16).padStart(2,"0");o+=s}return o}function Nr(e){for(var r="",n=new Uint8Array(e),t=n.byteLength,o=0;o<t;o++)r+=String.fromCharCode(n[o]);return btoa(r)}function Dr(e){const r=new FileReader;return new Promise((n,t)=>{r.readAsDataURL(e),r.addEventListener("load",o=>{n(o.target.result)})})}function Ir(e,r="filename",n="image/jpg"){for(var t=e.split(","),o=atob(t[1]),a=o.length,i=new Uint8Array(a);a--;)i[a]=o.charCodeAt(a);return new File([i],r,{type:n})}function Ur(e){const r=atob(e),n=new Uint8Array(r.length);for(let o=0;o<r.length;o++)n[o]=r.charCodeAt(o);const t=new Blob([n]);return URL.createObjectURL(t)}const Wr=Object.freeze(Object.defineProperty({__proto__:null,base64ToHex:Br,base64ToUrl:Ur,base64toFile:Ir,bufferToBase64:Nr,fileToBase64:Dr,hexToBase64:Fr},Symbol.toStringTag,{value:"Module"}));function Hr(e,r){return new Promise((n,t)=>{const o=new FileReader;o.onload=()=>{const a=o.result,i=new File([a],r);n(i)},o.onerror=t,o.readAsArrayBuffer(e)})}function qr(e){return URL.createObjectURL(e)}function zr(e,r){const n=document.createElement("a");n.href=e,n.download=r,n.click(),n.remove()}function $r(e,r=1024*1024*5){return new Promise(async n=>{const t=Math.ceil(e.size/r),a=ye(`
+// removeXMLTag('<div class="wrap">hello world</div>'); // hello world`;function mn(e){let n=null;return new Proxy(e,{construct(r,t){return n||(n=new r(...t)),n}})}const pn=Object.freeze(Object.defineProperty({__proto__:null,singleton:mn},Symbol.toStringTag,{value:"Module"}));function dn(e="000000",n="ffffff"){const r=parseInt(e,16),t=parseInt(n,16);return"#"+Le(t,r).toString(16)}function fn(e){const n=e.replace("#",""),r=parseInt(n.substring(0,2),16),t=parseInt(n.substring(2,4),16),o=parseInt(n.substring(4,6),16);return`${r}, ${t}, ${o}`}function gn(e,n,r){return .2126*e+.7152*n+.0722*r}function hn(e,n,r){const t=(n[0]-e[0])/r,o=(n[1]-e[1])/r,a=(n[2]-e[2])/r,i=[];for(let s=0;s<r;s++)i.push([Math.round(e[0]+s*t),Math.round(e[1]+s*o),Math.round(e[2]+s*a)]);return i}function yn(e,n){if(!/^#[0-9A-F]{6}$/i.test(e)||!/^#[0-9A-F]{6}$/i.test(n))throw new Error("Invalid hex color format");const r=parseInt(e.slice(1),16),t=parseInt(n.slice(1),16),o=Math.floor((r>>16)+(t>>16))/2,a=Math.floor((r>>8&255)+(t>>8&255))/2,i=Math.floor((r&255)+(t&255))/2;return`#${(o<<16|a<<8|i).toString(16).padStart(6,"0")}`}const bn=Object.freeze(Object.defineProperty({__proto__:null,colorToRGB:fn,getMiddleColorList:hn,grayColor:gn,mergeColor:yn,randomColor:dn},Symbol.toStringTag,{value:"Module"}));function xn(e){return e.getDay()%6!==0}function vn(e){return e.toTimeString().slice(0,8)}function oe(e){let n=e||e===0?new Date(e):new Date;return{year:n.getFullYear()+"",month:n.getMonth()+1,day:n.getDate(),hour:n.getHours(),minute:n.getMinutes(),second:n.getSeconds()}}function _n(e,n="YYYY-MM-DD hh:mm:ss"){if(!e&&e!==0)return"";const{year:r,month:t,day:o,hour:a,minute:i,second:s}=oe(e);return n.replace(/YYYY/g,r).replace(/YY/g,r.substr(2,2)).replace(/MM/g,(t<10?"0":"")+t).replace(/DD/g,(o<10?"0":"")+o).replace(/hh/g,(a<10?"0":"")+a).replace(/mm/g,(i<10?"0":"")+i).replace(/ss/g,(s<10?"0":"")+s)}const U=e=>e<10?"0"+e:e;function wn(e){const n=new Date(e),r=n.getFullYear(),t=n.getMonth()+1,o=n.getDate(),a=n.getHours(),i=n.getMinutes(),s=n.getSeconds();return`${r}-${U(t)}-${U(o)} ${U(a)}:${U(i)}:${U(s)}`}function $(e=0,n={day:0,hours:0,minute:0,second:0}){if(e<60)n.second=e;else if(e<3600){const t=Math.floor(e/60),o=e-60*t;n.minute=t,o>0&&$(o,n)}else if(e<3600*24){const t=Math.floor(e/3600),o=e-3600*t;n.hours=t,o>0&&$(o,n)}else{const t=Math.floor(e/86400),o=e-86400*t;n.day=t,o>0&&$(o,n)}return n}function kn(e=new Date){return new Date(e.toDateString()).getTime()}const Sn=Object.freeze(Object.defineProperty({__proto__:null,dateFormater:_n,getCurrentDate:oe,getDateTime:vn,getNowDayZeroTimestamp:kn,isWeekday:xn,switchTimeFormat:wn,timeDistance:$},Symbol.toStringTag,{value:"Module"}));function Tn(e,n){class r extends HTMLElement{constructor(){super();const o=this.attachShadow({mode:"open"}),a=document.createElement("template");if(typeof n=="string")a.innerHTML=n,o.appendChild(a.content.cloneNode(!0));else{a.appendChild(n);for(const i of a.childNodes)o.appendChild(i)}}}customElements.define(e,r)}function Cn(e){return e===document.activeElement}function jn(e){var n=document.createElement("div");n.appendChild(e.cloneNode(!0));var r=n.innerHTML;return n=e=null,r}function An(e,n){for(;e&&n;)e=e.parentElement,n--;return e}function Mn(e,n){for(;e&&n;)if(n>0){if(e.nextElementSibling)e=e.nextElementSibling;else for(e.nextSibling;e&&e.nextSibling!=1;e=e.nextSibling);n--}else{if(e.previousElementSibling)e=e.previousElementSibling;else for(e.previousSibling;e&&e.previousSibling!=1;e=e.previousSibling);n++}return e}const Ln=(e,n)=>window.getComputedStyle?window.getComputedStyle(e,null)[n]:e.style[n];function Pn(e){e=e||window.event,e.stopPropagation?e.stopPropagation():e.cancelBubble=!0}function En(e,n){if(G(e,n))return;let r=e.className.split(" ");r.push(n),e.className=r.join(" ")}function On(e,n){if(!G(e,n))return;let r=new RegExp("(^|\\s)"+n+"(\\s|$)","g");e.className=e.className.replace(r," ")}function G(e,n){return new RegExp("(^|\\s)"+n+"(\\s|$)").test(e.className)}function Rn(e){e=e||window.event,e.preventDefault?e.preventDefault():e.returnValue=!1}function Nn(e,n){e.addEventListener("mousedown",function(r){var t=r.clientX-e.offsetLeft,o=r.clientY-e.offsetTop;window.addEventListener("mousemove",a,!1),window.addEventListener("mouseup",()=>{window.removeEventListener("mousemove",a,!1)},!1);function a(i){e.style.left=i.clientX-t+"px",e.style.top=i.clientY-o+"px",n!==void 0&&(parseFloat(e.style.top)<n.offsetTop&&(e.style.top=n.offsetTop+"px"),parseFloat(e.style.left)<n.offsetLeft&&(e.style.left=n.offsetLeft+"px"),parseFloat(e.style.left+e.clientWidth)>n.offsetLeft+n.clientWidth-parseFloat(e.clientWidth+"")&&(e.style.left=n.offsetLeft+n.clientWidth-parseFloat(e.clientWidth+"")+"px"),parseFloat(e.style.top+e.clientHeight)>n.offsetTop+n.clientHeight-parseFloat(e.clientHeight+"")&&(e.style.top=n.offsetTop+n.clientHeight-parseFloat(e.clientHeight+"")+"px"))}},!1)}const Fn=Object.freeze(Object.defineProperty({__proto__:null,addClass:En,cancelHandler:Rn,createTemplate:Tn,elementIsInFocus:Cn,getStyle:Ln,hasClassName:G,lookupParent:An,mouseDrag:Nn,nodeToString:jn,removeClass:On,retSibling:Mn,stopBubble:Pn},Symbol.toStringTag,{value:"Module"}));function Bn(e){const n=new Uint8Array(e.match(/.{1,2}/g).map(t=>parseInt(t,16)));let r="";for(let t of n)r+=String.fromCharCode(t);return btoa(r)}function Dn(e){const n=e.replace(/=/g,""),r=atob(n),t=new Uint8Array(r.length);for(let a=0;a<r.length;a++)t[a]=r.charCodeAt(a);let o="";for(let a=0;a<t.length;a++){const s=t[a].toString(16).padStart(2,"0");o+=s}return o}function In(e){for(var n="",r=new Uint8Array(e),t=r.byteLength,o=0;o<t;o++)n+=String.fromCharCode(r[o]);return btoa(n)}function Un(e){const n=new FileReader;return new Promise((r,t)=>{n.readAsDataURL(e),n.addEventListener("load",o=>{r(o.target.result)})})}function Wn(e,n="filename",r="image/jpg"){for(var t=e.split(","),o=atob(t[1]),a=o.length,i=new Uint8Array(a);a--;)i[a]=o.charCodeAt(a);return new File([i],n,{type:r})}function Hn(e){const n=atob(e),r=new Uint8Array(n.length);for(let o=0;o<n.length;o++)r[o]=n.charCodeAt(o);const t=new Blob([r]);return URL.createObjectURL(t)}const zn=Object.freeze(Object.defineProperty({__proto__:null,base64ToHex:Dn,base64ToUrl:Hn,base64toFile:Wn,bufferToBase64:In,fileToBase64:Un,hexToBase64:Bn},Symbol.toStringTag,{value:"Module"}));function qn(e,n){return new Promise((r,t)=>{const o=new FileReader;o.onload=()=>{const a=o.result,i=new File([a],n);r(i)},o.onerror=t,o.readAsArrayBuffer(e)})}function $n(e){return URL.createObjectURL(e)}function Yn(e,n){const r=document.createElement("a");r.href=e,r.download=n,r.click(),r.remove()}function Kn(e,n=1024*1024*5){return new Promise(async r=>{const t=Math.ceil(e.size/n),a=be(`
 function createChunk(file, index, chunkSize) {
   return new Promise(resovle => {
     const start = index * chunkSize;
@@ -3158,5 +3187,5 @@ onmessage = async (e) => {
   const chunks = await Promise.all(paoms);
   postMessage(chunks);
 }
-`);a.postMessage({file:e,chunkSize:r,start:0,end:t}),a.onmessage=i=>{a.terminate(),n(i.data)}})}const Yr=Object.freeze(Object.defineProperty({__proto__:null,blobToFile:Hr,fileDownload:zr,fileFragment:$r,fileToUrl:qr},Symbol.toStringTag,{value:"Module"}));async function Kr(e,r={}){const n=e.match(/image\/.+;/)[0].slice(6,-1).toLocaleLowerCase();r=Object.assign({ratio:.8,sizeLimit:{width:800,height:800},rigid:!0},r);const t=new Image;return t.src=e,new Promise((o,a)=>{t.addEventListener("load",async i=>{const{naturalWidth:s,naturalHeight:c}=t;let p=0,u=0,d=0;const{sizeLimit:f}=r;f?(p=f.width,u=f.height,s>c&&(s>p?(d=s/p,u=c/d):(d=c/u,p=s/d)),c>s&&(c>u?(d=c/u,p=s/d):(d=s/p,u=c/d)),s<p&&c<u&&(p=s,u=c)):(p=s,u=c);const h=document.createElement("canvas");h.width=p,h.height=u,h.style.visibility="hidden",document.body.appendChild(h);const w=h.getContext("2d");w.clearRect(0,0,p,u),w.drawImage(t,0,0,p,u);const A=h.toDataURL(`image/${n}`,r.ratio),P=e.length>A.length?A:e;return h.remove(),console.log(e.length,A.length),o(P)})})}const Vr=Object.freeze(Object.defineProperty({__proto__:null,imageCompress:Kr},Symbol.toStringTag,{value:"Module"}));function Xr(e=1e3){setTimeout(()=>{console.log("long time fun ...")},0)}function Gr(e,r){let n=0;return function(...t){let o=new Date().getTime();o-n>r&&(e.apply(this,...t),n=o)}}function Qr(e,r){let n=null;return function(...t){let o=this;clearTimeout(n),n=setTimeout(function(){e.apply(o,...t)},r)}}function ae(e,...r){return function(...n){const t=[...r,...n];return t.length>=e.length?e.apply(this,t):ae(e,...t)}}function ie(e,r){if(!e.length)return;let n=0;function t(){r(o=>{for(;n<e.length&&o();)e[n++]();n<e.length&&t()})}t()}function Zr(e){return ie(e,r=>{requestIdleCallback(n=>{r(()=>n.timeRemaining()>0)})})}function Jr(e,r,n){const t=document.createElement("script");t.src=e,r&&(t.onload=r),n&&(t.type="module"),t.async=!0,document.body.appendChild(t)}window.addEventListener("load",()=>{setTimeout(()=>{const e=window.performance.timing,r={},n=window.performance.getEntriesByType("paint");r.DNS查询耗时=e.domainLookupEnd-e.domainLookupStart,r.TCP链接耗时=e.connectEnd-e.connectStart,r.request耗时=e.responseEnd-e.responseStart,r.解析DOM树耗时=e.domComplete-e.domInteractive,r.白屏时间=e.domLoading-e.fetchStart,r.domready=e.domContentLoadedEventEnd-e.fetchStart,r.onload=e.loadEventEnd-e.fetchStart,r["首次绘制时间(FC)"]=n[0].startTime,r["首次内容绘制时间(FCP)"]=n[1].startTime,console.log(r)},0)});window.onerror=(e,r,n,t,o)=>{let a=o?o.stack:null;console.log(e,r,n,t,a)};window.onunhandledrejection=e=>{let r="",n="";typeof e.reason=="object"?(r=e.reason.message,n=e.reason.stack):r=e.reason,console.log(r,n)};const en=Object.freeze(Object.defineProperty({__proto__:null,choke:Xr,currying:ae,debounce:Qr,idlePerformTask:Zr,loadScript:Jr,performTask:ie,throttle:Gr},Symbol.toStringTag,{value:"Module"}));class Q{constructor(r=5){y(this,"_parallelCount");y(this,"_runingCount",0);y(this,"tasks",[]);this._parallelCount=r}add(r){const n=new Promise((t,o)=>{this.tasks.push({task:r,resolve:t,reject:o})});return this._run(),n}_run(){for(;this.tasks.length>this._runingCount&&this._runingCount<this._parallelCount;){const{task:r,resolve:n,reject:t}=this.tasks[this._runingCount];this._runingCount++,r().then(o=>n(o)).catch(o=>t(o)).finally(()=>{this._continue()})}}_continue(){this._parallelCount++,this._run()}}var W;class rn extends Q{constructor(n,t=!1){n.forEach((o,a,i)=>{a!==0&&(i[a]=o+i[a-1])});super();y(this,"_parallelCountList");y(this,"_parallelListIndex",0);y(this,"_executeCount",0);y(this,"_isAwait");M(this,W,null);this._parallelCountList=n,this._isAwait=t,_(this,W,this._run),this._run=()=>{this._parallelCount=this._parallelCountList[this._parallelListIndex],m(this,W).call(this)}}_continue(){if(this._executeCount++,this._isAwait){if(this._executeCount===this._parallelCount){this._parallelListIndex++,this._run();return}}else this._runingCount===this._parallelCount&&(this._parallelListIndex++,this._run());this._parallelCount++,this._run()}}W=new WeakMap;var H;class nn extends Q{constructor(n=!0){super();M(this,H,void 0);this._parallelCount=1,_(this,H,n)}_run(){for(;this.tasks.length>this._runingCount&&this._runingCount<this._parallelCount;){const{task:n,resolve:t,reject:o}=this.tasks[this._runingCount];this._runingCount++,n().then(a=>{t(a),this._continue()}).catch(a=>{o(a),m(this,H)&&this._continue()})}}}H=new WeakMap;var F,T,C,L,B;class tn{constructor(...r){y(this,"START_FAILURE",Symbol("startFailure"));y(this,"ILLEGAL_CALL",Symbol("illegalCall"));y(this,"NOT_TASK",Symbol("notTask"));M(this,F,!1);M(this,T,!1);M(this,C,null);M(this,L,0);y(this,"start",async()=>{if(m(this,F))return console.warn("非法调用！任务队列正在执行中，无法重新执行"),Promise.reject(this.ILLEGAL_CALL);if(m(this,L)>m(this,C).length-1)return console.warn("没有任务可以继续执行"),Promise.resolve(this.NOT_TASK);_(this,F,!0),_(this,T,!0);const r=await m(this,B).call(this);return _(this,F,!1),r});M(this,B,async(r=[])=>{if(!m(this,T))return;const n=m(this,C).length;m(this,L)===n-1&&_(this,T,!1);const t=m(this,C)[m(this,L)]();return re(this,L)._++,await t.then(async a=>await o.call(this,a)).catch(a=>(_(this,T,!1),Promise.reject(a)));async function o(a){return r.push(a),m(this,C).length>n?(_(this,T,!0),await m(this,B).call(this,r)):m(this,T)?await m(this,B).call(this,r):Promise.resolve(r)}});y(this,"pause",()=>(_(this,T,!1),m(this,L)-1));y(this,"add",r=>{m(this,C)&&m(this,C).push(r)});_(this,C,r)}}F=new WeakMap,T=new WeakMap,C=new WeakMap,L=new WeakMap,B=new WeakMap;const on=Object.freeze(Object.defineProperty({__proto__:null,ParallelTaskScheduling:Q,ParallelTaskSchedulings:rn,PausingSerialTasks:tn,SerialTaskScheduling:nn},Symbol.toStringTag,{value:"Module"}));function an(e,r=3,n=-4){let t="";const o=e.slice(0,r),a=e.slice(r,n).length,i=e.slice(n);for(let s=0;s<a;s++)t+="*";return o+t+i}function V(e){let r=0;for(let n=0;n<e.length;){r++;const t=e.codePointAt(n);n+=t>65535?2:1}return r}function se(e,r){let n=0;for(let t=0;t<e.length;){if(n===r){const a=e.codePointAt(t);return String.fromCodePoint(a)}n++;const o=e.codePointAt(t);t+=o>65535?2:1}}function sn(e,r,n){n??(n=V(e));let t="";const o=V(e);for(let a=r;a<o&&a<n;a++)t+=se(e,a);return t}function ln(e){let r=e.length,n=0;for(;n<r;)e.charCodeAt(n)>255&&r++,n++;return r}function cn(e){const r=e.split("");let n=0;return r.forEach(t=>{n+=t.charCodeAt(0)}),n}function X(e){return e<=11?Math.random().toString(36).substring(2,2+e).padEnd(e,"0"):X(11)+X(e-11)}function un(e){var r=0;return e.length<6||(/[0-9]/.test(e)&&r++,/[a-z]/.test(e)&&r++,/[A-Z]/.test(e)&&r++,/[\.|-|_]/.test(e)&&r++),r}function mn(e){return/^(([1-9][0-9]*)|(([0]\.\d{1,2}|[1-9][0-9]*\.\d{1,2})))$/.test(e)}function pn(e,r=1){let n=Math.abs(r),t="";for(;n;)n%2===1&&(t+=e),n>1&&(e+=e),n>>=1;return t}function dn(e,r){if(!e&&!r)return 0;if(!e)return-1;if(!r)return 1;const n=e.split("."),t=r.split("."),o=Math.max(n.length,t.length);for(let a=0;a<o;a++){const i=~~n[a],s=~~t[a];if(i>s)return 1;if(i<s)return-1}return 0}function fn(e=""){if(e==="")return"";if(isNaN(Number(e)))return"无效金额字符";if(e.length>80)return"金额过大";const r=["零","壹","贰","叁","肆","伍","陆","柒","捌","玖"],n=["","拾","佰","仟"],t=["","万","亿","兆","京","垓","杼","穰","沟","涧","正","载","极","恒河沙","阿僧祇","那由它","不可思议","无量","大数","古戈尔"],o=["角","分","厘","毫","丝"];let a="",i="",s="",c="";/\./.test(e)?(s=e.split(".")[0],c=e.split(".")[1].slice(0,5),Array(...c).forEach((f,h)=>{f==="0"?i+=r[f]:i+=r[f]+o[h]}),i=i.replace(/零+/,"零"),i=i.replace(/零$/,"")):s=e,s=s.replace(/^0+/,"");const p=/(?=(\B)(\d{4})+$)/g,u=s.replace(p,",").split(","),d=u.length;return u.forEach((f,h)=>{let w="";if(/^0000$/.test(f))return a;const A=f.length;f=f.replace(/0+$/,""),Array(...f).forEach((P,q)=>{P==="0"?w+=r[P]:w+=r[P]+n[A-q-1]}),w=w.replace(/零+/,"零"),a+=w+t[d-h-1],a||(a="零")}),i?a+"元"+i:a+"元整"}function gn(e){return"1111100000".slice(5-e,10-e)}function hn(e=8,r="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"){let n="";for(let t=e;t>0;--t)n+=r[Math.floor(Math.random()*r.length)];return n}const yn=Object.freeze(Object.defineProperty({__proto__:null,ascllSum:cn,checkPasswordLevel:un,compareVersion:dn,digitUppercase:fn,encrypt:an,isFixed2Float:mn,pointAt:se,pointLength:V,pointSlice:sn,randomString:X,rate:gn,repeatStr:pn,strBytesLength:ln,uuid:hn},Symbol.toStringTag,{value:"Module"})),bn=Object.freeze(Object.defineProperty({__proto__:null},Symbol.toStringTag,{value:"Module"}));function le(e){const r={};return e.replace(/([^?&=]+)=([^&]+)/g,(n,t,o)=>r[t]=o),r}function ce(e){return Object.keys(e).map(r=>`${r}=${e[r]}`).join("&")}function xn(e){const r=new URL("http://0.0.0.0"+e);return{fullPath:r.href.replace(r.origin,""),path:r.pathname,query:le(r.search),hash:r.hash.slice(1)}}function vn(e){let r="";const{path:n,query:t,hash:o}=e;return n&&(r+=n),Object.keys(t).length>0&&(r+=`?${ce(t)}`),o&&(r+=`#${o}`),r}function _n(e,r){const n=r.lastIndexOf("./")+1,t=r.slice(0,n);if(t==="."){const i=e.lastIndexOf("/");return e.slice(0,i)+r.slice(n)}const o=t.split("/").length+1;return e.split("/").slice(0,-o).join("/")+r.slice(n)}const wn=Object.freeze(Object.defineProperty({__proto__:null,parseQuery:le,parseUrl:xn,resolvePath:_n,stringifyQuery:ce,stringifyUrl:vn},Symbol.toStringTag,{value:"Module"}));function ue(e=""){const r={},n=/<([a-z]+)\s*[^>]*>/,t=e.match(n);t&&(r.tag=t[1]);const o=/\s*([^=\s]+)\s*=\s*['"]?([^'"\s]+)['"]?/g;let a;const i={};for(;a=o.exec(e);)i[a[1]]=a[2];r.attrs=i;const s=/>(.*)<\/[a-z]+>/s,c=e.match(s);if(c){const p=c[1].trim();p.length>0&&(r.children=p.split(`
-`).map(u=>n.test(u)?ue(u):u))}return r}function kn(e){return e.replace(/<[^>]+>/g,"")}const Sn=Object.freeze(Object.defineProperty({__proto__:null,removeXMLTag:kn,stringToVirtualDOM:ue},Symbol.toStringTag,{value:"Module"}));function Tn(){const e={keys:[],body:{}},r=Object.assign({"/core/utils/array.ts":He,"/core/utils/async.ts":qe,"/core/utils/browser.ts":ze,"/core/utils/class.ts":$e,"/core/utils/color.ts":Ye,"/core/utils/date.ts":Ke,"/core/utils/dom.ts":Ve,"/core/utils/encoding.ts":Xe,"/core/utils/file.ts":Ge,"/core/utils/generator.ts":Qe,"/core/utils/image.ts":Ze,"/core/utils/judge.ts":Je,"/core/utils/math.ts":er,"/core/utils/number.ts":rr,"/core/utils/object.ts":nr,"/core/utils/optimize.ts":tr,"/core/utils/queue.ts":or,"/core/utils/string.ts":ar,"/core/utils/type.ts":ir,"/core/utils/url.ts":sr,"/core/utils/xml.ts":lr});for(const n in r){const t=Re(n);e.keys.push(t),e.body[t]=r[n]}return e}function Cn(){const e=Object.assign({"/core/utils/array.ts":Le,"/core/utils/async.ts":Pe,"/core/utils/browser.ts":be,"/core/utils/class.ts":ur,"/core/utils/color.ts":hr,"/core/utils/date.ts":wr,"/core/utils/dom.ts":Rr,"/core/utils/encoding.ts":Wr,"/core/utils/file.ts":Yr,"/core/utils/generator.ts":xe,"/core/utils/image.ts":Vr,"/core/utils/judge.ts":ve,"/core/utils/math.ts":Oe,"/core/utils/number.ts":Ee,"/core/utils/object.ts":_e,"/core/utils/optimize.ts":en,"/core/utils/queue.ts":on,"/core/utils/string.ts":yn,"/core/utils/type.ts":bn,"/core/utils/url.ts":wn,"/core/utils/xml.ts":Sn}),r={};for(const n in e){const t=n.split("/").pop().replace(".ts","");r[t]=e[n]}return r}function Hn(e){const r=K(Te),[n,t]=z([]),[o,a]=z({name:"",content:""}),i=ne(Tn,[]);async function s(l){const{keys:g,body:v}=await i;!n.length&&t(g);const x=g.find(S=>S===l)||g[0];let j=v[x];r.state.codeLanguage==="js"&&(j=Be(j)),a({name:x,content:j})}const c=ge(),[p,u]=z(!0);E(()=>{if(p){u(!1);return}const l=c.current.path+".ts";s(l)},[r.state.codeLanguage]);const d=ne(()=>{const l=fe(o.content,{sourceType:"module",plugins:["typescript"]});function g(k){const x={start:null,title:null};if(!k)return x;const j=k[k.length-1],{type:S,value:O,loc:N}=j;if(x.start=N.start.line,S==="CommentBlock"){const R=O.match(/\*(.)+(\n|\r\n)/);if(!R)return x;x.title=R[0].replace(/\*/g,"").trim()}else x.title=O.replace(/\/\//,"").trim();return x}const v=[];for(const k of l.program.body)if(k.type==="ExportNamedDeclaration"){if(["FunctionDeclaration","ClassDeclaration"].includes(k.declaration.type)){const{loc:x,declaration:j,leadingComments:S}=k,{start:O,end:N}=x,{start:R,title:Y}=g(S),D=S[S.length-1];v.push({start:O.line,end:N.line,name:j.id.name,title:Y,comment:D.type==="CommentBlock"?D.value:"",commentStart:R})}}else if(k.type==="FunctionDeclaration"){const{loc:x,id:j,leadingComments:S}=k,{start:O,end:N}=x,{start:R,title:Y}=g(S),D=S[S.length-1];v.push({start:O.line,end:N.line,name:j.name,title:Y,comment:D.type==="CommentBlock"?D.value:"",commentStart:R})}return v},[o.content]);E(()=>c.monitor(async(l,g)=>{if(!l.path.startsWith(e.path))return;const v=l.path+".ts";s(v)}),[]),E(()=>{if(!d.length)return;const l=c.current.query.name;if(!l)return;const g=d.find(v=>v.name===l);g&&setTimeout(()=>{h(g.commentStart)})},[d]);const f=te();function h(l){const g=f.current.getEl().getElementsByClassName("row-num")[0].childNodes;for(const v of g)if(v.getElementsByTagName("i")[0].textContent===l+""){Se(v);break}}const w=()=>b("ul",{className:I.navigation},...n.map(l=>{const g=l.split("/")[2].replace(".ts","");return b("li",null,b(he,{to:l.split(".")[0]},g))})),A=K(Ce);E(()=>{n.length&&A.dispatch({type:"menuSet",payload:w()})},[n]),E(()=>()=>{A.dispatch({type:"menuClear"})},[]),E(()=>{const l="$utils";return window[l]=Cn(),()=>{delete window[l]}},[]);const[P,q]=z(!1),Z=te(),me=(()=>{const l=o.name.split("/")[2];return l?"$utils."+l.replace(".ts",""):"$utils."})(),J=K(je);return E(()=>{const l=Symbol("utilsConsole"),g={id:l,btn:b("div",{onclick:()=>q(!0)},"C"),layer:2};return J.dispatch({type:"btnAdd",payload:g}),()=>{J.dispatch({type:"btnRemove",payload:l})}},[]),b(ke,{className:I.pageUtils},b("aside",null,w()),b("section",{className:I.content},b(we,{ref:f,value:o.content,lines:d})),b("aside",{className:I.outline},b("ul",null,...d.map(l=>b("li",{className:"text-ellipsis",onclick:()=>{h(l.commentStart||l.start),c.replace({path:o.name.replace(".ts",""),query:{name:l.name}})}},l.title||l.name))),b("div",{className:I.total},"total: ",d.length)),b(Ae,{visible:P,onClose:()=>{Z.current.clear(),q(!1)},style:"width: 500px"},b(Fe,{ref:Z,value:me})))}export{Hn as default};
+`);a.postMessage({file:e,chunkSize:n,start:0,end:t}),a.onmessage=i=>{a.terminate(),r(i.data)}})}const Vn=Object.freeze(Object.defineProperty({__proto__:null,blobToFile:qn,fileDownload:Yn,fileFragment:Kn,fileToUrl:$n},Symbol.toStringTag,{value:"Module"}));async function Xn(e,n={}){const r=e.match(/image\/.+;/)[0].slice(6,-1).toLocaleLowerCase();n=Object.assign({ratio:.8,sizeLimit:{width:800,height:800},rigid:!0},n);const t=new Image;return t.src=e,new Promise((o,a)=>{t.addEventListener("load",async i=>{const{naturalWidth:s,naturalHeight:u}=t;let p=0,c=0,d=0;const{sizeLimit:f}=n;f?(p=f.width,c=f.height,s>u&&(s>p?(d=s/p,c=u/d):(d=u/c,p=s/d)),u>s&&(u>c?(d=u/c,p=s/d):(d=s/p,c=u/d)),s<p&&u<c&&(p=s,c=u)):(p=s,c=u);const y=document.createElement("canvas");y.width=p,y.height=c,y.style.visibility="hidden",document.body.appendChild(y);const k=y.getContext("2d");k.clearRect(0,0,p,c),k.drawImage(t,0,0,p,c);const M=y.toDataURL(`image/${r}`,n.ratio),E=e.length>M.length?M:e;return y.remove(),console.log(e.length,M.length),o(E)})})}const Gn=Object.freeze(Object.defineProperty({__proto__:null,imageCompress:Xn},Symbol.toStringTag,{value:"Module"}));function Qn(e=1e3){setTimeout(()=>{console.log("long time fun ...")},0)}function Zn(e,n){let r=0;return function(...t){let o=new Date().getTime();o-r>n&&(e.apply(this,...t),r=o)}}function Jn(e,n){let r=null;return function(...t){let o=this;clearTimeout(r),r=setTimeout(function(){e.apply(o,...t)},n)}}function ae(e,...n){return function(...r){const t=[...n,...r];return t.length>=e.length?e.apply(this,t):ae(e,...t)}}function ie(e,n){if(!e.length)return;let r=0;function t(){n(o=>{for(;r<e.length&&o();)e[r++]();r<e.length&&t()})}t()}function er(e){return ie(e,n=>{requestIdleCallback(r=>{n(()=>r.timeRemaining()>0)})})}function nr(e,n,r){const t=document.createElement("script");t.src=e,n&&(t.onload=n),r&&(t.type="module"),t.async=!0,document.body.appendChild(t)}window.addEventListener("load",()=>{setTimeout(()=>{const e=window.performance.timing,n={},r=window.performance.getEntriesByType("paint");n.DNS查询耗时=e.domainLookupEnd-e.domainLookupStart,n.TCP链接耗时=e.connectEnd-e.connectStart,n.request耗时=e.responseEnd-e.responseStart,n.解析DOM树耗时=e.domComplete-e.domInteractive,n.白屏时间=e.domLoading-e.fetchStart,n.domready=e.domContentLoadedEventEnd-e.fetchStart,n.onload=e.loadEventEnd-e.fetchStart,n["首次绘制时间(FC)"]=r[0].startTime,n["首次内容绘制时间(FCP)"]=r[1].startTime,console.log(n)},0)});window.onerror=(e,n,r,t,o)=>{let a=o?o.stack:null;console.log(e,n,r,t,a)};window.onunhandledrejection=e=>{let n="",r="";typeof e.reason=="object"?(n=e.reason.message,r=e.reason.stack):n=e.reason,console.log(n,r)};const rr=Object.freeze(Object.defineProperty({__proto__:null,choke:Qn,currying:ae,debounce:Jn,idlePerformTask:er,loadScript:nr,performTask:ie,throttle:Zn},Symbol.toStringTag,{value:"Module"}));class Q{constructor(n=5){b(this,"_parallelCount");b(this,"_runingCount",0);b(this,"tasks",[]);this._parallelCount=n}add(n){const r=new Promise((t,o)=>{this.tasks.push({task:n,resolve:t,reject:o})});return this._run(),r}_run(){for(;this.tasks.length>this._runingCount&&this._runingCount<this._parallelCount;){const{task:n,resolve:r,reject:t}=this.tasks[this._runingCount];this._runingCount++,n().then(o=>r(o)).catch(o=>t(o)).finally(()=>{this._continue()})}}_continue(){this._parallelCount++,this._run()}}var W;class tr extends Q{constructor(r,t=!1){r.forEach((o,a,i)=>{a!==0&&(i[a]=o+i[a-1])});super();b(this,"_parallelCountList");b(this,"_parallelListIndex",0);b(this,"_executeCount",0);b(this,"_isAwait");L(this,W,null);this._parallelCountList=r,this._isAwait=t,w(this,W,this._run),this._run=()=>{this._parallelCount=this._parallelCountList[this._parallelListIndex],m(this,W).call(this)}}_continue(){if(this._executeCount++,this._isAwait){if(this._executeCount===this._parallelCount){this._parallelListIndex++,this._run();return}}else this._runingCount===this._parallelCount&&(this._parallelListIndex++,this._run());this._parallelCount++,this._run()}}W=new WeakMap;var H;class or extends Q{constructor(r=!0){super();L(this,H,void 0);this._parallelCount=1,w(this,H,r)}_run(){for(;this.tasks.length>this._runingCount&&this._runingCount<this._parallelCount;){const{task:r,resolve:t,reject:o}=this.tasks[this._runingCount];this._runingCount++,r().then(a=>{t(a),this._continue()}).catch(a=>{o(a),m(this,H)&&this._continue()})}}}H=new WeakMap;var F,T,C,P,B;class ar{constructor(...n){b(this,"START_FAILURE",Symbol("startFailure"));b(this,"ILLEGAL_CALL",Symbol("illegalCall"));b(this,"NOT_TASK",Symbol("notTask"));L(this,F,!1);L(this,T,!1);L(this,C,null);L(this,P,0);b(this,"start",async()=>{if(m(this,F))return console.warn("非法调用！任务队列正在执行中，无法重新执行"),Promise.reject(this.ILLEGAL_CALL);if(m(this,P)>m(this,C).length-1)return console.warn("没有任务可以继续执行"),Promise.resolve(this.NOT_TASK);w(this,F,!0),w(this,T,!0);const n=await m(this,B).call(this);return w(this,F,!1),n});L(this,B,async(n=[])=>{if(!m(this,T))return;const r=m(this,C).length;m(this,P)===r-1&&w(this,T,!1);const t=m(this,C)[m(this,P)]();return ne(this,P)._++,await t.then(async a=>await o.call(this,a)).catch(a=>(w(this,T,!1),Promise.reject(a)));async function o(a){return n.push(a),m(this,C).length>r?(w(this,T,!0),await m(this,B).call(this,n)):m(this,T)?await m(this,B).call(this,n):Promise.resolve(n)}});b(this,"pause",()=>(w(this,T,!1),m(this,P)-1));b(this,"add",n=>{m(this,C)&&m(this,C).push(n)});w(this,C,n)}}F=new WeakMap,T=new WeakMap,C=new WeakMap,P=new WeakMap,B=new WeakMap;const ir=Object.freeze(Object.defineProperty({__proto__:null,ParallelTaskScheduling:Q,ParallelTaskSchedulings:tr,PausingSerialTasks:ar,SerialTaskScheduling:or},Symbol.toStringTag,{value:"Module"}));function sr(e,n=3,r=-4){let t="";const o=e.slice(0,n),a=e.slice(n,r).length,i=e.slice(r);for(let s=0;s<a;s++)t+="*";return o+t+i}function V(e){let n=0;for(let r=0;r<e.length;){n++;const t=e.codePointAt(r);r+=t>65535?2:1}return n}function se(e,n){let r=0;for(let t=0;t<e.length;){if(r===n){const a=e.codePointAt(t);return String.fromCodePoint(a)}r++;const o=e.codePointAt(t);t+=o>65535?2:1}}function lr(e,n,r){r??(r=V(e));let t="";const o=V(e);for(let a=n;a<o&&a<r;a++)t+=se(e,a);return t}function ur(e){let n=e.length,r=0;for(;r<n;)e.charCodeAt(r)>255&&n++,r++;return n}function cr(e){const n=e.split("");let r=0;return n.forEach(t=>{r+=t.charCodeAt(0)}),r}function X(e){return e<=11?Math.random().toString(36).substring(2,2+e).padEnd(e,"0"):X(11)+X(e-11)}function mr(e){var n=0;return e.length<6||(/[0-9]/.test(e)&&n++,/[a-z]/.test(e)&&n++,/[A-Z]/.test(e)&&n++,/[\.|-|_]/.test(e)&&n++),n}function pr(e){return/^(([1-9][0-9]*)|(([0]\.\d{1,2}|[1-9][0-9]*\.\d{1,2})))$/.test(e)}function dr(e,n=1){let r=Math.abs(n),t="";for(;r;)r%2===1&&(t+=e),r>1&&(e+=e),r>>=1;return t}function le(e,n){if(!e&&!n)return 0;if(!e)return-1;if(!n)return 1;const r=e.split("."),t=n.split("."),o=Math.max(r.length,t.length);for(let a=0;a<o;a++){const i=~~r[a],s=~~t[a];if(i>s)return 1;if(i<s)return-1}return 0}function fr(e){return e.sort(le).pop()}function gr(e=""){if(e==="")return"";if(isNaN(Number(e)))return"无效金额字符";if(e.length>80)return"金额过大";const n=["零","壹","贰","叁","肆","伍","陆","柒","捌","玖"],r=["","拾","佰","仟"],t=["","万","亿","兆","京","垓","杼","穰","沟","涧","正","载","极","恒河沙","阿僧祇","那由它","不可思议","无量","大数","古戈尔"],o=["角","分","厘","毫","丝"];let a="",i="",s="",u="";/\./.test(e)?(s=e.split(".")[0],u=e.split(".")[1].slice(0,5),Array(...u).forEach((f,y)=>{f==="0"?i+=n[f]:i+=n[f]+o[y]}),i=i.replace(/零+/,"零"),i=i.replace(/零$/,"")):s=e,s=s.replace(/^0+/,"");const p=/(?=(\B)(\d{4})+$)/g,c=s.replace(p,",").split(","),d=c.length;return c.forEach((f,y)=>{let k="";if(/^0000$/.test(f))return a;const M=f.length;f=f.replace(/0+$/,""),Array(...f).forEach((E,z)=>{E==="0"?k+=n[E]:k+=n[E]+r[M-z-1]}),k=k.replace(/零+/,"零"),a+=k+t[d-y-1],a||(a="零")}),i?a+"元"+i:a+"元整"}function hr(e){return"1111100000".slice(5-e,10-e)}function yr(e=8,n="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"){let r="";for(let t=e;t>0;--t)r+=n[Math.floor(Math.random()*n.length)];return r}const br=Object.freeze(Object.defineProperty({__proto__:null,ascllSum:cr,checkPasswordLevel:mr,compareVersion:le,digitUppercase:gr,encrypt:sr,getMaxVersion:fr,isFixed2Float:pr,pointAt:se,pointLength:V,pointSlice:lr,randomString:X,rate:hr,repeatStr:dr,strBytesLength:ur,uuid:yr},Symbol.toStringTag,{value:"Module"})),xr=Object.freeze(Object.defineProperty({__proto__:null},Symbol.toStringTag,{value:"Module"}));function ue(e){const n={};return e.replace(/([^?&=]+)=([^&]+)/g,(r,t,o)=>n[t]=o),n}function ce(e){return Object.keys(e).map(n=>`${n}=${e[n]}`).join("&")}function vr(e){const n=new URL("http://0.0.0.0"+e);return{fullPath:n.href.replace(n.origin,""),path:n.pathname,query:ue(n.search),hash:n.hash.slice(1)}}function _r(e){let n="";const{path:r,query:t,hash:o}=e;return r&&(n+=r),Object.keys(t).length>0&&(n+=`?${ce(t)}`),o&&(n+=`#${o}`),n}function wr(e,n){const r=n.lastIndexOf("./")+1,t=n.slice(0,r);if(t==="."){const i=e.lastIndexOf("/");return e.slice(0,i)+n.slice(r)}const o=t.split("/").length+1;return e.split("/").slice(0,-o).join("/")+n.slice(r)}const kr=Object.freeze(Object.defineProperty({__proto__:null,parseQuery:ue,parseUrl:vr,resolvePath:wr,stringifyQuery:ce,stringifyUrl:_r},Symbol.toStringTag,{value:"Module"}));function me(e=""){const n={},r=/<([a-z]+)\s*[^>]*>/,t=e.match(r);t&&(n.tag=t[1]);const o=/\s*([^=\s]+)\s*=\s*['"]?([^'"\s]+)['"]?/g;let a;const i={};for(;a=o.exec(e);)i[a[1]]=a[2];n.attrs=i;const s=/>(.*)<\/[a-z]+>/s,u=e.match(s);if(u){const p=u[1].trim();p.length>0&&(n.children=p.split(`
+`).map(c=>r.test(c)?me(c):c))}return n}function Sr(e){return e.replace(/<[^>]+>/g,"")}const Tr=Object.freeze(Object.defineProperty({__proto__:null,removeXMLTag:Sr,stringToVirtualDOM:me},Symbol.toStringTag,{value:"Module"}));function Cr(){const e={keys:[],body:{}},n=Object.assign({"/core/utils/array.ts":ze,"/core/utils/async.ts":qe,"/core/utils/browser.ts":$e,"/core/utils/class.ts":Ye,"/core/utils/color.ts":Ke,"/core/utils/date.ts":Ve,"/core/utils/dom.ts":Xe,"/core/utils/encoding.ts":Ge,"/core/utils/file.ts":Qe,"/core/utils/generator.ts":Ze,"/core/utils/image.ts":Je,"/core/utils/judge.ts":en,"/core/utils/math.ts":nn,"/core/utils/number.ts":rn,"/core/utils/object.ts":tn,"/core/utils/optimize.ts":on,"/core/utils/queue.ts":an,"/core/utils/string.ts":sn,"/core/utils/type.ts":ln,"/core/utils/url.ts":un,"/core/utils/xml.ts":cn});for(const r in n){const t=Ne(r);e.keys.push(t),e.body[t]=n[r]}return e}function jr(){const e=Object.assign({"/core/utils/array.ts":Pe,"/core/utils/async.ts":Ee,"/core/utils/browser.ts":xe,"/core/utils/class.ts":pn,"/core/utils/color.ts":bn,"/core/utils/date.ts":Sn,"/core/utils/dom.ts":Fn,"/core/utils/encoding.ts":zn,"/core/utils/file.ts":Vn,"/core/utils/generator.ts":ve,"/core/utils/image.ts":Gn,"/core/utils/judge.ts":_e,"/core/utils/math.ts":Re,"/core/utils/number.ts":Oe,"/core/utils/object.ts":we,"/core/utils/optimize.ts":rr,"/core/utils/queue.ts":ir,"/core/utils/string.ts":br,"/core/utils/type.ts":xr,"/core/utils/url.ts":kr,"/core/utils/xml.ts":Tr}),n={};for(const r in e){const t=r.split("/").pop().replace(".ts","");n[t]=e[r]}return n}function zr(e){const n=K(Ce),[r,t]=q([]),[o,a]=q({name:"",content:""}),i=re(Cr,[]);async function s(l){const{keys:g,body:_}=await i;!r.length&&t(g);const v=g.find(h=>h===l)||g[0];let j=_[v];n.state.codeLanguage==="js"&&(j=Be(j)),a({name:v,content:j})}const u=he(),[p,c]=q(!0);O(()=>{if(p){c(!1);return}const l=u.current.path+".ts";s(l)},[n.state.codeLanguage]);const d=re(()=>{const l=ge(o.content,{sourceType:"module",plugins:["typescript"]});function g(S){const v={start:null,title:null};if(!S)return v;const j=S[S.length-1],{type:h,value:R,loc:D}=j;if(v.start=D.start.line,h==="CommentBlock"){const N=R.match(/\*(.)+(\n|\r\n)/);if(!N)return v;v.title=N[0].replace(/\*/g,"").trim()}else v.title=R.replace(/\/\//,"").trim();return v}const _=[];for(const S of l.program.body)if(S.type==="ExportNamedDeclaration"){if(["FunctionDeclaration","ClassDeclaration"].includes(S.declaration.type)){const{loc:v,declaration:j,leadingComments:h}=S,{start:R,end:D}=v,{start:N,title:Y}=g(h),A=h==null?void 0:h[h.length-1];_.push({start:R.line,end:D.line,name:j.id.name,title:Y,comment:(A==null?void 0:A.type)==="CommentBlock"?A.value:"",commentStart:N})}}else if(S.type==="FunctionDeclaration"){const{loc:v,id:j,leadingComments:h}=S,{start:R,end:D}=v,{start:N,title:Y}=g(h),A=h==null?void 0:h[h.length-1];_.push({start:R.line,end:D.line,name:j.name,title:Y,comment:(A==null?void 0:A.type)==="CommentBlock"?A.value:"",commentStart:N})}return _},[o.content]);O(()=>u.monitor(async(l,g)=>{if(!l.path.startsWith(e.path))return;const _=l.path+".ts";s(_)}),[]),O(()=>{if(!d.length)return;const l=u.current.query.name;if(!l)return;const g=d.find(_=>_.name===l);g&&setTimeout(()=>{y(g.commentStart)})},[d]);const f=te();function y(l){const g=f.current.getEl().getElementsByClassName("row-num")[0].childNodes;for(const _ of g)if(_.getElementsByTagName("i")[0].textContent===l+""){Te(_);break}}const k=()=>x("ul",{className:I.navigation},...r.map(l=>{const g=l.split("/")[2].replace(".ts","");return x("li",null,x(ye,{to:l.split(".")[0]},g))})),M=K(je);O(()=>{r.length&&M.dispatch({type:"menuSet",payload:k()})},[r]),O(()=>()=>{M.dispatch({type:"menuClear"})},[]),O(()=>{const l="$utils";return window[l]=jr(),()=>{delete window[l]}},[]);const[E,z]=q(!1),Z=te(),pe=(()=>{const l=o.name.split("/")[2];return l?"$utils."+l.replace(".ts",""):"$utils."})(),J=K(Ae);return O(()=>{const l=Symbol("utilsConsole"),g={id:l,btn:x("div",{onclick:()=>z(!0)},"C"),layer:2};return J.dispatch({type:"btnAdd",payload:g}),()=>{J.dispatch({type:"btnRemove",payload:l})}},[]),x(Se,{className:I.pageUtils},x("aside",null,k()),x("section",{className:I.content},x(ke,{ref:f,value:o.content,lines:d})),x("aside",{className:I.outline},x("ul",null,...d.map(l=>x("li",{className:"text-ellipsis",onclick:()=>{y(l.commentStart||l.start),u.replace({path:o.name.replace(".ts",""),query:{name:l.name}})}},l.title||l.name))),x("div",{className:I.total},"total: ",d.length)),x(Me,{visible:E,onClose:()=>{Z.current.clear(),z(!1)},style:"width: 500px"},x(Fe,{ref:Z,value:pe})))}export{zr as default};

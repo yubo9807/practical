@@ -1,4 +1,4 @@
-var A=Object.defineProperty;var W=(o,n,t)=>n in o?A(o,n,{enumerable:!0,configurable:!0,writable:!0,value:t}):o[n]=t;var a=(o,n,t)=>(W(o,typeof n!="symbol"?n+"":n,t),t),M=(o,n,t)=>{if(!n.has(o))throw TypeError("Cannot "+t)};var u=(o,n,t)=>(M(o,n,"read from private field"),t?t.call(o):n.get(o)),f=(o,n,t)=>{if(n.has(o))throw TypeError("Cannot add the same private member more than once");n instanceof WeakSet?n.add(o):n.set(o,t)};var T=(o,n,t)=>(M(o,n,"access private method"),t);import{C as N,i as C,c as P,g as z}from"./index-eeb30e17.js";import{c as O,d as k,i as S}from"./async-325209f7.js";import{h as B}from"./pl-react-532112ff.js";import{S as D}from"./index-0e385236.js";import{c as K,C as J}from"./source-8f9735e3.js";import"./marked-c333d169.js";import"./@babel-d1fe47a8.js";import"./debug-207d77b3.js";import"./ms-f6814399.js";import"./@jridgewell-873a78ab.js";import"./jsesc-4cfd8464.js";import"./picocolors-cddfbdbe.js";import"./js-tokens-bc2e8ff2.js";import"./basic-343393ce.js";const $=`
+var A=Object.defineProperty;var W=(o,n,t)=>n in o?A(o,n,{enumerable:!0,configurable:!0,writable:!0,value:t}):o[n]=t;var a=(o,n,t)=>(W(o,typeof n!="symbol"?n+"":n,t),t),M=(o,n,t)=>{if(!n.has(o))throw TypeError("Cannot "+t)};var u=(o,n,t)=>(M(o,n,"read from private field"),t?t.call(o):n.get(o)),f=(o,n,t)=>{if(n.has(o))throw TypeError("Cannot add the same private member more than once");n instanceof WeakSet?n.add(o):n.set(o,t)};var T=(o,n,t)=>(M(o,n,"access private method"),t);import{C as N,i as C,c as P,g as z}from"./index-2aaa6a80.js";import{c as O,d as k,i as S}from"./async-9f157f3b.js";import{h as B}from"./pl-react-532112ff.js";import{S as D}from"./index-8fa70269.js";import{c as K,C as J}from"./source-b7a3e777.js";import"./marked-c333d169.js";import"./@babel-667fc88d.js";import"./debug-207d77b3.js";import"./ms-f6814399.js";import"./@jridgewell-d6b790c1.js";import"./jsesc-4cfd8464.js";import"./picocolors-cddfbdbe.js";import"./js-tokens-bc2e8ff2.js";import"./basic-343393ce.js";const $=`
 export class BloomFilter {
 
   m:          number
@@ -524,7 +524,7 @@ export class FullScreen {
   }
 
 }
-`,U=`import { isType } from "~/core/utils/judge"
+`,U=`import { isType } from "../../utils/judge"
 
 interface JSTypeMap {
   String:    string
@@ -832,8 +832,8 @@ export class ScrollAnimation {
     }
   }
 
-}`,tn=`import { createNum } from "~/core/utils/generator"
-import { getLSUsedSpace } from "~/core/utils/object"
+}`,tn=`import { createNum } from "../../utils/generator"
+import { getLSUsedSpace } from "../../utils/object"
 
 type Key = string | number | symbol
 interface Item {
