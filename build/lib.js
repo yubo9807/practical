@@ -1,4 +1,5 @@
-const { writeFileSync, mkdirSync, readdirSync, copyFileSync } = require('fs');
+const { writeFileSync, mkdirSync, readdirSync, copyFileSync, readFileSync } = require('fs');
+const sass = require('sass');
 
 function createConfig(option) {
   const json = {
@@ -68,6 +69,49 @@ writeFileSync('lib/comp/gdp.json', createConfig({
     'utils': '1.0.0',
   }
 }));
+readdirSync('core/comp').forEach(name => {
+  readdirSync(`core/comp/${name}`).forEach(file => {
+    if (!file.endsWith('.scss')) return;
+    const result = sass.compile(`core/comp/${name}/${file}`);
+    writeFileSync(`lib/comp/${name}/${file.replace('.scss', '.css')}`, result.css);
+  })
+  readdirSync(`lib/comp/${name}`).forEach(file => {
+    if (!file.endsWith('.js')) return;
+    let content = readFileSync(`lib/comp/${name}/${file}`, 'utf-8');
+    const reg = /".+\.scss/g;
+    const matched = content.match(reg);
+    if (!matched) return;
+    matched.forEach(item => {
+      const styleFilename = item.slice(1, -5);
+      content = content.replace(item.slice(1), styleFilename + '.css');
+    })
+    writeFileSync(`lib/comp/${name}/${file}`, content);
+  })
+});
+writeFileSync('lib/comp/gdp.json', createConfig({
+  name: 'comp',
+  version: '1.0.0',
+  description: '基于 pl-react 开发的组件库',
+  keywords: ['component', 'function', 'jsx'],
+}));
+writeFileSync('lib/comp/readme.md', `
+# 基于 pl-react 开发的组件库
+
+可原生调用，不受制于框架
+
+\`\`\`ts
+import { useComponent } from 'pl-react';
+import MyComp from '&/_modules/comp/MyComp';
+
+const expose = useComponent(
+  MyComp,             // 组件名
+  { text: 'hello' },  // props
+  document.body,      // 挂载节点
+);
+expose.add();  // 执行组件暴露方法
+\`\`\`
+
+`);
 
 mkdirSync('lib/styles');
 readdirSync('core/styles').forEach(file => {
