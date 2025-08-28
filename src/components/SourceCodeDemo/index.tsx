@@ -2,7 +2,7 @@ import { parse } from '@babel/parser'
 import { h, useEffect, useMemo, useRef, useState, useStore } from "pl-react"
 import { Link, PageProps, useRouter } from "pl-react/router";
 import { nextTick } from "pl-react/utils";
-import Dialog from '~/core/comp/Dialog';
+import Dialog from '~/core/comp/DialogStratification';
 import CodePreview from "../CodePreview";
 import Markdown from "../Markdown";
 import Console, { ConsoleExpose } from "../Console";

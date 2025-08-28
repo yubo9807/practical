@@ -1,0 +1,21 @@
+.br-dialog-layer{
+  .dialog-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 6px 10px;
+  }
+  .title{
+    font-size: 18px;
+  }
+  .close{
+    cursor: pointer;
+  }
+  .dialog-main{
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+  }
+  .dialog-footer{
+    margin-top: 14px;
+  }
+}

@@ -1,31 +1,65 @@
-import { h, useImperativeHandle, useRef } from "pl-react";
-import BasicDialog, { DialogExpose, DialogProps } from "./basic";
-import "./index.scss";
+import { h, useEffect, useImperativeHandle, useLayoutEffect, useRef, useState } from "pl-react"
+import { PropsType, StyleObject } from "pl-react/types";
+import { RefItem } from "pl-react/hooks";
+import './index.scss';
 
-interface LayerDialogProps extends DialogProps {
-  title?:      string
-  slotHeader?: any
-  slotFotter?: any
+export interface DialogExpose {
+  close: () => void
 }
-export default function(props: LayerDialogProps) {
-  const { slotHeader, title, children, slotFotter, className, ref, ...rest } = props;
+export interface DialogProps extends PropsType {
+  visible:       boolean
+  onClose?:      (open: false) => void
+  className?:    string | string[]
+  style?:        string | StyleObject
+  isModalClose?: boolean  // 点击蒙层关闭，默认为 true
+  onModal?:      (e: MouseEvent) => void
+  ref?:          RefItem<DialogExpose>
+}
 
-  const dialogRef = useRef<DialogExpose>();
-  function close() {
-    dialogRef.current.close();
-  }
-  useImperativeHandle(ref, () => dialogRef.current, []);
+export default function(props: DialogProps) {
 
-  return <BasicDialog ref={dialogRef} {...rest} className={['br-dialog-layer', ...[className].flat()]}>
-    {
-      slotHeader
-      ? <header className='dialog-header'>{slotHeader}</header>
-      : <header className='dialog-header'>
-        <h2 className='title'>{title}</h2>
-        <span className='close' onclick={close}>x</span>
-      </header>
+  const [model, setModel] = useState(props.visible);
+  useEffect(() => {
+    setModel(props.visible);
+  }, [props.visible])
+
+  const dialogRef = useRef<HTMLDialogElement>();
+  useLayoutEffect(() => {
+    if (model) {
+      dialogRef.current.showModal();
+    } else {
+      dialogRef.current.close();
     }
-    <main className='dialog-main'>{...children}</main>
-    <footer className='dialog-footer'>{slotFotter}</footer>
-  </BasicDialog>
+  }, [model])
+
+  function close() {
+    setModel(false);
+    props.onClose && props.onClose(false);
+  }
+  useImperativeHandle(props.ref, () => ({
+    open: () => setModel(true),
+    close,
+  }), []);
+
+  /**
+   * 点击蒙层关闭
+   * @param e 
+   */
+  function mouseDown(e: MouseEvent) {
+    if (e.target === dialogRef.current) {
+      props.onModal && props.onModal(e);
+      !(props.isModalClose === false) && close();
+    }
+  }
+
+  return <dialog ref={dialogRef}
+    className={['br-dialog', ...[props.className].flat()]}
+    style={props.style}
+    onmousedown={mouseDown}
+    onclose={close}
+  >
+    <div className='br-dialog-wrap'>
+      {...props.children}
+    </div>
+  </dialog>
 }

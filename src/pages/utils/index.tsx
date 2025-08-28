@@ -5,8 +5,8 @@ import { Link, PageProps, useRouter } from "pl-react/router"
 import style from './style.module.scss';
 import { defineStoreVariable } from '@/store/variable';
 import { defineStoreSuspension } from '@/store/suspension';
-import { CodeEditFoldProps } from "~/core/comp/CodeEdit";
-import Dialog from '~/core/comp/Dialog/basic';
+import { CodeEditFoldProps } from "~/core/comp/CodeEditFold";
+import Dialog from '~/core/comp/Dialog';
 import CodePreview from '@/components/CodePreview';
 import Container from '@/components/Container';
 import { scrollTo } from "~/core/utils/browser";

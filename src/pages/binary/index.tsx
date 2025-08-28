@@ -1,5 +1,5 @@
-import { h, useCallback, useRef, useState } from "pl-react"
-import Dialog from "~/core/comp/Dialog/basic";
+import { h, useRef, useState } from "pl-react"
+import Dialog from "~/core/comp/Dialog";
 import style from './index.module.scss'
 import { nextTick } from "pl-react/utils";
 import Container from "@/components/Container";

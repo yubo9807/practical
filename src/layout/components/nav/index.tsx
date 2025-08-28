@@ -1,6 +1,6 @@
 import { h, useEffect, useLayoutEffect, useState, useStore } from "pl-react";
 import { Link } from "pl-react/router";
-import { Option, Select } from "@/components/Select";
+import { Option, Select } from "~/core/comp/Select";
 import { defineStoreSuspension } from "@/store/suspension";
 import { defineStoreVariable } from "@/store/variable";
 import style from './index.module.scss'
