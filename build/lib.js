@@ -18,7 +18,7 @@ writeFileSync('lib/utils/gdp.json', createConfig({
   version: '1.0.0',
   description: '常用工具函数',
   homepage: 'http://app.hpyyb.cn/practical#/utils',
-  keywords: ['utils', 'common', 'functions'],
+  keywords: ['utils', 'common', 'function'],
 }));
 writeFileSync('lib/utils/readme.md', `
 # 常用工具函数
@@ -60,15 +60,6 @@ writeFileSync('lib/canvas/readme.md', `
 `);
 
 
-writeFileSync('lib/comp/gdp.json', createConfig({
-  name: 'comp',
-  version: '1.0.0',
-  description: '组件',
-  keywords: ['component', 'common', 'functions'],
-  self_modules: {
-    'utils': '1.0.0',
-  }
-}));
 readdirSync('core/comp').forEach(name => {
   readdirSync(`core/comp/${name}`).forEach(file => {
     if (!file.endsWith('.scss')) return;
@@ -77,22 +68,22 @@ readdirSync('core/comp').forEach(name => {
   })
   readdirSync(`lib/comp/${name}`).forEach(file => {
     if (!file.endsWith('.js')) return;
-    let content = readFileSync(`lib/comp/${name}/${file}`, 'utf-8');
-    const reg = /".+\.scss/g;
-    const matched = content.match(reg);
-    if (!matched) return;
-    matched.forEach(item => {
-      const styleFilename = item.slice(1, -5);
-      content = content.replace(item.slice(1), styleFilename + '.css');
-    })
-    writeFileSync(`lib/comp/${name}/${file}`, content);
+    const content = readFileSync(`lib/comp/${name}/${file}`, 'utf-8');
+    const newContent = content.replace(/\.scss/g, '.css');
+    writeFileSync(`lib/comp/${name}/${file}`, newContent);
   })
 });
 writeFileSync('lib/comp/gdp.json', createConfig({
-  name: 'comp',
+  name: 'comp_plreact',
   version: '1.0.0',
   description: '基于 pl-react 开发的组件库',
   keywords: ['component', 'function', 'jsx'],
+  self_modules: {
+    'utils': '1.0.0',
+  },
+  node_modules: {
+    'pl-react': '0.0.11',
+  }
 }));
 writeFileSync('lib/comp/readme.md', `
 # 基于 pl-react 开发的组件库
